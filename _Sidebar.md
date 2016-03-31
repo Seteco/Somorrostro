@@ -67,7 +67,7 @@
 ---
 
 **Advanced**
-* [[Running behind ngnix]]
+* [[Running behind nginx]]
 * [[Running behind apache]]
 * [[Running behind lighttpd]]
 

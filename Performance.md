@@ -35,5 +35,7 @@ Netdata runs with the lowest possible process priority, so even if 1000 users ar
 
 ## Monitoring a heavy loaded system
 
-Netdata does not depend on disk I/O (apart its log files and `access.log` is written with buffering enabled). Some plugins that need disk may stop and show gaps during heavy system load, but the netdata daemon itself should be able to work and collect values from `/proc` and `/sys` and serve web clients accessing it.
+Netdata, while running, does not depend on disk I/O (apart its log files and `access.log` is written with buffering enabled and can be disabled). Some plugins that need disk may stop and show gaps during heavy system load, but the netdata daemon itself should be able to work and collect values from `/proc` and `/sys` and serve web clients accessing it.
+
+Keep in mind that netdata saves its database when it exits and loads it back when restarted. While it is running though, its DB is only stored in RAM and no I/O takes place for it.
 

@@ -29,3 +29,28 @@ server {
 }
 ```
 
+### Enable authentication
+
+A firewall is needed to reject the incoming connections to the `netdata` port but allow the local connections. If you use `iptables` you can do the following:
+
+```
+iptables -A INPUT -p tcp --dport 19998 -s 127.0.0.0/8 -j ACCEPT
+iptables -A INPUT -p tcp --dport 19998 -j REJECT --reject-with icmp-port-unreachable
+```
+
+Then create an authentication file to enable the nginx basic authentication. If you haven't one you can do the following:
+
+```
+printf "yourusername:$(openssl passwd -crypt 'yourpassword')" > /etc/nginx/passwords
+```
+
+And enable the authentication inside your server directive:
+
+```
+server {
+    # ...
+    auth_basic "Protected";
+    auth_basic_user_file passwords;
+    # ...
+}
+```

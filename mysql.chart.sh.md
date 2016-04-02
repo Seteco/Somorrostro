@@ -27,7 +27,7 @@ mysql_opts[MY_B]="--defaults-file=/etc/mysql/serverB.cnf"
 
 Any number of servers can be configured.
 
-keep in mind netdata should be able to access your mysql to execute this:
+keep in mind that local user `netdata` should be able to access your mysql to execute this:
 
 ```sh
 $mysql $OPTIONS -s -e "show global status;"

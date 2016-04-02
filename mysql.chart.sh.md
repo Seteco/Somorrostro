@@ -27,6 +27,19 @@ mysql_opts[MY_B]="--defaults-file=/etc/mysql/serverB.cnf"
 
 Any number of servers can be configured.
 
+keep in mind netdata should be able to access your mysql to execute this:
+
+```sh
+$mysql $OPTIONS -s -e "show global status;"
+```
+
+where:
+
+ - `$mysql` is `mysql_cmds[X]`
+ - `$OPTIONS` is `mysql_opts[X]`
+
+
+
 Since this data collector is written in shell scripting, the connection to the mysql server is initiated and closed on each iteration.
 
 It is in our TODOs to re-write it in node.js which will provide a more efficient way of collecting mysql performance counters.

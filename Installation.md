@@ -25,6 +25,23 @@ yum install zlib-devel gcc make git autoconf autogen automake pkgconfig
 pacman -S --needed base-devel libmnl libnetfilter_acct zlib
 ```
 
+#### Synology
+
+Login into DSM
+
+- Package Center > Settings > Package Sources
+- Add http://packages.synocommunity.com/
+- Community > Install Debian Chroot
+
+ssh to diskstation as root
+
+```
+/var/packages/debian-chroot/scripts/start-stop-status chroot
+apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
+```
+continue install from this (Chroot) prompt
+
+#### Other
 or run the following (and ignore the next section):
 
 ```sh

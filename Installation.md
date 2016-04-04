@@ -1,3 +1,9 @@
+### Great! You are going to install netdata!
+
+We suggest to also **Star** and possibly **Watch** this repo to get notifications of our progress (top right of this page).
+
+--
+
 # Installation
 
 Before you start, make sure you have `zlib` development files installed.

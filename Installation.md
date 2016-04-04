@@ -121,7 +121,7 @@ You can get the running config file at any time, by accessing `http://127.0.0.1:
 
 ## node.js
 
-I believe the future of data collectors is node.js (those of you that may complain, don't think "system monitoring" - netdata already does this with `C`. Think API or remote service, monitoring).
+Although netdata is written in `C` and it supports plugins in all languages, I believe the future of data collectors is node.js (those of you that may complain, don't think "system monitoring" - netdata already does this with `C`. Think API or remote service, monitoring).
 
 Currently node.js is needed for SNMP polling and `named` monitoring.
 

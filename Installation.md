@@ -3,12 +3,6 @@
 
 ## Great! You are going to install netdata!
 
-Remember, **Star** and possibly **Watch** this repo to enter our community (top right of this page).
-
---
-
-### Before you begin
-
 Before you start, make sure you have `zlib` development files installed.
 
 You also need to have a basic build environment in place. You will need packages like
@@ -143,3 +137,4 @@ netdata `node.d.plugin` will search for the node.js executable in the system pat
 3. js (by running `command -v js`)
 
 Keep in mind that you need **node.js**. There are also other versions of server side javascript, like spidermonkey. Only **node.js** will work with netdata.
+

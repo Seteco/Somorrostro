@@ -1,3 +1,5 @@
+![image](https://cloud.githubusercontent.com/assets/2662304/14251961/eeef48e6-fa8d-11e5-98b8-68d06eed680b.png)
+
 # Welcome to netdata!
 
 A live demo of netdata is available at **[netdata.firehol.org](http://netdata.firehol.org)**.

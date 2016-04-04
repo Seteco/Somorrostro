@@ -1,1 +1,0 @@
-![image9](https://cloud.githubusercontent.com/assets/2662304/14253736/53777458-fa95-11e5-9995-7695157e3cf0.gif)

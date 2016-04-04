@@ -1,4 +1,4 @@
-![image3](https://cloud.githubusercontent.com/assets/2662304/14252940/29087594-fa92-11e5-898e-d683329e3c8c.gif)
+![image7](https://cloud.githubusercontent.com/assets/2662304/14253734/536bd4c2-fa95-11e5-8872-81eed5178e4b.gif)
 
 # Welcome to netdata!
 

@@ -1,7 +1,7 @@
 ![image10](https://cloud.githubusercontent.com/assets/2662304/14253729/534c6f9c-fa95-11e5-8243-93eb0df719aa.gif)
 
 
-### Great! You are going to install netdata!
+## Great! You are going to install netdata!
 
 --
 

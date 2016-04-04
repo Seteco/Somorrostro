@@ -68,14 +68,7 @@ Using the above, you access netdata on the backend servers, like this:
 
 ### Enable authentication
 
-A firewall is needed to reject the incoming connections to the `netdata` port but allow the local connections. If you use `iptables` you can do the following:
-
-```
-iptables -A INPUT -p tcp --dport 19999 -s 127.0.0.0/8 -j ACCEPT
-iptables -A INPUT -p tcp --dport 19999 -j REJECT --reject-with icmp-port-unreachable
-```
-
-Then create an authentication file to enable the nginx basic authentication. If you haven't one you can do the following:
+Create an authentication file to enable the nginx basic authentication. If you haven't one you can do the following:
 
 ```
 printf "yourusername:$(openssl passwd -crypt 'yourpassword')" > /etc/nginx/passwords
@@ -91,3 +84,7 @@ server {
     # ...
 }
 ```
+
+You would also need to instruct netdata to listen only to `127.0.0.1` or `::1`.
+
+To limit access to netdata only from localhost, set `bind socket to IP = 127.0.0.1` or `bind socket to IP = ::1` in `/etc/netdata/netdata.conf`.

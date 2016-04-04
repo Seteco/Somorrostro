@@ -3,6 +3,8 @@
 
 ## Great! You are going to install netdata!
 
+Remember, **Star** and possibly **Watch** this repo to enter our community (top right of this page).
+
 --
 
 ### Before you begin

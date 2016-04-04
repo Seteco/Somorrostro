@@ -21,8 +21,6 @@ You can use it to monitor all your systems and applications. It will run on Linu
 
 Out of the box, it comes with plugins that collect key system metrics and metrics of popular applications.
 
-![image4](https://cloud.githubusercontent.com/assets/2662304/14253730/5353128e-fa95-11e5-814e-cb33b975bb29.gif)
-
 ---
 
 ## Why another monitoring tool?
@@ -34,8 +32,6 @@ To achieve that, it focuses on real-time visualization of what is happening on y
 **netdata** tries to visualize the truth of **now**, in its **greatest detail**, so that you can get insights of what is happening **now** and what **just happened**, on your systems and applications.
 
 Its key value is: **non disruptive, real-time monitoring and visualization, in the greatest possible detail**.
-
-![image12](https://cloud.githubusercontent.com/assets/2662304/14253728/534a667a-fa95-11e5-8669-a15746276810.gif)
 
 ---
 
@@ -51,8 +47,6 @@ You run a daemon on your linux: `netdata`. This daemon is written in C and is ex
   - It provides a **[[REST API v1]]** for your browser to access the data.
 
 If you install it on all your systems, each **netdata** will be standalone. There is no *central* netdata. Your web browser is the only entity that can *connect* all the netdata installations together. netdata dashboards can have charts from multiple netdata installations and these charts will still behave, on your browser, as if they were coming from the same netdata server!
-
-![image8](https://cloud.githubusercontent.com/assets/2662304/14253735/536f4580-fa95-11e5-9f7b-99112b31a5d7.gif)
 
 ---
 

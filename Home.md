@@ -35,7 +35,7 @@ To achieve that, it focuses on real-time visualization of what is happening on y
 
 Its key value is: **non disruptive, real-time monitoring and visualization, in the greatest possible detail**.
 
-![image11](https://cloud.githubusercontent.com/assets/2662304/14253731/535309d8-fa95-11e5-8c28-56a432c1dbc4.gif)
+![image12](https://cloud.githubusercontent.com/assets/2662304/14253728/534a667a-fa95-11e5-8669-a15746276810.gif)
 
 ---
 

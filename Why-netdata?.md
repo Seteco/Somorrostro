@@ -1,3 +1,5 @@
+![image8](https://cloud.githubusercontent.com/assets/2662304/14253735/536f4580-fa95-11e5-9f7b-99112b31a5d7.gif)
+
 # Netdata is unique!
 
 ## Per second data collection and visualization

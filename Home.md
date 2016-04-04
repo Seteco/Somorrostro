@@ -27,11 +27,11 @@ Out of the box, it comes with plugins that collect key system metrics and metric
 
 The key goal of **netdata** is to help you achieve **operational excellence**.
 
-To achieve that, it focuses on real-time visualization of what is happening on your systems or applications **now** and in the **recent past**.
+To achieve that, it focuses on **real-time visualization** of what is happening on your systems or applications *now* and in the *recent past*.
 
-**netdata** tries to visualize the truth of **now**, in its **greatest detail**, so that you can get insights of what is happening **now** and what **just happened**, on your systems and applications.
+**netdata** tries to visualize the truth of **now**, in its **greatest detail**, with detail comparable to the console tools!
 
-Its key value is: **non disruptive, real-time monitoring and visualization, in the greatest possible detail**.
+So, netdata is: **non disruptive, real-time performance monitoring and visualization, in the greatest possible detail**.
 
 ---
 

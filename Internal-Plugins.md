@@ -5,6 +5,7 @@ Internally the following plugins have been implemented:
  - `/proc/net/dev` (all network interfaces for all their values)
  - `/proc/diskstats` (all disks for all their values)
  - `/proc/net/snmp` (total IPv4, TCP and UDP usage)
+ - `/proc/net/snmp6` (total IPv6 usage)
  - `/proc/net/netstat` (more IPv4 usage)
  - `/proc/net/stat/nf_conntrack` (connection tracking performance)
  - `/proc/net/ip_vs/stats` (IPVS connection statistics)

@@ -1,6 +1,6 @@
 ### Great! You are going to install netdata!
 
-We suggest to also **Star** and possibly **Watch** this repo to get notifications of our progress (top right of this page).
+Remember to **Star** and possibly **Watch** this repo to enter our community (top right of this page).
 
 --
 

@@ -4,7 +4,7 @@ Remember to **Star** and possibly **Watch** this repo to enter our community (to
 
 --
 
-# Installation
+### Before you begin
 
 Before you start, make sure you have `zlib` development files installed.
 
@@ -13,19 +13,19 @@ You also need to have a basic build environment in place. You will need packages
 
 This is how to install them on different distributions:
 
-#### Debian / Ubuntu
+##### Debian / Ubuntu
 
 ```sh
 apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
 ```
 
-#### Centos / Redhat
+##### Centos / Redhat
 
 ```sh
 yum install zlib-devel gcc make git autoconf autogen automake pkgconfig
 ```
 
-#### ArchLinux
+##### ArchLinux
 
 ```sh
 pacman -S --needed base-devel libmnl libnetfilter_acct zlib
@@ -39,7 +39,7 @@ tar xf netdata.tar.gz && cd netdata/
 makepkg -sri
 ```
 
-#### Synology
+##### Synology
 
 Login into DSM
 
@@ -57,7 +57,7 @@ continue install from this (Chroot) prompt
 
 ---
 
-## Install netdata
+# Install netdata
 
 Do this to install and run netdata:
 

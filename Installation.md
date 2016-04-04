@@ -25,6 +25,14 @@ yum install zlib-devel gcc make git autoconf autogen automake pkgconfig
 pacman -S --needed base-devel libmnl libnetfilter_acct zlib
 ```
 
+or run the following (and ignore the next section):
+
+```sh
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/netdata.tar.gz
+tar xf netdata.tar.gz && cd netdata/
+makepkg -sri
+```
+
 #### Synology
 
 Login into DSM
@@ -40,15 +48,6 @@ ssh to diskstation as root
 apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
 ```
 continue install from this (Chroot) prompt
-
-#### Other
-or run the following (and ignore the next section):
-
-```sh
-wget https://aur.archlinux.org/cgit/aur.git/snapshot/netdata.tar.gz
-tar xf netdata.tar.gz && cd netdata/
-makepkg -sri
-```
 
 ---
 

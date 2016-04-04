@@ -1,4 +1,4 @@
-![image1](https://cloud.githubusercontent.com/assets/2662304/14252446/11ae13c4-fa90-11e5-9d03-d93a3eb3317a.gif)
+![image2](https://cloud.githubusercontent.com/assets/2662304/14252801/87338b50-fa91-11e5-928e-0b45871fac38.gif)
 
 
 ### Great! You are going to install netdata!

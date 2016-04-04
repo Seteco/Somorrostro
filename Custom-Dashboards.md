@@ -11,7 +11,7 @@ netdata charts can also be added to existing web pages.
 
 Check this **[very simple working example of a custom dashboard](http://netdata.firehol.org/demo.html)**, and its **[html source](https://github.com/firehol/netdata/blob/master/web/demo.html)**.
 
-If you plan to put it on TV, check **[tv.html](https://github.com/firehol/netdata/blob/master/web/tv.html)**. This is a screenshot of it:
+If you plan to put it on TV, check **[tv.html](https://github.com/firehol/netdata/blob/master/web/tv.html)**. This is a screenshot of it, monitoring 2 servers on the same page:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14252187/d8d5f78e-fa8e-11e5-990d-99821d38c874.png)
 

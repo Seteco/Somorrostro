@@ -1,3 +1,5 @@
+![image](https://cloud.githubusercontent.com/assets/2662304/14251961/eeef48e6-fa8d-11e5-98b8-68d06eed680b.png)
+
 ### Great! You are going to install netdata!
 
 Remember to **Star** and possibly **Watch** this repo to enter our community (top right of this page).

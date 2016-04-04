@@ -2,6 +2,8 @@
 
 A live demo of netdata is available at **[netdata.firehol.org](http://netdata.firehol.org)**.
 
+Want to set it up on your systems now? Jump to **[[Installation]]**.
+
 ---
 
 **Netdata** is a daemon that collects data in realtime (per second) and presents a web site to view and analyze them.

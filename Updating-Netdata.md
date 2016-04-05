@@ -2,9 +2,12 @@
 
 The update procedure depends on how you installed it.
 
-# Installed from source
+## Installed from source
 
 If you installed from source, you can just install it again, over the old installation.
 
 Just follow the [[Installation]] instructions!
 
+## Installed from the distribution packaging
+
+Please obtain the new version from the Linux distribution maintainers.

@@ -12,13 +12,13 @@ If you installed netdata by downloading from github and running our `netdata-ins
 
 Just follow the **[[Installation]]** instructions again and your are done!
 
-Keep in mind though, netdata many have new features now or certain old features may now behave differently. So pay some attention after updating it.
+Keep in mind though, netdata may now have new features, or certain old features may now behave differently. So pay some attention to it after updating.
 
 ## You downloaded a binary package
 
 If you installed it from a binary package, the best way is to **obtain a newer copy** from the source you got it in the first place.
 
-If a newer version of netdata is not available from the source you got it, we suggest to uninstall the version you have and follow the **[[Installation]]** page for installing a fresh version of netdata.
+If a newer version of netdata is not available from the source you got it, we suggest to uninstall the version you have and follow the **[[Installation]]** instructions for installing a fresh version of netdata.
 
 ---
 

@@ -6,7 +6,7 @@ We suggest to keep your netdata updated. We are actively developing it and you s
 
 The update procedure depends on how you installed it:
 
-## How downloaded it from github using git
+## You downloaded it from github using git
 
 If you installed netdata by downloading from github and running our `netdata-installer.sh`, you can just install it again, over the old installation. Your configuration will not be touched.
 

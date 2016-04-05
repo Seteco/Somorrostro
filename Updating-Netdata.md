@@ -2,9 +2,9 @@
 
 # So, your netdata is outdated?
 
-We suggest to keep your netdata updated. We are actively developing and you should always update to the latest version.
+We suggest to keep your netdata updated. We are actively developing it and you should always update to the latest version.
 
-The update procedure depends on how you installed it.
+The update procedure depends on how you installed it:
 
 ## How downloaded it from github using git
 

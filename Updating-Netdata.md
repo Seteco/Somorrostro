@@ -19,3 +19,7 @@ Keep in mind though, netdata many have new features now or certain old features 
 If you installed it from a binary package, the best way is to **obtain a newer copy** from the source you got it in the first place.
 
 If a newer version of netdata is not available from the source you got it, we suggest to uninstall the version you have and follow the **[[Installation]]** page for installing a fresh version of netdata.
+
+---
+
+(This page is used to by the netdata dashboard to help the users update)

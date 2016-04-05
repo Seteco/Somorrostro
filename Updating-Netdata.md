@@ -1,4 +1,4 @@
-# Your netdata is outdated!
+# So, your netdata is outdated?
 
 The update procedure depends on how you installed it.
 

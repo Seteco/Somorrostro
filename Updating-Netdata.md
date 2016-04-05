@@ -10,9 +10,9 @@ The update procedure depends on how you installed it.
 
 If you installed netdata by downloading from github and running our `netdata-installer.sh`, you can just install it again, over the old installation. Your configuration will not be touched.
 
-Keep in mind though, netdata many have new features now or certain old features may now behave differently. So pay some attention after updating it.
-
 Just follow the **[[Installation]]** instructions again and your are done!
+
+Keep in mind though, netdata many have new features now or certain old features may now behave differently. So pay some attention after updating it.
 
 ## You downloaded a binary package
 

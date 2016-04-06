@@ -75,6 +75,8 @@ command options|*empty*|Additional command line options to pass to the plugin.
 
 External plugins that need additional configuration may support a dedicated file in `/etc/netdata`. Check their documentation.
 
+---
+
 ## A note about netdata.conf
 
 This config file is not needed by default. You can just touch it (to be empty) to get rid of the error message displayed when missing.

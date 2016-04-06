@@ -25,7 +25,7 @@ To test `node.d.plugin` collectors, which are placed in `/usr/libexec/netdata/no
 You can run `node.d.plugin` by hand, with something like this:
 
 ```sh
-/usr/libexec/netdata/plugins/node.d.plugin debug 1 X Y Z
+/usr/libexec/netdata/plugins.d/node.d.plugin debug 1 X Y Z
 ```
 
 `node.d.plugin` will run in `debug` mode (lots of debug info), with an update frequency of `1` second, evaluating only the collector scripts `X` (i.e. `/usr/libexec/netdata/node.d/X.node.js`), `Y` and `Z`. You can define zero or more collector scripts. If none is defined, `node.d.plugin` will evaluate all collector script available.

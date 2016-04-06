@@ -74,3 +74,28 @@ update every|the value of `[global].update every` setting|The frequency in secon
 command options|*empty*|Additional command line options to pass to the plugin. 
 
 External plugins that need additional configuration may support a dedicated file in `/etc/netdata`. Check their documentation.
+
+### A note about netdata.conf
+
+This config file is not needed by default. You can just touch it (to be empty) to get rid of the error message displayed when missing.
+
+The whole idea comes from the documentation involved in maintaining a complex configuration system. Initially I thought that I would like to give configuration options for everything imaginable. But then, documenting all these options would require a tremendous amount of time, users would have to search through endless pages for the option they need, etc.
+
+I concluded then that **configuring software like that is a waste for time and effort**. Of course there must be plenty of configuration options, but the implementation itself should require a lot less effort for both the devs and the users.
+
+So, I did this:
+
+1. No configuration is required to run netdata
+2. There are plenty of options to tweak
+3. There is minimal documentation (or no at all)
+
+Why this works?
+
+The configuration file is a `name = value` dictionary with `[sections]`. Write whatever you like there. It does not matter.
+
+Netdata loads this dictionary and then when the code needs a value from it, it just looks up the `name` in the dictionary at the proper section. In all places in the code, there are both the `names` and their `default values`, so if something is not found, the default is used. The lookup is made using B-Trees and hashes (no string comparisons), so they are super fast. Also the `names` can be `my super duper setting that once set to yes, will turn the world upside down = no` - so goodbye to most of the documentation involved.
+
+Next, netdata can generate a valid configuration for the user to edit. No need to remember anything. Just get the configuration from the server (`/netdata.conf` on you netdata server), edit it and save it.
+
+Last, what about options you believe you have set, but you misspelled? When you get the configuration file from the server, there will be a comment above all `name = value` pairs the server does not use. So you know that whatever you wrote there, is not used.
+

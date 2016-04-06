@@ -44,7 +44,7 @@ You can build netdata with it to test it though. Just run `./configure` with the
 
 Idle jitter is calculated by netdata. It works like this:
 
-A thread is spawned that requests to sleep for a few microseconds. When the system wakes it up, it measures how many microseconds have passed. The different between the requested and the actual duration of the sleep, is the idle jitter.
+A thread is spawned that requests to sleep for a few microseconds. When the system wakes it up, it measures how many microseconds have passed. The difference between the requested and the actual duration of the sleep, is the idle jitter.
 
 This number is useful in real-time environments, where CPU jitter can affect the quality of the service (like VoIP media gateways).
 

@@ -95,9 +95,9 @@ So, I did this:
 
 The configuration file is a `name = value` dictionary with `[sections]`. Write whatever you like there. It does not matter.
 
-Netdata loads this dictionary and then when the code needs a value from it, it just looks up the `name` in the dictionary at the proper section. In all places in the code, there are both the `names` and their `default values`, so if something is not found, the default is used. The lookup is made using B-Trees and hashes (no string comparisons), so they are super fast. Also the `names` can be `my super duper setting that once set to yes, will turn the world upside down = no` - so goodbye to most of the documentation involved.
+Netdata loads this dictionary and then when the code needs a value from it, it just looks up the `name` in the dictionary at the proper `section`. In all places, in the code, there are both the `names` and their `default values`, so if something is not found in the configuration file, the default is used. The lookup is made using B-Trees and hashes (no string comparisons), so they are super fast. Also the `names` of the settings can be `my super duper setting that once set to yes, will turn the world upside down = no` - so goodbye to most of the documentation involved.
 
-Next, netdata can generate a valid configuration for the user to edit. No need to remember anything. Just get the configuration from the server (`/netdata.conf` on you netdata server), edit it and save it.
+Next, netdata can generate a valid configuration for the user to edit. No need to remember anything. Just get the configuration from the server (`/netdata.conf` on your netdata server), edit it and save it.
 
 Last, what about options you believe you have set, but you misspelled? When you get the configuration file from the server, there will be a comment above all `name = value` pairs the server does not use. So you know that whatever you wrote there, is not used.
 

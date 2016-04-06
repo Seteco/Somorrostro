@@ -81,7 +81,7 @@ External plugins that need additional configuration may support a dedicated file
 
 This config file is not needed by default. You can just touch it (to be empty) to get rid of the error message displayed when missing.
 
-The whole idea comes from the documentation involved in maintaining a complex configuration system. Initially I thought that I would like to give configuration options for everything imaginable. But then, documenting all these options would require a tremendous amount of time, users would have to search through endless pages for the option they need, etc.
+The whole idea came up when I was evaluating the documentation involved in maintaining a complex configuration system. Initially I thought that I would like to give configuration options for everything imaginable. But then, documenting all these options would require a tremendous amount of time, users would have to search through endless pages for the option they need, etc.
 
 I concluded then that **configuring software like that is a waste for time and effort**. Of course there must be plenty of configuration options, but the implementation itself should require a lot less effort for both the devs and the users.
 

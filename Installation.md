@@ -122,6 +122,20 @@ You can get the running config file at any time, by accessing `http://127.0.0.1:
 
 ---
 
+## Uninstalling netdata
+
+The script `netdata-installer.sh` generates another script called `netdata-uninstaller.sh`.
+To uninstall netdata, run:
+
+```
+cd /path/to/netdata.git
+./netdata-uninstaller.sh --force
+```
+
+The uninstaller is ask you to confirm all deletions.
+
+---
+
 ## node.js
 
 Although netdata is written in `C` and it supports plugins in all languages, I believe the future of data collectors is node.js (those of you that may complain, don't think "system monitoring" - netdata already does this with `C`. Think API or remote service, monitoring).
@@ -137,4 +151,3 @@ netdata `node.d.plugin` will search for the node.js executable in the system pat
 3. js (by running `command -v js`)
 
 Keep in mind that you need **node.js**. There are also other versions of server side javascript, like spidermonkey. Only **node.js** will work with netdata.
-

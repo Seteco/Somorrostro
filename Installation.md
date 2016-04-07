@@ -125,6 +125,7 @@ You can get the running config file at any time, by accessing `http://127.0.0.1:
 ## Uninstalling netdata
 
 The script `netdata-installer.sh` generates another script called `netdata-uninstaller.sh`.
+
 To uninstall netdata, run:
 
 ```
@@ -132,7 +133,7 @@ cd /path/to/netdata.git
 ./netdata-uninstaller.sh --force
 ```
 
-The uninstaller is ask you to confirm all deletions.
+The uninstaller will ask you to confirm all deletions.
 
 ---
 

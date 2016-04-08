@@ -77,3 +77,8 @@
 **More**
 * [[Article: Introducing netdata]]
 * [[Other monitoring tools]]
+
+---
+
+**News**
+* Apr 9th, 2016: [[Monitoring SYPROXY]]

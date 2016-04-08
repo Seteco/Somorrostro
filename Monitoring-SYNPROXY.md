@@ -17,7 +17,7 @@ To use SYNPROXY on your firewall, please follow our setup guides:
  - **[Working with SYNPROXY](https://github.com/firehol/firehol/wiki/Working-with-SYNPROXY)**
  - **[Working with SYNPROXY and traps](https://github.com/firehol/firehol/wiki/Working-with-SYNPROXY-and-traps)**
 
-# Real-time performance monitoring of Linux Anti-DDoS Protection
+# Real-time monitoring of Linux Anti-DDoS Protection
 
 As of today (Apr 9th, 2016) netdata is able to monitor in real-time (per second updates) the operation of the Linux Anti-DDoS protection.
 

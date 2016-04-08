@@ -81,7 +81,6 @@
 ---
 
 **News**
-* Apr 9th, 2016
-
+* April, 2016
   **[[Monitoring SYNPROXY]]**
   (Linux Anti-DDoS)

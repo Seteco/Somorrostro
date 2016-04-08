@@ -81,4 +81,5 @@
 ---
 
 **News**
-* Apr 9th, 2016: [[Monitoring SYPROXY]]
+* Apr 9th, 2016
+  [[Monitoring SYNPROXY]]

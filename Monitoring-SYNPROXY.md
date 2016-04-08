@@ -16,7 +16,7 @@ It visualizes 4 charts:
 
 1. TCP SYN Packets received on ports operated by SYNPROXY
 2. TCP Cookies (valid, invalid, retransmits)
-3. Connection Reopened
+3. Connections Reopened
 4. Entries used
 
 You can see it live at our demo site: **[http://netdata.firehol.org](http://netdata.firehol.org/#netfilter_synproxy)**.

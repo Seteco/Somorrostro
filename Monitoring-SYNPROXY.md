@@ -1,3 +1,9 @@
+![image6](https://cloud.githubusercontent.com/assets/2662304/14253733/53550b16-fa95-11e5-8d9d-4ed171df4735.gif)
+
+See it **live** at our demo site: **[http://netdata.firehol.org](http://netdata.firehol.org/#netfilter_synproxy)**.
+
+---
+
 ## Linux Anti-DDoS
 
 SYNPROXY is a TCP SYN packets proxy. It can be used to protect any TCP server (like a web server) from SYN floods and similar DDos attacks.
@@ -18,8 +24,6 @@ It visualizes 4 charts:
 2. TCP Cookies (valid, invalid, retransmits)
 3. Connections Reopened
 4. Entries used
-
-You can see it live at our demo site: **[http://netdata.firehol.org](http://netdata.firehol.org/#netfilter_synproxy)**.
 
 Example image:
 

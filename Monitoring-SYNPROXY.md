@@ -10,7 +10,7 @@ To use SYNPROXY on your firewall, please follow our **[Working with SYNPROXY](ht
 
 # Real-time performance monitoring of Linux Anti-DDoS Protection
 
-As of today (Apr 4th, 2016) netdata is able to monitor in real-time (per second updates) the operation of the Linux Anti-DDoS protection.
+As of today (Apr 9th, 2016) netdata is able to monitor in real-time (per second updates) the operation of the Linux Anti-DDoS protection.
 
 It visualizes 4 charts:
 

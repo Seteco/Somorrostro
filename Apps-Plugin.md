@@ -1,10 +1,42 @@
-# Per Application Statistics Plugin
+# Apps.plugin
 
-Per application statistics are collected using netdata's `apps.plugin`.
+This plugin provides charts for 3 sections of the default dashboard:
+
+1. Per application charts
+2. Per user charts
+3. Per user group charts
+
+## Per application charts
 
 This plugin walks through the entire `/proc` filesystem and aggregates statistics for applications of interest, defined in `/etc/netdata/apps_groups.conf` (the default is [here](https://github.com/firehol/netdata/blob/master/conf.d/apps_groups.conf)).
 
 The plugin internally builds a process tree (much like `ps fax` does), and groups processes together (evaluating both child and parent processes) so that the result is always a chart with a predefined set of dimensions (of course, only application groups found running are reported).
+
+Using this information it provides the following charts (per application group defined in `/etc/netdata/apps_groups.conf`):
+
+1. Total CPU usage
+2. Total User CPU usage
+3. Total System CPU usage
+4. Total Disk Physical Reads
+5. Total Disk Physical Writes
+6. Total Disk Logical Reads
+7. Total Disk Logical Writes
+8. Total Open Files (unique files - if a file is found open multiple times, it is counted just once)
+9. Total Dedicated Memory (non shared)
+10. Total Minor Page Faults
+11. Total Number of Processes
+12. Total Number of Threads
+13. Total Number of Pipes
+14. Total Swap Activity (Major Page Faults)
+15. Total Open Sockets
+
+## Per User Charts
+
+All the above charts, are also grouped by username, using the effective uid of each process.
+
+## Per Group Charts
+
+All the above charts, are also grouped by group name, using the effective gid of each process.
 
 ## Limitations
 The values gathered here are not 100% accurate. They only include values for the processes **running**.

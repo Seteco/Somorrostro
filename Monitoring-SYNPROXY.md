@@ -1,6 +1,8 @@
 ![image6](https://cloud.githubusercontent.com/assets/2662304/14253733/53550b16-fa95-11e5-8d9d-4ed171df4735.gif)
 
-See Linux Anti-DDoS **in action**, at our demo site: **[http://netdata.firehol.org#netfilter_synproxy](http://netdata.firehol.org/#netfilter_synproxy)**.
+See Linux Anti-DDoS **in action**, at our demo site:
+
+**[http://netdata.firehol.org#netfilter_synproxy](http://netdata.firehol.org/#netfilter_synproxy)**.
 
 ---
 

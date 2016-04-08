@@ -30,4 +30,4 @@ It visualizes 4 charts:
 
 Example image:
 
-![image](https://cloud.githubusercontent.com/assets/2662304/14398525/8029d936-fded-11e5-9478-d8c42def7865.png)
+![ddos](https://cloud.githubusercontent.com/assets/2662304/14398891/6016e3fc-fdf0-11e5-942b-55de6a52cb66.gif)

@@ -43,6 +43,21 @@ The values gathered here are not 100% accurate. They only include values for the
 
 If an application is spawning children continuously, which are terminated in just a few milliseconds (like shell scripts do), the values reported will be inaccurate. Linux does report the values for the exited childs of a process. However, these values are reported to the parent process only when the child exits. If these values, of the exited child processes, were also aggregated in the charts below, the charts would have been full of spikes, presenting unrealistic utilization for each process group. So, we decided to ignore these values and present only the utilization of the currently running processes.
 
+## CPU Usage
+
+`apps.plugin` is a complex software piece and has a lot of work to do (actually this plugin requires more CPU resources that the netdata daemon). For each process running, `apps.plugin` reads several `/proc` files to get CPU usage, memory allocated, I/O usage, open file descriptors, etc. Doing this work per-second, especially on hosts with several thousands of processes, may increase the CPU resources consumed by the plugin.
+
+In such cases, you many need to lower its data collection frequency. To do this, edit `/etc/netdata/netdata.conf` and find this section:
+
+```
+[plugin:apps]
+	# update every = 1
+	# command options = 
+```
+
+Uncomment the line `update every` and set it to a higher number. If you just set it to ` 2 `, its CPU resources will be cut in half, and data collection will be once every 2 seconds.
+
+
 ## Configuration
 
 The configuration file is `/etc/netdata/apps_groups.conf` (the default is [here](https://github.com/firehol/netdata/blob/master/conf.d/apps_groups.conf)).

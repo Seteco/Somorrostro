@@ -76,6 +76,6 @@ Now our nginx configuration includes these:
     include netdata-attacks.conf;
 ```
 
-`firehol_webserver` is [this IP Blacklist](http://iplists.firehol.org/?ipset=firehol_webserver).
+`firehol_webserver` is [this IP Blacklist](http://iplists.firehol.org/?ipset=firehol_webserver) and `netdata-attacks` are the IPs given in the evidence above.
 
 So, you are just blacklisted.

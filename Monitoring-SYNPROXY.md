@@ -42,7 +42,7 @@ Well, guys **this site is not a test bed for DDoS**. Don't do this. We pay for t
 
 Also, please try to understand what you are doing. SYNPROXY is about **spoofed packets**. Making a large set of POSTs or instructing exploited wordpress installations to attack the demo site, **is not a DDoS that SYNPROXY can detect**.
 
-Next, http://netdata.firehol.org is behind cloudflare.com, so even if you manage to make a spoofed IPs attack, **you are actually attacking cloudflare.com**. Do not expect to see the traffic they detected as spoofed on the netdata demo site (you are reaching the demo site, through cloudflare proxies). You can see a real attack on the demo site, only if you know its real IP.
+Next, http://netdata.firehol.org is behind cloudflare.com, so even if you manage to make a spoofed IPs attack, **you are actually attacking cloudflare.com**. Do not expect to see the traffic they detected as spoofed on the netdata demo site (you are reaching the demo site, through cloudflare proxies). You can see a real attack on the demo site, only if you know its real IP (but which, you guessed it - it only accepts requests from cloudflare.com). The demo site is just a demo for netdata, not a demo for DDoS.
 
 And finally, thank you for exposing the IPs and hostnames of the exploited wordpress installations and the IPs of the hosts you manage to instruct them make so many POST requests to us.
 

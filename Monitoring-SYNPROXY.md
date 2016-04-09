@@ -32,7 +32,9 @@ Example image:
 
 ![ddos](https://cloud.githubusercontent.com/assets/2662304/14398891/6016e3fc-fdf0-11e5-942b-55de6a52cb66.gif)
 
-## Note for DDoS testers
+---
+
+## A note for DDoS testers
 
 Since I posted this, several folks tried to run DDoS against http://netdata.firehol.org.
 

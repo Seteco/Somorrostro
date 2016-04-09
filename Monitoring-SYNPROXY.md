@@ -48,7 +48,6 @@ Evidence of the attack:
 
  - [ngnix log with the exploited wordpress installations used today](https://iplists.firehol.org/netdata-attacks/wordpress_log-20160409-1816.txt)
  - [IPs of the exploited wordpress installations used today](https://iplists.firehol.org/netdata-attacks/wordpress_ips-20160409-1816.txt)
-
  - [ngnix log with the POST requests](https://iplists.firehol.org/netdata-attacks/post_log-20160409-1456.txt)
  - [IPs of the hosts that made the POST requests](https://iplists.firehol.org/netdata-attacks/post_ips-20160409-1456.txt)
 

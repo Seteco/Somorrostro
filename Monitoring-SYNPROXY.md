@@ -51,10 +51,12 @@ Evidence of the attack:
  - [ngnix log with the POST requests](https://iplists.firehol.org/netdata-attacks/post_log-20160409-1456.txt)
  - [IPs of the hosts that made the POST requests](https://iplists.firehol.org/netdata-attacks/post_ips-20160409-1456.txt)
 
-You actually stressed netdata a bit. Here it is:
+You actually stressed netdata a bit.
+
+This is what happened with the POSTs:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14405861/ea5b9a48-fea0-11e5-8e24-9eb0506943d5.png)
 
-And here a few hours later:
+And this is what happened with the wordpress attack:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14405871/4d4c00de-fea1-11e5-9575-1fa70e8b1d25.png)

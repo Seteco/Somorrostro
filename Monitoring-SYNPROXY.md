@@ -36,9 +36,9 @@ Example image:
 
 Since I posted this, several folks tried to run DDoS against http://netdata.firehol.org.
 
-Well, guys **this site is not a test bed for DDoS**. Please don't do this.
+Well, guys **this site is not a test bed for DDoS**. Don't do this.
 
-Please try to understand what you are doing. SYNPROXY is about **spoofed packets**. Instructing exploited wordpress installations to attack the demo site, **is not a DDoS that SYNPROXY can detect**.
+Also, please try to understand what you are doing. SYNPROXY is about **spoofed packets**. Instructing exploited wordpress installations to attack the demo site, **is not a DDoS that SYNPROXY can detect**.
 
 Next, http://netdata.firehol.org is behind cloudflare.com, so **you are actually attacking them**. You are not going to see the traffic they detected as spoofed on the demo site (you are reaching the demo site, through their proxies).
 

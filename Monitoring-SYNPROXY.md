@@ -36,18 +36,21 @@ Example image:
 
 Since I posted this, several folks tried to run DDoS against http://netdata.firehol.org.
 
-Well, guys **this site is not a test bed for DDoS**. Don't do this.
+Well, guys **this site is not a test bed for DDoS**. Don't do this. We pay for the bandwidth and you are just wasting it!
 
-Also, please try to understand what you are doing. SYNPROXY is about **spoofed packets**. Instructing exploited wordpress installations to attack the demo site, **is not a DDoS that SYNPROXY can detect**.
+Also, please try to understand what you are doing. SYNPROXY is about **spoofed packets**. Making a large set of POSTs or instructing exploited wordpress installations to attack the demo site, **is not a DDoS that SYNPROXY can detect**.
 
 Next, http://netdata.firehol.org is behind cloudflare.com, so **you are actually attacking them**. You are not going to see the traffic they detected as spoofed on the demo site (you are reaching the demo site, through their proxies).
 
-And finally, thank you for exposing the IPs and hostnames of the exploited wordpress installations to us.
+And finally, thank you for exposing the IPs and hostnames of the exploited wordpress installations and the IPs of the hosts you manage to instruct them make so many POST requests to us.
 
 Evidence of the attack:
 
- - [ngnix log with the exploited wordpress installations used today](https://iplists.firehol.org/exploited-wordpress/log.txt)
- - [IPs of the exploited wordpress installations used today](https://iplists.firehol.org/exploited-wordpress/ips.txt)
+ - [ngnix log with the exploited wordpress installations used today](https://iplists.firehol.org/netdata-attacks/wordpress_log-20160409-1816.txt)
+ - [IPs of the exploited wordpress installations used today](https://iplists.firehol.org/netdata-attacks/wordpress_ips-20160409-1816.txt)
+
+ - [ngnix log with the POST requests](https://iplists.firehol.org/netdata-attacks/post_log-20160409-1456.txt)
+ - [IPs of the hosts that made the POST requests](https://iplists.firehol.org/netdata-attacks/post_ips-20160409-1456.txt)
 
 You actually stressed netdata a bit. Here it is:
 
@@ -56,4 +59,3 @@ You actually stressed netdata a bit. Here it is:
 And here a few hours later:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14405871/4d4c00de-fea1-11e5-9575-1fa70e8b1d25.png)
-

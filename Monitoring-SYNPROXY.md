@@ -36,19 +36,24 @@ Example image:
 
 Since I posted this, several folks tried to run DDoS against http://netdata.firehol.org.
 
-Well, guys this site is not a test bed for DDoS. Please don't do this.
+Well, guys **this site is not a test bed for DDoS**. Please don't do this.
 
-Next, if you are going to do it, do it right. SYNPROXY is about spoofed packets. Instructing exploited wordpress installations to attack the demo site, is not a DDoS SYNPROXY can detect.
+If you are going to do it, please do it right. SYNPROXY is about spoofed packets. Instructing exploited wordpress installations to attack the demo site, **is not a DDoS SYNPROXY can detect**.
 
-Last, http://netdata.firehol.org is behind cloudflare.com, so you are actually attacking them. You are not going to see the traffic they detected as spoofed on the demo site (you are reaching us, through their proxies).
+Next, http://netdata.firehol.org is behind cloudflare.com, so **you are actually attacking them**. You are not going to see the traffic they detected as spoofed on the demo site (you are reaching the demo site, through their proxies).
 
-And finally, thank you for exposing the IPs of the exploited wordpress installations to us.
+And finally, thank you for exposing the IPs and hostnames of the exploited wordpress installations to us.
 
-Evidence of the attack No 1:
+Evidence of the attack:
+
+ - [ngnix log with the exploited wordpress installations used today](https://iplists.firehol.org/exploited-wordpress/log.txt)
+ - [IPs of the exploited wordpress installations used today](https://iplists.firehol.org/exploited-wordpress/ips.txt)
+
+You actually stressed netdata a bit. Here it is:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14405861/ea5b9a48-fea0-11e5-8e24-9eb0506943d5.png)
 
-Evidence of the attack No 2:
+And here a few hours later:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14405871/4d4c00de-fea1-11e5-9575-1fa70e8b1d25.png)
 

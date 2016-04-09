@@ -60,3 +60,19 @@ This is what happened with the POSTs:
 And this is what happened with the wordpress attack:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14405871/4d4c00de-fea1-11e5-9575-1fa70e8b1d25.png)
+
+Now our nginx configuration includes these:
+
+```
+    if ($http_user_agent ~* "WordPress") {
+        return 403;
+    }
+
+    if ($request_method !~ ^(GET|HEAD|OPTIONS)$ ) {
+        return 403;
+    }
+
+    include netdata-attacks.conf;
+```
+
+So, you are just blacklisted.

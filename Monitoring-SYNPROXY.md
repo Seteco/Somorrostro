@@ -72,7 +72,10 @@ Now our nginx configuration includes these:
         return 403;
     }
 
+    include firehol_webserver.conf;
     include netdata-attacks.conf;
 ```
+
+`firehol_webserver` is [this IP Blacklist](http://iplists.firehol.org/?ipset=firehol_webserver).
 
 So, you are just blacklisted.

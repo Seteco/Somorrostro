@@ -32,3 +32,23 @@ Example image:
 
 ![ddos](https://cloud.githubusercontent.com/assets/2662304/14398891/6016e3fc-fdf0-11e5-942b-55de6a52cb66.gif)
 
+## Note for DDoS testers
+
+Since I posted this, several folks tried to run DDoS against http://netdata.firehol.org.
+
+Well, guys this site is not a test bed for DDoS. Please don't do this.
+
+Next, if you are going to do it, do it right. SYNPROXY is about spoofed packets. Instructing exploited wordpress installations to attack the demo site, is not a DDoS SYNPROXY can detect.
+
+Last, http://netdata.firehol.org is behind cloudflare.com, so you are actually attacking them. You are not going to see the traffic they detected as spoofed on the demo site (you are reaching us, through their proxies).
+
+And finally, thank you for exposing the IPs of the exploited wordpress installations to us.
+
+Evidence of the attack No 1:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/14405861/ea5b9a48-fea0-11e5-8e24-9eb0506943d5.png)
+
+Evidence of the attack No 2:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/14405871/4d4c00de-fea1-11e5-9575-1fa70e8b1d25.png)
+

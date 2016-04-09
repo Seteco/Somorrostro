@@ -46,14 +46,14 @@ Embedded devices usually have very limited resources available (CPU and RAM).
 
 We suggest to do the following:
 
-1. external plugins
+#### external plugins
 
- `charts.d.plugin` and `apps.plugin`, each consumes twice the CPU resources if the netdata daemon.
+ `charts.d.plugin` and `apps.plugin`, each consumes twice the CPU resources of the netdata daemon.
 
  If you don't need them, disable them (edit `/etc/netdata/netdata.conf` and search for the plugins section).
 
  If you need them, increase their `update every` value (again in `/etc/netdata/netdata.conf`), so that they do not run that frequently.
 
-2. internal plugins
+#### internal plugins
 
 If netdata is still using a lot of CPU, lower its update frequency. Going from per second updates, to once every 2 seconds updates, will cut the CPU resources of all netdata programs **in half**, and will still have very frequent updates.

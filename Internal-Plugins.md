@@ -8,6 +8,7 @@ Internally the following plugins have been implemented:
  - `/proc/net/snmp6` (total IPv6 usage)
  - `/proc/net/netstat` (more IPv4 usage)
  - `/proc/net/stat/nf_conntrack` (connection tracking performance)
+ - `/proc/net/stat/synproxy` (synproxy performance)
  - `/proc/net/ip_vs/stats` (IPVS connection statistics)
  - `/proc/stat` (CPU utilization)
  - `/proc/meminfo` (memory information)

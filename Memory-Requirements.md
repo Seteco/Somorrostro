@@ -24,3 +24,18 @@ I investigate several alternatives to lower this number. The best so far is to s
 
 This is future though. For the moment, if you need a long history, you will need a lot of RAM.
 
+
+## Running netdata in embedded devices
+
+Embedded devices usually have very limited RAM resources available.
+
+There are 2 settings for you to tweak:
+
+1. `update every`, which controls the data collection frequency
+2. `history`, which controls the size of the database in RAM
+
+By default `update every = 1` and `history = 3600`. This gives you an hour of data with per second updates.
+
+If you set `update every = 2` and `history = 1800`, you will still have an hour of data, but collected once every 2 seconds. This will **cut in half** both CPU and RAM resources consumed by netdata.
+
+You can also disable plugins you don't need. Disabling the plugins will also free both CPU and RAM resources.

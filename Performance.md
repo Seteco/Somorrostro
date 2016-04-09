@@ -42,7 +42,7 @@ Keep in mind that netdata saves its database when it exits and loads it back whe
 
 ## Running netdata in embedded devices
 
-Embedded devices usually have very limited resources available (CPU and RAM).
+Embedded devices usually have very limited CPU resources available, and in most cases, just a single core.
 
 We suggest to do the following:
 

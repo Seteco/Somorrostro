@@ -115,11 +115,9 @@ We all have a wonderful tool on our desktops, that connects us to the entire wor
 
 These are what we currently work on (in that order):
 
-1. Fix all bugs reported.
+1. Finish packaging for the various distros.
 
-2. Finish packaging for the various distros.
-
-3. More plugins - a lot more plugins!
+2. More plugins - a lot more plugins!
 
  - monitor cgroups (containers) performance and utilization from the host
  - monitor more of the system
@@ -128,8 +126,8 @@ These are what we currently work on (in that order):
  - rewrite the netfilter plugin to use libnlm.
  - allow internal plugins to be forked to external processes (this will protect the netdata daemon from plugin crashes, allow different security schemas for each plugin, etc).
 
-4. Improve the memory database (possibly using an internal deduper, compression, disk archiving, mirroring it to third party databases, etc).
+3. Improve the memory database (possibly using an internal deduper, compression, disk archiving, mirroring it to third party databases, etc).
 
-5. Invent a flexible UI to connect multiple netdata server together
+4. Invent a flexible UI to connect multiple netdata server together
 
-6. Document everything (this is a work in progress already).
+5. Document everything (this is a work in progress already).

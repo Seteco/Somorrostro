@@ -298,3 +298,5 @@ There are a few rules for writing plugins properly:
 3. If you are not sure of memory leaks, exit every one hour. Netdata will re-start your process.
 
 4. If possible, try to autodetect if your plugin should be enabled, without any configuration.
+
+You can also find a python skeleton [in issue 206](https://github.com/firehol/netdata/issues/206#issuecomment-208038333).

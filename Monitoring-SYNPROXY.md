@@ -84,14 +84,6 @@ So, you are just blacklisted.
 
 ---
 
-While these data exist in the netdata server, you can see what a DDoS means for a system (check CPU, interrupts, forks, context switches, memory, the connection tracker, nginx, netdata, etc):
-
- - [direct link to the first attack](http://netdata.firehol.org/?force_before_ms=1460213988000&force_after_ms=1460213669000#netdata)
-
- - [direct link to the second attack](http://netdata.firehol.org/?force_before_ms=1460226227000&force_after_ms=1460225741000#netdata)
-
----
-
 Other IP lists, matching the attackers IPs:
 
 IP Blacklist|Attacker IPs Matched

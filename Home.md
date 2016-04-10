@@ -113,24 +113,23 @@ We all have a wonderful tool on our desktops, that connects us to the entire wor
 
 ## Is there a roadmap?
 
-Well, we plan to do these:
+These are what we currently work on (in that order):
 
-1. Allow the default dashboard to connect to multiple netdata servers:
+1. Fix all bugs reported.
 
- - add `connect` to connect to more netdata servers
- - add `search` to find charts and dimensions on all connected servers
- - add `compare` to create a dynamic dashboard using charts from all connected servers
+2. Finish packaging for the various distros.
 
-2. Allow custom dashboards to be defined using JSON files, to avoid writing HTML. These JSON dashboards should also include any user documentation needed.
+3. More plugins - a lot more plugins!
 
-   We are already pretty close for this. The default dashboard is abstracted enough to support it. It still needs some work though.
+ - monitor cgroups (containers) performance and utilization from the host
+ - monitor more of the system
+ - monitor more applications (hadoop and friends, postgres, etc)
+ - re-write BASH data collectors (squid, mysql, etc) to node.js or python
+ - rewrite the netfilter plugin to use libnlm.
+ - allow internal plugins to be forked to external processes (this will protect the netdata daemon from plugin crashes, allow different security schemas for each plugin, etc).
 
-3. Allow creating dashboards from other dashboards (so that complex dashboards can be created).
+4. Improve the memory database (possibly using an internal deduper, compression, disk archiving, mirroring it to third party databases, etc).
 
-4. Improve the memory database (possibly using the internal deduper, compression, disk archiving, mirroring it to third party databases, etc).
+5. Invent a flexible UI to connect multiple netdata server together
 
-5. Create more plugins. A lot more plugins.
-
-6. Allow internal plugins to be forked to external processes (this will protect the netdata daemon from plugin crashes, allow different security schemas for each plugin, etc).
-
-7. Document everything (this is a work in progress already).
+6. Document everything (this is a work in progress already).

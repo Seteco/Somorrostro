@@ -131,3 +131,7 @@ These are what we currently work on (in that order):
 4. Invent a flexible UI to connect multiple netdata server together
 
 5. Document everything (this is a work in progress already).
+
+There are a lot more enhancements requested from our users (just navigate through the issues to get an idea).
+Enhancements like authentication on UI, alarms and alerts, etc will fit somehow into this list.
+Patience...

@@ -81,3 +81,11 @@ Now our nginx configuration includes these:
 `firehol_webserver` is [this IP Blacklist](http://iplists.firehol.org/?ipset=firehol_webserver) and `netdata-attacks` are the IPs given in the evidence above.
 
 So, you are just blacklisted.
+
+---
+
+While these data exist in the netdata server, you can see what a DDoS means:
+
+ - [direct link to the first attack](http://netdata.firehol.org/?force_before_ms=1460213988000&force_after_ms=1460213669000#netdata)
+
+ - [direct link to the second attack](http://netdata.firehol.org/?force_before_ms=1460226227000&force_after_ms=1460225741000#netdata)

@@ -241,10 +241,10 @@ or do not output the line at all.
 
 # Skeleton Plugins
 
-1. **BASH**, use charts.d, there are many examples in the [charts.d directory](https://github.com/firehol/netdata/tree/master/charts.d)
-2. **C**, use [apps.plugin](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c#L2420)
-3. **Python**, check this example [in issue 206](https://github.com/firehol/netdata/issues/206#issuecomment-208038333)
-4. **node.js**, user `node.d.plugin`, there are a few examples in the [node.d directory](https://github.com/firehol/netdata/tree/master/node.d)
+1. **node.js**, use `node.d.plugin`, there are a few examples in the [node.d directory](https://github.com/firehol/netdata/tree/master/node.d)
+2. **BASH**, use `charts.d.plugin`, there are many examples in the [charts.d directory](https://github.com/firehol/netdata/tree/master/charts.d)
+3. **C**, use [apps.plugin](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c#L2420)
+4. **Python**, check this example [in issue 206](https://github.com/firehol/netdata/issues/206#issuecomment-208038333)
 
 # Writing Plugins Properly
 

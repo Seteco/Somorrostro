@@ -239,6 +239,13 @@ If a value is not collected, leave it empty, like this:
 
 or do not output the line at all.
 
+# Skeleton Plugins
+
+1. **BASH**, use charts.d, there are many examples in the [charts.d directory](https://github.com/firehol/netdata/tree/master/charts.d)
+2. **C**, use [apps.plugin](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c#L2420)
+3. **Python**, check this example [in issue 206](https://github.com/firehol/netdata/issues/206#issuecomment-208038333)
+4. **node.js**, user `node.d.plugin`, there are a few examples in the [node.d directory](https://github.com/firehol/netdata/tree/master/node.d)
+
 # Writing Plugins Properly
 
 There are a few rules for writing plugins properly:
@@ -299,4 +306,3 @@ There are a few rules for writing plugins properly:
 
 4. If possible, try to autodetect if your plugin should be enabled, without any configuration.
 
-You can also find a python skeleton [in issue 206](https://github.com/firehol/netdata/issues/206#issuecomment-208038333).

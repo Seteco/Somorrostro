@@ -12,11 +12,11 @@ One of the features the Linux kernel has, but it is rarely used, is its ability 
 
 QoS is about 2 features:
 
-1. Classify traffic
+1. **Classify traffic**
 
   Classification is the process of organizing traffic in groups, called `classes`. Classification can evaluate every aspect of traffic, like source and destination ports, source and destination IPs, netfilter marks, etc.
 
-2. Apply traffic shaping rules to these `classes`
+2. **Apply traffic shaping rules to these `classes`**
 
   Traffic shaping is used to control how network interface bandwidth should be shared among the classes. Of course we are not interested for this feature to just monitor the traffic. Classification will be enough for monitoring everything.
 

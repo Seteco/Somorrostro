@@ -28,10 +28,6 @@ I have to admit though, I usually apply QoS (including traffic shaping) to all m
 
 Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
-Check this animated gif:
-
-![test2](https://cloud.githubusercontent.com/assets/2662304/14093004/68966020-f553-11e5-98fe-ffee2086fafd.gif)
-
 ## Real Life example
 
 You can see the result of the configuration below at the **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**. This is a screenshot of it:

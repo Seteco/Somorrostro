@@ -10,7 +10,7 @@ One category of metrics missing in Linux monitoring, is bandwidth consumption fo
 
 To solve this problem, the most *adventurous* Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system). Not to mention that such solutions are probably better suited for a core linux router in your network.
 
-Others use NFACCT, the netfilter accounting module which is already part of the Linux firewall. However, this would require configuring a firewall on every system you want to measure bandwidth (just FYI, I do install a firewall on every server - and I strongly advise you to do so too - but configuring accounting on it seems overkill when you don't really need it for billing purposes).
+Others use NFACCT, the netfilter accounting module which is already part of the Linux firewall. However, this would require configuring a firewall on every system you want to measure bandwidth (just FYI, I do install a firewall on every server - and I strongly advise you to do so too - but configuring accounting on all servers seems overkill when you don't really need it for billing purposes).
 
 **There is however a much simpler approach**.
 

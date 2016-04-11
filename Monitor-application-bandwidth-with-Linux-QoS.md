@@ -2,29 +2,29 @@
 
 One of the metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, you ssh sessions, etc are using.
 
-To solve this problem, the most adventurous Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system).
+To solve this problem, the most adventurous Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system). 
 
-There is however a much simpler approach.
+**There is however a much simpler approach**.
 
 ## QoS
 
 One of the features the Linux kernel has, but it is rarely used, is its ability to **apply QoS on traffic**. Even most interesting is that it can apply QoS to **both inbound and outbound traffic**.
 
-QoS has mainly 2 features:
+QoS is about 2 features:
 
 1. Classify traffic
 
-  Classification is the process of organizing the traffic in groups, called `classes`.
+  Classification is the process of organizing traffic in groups, called `classes`. Classification can evaluate every aspect of traffic, like source and destination ports, source and destination IPs, netfilter marks, etc.
 
 2. Apply traffic shaping rules to these `classes`
 
-  Traffic Shaping is used to control how network interface bandwidth should be shared among the classes. Of course we are not interested for this feature to just monitor the traffic. Classification will be enough for monitoring everything.
+  Traffic shaping is used to control how network interface bandwidth should be shared among the classes. Of course we are not interested for this feature to just monitor the traffic. Classification will be enough for monitoring everything.
 
-I have to admit though, I usually apply QoS (including traffic shaping) to all my servers. The key reasons are:
+  I have to admit though, I usually apply QoS (including traffic shaping) to all my servers. The key reasons are:
 
-- ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth
-- ensure other administrative tasks will not monopolize all the available bandwidth (like backups)
-- ensure each end-user connection will get a fair cut of the available bandwidth
+    - ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth
+    - ensure other administrative tasks will not monopolize all the available bandwidth (like backups)
+    - ensure each end-user connection will get a fair cut of the available bandwidth
 
 Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 

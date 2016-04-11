@@ -36,7 +36,7 @@ See Linux Anti-DDoS in action at: **[netdata demo site (with SYNPROXY enabled)](
 
 ## A note for DDoS testers
 
-Since I posted this, several folks tried to run DDoS against http://netdata.firehol.org.
+Since I posted this, a few folks tried to run DDoS against http://netdata.firehol.org.
 
 Well, guys **this site is not a test bed for DDoS**. Don't do this. We pay for the bandwidth and you are just wasting it!
 

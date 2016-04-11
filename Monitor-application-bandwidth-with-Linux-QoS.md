@@ -1,3 +1,6 @@
+
+Demo here: **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**
+
 ## Overview
 
 One of the metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, you ssh sessions, etc are using.
@@ -30,7 +33,7 @@ QoS is about 2 features:
 
     - ensure each end-user connection will get a fair cut of the available bandwidth.
 
-Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
+Once **traffic classification** is applied, we can use **[netdata](https://github.com/firehol/netdata)** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
 ### QoS in Linux? You must be joking...
 

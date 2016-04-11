@@ -36,7 +36,7 @@ Once **traffic classification** is applied, we can use **netdata** to visualize 
 
 Yes I know!
 
-`tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux! (come on guys, forcing the users to specific port ranges in hex as masks, **is not practical**).
+`tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux!
 
 This is why I wrote **FireQOS**:
 

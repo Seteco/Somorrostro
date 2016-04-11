@@ -1,7 +1,5 @@
 ![image6](https://cloud.githubusercontent.com/assets/2662304/14253733/53550b16-fa95-11e5-8d9d-4ed171df4735.gif)
 
-See Linux Anti-DDoS **in action** at: **[netdata demo site (with SYNPROXY enabled)](http://netdata.firehol.org/#netfilter_synproxy)** (but read the note below).
-
 ---
 
 ## Linux Anti-DDoS
@@ -31,6 +29,8 @@ It visualizes 4 charts:
 Example image:
 
 ![ddos](https://cloud.githubusercontent.com/assets/2662304/14398891/6016e3fc-fdf0-11e5-942b-55de6a52cb66.gif)
+
+See Linux Anti-DDoS in action at: **[netdata demo site (with SYNPROXY enabled)](http://netdata.firehol.org/#netfilter_synproxy)** (but read the note below).
 
 ---
 

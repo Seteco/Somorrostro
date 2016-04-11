@@ -63,14 +63,14 @@ This how we configured it:
 This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 
 ```sh
-    interface eth0 world bidirectional ethernet balanced rate 1Gbit
+    interface eth0 world bidirectional ethernet balanced rate 50Mbit
        class arp
           match arp
 
        class icmp
           match icmp
 
-       class dns commit 500kbit
+       class dns commit 1Mbit
           server dns
           client dns
 
@@ -78,15 +78,15 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
           server ntp
           client ntp
 
-       class ssh commit 1Mbit
+       class ssh commit 2Mbit
           server ssh
           client ssh
 
-       class rsync commit 5Mbit max 10Mbit
+       class rsync commit 2Mbit max 10Mbit
           server rsync
           client rsync
 
-       class web_server commit 100Mbit
+       class web_server commit 40Mbit
           server http
 
        class client

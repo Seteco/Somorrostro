@@ -78,7 +78,7 @@ With **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, it is **real
 
 ## QoS Configuration
 
-This how we configured `fireqos`. This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
+This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 
 ```sh
     # configure the netdata ports

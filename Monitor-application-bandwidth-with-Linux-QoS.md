@@ -28,15 +28,21 @@ I have to admit though, I usually apply QoS (including traffic shaping) to all m
 
 Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
-## Real Life example
+## QoS in Linux? You must be joking...
+
+Yes I know! `tc` is one of the most (if not most) undocumented and complicated system commands in Linux!
+
+There is a solution though: the FireHOL suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
+
+Check also the configuration below. It is **SIMPLE**.
+
+## Example
 
 You can see the result of the configuration below at the **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**. This is a screenshot of it:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/14436322/c91d90a4-0024-11e6-9fb1-57cdef1580df.png)
 
 This how we configured it:
-
-The FireHOL suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
 
 This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 

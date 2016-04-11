@@ -1,5 +1,5 @@
 
-Live demo - **see it in action**: **[QoS charts Live](http://netdata.firehol.org/#tc)**
+Live demo - **see it in action**: **[QoS charts Live on our Server](http://netdata.firehol.org/#tc)**
 
 ![qos2](https://cloud.githubusercontent.com/assets/2662304/14439411/b7f36254-0033-11e6-93f0-c739bb6a1c3a.gif)
 

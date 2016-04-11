@@ -48,7 +48,7 @@ QoS, is extremely light. You will configure it once, and this is it. It will not
 
 Yes I know... but no, I have not!
 
-For sure, `tc` is one of the most, if not **the most**, undocumented, complicated and unfriendly system command in Linux. 
+For sure, `tc` is probably **the most**, undocumented, complicated and unfriendly command in Linux. 
 
 For example, do you know that for matching a simple port range in `tc`, e.g. all the high ports, from 1025 to 65535 inclusive, you have to match these:
 

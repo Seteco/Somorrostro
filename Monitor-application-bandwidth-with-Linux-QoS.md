@@ -23,8 +23,8 @@ QoS has mainly 2 features:
 I have to admit though, I usually apply QoS (including traffic shaping) to all my servers. The key reasons are:
 
 - ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth
-- ensure other administrative tasks will not monopolized all the available bandwidth (like backups)
-- ensure end-users will not be able to monopolize all the available bandwidth
+- ensure other administrative tasks will not monopolize all the available bandwidth (like backups)
+- ensure each end-user connection will get a fair cut of the available bandwidth
 
 Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 

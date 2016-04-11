@@ -19,7 +19,7 @@ QoS is about 2 features:
 
   Classification is the process of organizing traffic in groups, called **classes**. Classification can evaluate every aspect of traffic, like source and destination ports, source and destination IPs, netfilter marks, etc.
 
-  When you classify traffic, you just assign a label to it. For example **I call `web server` traffic from my server's tcp/80, tcp/443 and to my server's tcp/80, tcp/443, while I call `web surfing` all other tcp/80 and tcp/443 traffic**. You can use any combinations you like.
+  When you classify traffic, you just assign a label to it. For example **I call `web server` traffic, the traffic from my server's tcp/80, tcp/443 and to my server's tcp/80, tcp/443, while I call `web surfing` all other tcp/80 and tcp/443 traffic**. You can use any combinations you like. There is no limit.
 
 2. **Apply traffic shaping rules to these classes**
 

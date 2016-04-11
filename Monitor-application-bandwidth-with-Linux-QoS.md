@@ -4,13 +4,13 @@ Live demo - **see it in action**: **[here, our live QoS charts, on our Server](h
 ![qos2](https://cloud.githubusercontent.com/assets/2662304/14439411/b7f36254-0033-11e6-93f0-c739bb6a1c3a.gif)
 
 
-## Overview
+## The basics
 
-One of the metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, your ssh sessions, etc are using.
+One category of metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, your ssh sessions, etc are using.
 
-To solve this problem, the most adventurous Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system). Not to mention that such solutions are probably better suited for a core linux router in your network.
+To solve this problem, the most *adventurous* Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system). Not to mention that such solutions are probably better suited for a core linux router in your network.
 
-Others use NFACCT, the netfilter accounting module which is already part of the Linux firewall. However, this would require configuring a firewall on every system you want to measure bandwidth (just FYI, I do install a firewall on every server - and I strongly advise you to do so too - but configuring accounting on it seems overkill when you don't really need it for other reasons - e.g. billing verification).
+Others use NFACCT, the netfilter accounting module which is already part of the Linux firewall. However, this would require configuring a firewall on every system you want to measure bandwidth (just FYI, I do install a firewall on every server - and I strongly advise you to do so too - but configuring accounting on it seems overkill when you don't really need it for billing purposes).
 
 **There is however a much simpler approach**.
 
@@ -22,7 +22,7 @@ QoS is about 2 features:
 
 1. **Classify traffic**
 
-  Classification is the process of organizing traffic in groups, called **classes**. Classification can evaluate every aspect of traffic, like source and destination ports, source and destination IPs, netfilter marks, etc.
+  Classification is the process of organizing traffic in groups, called **classes**. Classification can evaluate every aspect of network packets, like source and destination ports, source and destination IPs, netfilter marks, etc.
 
   When you classify traffic, you just assign a label to it. For example **I call `web server` traffic, the traffic from my server's tcp/80, tcp/443 and to my server's tcp/80, tcp/443, while I call `web surfing` all other tcp/80 and tcp/443 traffic**. You can use any combinations you like. There is no limit.
 
@@ -32,7 +32,7 @@ QoS is about 2 features:
 
   I have to admit though, I usually apply QoS (including traffic shaping) to all my servers. The key reasons are:
 
-    - ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth. So, no matter what, I will be able to ssh to my server and DNS will work.
+    - ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth. So, no matter what happens, I will be able to ssh to my server and DNS will work.
 
     - ensure other administrative tasks will not monopolize all the available bandwidth. So, my nightly backup will not hurt my users, a developer that is copying files over the net will not get all the available bandwidth, etc.
 
@@ -40,7 +40,7 @@ QoS is about 2 features:
 
 Once **traffic classification** is applied, we can use **[netdata](https://github.com/firehol/netdata)** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
-QoS, is extremely light. You will configure it once, and this is it. It will not bother you again.
+QoS, is extremely light. You will configure it once, and this is it. It will not bother you again and it will not use any noticeable CPU resources, especially on application and database servers.
 
 ---
 

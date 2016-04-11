@@ -70,7 +70,7 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
        class icmp
           match icmp
 
-       class dns
+       class dns commit 500kbit
           server dns
           client dns
 
@@ -78,21 +78,21 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
           server ntp
           client ntp
 
-       class ssh
+       class ssh commit 1Mbit
           server ssh
           client ssh
 
-       class rsync
+       class rsync commit 5Mbit max 10Mbit
           server rsync
           client rsync
 
-       class web_server
+       class web_server commit 100Mbit
           server http
 
        class client
           client surfing
 
-       class nms
+       class nms commit 1Mbit
           match input src 10.2.3.5
 ```
 

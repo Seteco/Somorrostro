@@ -70,11 +70,11 @@ For sure, `tc` is one of the most, if not **the most**, undocumented, complicate
 
 what? Have you lost your mind?
 
-This is why I wrote **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, a tool to simplify QoS management in Linux.
+This is why I wrote **[FireQoS](https://firehol.org/tutorial/fireqos-new-user/)**, a tool to simplify QoS management in Linux.
 
-The **[FireHOL](https://firehol.org/)** package already distributes **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** to learn how to write your own QoS configuration.
+The **[FireHOL](https://firehol.org/)** package already distributes **[FireQoS](https://firehol.org/tutorial/fireqos-new-user/)**. Check the **[FireQoS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** to learn how to write your own QoS configuration.
 
-With **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, it is **really simple for everyone to use QoS in Linux**. Just install the package `firehol`. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**. After that you will have the `fireqos` command which uses a configuration like the following:
+With **[FireQoS](https://firehol.org/tutorial/fireqos-new-user/)**, it is **really simple for everyone to use QoS in Linux**. Just install the package `firehol`. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**. After that you will have the `fireqos` command which uses a configuration like the following:
 
 ## QoS Configuration
 

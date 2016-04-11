@@ -48,7 +48,7 @@ QoS, is extremely light. You will configure it once, and this is it. It will not
 
 Yes I know... but no, I have not!
 
-For sure, `tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux.
+For sure, `tc` is one of the most, if not the most, undocumented, complicated and unfriendly system command in Linux.
 
 This is why I wrote **FireQOS**, a tool to simplify QoS management in Linux.
 

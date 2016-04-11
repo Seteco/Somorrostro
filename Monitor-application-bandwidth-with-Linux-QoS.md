@@ -68,7 +68,9 @@ For sure, `tc` is one of the most, if not **the most**, undocumented, complicate
 32768/0x8000
 ```
 
-what? Have you lost your mind?
+What? Have you lost your mind?
+
+Exactly!
 
 This is why I wrote **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, a tool to simplify QoS management in Linux.
 

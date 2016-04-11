@@ -1,14 +1,14 @@
 ## Overview
 
-One of the metrics missing in Linux monitoring, is its ability to monitor the bandwidth used for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, etc are using.
+One of the metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, you ssh sessions, etc are using.
 
 To solve this problem, the most adventurous Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system).
 
 There is however a much simpler approach.
 
-## Using QoS
+## QoS
 
-One of the features the Linux kernel has, but it is rarely used today, it is ability to **apply QoS on traffic**. Even most interesting is that it can apply QoS to **both inbound and outbound traffic**.
+One of the features the Linux kernel has, but it is rarely used, is its ability to **apply QoS on traffic**. Even most interesting is that it can apply QoS to **both inbound and outbound traffic**.
 
 QoS has mainly 2 features:
 
@@ -20,9 +20,13 @@ QoS has mainly 2 features:
 
   Traffic Shaping is used to control how network interface bandwidth should be shared among the classes. Of course we are not interested for this feature to just monitor the traffic. Classification will be enough for monitoring everything.
 
+I have to admit though, I usually apply QoS (including traffic shaping) to all my servers. The key reasons are:
 
+- ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth
+- ensure other administrative tasks will not monopolized all the available bandwidth (like backups)
+- ensure end-users will not be able to monopolize all the available bandwidth
 
-Once we have applied **traffic classification**, we can use **netdata** to visualize the bandwidth consumption per class in real-time.
+Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
 Check this animated gif:
 

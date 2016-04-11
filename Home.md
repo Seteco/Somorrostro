@@ -10,7 +10,7 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 > We need to relocate the netdata demo server. **Can you donate a VM ?**
 > 
-> Based on the current use of the netdata demo, **at peak** we need 2 cores, 2GB of RAM and 10Mbps of high speed internet feed. If you are willing to donate such a VM, send me a note to costa@tsaousis.gr.
+> Based on the current use of the netdata demo, **at peak** we need 2 cores, 2GB of RAM and 10Mbps of high speed internet feed. The same VM will also host [iplists.firehol.org](http://iplists.firehol.org). If you are willing to donate such a VM, send me a note to costa@tsaousis.gr.
 
 ---
 

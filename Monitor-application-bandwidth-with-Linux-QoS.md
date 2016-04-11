@@ -38,11 +38,15 @@ QoS is about 2 features:
 
 Once **traffic classification** is applied, we can use **[netdata](https://github.com/firehol/netdata)** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
-### QoS in Linux? You must be joking...
+QoS, is extremely light. You will configure it once, and this is it. It will not bother you again.
 
-Yes I know!
+---
 
-`tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux!
+## Configure QoS in Linux? You must be joking...
+
+Yes I know, but I am not!
+
+For sure, `tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux.
 
 This is why I wrote **FireQOS**, a tool to simplify QoS management in Linux.
 
@@ -53,10 +57,6 @@ It is **really simple for everyone to apply QoS in Linux**. Check the configurat
 Just install the package **firehol**. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**.
 
 ## Example
-
-You can see the result of the configuration below at the **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**. This is a screenshot of it:
-
-![image](https://cloud.githubusercontent.com/assets/2662304/14436322/c91d90a4-0024-11e6-9fb1-57cdef1580df.png)
 
 This how we configured it:
 
@@ -97,6 +97,12 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 ```
 
 Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications.
+
+And this is what you are going to get:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/14436322/c91d90a4-0024-11e6-9fb1-57cdef1580df.png)
+
+---
 
 ## More examples:
 

@@ -1,6 +1,9 @@
 
 Live demo - **see it in action**: **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**
 
+![qos2](https://cloud.githubusercontent.com/assets/2662304/14439411/b7f36254-0033-11e6-93f0-c739bb6a1c3a.gif)
+
+
 ## Overview
 
 One of the metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, your ssh sessions, etc are using.

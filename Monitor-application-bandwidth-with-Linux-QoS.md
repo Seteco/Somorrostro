@@ -48,23 +48,42 @@ QoS, is extremely light. You will configure it once, and this is it. It will not
 
 Yes I know... but no, I have not!
 
-For sure, `tc` is one of the most, if not the most, undocumented, complicated and unfriendly system command in Linux.
+For sure, `tc` is one of the most, if not **the most**, undocumented, complicated and unfriendly system command in Linux. Do you know that for matching a simple port range in `tc`, for example ports 1025 - 65535 you have to match these:
 
-This is why I wrote **FireQOS**, a tool to simplify QoS management in Linux.
+```
+1025/0xffff
+1026/0xfffe
+1028/0xfffc
+1032/0xfff8
+1040/0xfff0
+1056/0xffe0
+1088/0xffc0
+1152/0xff80
+1280/0xff00
+1536/0xfe00
+2048/0xf800
+4096/0xf000
+8192/0xe000
+16384/0xc000
+32768/0x8000
+```
 
-The **[FireHOL](https://firehol.org/)** suite already distributes **FireQOS**. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS configuration.
+what? Have you lost your mind?
 
-It is **really simple for everyone to apply QoS in Linux**. Check the configuration below.
+This is why I wrote **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, a tool to simplify QoS management in Linux.
 
-Just install the package **firehol**. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**.
+The **[FireHOL](https://firehol.org/)** package already distributes **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** to learn how to write your own QoS configuration.
 
-## Example
+With **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, it is **really simple for everyone to use QoS in Linux**. Just install the package `firehol`. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**. After that you will have the `fireqos` command which uses a configuration like the following:
 
-This how we configured it:
+## QoS Configuration
 
-This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
+This how we configured `fireqos`. This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 
 ```sh
+    # configure the netdata ports
+    server_netdata_ports="tcp/19999"
+
     interface eth0 world bidirectional ethernet balanced rate 50Mbit
        class arp
           match arp
@@ -90,6 +109,7 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 
        class web_server commit 40Mbit
           server http
+          server netdata
 
        class client
           client surfing

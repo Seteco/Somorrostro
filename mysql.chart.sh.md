@@ -39,6 +39,7 @@ where:
  - `$OPTIONS` is `mysql_opts[X]`
 
 
+It might also be good to add `-u user` to `mysql_opts[X]` to force the user you have given access rights to execute `show global status` on your mysql server.
 
 Since this data collector is written in shell scripting, the connection to the mysql server is initiated and closed on each iteration.
 

@@ -30,11 +30,13 @@ Once **traffic classification** is applied, we can use **netdata** to visualize 
 
 ### QoS in Linux? You must be joking...
 
-Yes I know! `tc` is one of the most (if not the most) undocumented and complicated system commands in Linux! This is why I wrote **FireQOS** too:
+Yes I know! `tc` is one of the most (if not the most) undocumented and complicated system commands in Linux! This is why I wrote **FireQOS**:
 
-The FireHOL suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
+The [FireHOL](https://firehol.org/) suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
 
 Check the configuration below. It is **really simple for everyone to apply QoS in Linux**.
+
+So, just install the package **firehol**. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**.
 
 ## Example
 

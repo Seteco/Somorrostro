@@ -16,21 +16,27 @@ QoS is about 2 features:
 
   Classification is the process of organizing traffic in groups, called **classes**. Classification can evaluate every aspect of traffic, like source and destination ports, source and destination IPs, netfilter marks, etc.
 
+  When you classify traffic, you just assign a label to it. For example **I call `web server` traffic from my server's tcp/80, tcp/443 and to my server's tcp/80, tcp/443, while I call `web surfing` all other tcp/80 and tcp/443 traffic**. You can use any combinations you like.
+
 2. **Apply traffic shaping rules to these classes**
 
   Traffic shaping is used to control how network interface bandwidth should be shared among the classes. Of course we are not interested for this feature to just monitor the traffic. Classification will be enough for monitoring everything.
 
   I have to admit though, I usually apply QoS (including traffic shaping) to all my servers. The key reasons are:
 
-    - ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth
-    - ensure other administrative tasks will not monopolize all the available bandwidth (like backups)
-    - ensure each end-user connection will get a fair cut of the available bandwidth
+    - ensure administrative tasks (like ssh, dns, etc) will always have a small but guaranteed bandwidth. So, no matter what, I will be able to ssh to my server and DNS will work.
+
+    - ensure other administrative tasks will not monopolize all the available bandwidth. So, my nightly backup will not hurt my users, a developer that is copying files over the net will not get all the available bandwidth, etc.
+
+    - ensure each end-user connection will get a fair cut of the available bandwidth.
 
 Once **traffic classification** is applied, we can use **netdata** to visualize the bandwidth consumption per class in real-time (no configuration is needed for netdata - it will figure it out).
 
 ### QoS in Linux? You must be joking...
 
-Yes I know! `tc` is one of the most (if not the most) undocumented and complicated system commands in Linux! This is why I wrote **FireQOS**:
+Yes I know!
+
+`tc` is one of the most (if not the most) undocumented and complicated system commands in Linux! This is why I wrote **FireQOS**:
 
 The [FireHOL](https://firehol.org/) suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
 

@@ -38,13 +38,13 @@ Yes I know!
 
 `tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux!
 
-This is why I wrote **FireQOS**:
+This is why I wrote **FireQOS**, a tool to simplify QoS management in Linux.
 
-The [FireHOL](https://firehol.org/) suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
+The [FireHOL](https://firehol.org/) suite already distributes `FireQOS`. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS configuration.
 
-Check the configuration below. It is **really simple for everyone to apply QoS in Linux**.
+It is **really simple for everyone to apply QoS in Linux**. Check the configuration below.
 
-So, just install the package **firehol**. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**.
+Just install the package **firehol**. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**.
 
 ## Example
 

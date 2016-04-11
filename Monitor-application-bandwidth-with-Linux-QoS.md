@@ -34,7 +34,7 @@ Yes I know! `tc` is one of the most (if not most) undocumented and complicated s
 
 There is a solution though: the FireHOL suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
 
-Check also the configuration below. It is **SIMPLE**.
+Check also the configuration below. It is **really simple** for everyone to apply QoS in Linux.
 
 ## Example
 

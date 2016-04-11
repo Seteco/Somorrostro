@@ -46,10 +46,13 @@ Next, http://netdata.firehol.org is behind cloudflare.com, so even if you manage
 
 And finally, thank you for exposing the IPs and hostnames of the exploited wordpress installations and the IPs of the hosts you manage to instruct them make so many POST requests to us.
 
-Evidence of the attack:
+Evidence of the attacks:
 
+1. Attack from wordpress installations
  - [ngnix log with the exploited wordpress installations used today](https://iplists.firehol.org/netdata-attacks/wordpress_log-20160409-1816.txt)
  - [IPs of the exploited wordpress installations used today](https://iplists.firehol.org/netdata-attacks/wordpress_ips-20160409-1816.txt)
+
+2. Attack using a large set of POST requests
  - [ngnix log with the POST requests](https://iplists.firehol.org/netdata-attacks/post_log-20160409-1456.txt)
  - [IPs of the hosts that made the POST requests](https://iplists.firehol.org/netdata-attacks/post_ips-20160409-1456.txt)
 

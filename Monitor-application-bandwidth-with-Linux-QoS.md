@@ -36,7 +36,9 @@ Once **traffic classification** is applied, we can use **netdata** to visualize 
 
 Yes I know!
 
-`tc` is one of the most (if not the most) undocumented and complicated system commands in Linux! This is why I wrote **FireQOS**:
+`tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux! (come on guys, forcing the users to specific port ranges in hex as masks, **is not practical**).
+
+This is why I wrote **FireQOS**:
 
 The [FireHOL](https://firehol.org/) suite has already a program called `FireQOS` that manages QoS in Linux. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS rules.
 

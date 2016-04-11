@@ -76,7 +76,7 @@ This is why I wrote **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)*
 
 The **[FireHOL](https://firehol.org/)** package already distributes **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** to learn how to write your own QoS configuration.
 
-With **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, it is **really simple for everyone to use QoS in Linux**. Just install the package `firehol`. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**. After that you will have the `fireqos` command which uses a configuration like the following:
+With **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, it is **really simple for everyone to use QoS in Linux**. Just install the package `firehol`. It should already be available for your distribution. If not, check the **[FireHOL Installation Guide](https://firehol.org/installing/)**. After that, you will have the `fireqos` command which uses a configuration like the following:
 
 ## QoS Configuration
 
@@ -120,7 +120,9 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
           match input src 10.2.3.5
 ```
 
-Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications. (IMPORTANT: If you copy this configuration to apply it to your system, please adapt the speeds - experiment in non-production environments to learn the tool, before applying it on your servers).
+Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications. FireQOS is not a daemon. It will just convert the configuration to `tc` commands. It will run them and it will exit.
+
+**IMPORTANT**: If you copy this configuration to apply it to your system, please adapt the speeds - experiment in non-production environments to learn the tool, before applying it on your servers.
 
 And this is what you are going to get:
 

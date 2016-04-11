@@ -91,3 +91,12 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 ```
 
 Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications.
+
+## More examples:
+
+This is QoS from my home linux router. Check these features:
+
+1. It is real-time (per second updates)
+2. QoS really works in Linux - check that the `background` traffic is squeezed when `surfing` needs it.
+
+![test2](https://cloud.githubusercontent.com/assets/2662304/14093004/68966020-f553-11e5-98fe-ffee2086fafd.gif)

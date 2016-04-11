@@ -44,9 +44,9 @@ QoS, is extremely light. You will configure it once, and this is it. It will not
 
 ---
 
-## Configure QoS in Linux? You must be joking...
+## QoS in Linux? Have you lost your mind?
 
-Yes I know... but I am not!
+Yes I know... but no, I have not!
 
 For sure, `tc` is one of the most (if not the most) undocumented, complicated and unfriendly system commands in Linux.
 

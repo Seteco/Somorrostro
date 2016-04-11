@@ -63,7 +63,7 @@ This how we configured it:
 This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 
 ```sh
-    interface eth0 world bidirectional ethernet balanced minrate 500kbit rate 1Gbit
+    interface eth0 world bidirectional ethernet balanced rate 1Gbit
        class arp
           match arp
 

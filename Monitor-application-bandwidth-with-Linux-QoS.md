@@ -120,7 +120,7 @@ This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
           match input src 10.2.3.5
 ```
 
-Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications.
+Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications. (IMPORTANT: If you copy this configuration to apply it to your system, please adapt the speeds - experiment in non-production environments to learn the tool, before applying it on your servers).
 
 And this is what you are going to get:
 

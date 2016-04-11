@@ -8,7 +8,9 @@ Live demo - **see it in action**: **[click here for live QoS charts, on our Serv
 
 One of the metrics missing in Linux monitoring, is bandwidth consumption for each open socket (inbound and outbound traffic). So, you cannot tell how much bandwidth your web server, your database server, your backup, your ssh sessions, etc are using.
 
-To solve this problem, the most adventurous Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system). 
+To solve this problem, the most adventurous Linux monitoring tools install kernel modules to capture all traffic, analyze it and provide reports per application. A lot of work, CPU intensive and with a great degree of risk (due to the kernel modules involved which might affect the stability of the whole system). Not to mention that such solutions are probably better suited for a core linux router in your network.
+
+Others use NFACCT, the netfilter accounting module which is already part of the Linux firewall. However, this would require configuring a firewall on every system you want to measure bandwidth (just FYI, I do install a firewall on every server - and I strongly advise you to do so too - but configuring accounting on it seems overkill when you don't really need it for other reasons - e.g. billing verification).
 
 **There is however a much simpler approach**.
 

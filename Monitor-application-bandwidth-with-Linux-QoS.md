@@ -1,5 +1,5 @@
 
-Demo here: **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**
+Live demo - **see it in action**: **[QoS charts at the netdata demo site](http://netdata.firehol.org/#tc)**
 
 ## Overview
 

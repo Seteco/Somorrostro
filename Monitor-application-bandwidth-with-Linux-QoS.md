@@ -40,7 +40,7 @@ Yes I know!
 
 This is why I wrote **FireQOS**, a tool to simplify QoS management in Linux.
 
-The **[FireHOL](https://firehol.org/)** suite already distributes `FireQOS`. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS configuration.
+The **[FireHOL](https://firehol.org/)** suite already distributes **FireQOS**. Check the **[FireQOS tutorial](https://firehol.org/tutorial/fireqos-new-user/)** that explains how to write your own QoS configuration.
 
 It is **really simple for everyone to apply QoS in Linux**. Check the configuration below.
 

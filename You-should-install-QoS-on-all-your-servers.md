@@ -57,7 +57,7 @@ I install QoS for the following reasons:
 
   netdata provides wonderful real-time charts, like this one:
 
- ![qos2](https://cloud.githubusercontent.com/assets/2662304/14439411/b7f36254-0033-11e6-93f0-c739bb6a1c3a.gif)
+ ![qos3](https://cloud.githubusercontent.com/assets/2662304/14474189/713ede84-0104-11e6-8c9c-8dca5c2abd63.gif)
 
 2. **Ensure sensitive administrative tasks will not starve for bandwidth**
 

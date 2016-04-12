@@ -22,7 +22,7 @@ I know what you are thinking right now! **And I agree!**
 
 Don't leave yet, **You will not have to do this**!
 
-Before presenting the solution though, let's see what is QoS and why do we need it.
+Before presenting the solution though, let's see what is QoS and why we need it.
 
 ---
 

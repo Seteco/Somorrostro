@@ -48,7 +48,7 @@ So, why do we need it?
 
 I install QoS for the following reasons:
 
-1. **Monitoring the bandwidth used by my services**
+1. **Monitoring the bandwidth used by services**
 
   netdata provides wonderful real-time charts, like this one:
 

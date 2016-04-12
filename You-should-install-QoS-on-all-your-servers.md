@@ -72,7 +72,7 @@ I install QoS for the following reasons:
 
   Using QoS together with a [SYNPROXY](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY) will provide a great degree of protection against most DDoS attacks. Actually when I wrote that article, a few folks tried to DDoS the netdata demo site to see in real-time the SYNPROXY operation. They did not do it right, but anyway a great deal of requests reached the netdata server. What saved netdata was QoS. The netdata demo server has QoS installed, so the requests were throttled and the server did not even reach the point of resource starvation. Read about it [here](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY#a-note-for-ddos-testers).
 
-On the other hand, QoS is extremely light. You will configure it once, and this is it. It will not bother you again and it will not use any noticeable CPU resources, especially on application and database servers.
+On top of all these, QoS is extremely light. You will configure it once, and this is it. It will not bother you again and it will not use any noticeable CPU resources, especially on application and database servers.
 
 So, do we have to learn this hex mess?
 

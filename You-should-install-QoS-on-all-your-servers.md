@@ -61,7 +61,7 @@ I install QoS for the following reasons:
 
 2. **Ensure sensitive administrative tasks will not starve for bandwidth**
 
-  Have you tried to ssh to a server when the network is congested? Well, it does not work well. QoS can guarantee that services like ssh, dns, ntp, etc will always have a small supply of bandwidth. So, no matter what happens, you will be able to ssh to your server and DNS will always work.
+  Have you tried to ssh to a server when the network is congested? You know it does not work very well. QoS can guarantee that services like ssh, dns, ntp, etc will always have a small supply of bandwidth. So, no matter what happens, you will be able to ssh to your server and DNS will always work.
 
 3. **Ensure administrative tasks will not monopolize all the bandwidth**
 

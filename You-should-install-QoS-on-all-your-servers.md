@@ -45,7 +45,7 @@ QoS is about 2 features:
 
 So, why do we need it?
 
-## Why do we need QoS?
+## We need QoS
 
 I install QoS the following reasons:
 

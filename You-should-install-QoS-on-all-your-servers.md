@@ -74,7 +74,7 @@ I install QoS for the following reasons:
 
 On the other hand, QoS is extremely light. You will configure it once, and this is it. It will not bother you again and it will not use any noticeable CPU resources, especially on application and database servers.
 
-So, do we have to learn all these hex mess?
+So, do we have to learn this hex mess?
 
 ---
 

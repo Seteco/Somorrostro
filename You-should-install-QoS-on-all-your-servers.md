@@ -20,7 +20,7 @@ Let's see a example: To match a simple port range in `tc`, all the high ports fr
 
 I know what you are thinking right now! **And I agree!** 
 
-Don't leave yet, **I have a solution**!
+Don't leave yet, **You will not have to do this**!
 
 Before presenting the solution though, let's see what is QoS and why do we need it.
 

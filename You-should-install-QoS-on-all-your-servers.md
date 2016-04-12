@@ -24,6 +24,8 @@ Don't leave yet, **I have a solution**!
 
 Before presenting the solution though, let's see what is QoS and why do we need it.
 
+---
+
 ## QoS
 
 QoS is about 2 features:
@@ -45,9 +47,11 @@ QoS is about 2 features:
 
 So, why do we need it?
 
+---
+
 ## We need QoS
 
-I install QoS the following reasons:
+I install QoS for the following reasons:
 
 1. **Monitoring the bandwidth used by my services**
 
@@ -76,6 +80,8 @@ I install QoS the following reasons:
 On the other hand, QoS is extremely light. You will configure it once, and this is it. It will not bother you again and it will not use any noticeable CPU resources, especially on application and database servers.
 
 So, do we have to learn all these hex mess?
+
+---
 
 ## Setup QoS, the right way!
 
@@ -124,6 +130,8 @@ This is the FireQOS configuration file `/etc/firehol/fireqos.conf` we use at the
 Nothing more is needed. You just run `fireqos start` to apply this configuration, restart netdata and you have real-time visualization of the bandwidth consumption of your applications. FireQOS is not a daemon. It will just convert the configuration to `tc` commands. It will run them and it will exit.
 
 **IMPORTANT**: If you copy this configuration to apply it to your system, please adapt the speeds - experiment in non-production environments to learn the tool, before applying it on your servers.
+
+---
 
 ## Install FireQOS
 

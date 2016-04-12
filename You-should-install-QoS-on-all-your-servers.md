@@ -10,7 +10,7 @@ I hear a lot of you complaining already!
 
 `tc` (the command that configures QoS in Linux) is probably **the most undocumented, complicated and unfriendly** command in Linux.
 
-Let's see a example: To match a simple port range in `tc`, all the high ports from 1025 to 65535 inclusive, we have to match these:
+Let's see an example: To match a simple port range in `tc`, all the high ports from 1025 to 65535 inclusive, we have to match these:
 
 ```
 1025/0xffff 1026/0xfffe 1028/0xfffc 1032/0xfff8 1040/0xfff0

@@ -88,3 +88,5 @@
 
   **[[Monitor application bandwidth with Linux QoS]]**
   (Good to do it, anyway)
+
+  **[[You should install QoS on all your servers]]**

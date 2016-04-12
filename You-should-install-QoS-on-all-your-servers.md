@@ -122,7 +122,7 @@ This is the FireQOS configuration file `/etc/firehol/fireqos.conf` we use at the
           match input src 10.2.3.5
 ```
 
-Nothing more is needed. You edit file according to your preferences, you run `fireqos start` to apply it and open your netdata dashboard to see real-time visualization of the bandwidth consumption of your applications. FireQOS is not a daemon. It will just convert the configuration to `tc` commands. It will run them and it will exit.
+Nothing more is needed. You edit `/etc/firehol/fireqos.conf` to configure your classes and their bandwidth limits, you run `fireqos start` to apply it and open your netdata dashboard to see real-time visualization of the bandwidth consumption of your applications. FireQOS is not a daemon. It will just convert the configuration to `tc` commands. It will run them and it will exit.
 
 **IMPORTANT**: If you copy this configuration to apply it to your system, please adapt the speeds - experiment in non-production environments to learn the tool, before applying it on your servers.
 

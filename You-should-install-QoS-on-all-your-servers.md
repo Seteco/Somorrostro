@@ -1,3 +1,5 @@
+![image1](https://cloud.githubusercontent.com/assets/2662304/14252446/11ae13c4-fa90-11e5-9d03-d93a3eb3317a.gif)
+
 Live demo of QoS: **[see QoS in action here](http://netdata.firehol.org/#tc)** !
 
 # You should install QoS on all your servers

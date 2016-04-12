@@ -56,7 +56,7 @@ Evidence of the attacks:
  - [ngnix log with the POST requests](https://iplists.firehol.org/netdata-attacks/post_log-20160409-1456.txt)
  - [IPs of the hosts that made the POST requests](https://iplists.firehol.org/netdata-attacks/post_ips-20160409-1456.txt)
 
-You actually stressed netdata a bit. What saved the server from your attack was QoS. I have the bandwidth limited to 50Mbps, so your attacks could not bring the server to its limits.
+You actually stressed netdata a bit. What saved the server from your attack was QoS. I have the bandwidth limited to 50Mbps, so your attacks could not bring the server to its limits. Now, I lowered it even more.
 
 This is what happened with the POSTs:
 

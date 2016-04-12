@@ -64,7 +64,7 @@ I install QoS for the following reasons:
 
 4. **Ensure each end-user connection will get a fair cut of the available bandwidth.**
 
-  Several QoS queuing disciplines in Linux do this automatically, without any configuration from you. The result is that new sockets are favored over older ones, so big downloads will be throttled while other users are trying to connect.
+  Several QoS queuing disciplines in Linux do this automatically, without any configuration from you. The result is that new sockets are favored over older ones, so that users will get a snappier experience, while others are transferring large amounts of traffic.
 
 5. **Protect the servers from DDoS attacks.**
 

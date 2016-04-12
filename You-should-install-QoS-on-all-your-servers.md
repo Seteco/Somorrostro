@@ -2,11 +2,11 @@ Live demo of QoS: **[see QoS in action here](http://netdata.firehol.org/#tc)** !
 
 # You should install QoS on all your servers
 
-Well, I hear a lot of you complaining already! Have I lost my mind?
+I hear a lot of you complaining already!
 
-Of course, `tc` (the command that configures QoS in Linux) is probably **the most undocumented, complicated and unfriendly** command in Linux.
+`tc` (the command that configures QoS in Linux) is probably **the most undocumented, complicated and unfriendly** command in Linux.
 
-Let's see an example: To match a simple port range in `tc`, all the high ports from 1025 to 65535 inclusive, we have to match these:
+Let's see a example: To match a simple port range in `tc`, all the high ports from 1025 to 65535 inclusive, we have to match these:
 
 ```
 1025/0xffff 1026/0xfffe 1028/0xfffc 1032/0xfff8 1040/0xfff0
@@ -14,7 +14,7 @@ Let's see an example: To match a simple port range in `tc`, all the high ports f
 2048/0xf800 4096/0xf000 8192/0xe000 16384/0xc000 32768/0x8000
 ```
 
-I know what you are thinking right now! **You are absolutely right!** 
+I know what you are thinking right now! **And I agree!** 
 
 Don't leave yet, **I have a solution**!
 
@@ -45,17 +45,27 @@ So, why do we need it?
 
 I install QoS the following reasons:
 
-1. Monitoring the bandwidth used by my services. netdata provides wonderful real-time charts, like this one:
+1. **Monitoring the bandwidth used by my services**
+
+  netdata provides wonderful real-time charts, like this one:
 
  ![qos2](https://cloud.githubusercontent.com/assets/2662304/14439411/b7f36254-0033-11e6-93f0-c739bb6a1c3a.gif)
 
-2. Ensure sensitive administrative tasks (like ssh, dns, ntp, etc) will always have a small but guaranteed supply of bandwidth. So, no matter what happens, you will be able to ssh to your server and DNS will work.
+2. **Ensure sensitive administrative tasks will not starve for bandwidth**
 
-3. Ensure other administrative tasks (like backups, file copies, database dumps, etc) will not monopolize all the available bandwidth. So, my nightly backup will not hurt my users, or a developer that is copying files over the net will not get all the available bandwidth.
+  Have you tried to ssh to a server when the network is congested? Well, it does not work well. QoS can guarantee that services like ssh, dns, ntp, etc will always have a small supply of bandwidth. So, no matter what happens, you will be able to ssh to your server and DNS will always work.
 
-4. Ensure each end-user connections will get a fair cut of the available bandwidth. Several queuing disciplines in Linux do this automatically, without any configuration from your side. The result is that new sockets are favored over older ones, so big downloads will be throttled while other users are trying to connect.
+3. **Ensure administrative tasks will not monopolize all the bandwidth**
 
-5. Protect the servers from DDoS attacks. Actually this is my favorites. When your system is under a DDoS attack, it will get a lot more bandwidth compared to the one it can handle and probably your applications will crash. Setting a limit on the inbound traffic using QoS, will protect your server (throttle the requests) and depending on the size of the attack may allow your legitimate users to access the server, while the attack is taking place.
+  Services like backups, file copies, database dumps, etc can easily monopolize all the available bandwidth. It is common for example a nightly backup, or a huge file transfer to negatively influence the end-user experience. QoS can fix that.
+
+4. **Ensure each end-user connections will get a fair cut of the available bandwidth.**
+
+  Several QoS queuing disciplines in Linux do this automatically, without any configuration from you. The result is that new sockets are favored over older ones, so big downloads will be throttled while other users are trying to connect.
+
+5. **Protect the servers from DDoS attacks.**
+
+   Actually this is my favorites. When your system is under a DDoS attack, it will get a lot more bandwidth compared to the one it can handle and probably your applications will crash. Setting a limit on the inbound traffic using QoS, will protect your servers (throttle the requests) and depending on the size of the attack may allow your legitimate users to access the server, while the attack is taking place.
 
   Using QoS together with a [SYNPROXY](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY) will provide a great degree of protection against most DDoS attacks.
 
@@ -63,11 +73,11 @@ On the other hand, QoS is extremely light. You will configure it once, and this 
 
 So, do we have to learn all these hex mess?
 
-## Setup QoS
+## Setup QoS, the right way!
 
 I wrote and use **[FireQOS](https://firehol.org/tutorial/fireqos-new-user/)**, a tool to simplify QoS management in Linux.
 
-This is the file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
+This is the FireQOS configuration file `/etc/firehol/fireqos.conf` we use at the netdata demo site:
 
 ```sh
     # configure the netdata ports

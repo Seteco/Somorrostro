@@ -62,7 +62,7 @@ I install QoS for the following reasons:
 
   Services like backups, file copies, database dumps, etc can easily monopolize all the available bandwidth. It is common for example a nightly backup, or a huge file transfer to negatively influence the end-user experience. QoS can fix that.
 
-4. **Ensure each end-user connections will get a fair cut of the available bandwidth.**
+4. **Ensure each end-user connection will get a fair cut of the available bandwidth.**
 
   Several QoS queuing disciplines in Linux do this automatically, without any configuration from you. The result is that new sockets are favored over older ones, so big downloads will be throttled while other users are trying to connect.
 

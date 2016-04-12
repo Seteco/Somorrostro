@@ -50,7 +50,7 @@ I install QoS for the following reasons:
 
 1. **Monitoring the bandwidth used by services**
 
-  netdata provides wonderful real-time charts, like this one:
+  netdata provides wonderful real-time charts, like this one (wait to see the orange rsync chart):
 
  ![qos3](https://cloud.githubusercontent.com/assets/2662304/14474189/713ede84-0104-11e6-8c9c-8dca5c2abd63.gif)
 

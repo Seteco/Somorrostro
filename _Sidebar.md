@@ -78,6 +78,7 @@
 * March, 2016
 
   **[[Article: Introducing netdata]]**
+  (the design principles of netdata)
 
   **[[Other monitoring tools]]**
 

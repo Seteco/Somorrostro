@@ -74,13 +74,13 @@
 
 ---
 
-**More**
-* [[Article: Introducing netdata]]
-* [[Other monitoring tools]]
+**Blog**
+* March, 2016
 
----
+  **[[Article: Introducing netdata]]**
 
-**News**
+  **[[Other monitoring tools]]**
+
 * April, 2016
 
   **[[Monitoring SYNPROXY]]**

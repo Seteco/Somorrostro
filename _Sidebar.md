@@ -91,3 +91,4 @@
   (Good to do it, anyway)
 
   **[[You should install QoS on all your servers]]**
+  (Linux QoS for humans)

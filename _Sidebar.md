@@ -7,6 +7,9 @@
 * [[Log Files]]
 * [[Tracing Options]]
 
+**Donations**
+ * [[Donations netdata has received]]
+
 ---
 
 **Running Netdata**

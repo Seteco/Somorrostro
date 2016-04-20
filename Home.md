@@ -8,12 +8,6 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ---
 
-> We need to relocate the netdata demo server. **Can you donate a VM ?**
-> 
-> Based on the current use of the netdata demo, **at peak** we need 2 cores, 2GB of RAM and 10Mbps of high speed internet feed. The same VM will also host [iplists.firehol.org](http://iplists.firehol.org). If you are willing to donate such a VM, send me a note to costa@tsaousis.gr.
-
----
-
 **Netdata** is a daemon that collects data in realtime (per second) and presents a web site to view and analyze them.
 The presentation is also real-time and full of interactive charts that precisely render all collected values.
 

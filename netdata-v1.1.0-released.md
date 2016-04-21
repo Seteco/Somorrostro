@@ -1,12 +1,12 @@
-## netdata v1.1.0
+Welcome to netdata!
 
-Live Demo: http://netdata.firehol.org
+Live Demo: **http://netdata.firehol.org**
 
 Full Specifications: https://github.com/firehol/netdata
 
 Wiki: https://github.com/firehol/netdata/wiki
 
-Download release packages: https://github.com/firehol/netdata/releases/tag/v1.1.0
+Download v1.1.0 release packages: https://github.com/firehol/netdata/releases/tag/v1.1.0
 
 ![main2](https://cloud.githubusercontent.com/assets/2662304/14703239/91270316-07b7-11e6-8c95-5614e75a474b.gif)
 

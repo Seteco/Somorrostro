@@ -28,13 +28,7 @@ yum install zlib-devel gcc make git autoconf autogen automake pkgconfig
 pacman -S netdata
 ```
 
-or run the following (and ignore the next section):
-
-```sh
-wget https://aur.archlinux.org/cgit/aur.git/snapshot/netdata.tar.gz
-tar xf netdata.tar.gz && cd netdata/
-makepkg -sri
-```
+The above will install the latest released version of netdata (no need to do anything more).
 
 ##### Synology
 

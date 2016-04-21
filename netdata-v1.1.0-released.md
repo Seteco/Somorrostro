@@ -1,4 +1,4 @@
-Welcome to netdata!
+# Real-time performance monitoring, got better - v1.1.0
 
 Live Demo: **http://netdata.firehol.org**
 

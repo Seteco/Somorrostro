@@ -80,6 +80,20 @@
 ---
 
 **Blog**
+* April, 2016
+
+  **[[netdata v1.1.0 released]]**
+
+  **[[You should install QoS on all your servers]]**
+  (Linux QoS for humans)
+
+  **[[Monitor application bandwidth with Linux QoS]]**
+  (Good to do it, anyway)
+
+  **[[Monitoring SYNPROXY]]**
+  (Linux TCP Anti-DDoS)
+
+
 * March, 2016
 
   **[[Article: Introducing netdata]]**
@@ -87,15 +101,3 @@
 
   **[[Other monitoring tools]]**
 
-* April, 2016
-
-  **[[Monitoring SYNPROXY]]**
-  (Linux TCP Anti-DDoS)
-
-  **[[Monitor application bandwidth with Linux QoS]]**
-  (Good to do it, anyway)
-
-  **[[You should install QoS on all your servers]]**
-  (Linux QoS for humans)
-
-  **[[netdata v1.1.0 released]]**

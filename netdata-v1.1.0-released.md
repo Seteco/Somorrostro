@@ -1,4 +1,4 @@
-# Real-time performance monitoring, got better - v1.1.0
+## Real-time performance monitoring, just got better - v1.1.0
 
 Live Demo: **http://netdata.firehol.org**
 

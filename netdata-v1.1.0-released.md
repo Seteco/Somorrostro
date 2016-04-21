@@ -1,9 +1,14 @@
-netdata 1.1.0 - download release tarfiles from http://firehol.org/download/netdata/releases/v1.1.0
+## netdata v1.1.0
 
 Live Demo: http://netdata.firehol.org
 
-![main2](https://cloud.githubusercontent.com/assets/2662304/14703239/91270316-07b7-11e6-8c95-5614e75a474b.gif)
+Full Specifications: https://github.com/firehol/netdata
 
+Wiki: https://github.com/firehol/netdata/wiki
+
+Download release packages: https://github.com/firehol/netdata/releases/tag/v1.1.0
+
+![main2](https://cloud.githubusercontent.com/assets/2662304/14703239/91270316-07b7-11e6-8c95-5614e75a474b.gif)
 
 Dozens of commits that improve netdata in several ways:
 

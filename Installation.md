@@ -22,10 +22,10 @@ apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
 yum install zlib-devel gcc make git autoconf autogen automake pkgconfig
 ```
 
-##### ArchLinux
+##### Arch Linux
 
 ```sh
-pacman -S --needed base-devel libmnl libnetfilter_acct zlib
+pacman -S netdata
 ```
 
 or run the following (and ignore the next section):

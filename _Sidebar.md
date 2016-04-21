@@ -97,3 +97,5 @@
 
   **[[You should install QoS on all your servers]]**
   (Linux QoS for humans)
+
+  **[[netdata v1.1.0 released]]**

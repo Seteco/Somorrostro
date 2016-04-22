@@ -11,6 +11,8 @@ Location |  netdata demo URL | VM Donated by
 EU (London)|**[netdata.firehol.org](http://netdata.firehol.org)**|Donated by [DigitalOcean.com](https://www.digitalocean.com/) and located at their excellent Cloud Computing services
 US (Atlanta)|**[netdata2.firehol.org](http://netdata2.firehol.org)**|Donated by [CDN77.com](https://www.cdn77.com/) and located at their awesome CDN network
 
+Netdata dashboards are mobile and touch friendly.
+
 ## Installation
 
 Want to set it up on your systems now? Jump to **[[Installation]]**.

@@ -4,7 +4,7 @@
 
 ## Demo Sites
 
-A live demo of netdata is available at:
+Live demo installations of netdata are available at:
 
 Location |  netdata demo URL | VM Donated by
 :-------:|:-----:|:-----------

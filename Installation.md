@@ -16,7 +16,7 @@ This is how to install them on different distributions:
 apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
 ```
 
-##### Centos / Redhat
+##### Centos / Fedora / Redhat
 
 ```sh
 yum install zlib-devel gcc make git autoconf autogen automake pkgconfig

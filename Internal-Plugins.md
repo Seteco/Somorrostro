@@ -14,6 +14,8 @@ Internally the following plugins have been implemented:
  - `/proc/meminfo` (memory information)
  - `/proc/vmstat` (system performance)
  - `/proc/net/rpc/nfsd` (NFS server statistics for both v3 and v4 NFS servers)
+ - `/sys/fs/cgroup` (Control Groups - Linux Containers)
+ - `/proc/self/mountinfo` (mount points)
  - `/proc/interrupts` (total and per core hardware interrupts)
  - `/proc/softirqs` (total and per core software interrupts)
  - `/proc/loadavg` (system load and total processes running)

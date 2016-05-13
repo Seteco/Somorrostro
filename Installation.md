@@ -12,7 +12,7 @@ You also need to have a basic build environment in place. You will need packages
 
 ### 1. Prepare your system
 
-This is how to install them on different distributions:
+This is how to install the required packages on different distributions:
 
 ```sh
 # Debian / Ubuntu

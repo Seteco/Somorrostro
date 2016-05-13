@@ -10,25 +10,23 @@ You also need to have a basic build environment in place. You will need packages
 
 This is how to install them on different distributions:
 
-##### Debian / Ubuntu
-
 ```sh
+# Debian / Ubuntu
 apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
-```
 
-##### Centos / Fedora / Redhat
-
-```sh
+# Centos / Fedora / Redhat
 yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig
+
 ```
 
 ##### Arch Linux
+
+The latest released version of netdata is already available via `pacman`. This will install the latest released version of netdata (no need to do anything more):
 
 ```sh
 pacman -S netdata
 ```
 
-The above will install the latest released version of netdata (no need to do anything more).
 
 ##### Synology
 
@@ -40,19 +38,20 @@ Login into DSM
 
 ssh to diskstation as root
 
-```
+```sh
 /var/packages/debian-chroot/scripts/start-stop-status chroot
 apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
 ```
-continue install from this (Chroot) prompt
+
+continue install from this (chroot) prompt
 
 ---
 
-## additional optional packages you might need
+#### additional optional packages you might need
 
 It would be nice (but not required) if you also install these `curl` (used by shell plugins), `jq` (jq is a JSON parser and query command line tool), `nodejs` (used for `node.js` plugins):
 
-```
+```sh
 # debian / ubuntu
 apt-get install curl jq nodejs
 
@@ -142,21 +141,3 @@ cd /path/to/netdata.git
 ```
 
 The uninstaller will ask you to confirm all deletions.
-
----
-
-## node.js
-
-Although netdata is written in `C` and it supports plugins in all languages, I believe the future of data collectors is node.js (those of you that may complain, don't think "system monitoring" - netdata already does this with `C`. Think API or remote service, monitoring).
-
-Currently node.js is needed for SNMP polling and `named` monitoring.
-
-So, please also install `nodejs` or `node`.
-
-netdata `node.d.plugin` will search for the node.js executable in the system path, using the following names, in this order:
-
-1. nodejs (by running `command -v nodejs`)
-2. node (by running `command -v node`)
-3. js (by running `command -v js`)
-
-Keep in mind that you need **node.js**. There are also other versions of server side javascript, like spidermonkey. Only **node.js** will work with netdata.

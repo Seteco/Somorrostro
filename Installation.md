@@ -53,7 +53,13 @@ continue install from this (chroot) prompt
 
 #### additional optional packages you might need
 
-It would be nice (but not required) if you also install these `curl` (used by shell plugins), `jq` (jq is a JSON parser and query command line tool), `nodejs` (used for `node.js` plugins):
+It would be nice (but not required) if you also install:
+
+- `curl` (used by shell plugins to collect data from applications),
+- `jq` (a JSON parser and query command line tool),
+- `nodejs` (used for `node.js` plugins for monitoring `named` and SNMP devices)
+
+You can install them using this:
 
 ```sh
 # debian / ubuntu

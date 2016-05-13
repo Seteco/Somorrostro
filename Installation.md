@@ -3,7 +3,7 @@
 
 ## Great! You are going to install netdata!
 
-Before you start, make sure you have `zlib` (compression), `uuid` (GUIDs) and `libmnl` (iptables/netfilter) development files installed.
+Before you start, make sure you have `zlib` (compression), `libuuid` (GUIDs) and `libmnl` (iptables/netfilter) development files installed.
 
 You also need to have a basic build environment in place. You will need packages like
 `git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, etc.

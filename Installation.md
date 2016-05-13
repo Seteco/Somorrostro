@@ -8,6 +8,10 @@ Before you start, make sure you have `zlib` and `uuid` development files install
 You also need to have a basic build environment in place. You will need packages like
 `git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, etc.
 
+---
+
+### 1. Prepare your system
+
 This is how to install them on different distributions:
 
 ```sh
@@ -61,7 +65,7 @@ yum install curl jq nodejs
 
 ---
 
-# Install netdata
+# 2. Install netdata
 
 Do this to install and run netdata:
 
@@ -86,7 +90,7 @@ You can edit this file to set options. One common option to tweak is `history`, 
 
 To apply the changes you made, you have to restart netdata.
 
-## Updating netdata
+## Updating netdata after its installation
 
 You can update netdata to the latest version by getting into `netdata.git` you downloaded before and running:
 

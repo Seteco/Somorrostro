@@ -30,23 +30,29 @@ To solve this, netdata provides a **registry**.
 
 ## What is the registry?
 
-A registry tracks 2 entities
+A registry has 3 entities:
 
-1. netdata installations (machine GUID)
+1. **machines**: netdata installations (machine GUID)
 
   For each netdata installation it keeps track of the different URLs it has been accessed.
 
-2. users accessing these netdata installations (person GUID)
+2. **persons**: web browsers accessing these netdata installations (person GUID)
 
-  For each user, it keeps track the netdata installations he/she has accessed and their URLs.
+  For each person, it keeps track the netdata installations it has accessed and their URLs.
+
+3. **URLs** of netdata installations
+
+  For each URL, it keeps nothing. It is just linked to persons and machines.
 
 ## Who talks to the registry?
 
-Your browser only! Your netdata installations do not talk to the registry.
+**Your web browser** only!
+
+Your netdata installations do not talk to the registry.
 
 ## What data the registry maintains?
 
-Its database is **person GUIDs**, **machine GUIDs** and **URLs**. For these, it keeps 2 timestamps (first time seen, last time seen) and a counter (number of times it has been seen).
+Its database is **random person GUIDs**, **random machine GUIDs** and **URLs**. For persons and machines, it keeps links to URLS with 2 timestamps (first time seen, last time seen) and a counter (number of times it has been seen).
 
 ## Which is the default registry?
 

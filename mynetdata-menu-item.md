@@ -64,7 +64,7 @@ For persons and machines, it keeps links to URLs with 2 timestamps (first time s
 
 `registry.my-netdata.io` which is currently served by http://london.my-netdata.io
 
-## Can this registry handle the global load of netdata installations?
+#### Can this registry handle the global load of netdata installations?
 
 Yeap! The registry supports 50.000 - 100.000 requests **per second per core**. It can do it...
 

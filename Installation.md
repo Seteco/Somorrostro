@@ -3,7 +3,7 @@
 
 ## Great! You are going to install netdata!
 
-Before you start, make sure you have `zlib` development files installed.
+Before you start, make sure you have `zlib` and `uuid` development files installed.
 
 You also need to have a basic build environment in place. You will need packages like
 `git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, etc.
@@ -13,13 +13,13 @@ This is how to install them on different distributions:
 ##### Debian / Ubuntu
 
 ```sh
-apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
 ```
 
 ##### Centos / Fedora / Redhat
 
 ```sh
-yum install zlib-devel gcc make git autoconf autogen automake pkgconfig
+yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig
 ```
 
 ##### Arch Linux
@@ -42,7 +42,7 @@ ssh to diskstation as root
 
 ```
 /var/packages/debian-chroot/scripts/start-stop-status chroot
-apt-get install zlib1g-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
 ```
 continue install from this (Chroot) prompt
 

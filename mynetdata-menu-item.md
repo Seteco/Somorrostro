@@ -9,7 +9,7 @@ netdata provides distributed monitoring.
 
 Traditionally, monitoring solutions centralize all the data to provide unified dashboards across all servers. This has a few cons:
 
-1. due to resources required, the number of metrics collected is very low.
+1. due to the resources required, the number of metrics collected is very low.
 2. for the same reason, the data collection frequency is not that frequent, at best it will be once every 10 or 15 seconds, at worst 5 or 10 mins.
 2. the central monitoring solution can only *scale up*, thus becoming "another bottleneck" in the whole ecosystem. It also requires maintenance, administration, etc.
 3. due to all the above, most centralized monitoring solutions are usually good for presenting *statistics of past performance* (i.e. cannot be used for performance troubleshooting).

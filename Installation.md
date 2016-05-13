@@ -19,7 +19,7 @@ This is how to install the required packages on different distributions:
 apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
 
 # Centos / Fedora / Redhat
-yum install zlib-devel uuid-devel libmnl-devel gcc make git autoconf autogen automake pkgconfig
+yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autogen automake pkgconfig
 
 ```
 

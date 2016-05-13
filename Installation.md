@@ -95,11 +95,13 @@ To apply the changes you made, you have to restart netdata.
 You can update netdata to the latest version by getting into `netdata.git` you downloaded before and running:
 
 ```sh
-# update it
+# go to the git downloaded directory
 cd /path/to/git/downloaded/netdata
+
+# download the latest version
 git pull
 
-# rebuild it and install it
+# rebuild it, install it, run it
 ./netdata-installer.sh
 ```
 

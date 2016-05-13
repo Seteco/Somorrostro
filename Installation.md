@@ -13,13 +13,13 @@ This is how to install them on different distributions:
 ##### Debian / Ubuntu
 
 ```sh
-apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config curl jq nodejs
+apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
 ```
 
 ##### Centos / Fedora / Redhat
 
 ```sh
-yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig curl jq nodejs
+yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig
 ```
 
 ##### Arch Linux
@@ -45,6 +45,20 @@ ssh to diskstation as root
 apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
 ```
 continue install from this (Chroot) prompt
+
+---
+
+## additional optional packages you might need
+
+It would be nice (but not required) if you also install these `curl` (used by shell plugins), `jq` (jq is a JSON parser and query command line tool), `nodejs` (used for `node.js` plugins):
+
+```
+# debian / ubuntu
+apt-get install curl jq nodejs
+
+# centos / fedora / redhat
+yum install curl jq nodejs
+```
 
 ---
 

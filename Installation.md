@@ -13,13 +13,13 @@ This is how to install them on different distributions:
 ##### Debian / Ubuntu
 
 ```sh
-apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config curl jq nodejs
 ```
 
 ##### Centos / Fedora / Redhat
 
 ```sh
-yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig
+yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig curl jq nodejs
 ```
 
 ##### Arch Linux

@@ -58,4 +58,10 @@ Its database is **random person GUIDs**, **random machine GUIDs** and **URLs**. 
 
 `registry.my-netdata.io` which is currently served by http://london.my-netdata.io
 
+## Can this registry handle the global load of netdata installations?
+
+Yeap! The registry supports 50.000 - 100.000 requests **per second per core**. It can do it...
+
 ## Every netdata can be a registry
+
+Yes, you read correct, **every netdata can be a registry**. Just pick one and configure it.

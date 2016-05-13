@@ -6,7 +6,7 @@
 Before you start, make sure you have `zlib` (compression), `libuuid` (GUIDs) and `libmnl` (iptables/netfilter) development files installed.
 
 You also need to have a basic build environment in place. You will need packages like
-`git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, etc.
+`git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, `libcap2-bin`, etc.
 
 ---
 
@@ -16,10 +16,10 @@ This is how to install the required packages on different distributions:
 
 ```sh
 # Debian / Ubuntu
-apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config libcap2-bin
 
 # Centos / Fedora / Redhat
-yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autogen automake pkgconfig
+yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autogen automake pkgconfig libcap2-bin
 
 ```
 
@@ -44,7 +44,7 @@ ssh to diskstation as root
 
 ```sh
 /var/packages/debian-chroot/scripts/start-stop-status chroot
-apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config libcap2-bin
 ```
 
 continue install from this (chroot) prompt

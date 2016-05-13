@@ -75,7 +75,7 @@ Do this to install and run netdata:
 git clone https://github.com/firehol/netdata.git --depth=1
 cd netdata
 
-# build it
+# build it (will also run it)
 ./netdata-installer.sh
 
 ```

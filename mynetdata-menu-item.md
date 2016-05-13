@@ -46,7 +46,7 @@ A registry has 3 entities:
 
 ## Who talks to the registry?
 
-**Your web browser** only!
+Your web browser **only**!
 
 Your netdata installations do not talk to the registry.
 

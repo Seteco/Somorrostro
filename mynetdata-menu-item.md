@@ -40,7 +40,7 @@ A registry has 3 entities:
 
   For each person, it keeps track the netdata installations it has accessed and their URLs.
 
-3. **URLs** of netdata installations
+3. **URLs** of netdata installations (as seen by the web browsers)
 
   For each URL, it keeps nothing. Each URL is just linked to persons and machines. The only way to find a URL is to know a **machine_guid** or a **person_guid** it is linked.
 

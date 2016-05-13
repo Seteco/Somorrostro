@@ -3,7 +3,7 @@
 
 ## Great! You are going to install netdata!
 
-Before you start, make sure you have `zlib` and `uuid` development files installed.
+Before you start, make sure you have `zlib` (compression), `uuid` (GUIDs) and `libmnl` (iptables/netfilter) development files installed.
 
 You also need to have a basic build environment in place. You will need packages like
 `git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, etc.
@@ -16,10 +16,10 @@ This is how to install the required packages on different distributions:
 
 ```sh
 # Debian / Ubuntu
-apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
 
 # Centos / Fedora / Redhat
-yum install zlib-devel uuid-devel gcc make git autoconf autogen automake pkgconfig
+yum install zlib-devel uuid-devel libmnl-devel gcc make git autoconf autogen automake pkgconfig
 
 ```
 
@@ -44,7 +44,7 @@ ssh to diskstation as root
 
 ```sh
 /var/packages/debian-chroot/scripts/start-stop-status chroot
-apt-get install zlib1g-dev uuid-dev gcc make git autoconf autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
 ```
 
 continue install from this (chroot) prompt

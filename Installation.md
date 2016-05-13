@@ -96,7 +96,7 @@ You can update netdata to the latest version by getting into `netdata.git` you d
 
 ```sh
 # update it
-cd /path/to/netdata.git
+cd /path/to/git/downloaded/netdata
 git pull
 
 # rebuild it and install it

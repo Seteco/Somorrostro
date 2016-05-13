@@ -66,7 +66,7 @@ For persons and machines, it keeps links to URLs with 2 timestamps (first time s
 
 #### Can this registry handle the global load of netdata installations?
 
-Yeap! The registry can get 50.000 - 100.000 requests **per second per core**.
+Yeap! The registry can get 50.000 - 100.000 requests **per second per core** (depending on the type of CPU).
 
 It can do it...
 

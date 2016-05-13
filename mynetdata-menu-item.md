@@ -1,6 +1,6 @@
 # What is the `my-netdata` menu item?
 
-This drop-down menu lists the netdata servers you have visited (except the one your are visiting now).
+It lists the netdata servers you have visited (except the one your are visiting now).
 
 
 ## Why?

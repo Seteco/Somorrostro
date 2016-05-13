@@ -22,7 +22,7 @@ Netdata has a different approach:
 4. netdata servers do not talk to each other
 5. your browser connects all the netdata servers
 
-Using netdata, your monitoring infrastructure is embedded on each server, without the need of additional resources. netdata is very resource efficient and utilizes server resources that already exist and are spare (on each server). This allows **scaling out** the monitoring infrastructure. 
+Using netdata, your monitoring infrastructure is embedded on each server, limiting significantly the need of additional resources. netdata is very resource efficient and utilizes server resources that already exist and are spare (on each server). This allows **scaling out** the monitoring infrastructure. 
 
 However, the netdata approach introduces a few new issues that need to be addressed, one being **the list of netdata we have installed**, i.e. the URLs our netdata servers are listening.
 

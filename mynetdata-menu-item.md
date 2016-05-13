@@ -52,7 +52,13 @@ Your netdata servers do not talk to the registry.
 
 ## What data the registry maintains?
 
-Its database is **random person GUIDs**, **random machine GUIDs** and **URLs**. For persons and machines, it keeps links to URLs with 2 timestamps (first time seen, last time seen) and a counter (number of times it has been seen).
+Its database contains:
+
+- **random person GUIDs**,
+- **random machine GUIDs**
+- **URLs**.
+
+For persons and machines, it keeps links to URLs with 2 timestamps (first time seen, last time seen) and a counter (number of times it has been seen).
 
 ## Which is the default registry?
 

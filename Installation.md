@@ -12,6 +12,8 @@ You also need to have a basic build environment in place. You will need packages
 
 ### 1. Prepare your system
 
+> The latest version of netdata requires `libuuid`. If you have installed it in the past and now it fails, please check this section again.
+
 This is how to install the required packages on different distributions:
 
 ```sh

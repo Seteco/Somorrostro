@@ -17,6 +17,8 @@
 * [[Memory Requirements]]
     - [[Memory Deduplication - Kernel Same Page Merging - KSM]]
 
+* Netdata Registry [[mynetdata Menu Item]]
+
 ---
 
 **Data Collection**

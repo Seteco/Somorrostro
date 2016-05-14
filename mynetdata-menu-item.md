@@ -74,7 +74,7 @@ For *persons* and *machines*, the registry keeps links to *URLs*, each link with
 
 ## Which is the default registry?
 
-`registry.my-netdata.io` which is currently served by `london.my-netdata.io`. This registry listens to both HTTP and HTTPS requests.
+`https://registry.my-netdata.io`, which is currently served by `https://london.my-netdata.io`. This registry listens to both HTTP and HTTPS requests but the default is HTTPS.
 
 #### Can this registry handle the global load of netdata installations?
 
@@ -85,3 +85,23 @@ We believe, it can do it...
 ## Every netdata can be a registry
 
 Yes, you read correct, **every netdata can be a registry**. Just pick one and configure it.
+
+To turn any netdata into a registry just edit `/etc/netdata/netdata.conf` and set:
+
+```
+[registry]
+    enabled = yes
+    registry to announce = http://your.registry:19999
+```
+
+Restart your netdata and you are done.
+
+Then, you need to tell all your other netdata servers to advertise your registry, instead of the default. To do this, on each of your netdata servers, edit `/etc/netdata/netdata.conf` and set:
+
+```
+[registry]
+    enabled = no
+    registry to announce = http://your.registry:19999
+```
+
+This is it. You have your registry now.

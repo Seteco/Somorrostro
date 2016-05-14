@@ -8,9 +8,9 @@ Live demo installations of netdata are available at:
 
 Location |  netdata demo URL | VM Donated by
 :-------:|:-----:|:-----------
-London|**[london.netdata.rocks](http://london.netdata.rocks)**|Donated by [DigitalOcean.com](https://www.digitalocean.com/) and located at their excellent Cloud Computing services
-Atlanta|**[atlanta.netdata.rocks](http://atlanta.netdata.rocks)**|Donated by [CDN77.com](https://www.cdn77.com/) and located at their awesome CDN network
-Athens|**[athens.netdata.rocks](http://athens.netdata.rocks)**|
+London (EU)|**[london.netdata.rocks](http://london.netdata.rocks)**|Donated by [DigitalOcean.com](https://www.digitalocean.com/) and located at their excellent Cloud Computing services
+Atlanta (US)|**[atlanta.netdata.rocks](http://atlanta.netdata.rocks)**|Donated by [CDN77.com](https://www.cdn77.com/) and located at their awesome CDN network
+Athens (EU)|**[athens.netdata.rocks](http://athens.netdata.rocks)**|
 
 Netdata dashboards are mobile and touch friendly.
 

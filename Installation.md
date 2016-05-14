@@ -113,14 +113,14 @@ killall netdata
 # copy netdata.service to systemd
 cp system/netdata.service /etc/systemd/system/
 
-# let systemd know
+# let systemd know there is a new service
 systemctl daemon-reload
 
-# enable it
+# enable netdata at boot
 systemctl enable netdata
 
-# ask systemd to start netdata
-systemctl start netdata
+# start netdata
+service netdata start
 ```
 
 #### init.d

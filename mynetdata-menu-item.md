@@ -52,15 +52,15 @@ Your web browser **only**!
 
 Your netdata servers do not talk to the registry. This is a UML diagram of its operation:
 
-![image](https://cloud.githubusercontent.com/assets/2662304/15268627/13c5e34e-19ee-11e6-99aa-c239700219f6.png)
+![image](https://cloud.githubusercontent.com/assets/2662304/15268669/2990d818-19ef-11e6-831f-4328c8484424.png)
 
 ```sequence
-web browser->netdata: give me 'dashboard.js'
-netdata-->web browser: here it is
-web browser->netdata: give me registry info
-netdata-->web browser:  here it is
-web browser->registry: Hey registry, I am accessing this netdata
-registry-->web browser: nice!, here are other netdata servers you have accessed in the past
+web browser->netdata1: give me the dashboard
+netdata1-->web browser: here it is
+web browser->netdata1: give me registry info
+netdata1-->web browser:  here it is, talk to registry1
+web browser->registry1: Hey registry1, I am accessing netdata1
+registry1-->web browser: nice!, here are other netdata servers you have accessed in the past
 ```
 
 

@@ -107,3 +107,12 @@ Then, you need to tell all your other netdata servers to advertise your registry
 Note that we have not enabled the registry on the other servers. Only one netdata (the registry) needs `[registry].enabled = yes`.
 
 This is it. You have your registry now.
+
+You may also want to give your server different names under the **my-netdata** menu (i.e. to have them sorted / grouped). You can change its registry name, by setting on each netdata server:
+
+```
+[registry]
+    hostname = Group1 - Master DB
+```
+
+So this server will appear in **my-netdata** as `Group1 - Master DB`. The max name length is 50 characters.

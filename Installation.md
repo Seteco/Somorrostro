@@ -98,6 +98,56 @@ You can edit this file to set options. One common option to tweak is `history`, 
 
 To apply the changes you made, you have to restart netdata.
 
+## starting netdata at boot
+
+In the `system` directory you can find scripts and configurations for the various distros.
+
+#### systemd
+
+Run these to have netdata managed by systemd:
+
+```sh
+# stop netdata
+killall netdata
+
+# copy netdata.service to systemd
+cp system/netdata.service /etc/systemd/system/
+
+# let systemd know
+systemctl daemon-reload
+
+# enable it
+systemctl enable netdata
+
+# ask systemd to start netdata
+systemctl start netdata
+```
+
+#### init.d
+
+In the system directory you can find `netdata-init-d`. Copy it to the proper place according to your distribution documentation.
+
+#### openrc (gentoo)
+
+In the `system` directory you can find `netdata-openrc`. Copy it to the proper place according to your distribution documentation.
+
+#### centos
+
+Check PR https://github.com/firehol/netdata/pull/403
+
+#### other systems
+
+You can start netdata by running it from `/etc/rc.local` or equivalent.
+
+## log-rotation
+
+In the `system` directory you can find `netdata.logrotate`. Run this to activate it:
+
+```sh
+# copy it
+cp system/netdata.logrotate /etc/logrotate.d/netdata
+```
+
 ## Updating netdata after its installation
 
 You can update netdata to the latest version by getting into `netdata.git` you downloaded before and running:

@@ -112,7 +112,7 @@ You may also want to give your server different names under the **my-netdata** m
 
 ```
 [registry]
-    hostname = Group1 - Master DB
+    registry hostname = Group1 - Master DB
 ```
 
 So this server will appear in **my-netdata** as `Group1 - Master DB`. The max name length is 50 characters.

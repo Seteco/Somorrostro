@@ -94,7 +94,7 @@ To turn any netdata into a registry just edit `/etc/netdata/netdata.conf` and se
     registry to announce = http://your.registry:19999
 ```
 
-Restart your netdata and you are done.
+Restart your netdata to activate it.
 
 Then, you need to tell all your other netdata servers to advertise your registry, instead of the default. To do this, on each of your netdata servers, edit `/etc/netdata/netdata.conf` and set:
 
@@ -103,5 +103,7 @@ Then, you need to tell all your other netdata servers to advertise your registry
     enabled = no
     registry to announce = http://your.registry:19999
 ```
+
+Note that we have not enabled the registry on the other servers. Only one netdata (the registry) needs `[registry].enabled = yes`.
 
 This is it. You have your registry now.

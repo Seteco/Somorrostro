@@ -76,7 +76,7 @@ For persons and machines, it keeps links to URLs with 2 timestamps (first time s
 
 ## Which is the default registry?
 
-`registry.my-netdata.io` which is currently served by http://london.my-netdata.io
+`registry.my-netdata.io` which is currently served by `london.my-netdata.io`. This registry listens to both HTTP and HTTPS.
 
 #### Can this registry handle the global load of netdata installations?
 

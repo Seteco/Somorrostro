@@ -123,5 +123,12 @@ So this server will appear in **my-netdata** as `Group1 - Master DB`. The max na
 
 There can be up to 2 files:
 
-- `registry-log.db`, the transaction log - all incoming requests that affect the registry are saved in this file in real-time.
-- `registry.db`, the database - every `[registry].registry save db every new entries` entries in `registry-log.db`, netdata will save its database to `registry.db` and empty `registry-log.db`.
+- `registry-log.db`, the transaction log
+
+    all incoming requests that affect the registry are saved in this file in real-time.
+
+- `registry.db`, the database
+
+    every `[registry].registry save db every new entries` entries in `registry-log.db`, netdata will save its database to `registry.db` and empty `registry-log.db`.
+
+Both files are machine readable text files.

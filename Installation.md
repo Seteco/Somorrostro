@@ -141,12 +141,7 @@ You can start netdata by running it from `/etc/rc.local` or equivalent.
 
 ## log-rotation
 
-In the `system` directory you can find `netdata.logrotate`. Run this to activate it:
-
-```sh
-# copy it
-cp system/netdata.logrotate /etc/logrotate.d/netdata
-```
+The installer, when run as `root`, will install `/etc/logrotate.d/netdata`.
 
 ## Updating netdata after its installation
 

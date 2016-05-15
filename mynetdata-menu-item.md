@@ -7,7 +7,7 @@ It lists the netdata servers you have visited.
 
 netdata provides distributed monitoring.
 
-Traditionally, monitoring solutions centralize all the data to provide unified dashboards across all servers. This has a few cons:
+Traditional monitoring solutions centralize all the data to provide unified dashboards across all servers. This has a few cons:
 
 1. due to the resources required, the number of metrics collected is very low.
 2. for the same reason, the data collection frequency is not that frequent, at best it will be once every 10 or 15 seconds, at worst every 5 or 10 mins.

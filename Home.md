@@ -6,9 +6,10 @@
 >
 > [netdata v1.2.0 released!](https://github.com/firehol/netdata/releases)
 >
-> 1. 30% faster!
-> 2. **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)**, the first step towards scaling out performance monitoring!
-> 3. real-time Linux Containers monitoring!
+> - 30% faster!
+> - **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)**, the first step towards scaling out performance monitoring!
+> - real-time Linux Containers monitoring!
+> - dozens of additional new features, optimizations, bug-fixes
 
 ## Demo Sites
 

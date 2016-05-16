@@ -2,9 +2,17 @@
 
 # Welcome to netdata!
 
+> May 16th, 2016
+>
+> [netdata v1.2.0 released!](https://github.com/firehol/netdata/releases)
+>
+> 1. 30% faster than v1.1.0
+> 2. **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)**, the first step towards scaling out performance monitoring
+> 3. real-time Linux Containers monitoring!
+
 ## Demo Sites
 
-Live demo installations of netdata are available at:
+Live demo installations of netdata are available at **[my-netdata.io](http://my-netdata.io)**:
 
 Location |  netdata demo URL | VM Donated by
 :-------:|:-----:|:-----------

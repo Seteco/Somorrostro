@@ -1,4 +1,4 @@
-# What is the `my-netdata` menu item?
+# What is the `my-netdata` menu?
 
 It lists the netdata servers you have visited.
 

@@ -7,8 +7,12 @@
 * [[Log Files]]
 * [[Tracing Options]]
 
+---
+
 * [[netdata for IoT]]
   (configure netdata to lower its resources)
+
+---
 
 **Donations**
  * [[Donations netdata has received]]

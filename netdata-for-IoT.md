@@ -48,24 +48,24 @@ For most IoT devices, you can disable all plugins except `proc`. For `proc` ther
 
 ```
 [plugin:proc]
-	# /proc/net/dev = yes
-	# /proc/diskstats = yes
-	# /proc/net/snmp = yes
-	# /proc/net/snmp6 = yes
-	# /proc/net/netstat = yes
-	# /proc/net/stat/conntrack = yes
-	# /proc/net/ip_vs/stats = yes
-	# /proc/net/stat/synproxy = yes
-	# /proc/stat = yes
-	# /proc/meminfo = yes
-	# /proc/vmstat = yes
-	# /proc/net/rpc/nfsd = yes
-	# /proc/sys/kernel/random/entropy_avail = yes
-	# /proc/interrupts = yes
-	# /proc/softirqs = yes
-	# /proc/loadavg = yes
-	# /sys/kernel/mm/ksm = yes
-	# netdata server resources = yes
+	# /proc/net/dev = yes                       # network interfaces
+	# /proc/diskstats = yes                     # disks
+	# /proc/net/snmp = yes                      # generic IPv4
+	# /proc/net/snmp6 = yes                     # generic IPv6
+	# /proc/net/netstat = yes                   # TCP and UDP
+	# /proc/net/stat/conntrack = yes            # firewall
+	# /proc/net/ip_vs/stats = yes               # IP load balancer
+	# /proc/net/stat/synproxy = yes             # Anti-DDoS
+	# /proc/stat = yes                          # CPU, context switches
+	# /proc/meminfo = yes                       # Memory
+	# /proc/vmstat = yes                        # Memory operations
+	# /proc/net/rpc/nfsd = yes                  # NFS Server
+	# /proc/sys/kernel/random/entropy_avail = yes # Cryptography
+	# /proc/interrupts = yes                    # Interrupts
+	# /proc/softirqs = yes                      # SoftIRQs
+	# /proc/loadavg = yes                       # Load Average
+	# /sys/kernel/mm/ksm = yes                  # Memory deduper
+	# netdata server resources = yes            # netdata charts
 ```
 
 In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another. Still each one needs some RAM.

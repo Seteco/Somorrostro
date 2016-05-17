@@ -29,14 +29,16 @@ Edit `/etc/netdata/netdata.conf`, find the `[plugins]` section:
 
 In detail:
 
-- `proc` this is the internal plugin used to monitor the system. Normally, you don't want to disable this. You can disable individual functions of it below.
-- `tc` is used for monitoring network QoS (tc classes)
-- `idlejitter` is an internal filter (written in C) that attempts show if the systems starves for CPU. Disabling it will eliminate a thread.
-- `cgroups` is used for monitoring linux containers. Most probably you are not going to need it. This will also eliminate another thread.
-- `checks` is a debugging plugin, which is disabled by default.
-- `apps` is a plugin that monitors system processes. It is very complex and heavy (heavier than the netdata daemon), so if you don't need to monitor the processes running, you can disable it.
-- `charts.d` is used for running BASH plugins (squid, nginx, mysql, etc). This is again a heavy plugin.
-- `node.d` is a node.js plugin, currently used for SNMP data collection and monitoring named (the name server).
+plugin|description
+:---:|:---------
+`proc`|the internal plugin used to monitor the system. Normally, you don't want to disable this. You can disable individual functions of it at the next section.
+`tc`|monitoring network interfaces QoS (tc classes)
+`idlejitter`|internal plugin (written in C) that attempts show if the systems starved for CPU. Disabling it will eliminate a thread.
+`cgroups`|monitoring linux containers. Most probably you are not going to need it. This will also eliminate another thread.
+`checks`|a debugging plugin, which is disabled by default.
+`apps`|a plugin that monitors system processes. It is very complex and heavy (heavier than the netdata daemon), so if you don't need to monitor the process tree, you can disable it.
+`charts.d`|BASH plugins (squid, nginx, mysql, etc). This is again a heavy plugin.
+`node.d`|node.js plugin, currently used for SNMP data collection and monitoring named (the name server).
 
 For most IoT devices, you can disable all plugins except `proc`. For `proc` there is another section that controls which functions of it you need. Check the next section.
 

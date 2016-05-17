@@ -109,6 +109,11 @@ You may have to increase this to 5 or 10 if the CPU of the device is weak.
 
 Keep in mind this will also force dashboard chart refreshes to happen at the same rate. So increasing this number actually lowers data collection frequency but also lowers dashboard chart refreshes frequency.
 
+This is a dashboard on a device with `[global].update every = 5`:
+
+![pi1](https://cloud.githubusercontent.com/assets/2662304/15338489/ca84baaa-1c88-11e6-9ab2-118208e11ce1.gif)
+
+
 ---
 
 ## 6. Lower memory requirements

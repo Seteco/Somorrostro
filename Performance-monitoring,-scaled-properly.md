@@ -14,7 +14,7 @@ Traditionally, monitoring solutions centralize all metric data to provide unifie
 
 Wait a moment! You cannot take out the "central place" of a monitoring solution!
 
-Yes, I can! Well... most of it, but before explaining how, let's see what happens today:
+Yes, I can! well... most of it, but before explaining how, let's see what happens today:
 
 Monitoring solutions are a key component for any online service. These solutions usually consume considerable amount of resources. This is true for both "scale-up" and "scale-out" solutions. These resources require maintenance and administration too. To balance the resources required, these monitoring solutions follow a few simple rules:
 
@@ -26,13 +26,13 @@ Due to all the above, most centralized monitoring solutions are usually good for
 
 Well... there is something wrong in this approach! Can you see it?
 
-Let's check the netdata approach:
+Let's see the netdata approach:
 
-1. Data collection happens **per second**.
+1. Data collection happens **per second**. This allows true real-time performance monitoring.
 
-2. **Thousands of metrics** per server and application are collected, **every single second**.
+2. **Thousands of metrics** per server and application are collected, **every single second**. The number of metrics collected is not a problem.
  
-3. Data do not leave the server they are collected.
+3. Data do not leave the server they are collected. Data are not centralized, so the need for a huge central place that will process and store gazillions of data is not needed.
 
    > Ok, I hear a few of you complaining already - you will find out... patience...
 
@@ -42,10 +42,24 @@ Let's check the netdata approach:
 
 6. netdata is very efficient: just 2% of a single core is required and some RAM, and you can actually control how much of both you want to allocate to it.
 
-7. netdata dashboards can be multi-server (check: [http://my-netdata.io](http://my-netdata.io)) - your browser connects to each the netdata server directly.
+7. netdata dashboards can be multi-server (check: [http://my-netdata.io](http://my-netdata.io)) - your browser connects to each netdata server directly.
 
 So, using netdata, your monitoring infrastructure is embedded on each server, limiting significantly the need of additional resources. netdata is very resource efficient and utilizes server resources that already exist and are spare (on each server).
 
 Of course, there are a few issues that need to be addressed with this approach:
 
-1. The database 
+1. We need an index of all netdata installations we have
+2. We need a place to handle notifications and alarms
+3. We need a place to save statistics of past performance
+
+We have already working on them:
+
+## registry
+
+Netdata v1.2.0 includes a **registry**. The registry solves the problem of maintaining a list of all the netdata installations we have. It does this transparently, without any configuration. It tracks the netdata servers your web browser has visited and bookmarks them at the `my-netdata` menu.
+
+Every netdata can be a registry. You can use the global one we provided for free, or pick one of your netdata servers and turn it to a registry for your network.
+
+The netdata registry is very efficient: 50.000 to 100.000 registry queries per second per core, depending on the speed of your processor (50.000 is on a celeron J1900). So, a single netdata should be able to handle the registry load of the whole world!
+
+

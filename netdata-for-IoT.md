@@ -58,7 +58,9 @@ For most IoT devices, you can disable all plugins except `proc`. For `proc` ther
 	# netdata server resources = yes
 ```
 
-In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another.
+In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another. Still each one needs some RAM.
+
+---
 
 ## 2. Disable logs
 
@@ -71,6 +73,8 @@ Normally, you will not need them. To disable them, set:
 	access log = none
 ```
 
+---
+
 ## 3. Set memory mode to RAM
 
 Setting the memory mode to `ram` will disable loading and saving the round robin database. This will not affect anything while running netdata, but it might be required if you have very limited storage available.
@@ -80,6 +84,7 @@ Setting the memory mode to `ram` will disable loading and saving the round robin
 	memory mode = ram
 ```
 
+---
 
 ## 4. CPU utilization
 
@@ -94,6 +99,10 @@ To set the update frequency, edit `/etc/netdata/netdata.conf` and set:
 
 You may have to increase this to 5 or 10 if the CPU of the device is weak.
 
+Keep in mind this will also force dashboard chart refreshes to happen at the same rate. So increasing this number actually lowers data collection frequency but also lowers dashboard chart refreshes frequency.
+
+---
+
 ## 5. Lower memory requirements
 
 You can set the default size of the round robin database for all charts, using:
@@ -103,5 +112,15 @@ You can set the default size of the round robin database for all charts, using:
       history = 600
 ```
 
-The units for history is `[global].update every` seconds. So if `[global].update every = 6` and `[global].history = 600`, you will have an hour of data.
+The units for history is `[global].update every` seconds. So if `[global].update every = 6` and `[global].history = 600`, you will have an hour of data ( 6 x 600 = 3.600 ).
 
+---
+
+## 6. Disable gzip compression of responses
+
+Disabling gzip compression will not make a significant difference in performance, but it will save some CPU cycles while charts are refreshed. You can disable it, like this:
+
+```
+[global]
+	enable web responses gzip compression = no
+```

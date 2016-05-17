@@ -7,6 +7,9 @@
 * [[Log Files]]
 * [[Tracing Options]]
 
+* [[netdata for IoT]]
+  (configure netdata to lower its resources)
+
 **Donations**
  * [[Donations netdata has received]]
 
@@ -16,9 +19,6 @@
 * [[Performance]]
 * [[Memory Requirements]]
     - [[Memory Deduplication - Kernel Same Page Merging - KSM]]
-
-* [[netdata for IoT]]
-  (how to lower netdata resources)
 
 ---
 

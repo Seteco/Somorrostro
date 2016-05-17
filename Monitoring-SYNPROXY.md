@@ -38,7 +38,7 @@ See Linux Anti-DDoS in action at: **[netdata demo site (with SYNPROXY enabled)](
 
 Since I posted this, a few folks tried to run DDoS against http://netdata.firehol.org.
 
-Well, guys **this site is not a test bed for DDoS**. Don't do this. We pay for the bandwidth and you are just wasting it!
+Well, guys **this site is not a test bed for DDoS**. Don't do this. You are just wasting bandwidth!
 
 Also, please try to understand what you are doing. SYNPROXY is about **spoofed packets**. Making a large set of POSTs or instructing exploited wordpress installations to attack the demo site, **is not a DDoS that SYNPROXY can detect**.
 

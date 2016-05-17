@@ -4,7 +4,7 @@ Netdata can serve as both a data collection agent, but also as a standalone dash
 
 Netdata have been significantly optimized to lower the CPU and RAM resources it consumes. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.
 
-Here are a few tricks to control the resources consumed by netdata programs:
+Here are a few tricks to control the resources consumed by netdata:
 
 ## 1. Disable External plugins
 

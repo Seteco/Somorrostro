@@ -17,6 +17,9 @@
 * [[Memory Requirements]]
     - [[Memory Deduplication - Kernel Same Page Merging - KSM]]
 
+* [[netdata for IoT]]
+  How to lower netdata resources
+
 ---
 
 **Netdata Registry**
@@ -107,4 +110,3 @@
 ---
 
   **[[Other monitoring tools]]**
-

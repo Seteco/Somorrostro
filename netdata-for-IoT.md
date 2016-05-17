@@ -1,4 +1,4 @@
-Netdata can be a very efficient real-time monitoring solution for IoT devices. It can serve as both a data collection agent, but also as a standalone dashboard you can use by directly accessing the device.
+Netdata can be a very efficient real-time monitoring solution for IoT devices. It can serve as both a data collection agent, but also as a standalone dashboard you can use by directly accessing the dashboard on the device.
 
 The latest versions of netdata have been significantly optimized to lower the CPU resources required. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.
 

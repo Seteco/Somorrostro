@@ -2,7 +2,7 @@ Netdata is a very efficient server performance monitoring solution, but it can a
 
 Netdata can serve as both a data collection agent (where you can pull data using its API), but also as a standalone dashboard you can use by directly connecting to the device.
 
-Netdata have been significantly optimized to lower the CPU and RAM resources it consumes. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.
+Netdata has been significantly optimized to lower the CPU and RAM resources it consumes. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.
 
 Here are a few tricks to control the resources consumed by netdata:
 

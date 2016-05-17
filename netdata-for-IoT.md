@@ -38,7 +38,11 @@ In detail:
 - `charts.d` is used for running BASH plugins (squid, nginx, mysql, etc). This is again a heavy plugin.
 - `node.d` is a node.js plugin, currently used for SNMP data collection and monitoring named (the name server).
 
-For most IoT devices, you can disable all plugins except `proc`. For `proc` there is another section that controls which functions of it you need:
+For most IoT devices, you can disable all plugins except `proc`. For `proc` there is another section that controls which functions of it you need. Check the next section.
+
+---
+
+## 2. Disable internal plugins
 
 ```
 [plugin:proc]
@@ -66,7 +70,7 @@ In this section you can select which modules of the `proc` plugin you need. All 
 
 ---
 
-## 2. Disable logs
+## 3. Disable logs
 
 Normally, you will not need them. To disable them, set:
 
@@ -79,7 +83,7 @@ Normally, you will not need them. To disable them, set:
 
 ---
 
-## 3. Set memory mode to RAM
+## 4. Set memory mode to RAM
 
 Setting the memory mode to `ram` will disable loading and saving the round robin database. This will not affect anything while running netdata, but it might be required if you have very limited storage available.
 
@@ -90,7 +94,7 @@ Setting the memory mode to `ram` will disable loading and saving the round robin
 
 ---
 
-## 4. CPU utilization
+## 5. CPU utilization
 
 If after disabling the plugins you don't need, netdata still uses a lot of CPU without any clients accessing the dashboard, try lowering its data collection frequency. Going from "once per second" to "once every two seconds" will not have a significant difference, but it will cut the CPU resources required in half.
 
@@ -107,7 +111,7 @@ Keep in mind this will also force dashboard chart refreshes to happen at the sam
 
 ---
 
-## 5. Lower memory requirements
+## 6. Lower memory requirements
 
 You can set the default size of the round robin database for all charts, using:
 
@@ -120,11 +124,20 @@ The units for history is `[global].update every` seconds. So if `[global].update
 
 ---
 
-## 6. Disable gzip compression of responses
+## 7. Disable gzip compression of responses
 
 Disabling gzip compression will not make a significant difference in performance, but it will save some CPU cycles while charts are refreshed. You can disable it, like this:
 
 ```
 [global]
 	enable web responses gzip compression = no
+```
+
+---
+
+Finally, if no web server is installed on your device, you can use port tcp/80 for netdata:
+
+```
+[global]
+	port = 80
 ```

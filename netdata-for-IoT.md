@@ -1,5 +1,7 @@
 Netdata is a very efficient server performance monitoring solution, but it can also be a very efficient real-time monitoring solution for IoT devices (routers, media players, wifi access points, controller and sensors of all kinds).
 
+![sensors](https://cloud.githubusercontent.com/assets/2662304/15339745/8be84540-1c8e-11e6-9e9a-106dea7539b6.gif)
+
 Netdata can serve as both a data collection agent (where you pull data using its API), but its charts can also be embedded in your web pages / consoles, or it can be used directly by connecting to the device to view its dashboard.
 
 Netdata has been significantly optimized to lower the CPU and RAM resources it consumes. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.

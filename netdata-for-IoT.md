@@ -1,35 +1,39 @@
-Netdata can be a very efficient real-time monitoring solution for IoT devices.
+Netdata can be a very efficient real-time monitoring solution for IoT devices. It can serve as both a data collection agent, but also as a standalone dashboard you can use by directly accessing the device.
 
-Here are a few tricks to get the most of it:
+The latest versions of netdata have been significantly optimized to lower the CPU resources required. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.
+
+Here are a few tricks to control the resources consumed by netdata programs:
 
 ## 1. Disable External plugins
 
-External plugins can consume more system resources than the netdata server. Try disabling them.
+External plugins can consume more system resources than the netdata server. Disable the ones you don't need.
 
-Edit `/etc/netdata/netdata.conf`, find the `[plugins]` section and disable all you don't need:
+Edit `/etc/netdata/netdata.conf`, find the `[plugins]` section:
 
 ```
 [plugins]
-	# tc = yes
-	# idlejitter = yes
-	# proc = yes
-	# cgroups = yes
-	# checks = no
-	# plugins directory = /usr/libexec/netdata/plugins.d
-	# enable running new plugins = yes
-	# check for new plugins every = 60
-	# apps = yes
-	# charts.d = yes
-	# node.d = yes
+	proc = yes
+
+	tc = no
+	idlejitter = no
+	cgroups = no
+	checks = no
+	apps = no
+	charts.d = no
+	node.d = no
+
+	plugins directory = /usr/libexec/netdata/plugins.d
+	enable running new plugins = no
+	check for new plugins every = 60
 ```
 
 In detail:
 
+- `proc` this is the internal plugin used to monitor the system. Normally, you don't want to disable this. You can disable individual functions of it below.
 - `tc` is used for monitoring network QoS (tc classes)
 - `idlejitter` is an internal filter (written in C) that attempts show if the systems starves for CPU. Disabling it will eliminate a thread.
 - `cgroups` is used for monitoring linux containers. Most probably you are not going to need it. This will also eliminate another thread.
 - `checks` is a debugging plugin, which is disabled by default.
-- `proc` this is the internal plugin used to monitor the system. Normally, you don't want to disable this. You can disable individual functions of it below.
 - `apps` is a plugin that monitors system processes. It is very complex and heavy (heavier than the netdata daemon), so if you don't need to monitor the processes running, you can disable it.
 - `charts.d` is used for running BASH plugins (squid, nginx, mysql, etc). This is again a heavy plugin.
 - `node.d` is a node.js plugin, currently used for SNMP data collection and monitoring named (the name server).

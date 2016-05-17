@@ -17,7 +17,7 @@ To use SYNPROXY on your firewall, please follow our setup guides:
 
 # Real-time monitoring of Linux Anti-DDoS
 
-As of today (Apr 9th, 2016) netdata is able to monitor in real-time (per second updates) the operation of the Linux Anti-DDoS protection.
+netdata is able to monitor in real-time (per second updates) the operation of the Linux Anti-DDoS protection.
 
 It visualizes 4 charts:
 
@@ -30,7 +30,7 @@ Example image:
 
 ![ddos](https://cloud.githubusercontent.com/assets/2662304/14398891/6016e3fc-fdf0-11e5-942b-55de6a52cb66.gif)
 
-See Linux Anti-DDoS in action at: **[netdata demo site (with SYNPROXY enabled)](http://netdata.firehol.org/#netfilter_synproxy)** (but read the note below).
+See Linux Anti-DDoS in action at: **[netdata demo site (with SYNPROXY enabled)](http://london.my-netdata.io/#netfilter_synproxy)** (but read the note below).
 
 ---
 

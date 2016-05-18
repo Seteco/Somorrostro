@@ -55,6 +55,12 @@ server {
         proxy_set_header Connection "keep-alive";
         proxy_store off;
     }
+
+    # make sure there is a trailing slash at the browser
+    # or the URLs will be wrong
+    location ~ /netdata/(?<behost>.*) {
+        return 301 /netdata/$behost/
+    }
 }
 ```
 

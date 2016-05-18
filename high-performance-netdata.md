@@ -59,7 +59,7 @@ Then edit `/etc/netdata/netdata.conf` and set these config options:
     enable web responses gzip compression = no
 ```
 
-This what these do:
+These options:
 
 - `[global].bind socket to IP = 127.0.0.1` makes netdata listen only for requests from localhost (nginx).
 - `[global].access log = none` disables the access.log of netdata. It is not needed since netdata only listens for requests on 127.0.0.1 and thus only nginx can access it.

@@ -62,7 +62,7 @@ Then edit `/etc/netdata/netdata.conf` and set these config options:
 These options:
 
 - `[global].bind socket to IP = 127.0.0.1` makes netdata listen only for requests from localhost (nginx).
-- `[global].access log = none` disables the access.log of netdata. It is not needed since netdata only listens for requests on 127.0.0.1 and thus only nginx can access it.
+- `[global].access log = none` disables the access.log of netdata. It is not needed since netdata only listens for requests on 127.0.0.1 and thus only nginx can access it. nginx has its own access.log for your record.
 - `[global].disconnect idle web clients after seconds = 3600` will kill inactive web threads after an hour of inactivity.
 - `[global].enable web responses gzip compression = no` disables gzip compression at netdata.
 

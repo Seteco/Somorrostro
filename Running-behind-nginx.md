@@ -96,3 +96,12 @@ server {
 You would also need to instruct netdata to listen only to `127.0.0.1` or `::1`.
 
 To limit access to netdata only from localhost, set `bind socket to IP = 127.0.0.1` or `bind socket to IP = ::1` in `/etc/netdata/netdata.conf`.
+
+## prevent the double access.log
+
+nginx logs accesses and netdata logs them too. You can prevent netdata from generating its access log, by setting this in `/etc/netdata/netdata.conf`:
+
+```
+[global]
+      access log = none
+```

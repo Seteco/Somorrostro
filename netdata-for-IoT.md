@@ -50,6 +50,8 @@ For most IoT devices, you can disable all plugins except `proc`. For `proc` ther
 
 ## 2. Disable internal plugins
 
+In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another. Still each one needs some RAM and consumes some CPU cycles.
+
 ```
 [plugin:proc]
 	# /proc/net/dev = yes                       # network interfaces
@@ -71,8 +73,6 @@ For most IoT devices, you can disable all plugins except `proc`. For `proc` ther
 	# /sys/kernel/mm/ksm = yes                  # Memory deduper
 	# netdata server resources = yes            # netdata charts
 ```
-
-In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another. Still each one needs some RAM.
 
 ---
 

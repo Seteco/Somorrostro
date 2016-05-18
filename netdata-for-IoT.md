@@ -133,6 +133,8 @@ You can set the default size of the round robin database for all charts, using:
 
 The units for history is `[global].update every` seconds. So if `[global].update every = 6` and `[global].history = 600`, you will have an hour of data ( 6 x 600 = 3.600 ), which will store 600 points per dimension, one every 6 seconds.
 
+Check also [[Memory Requirements]] for directions on calculating the size of the round robin database.
+
 ---
 
 ## 7. Disable gzip compression of responses

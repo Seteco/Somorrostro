@@ -42,7 +42,7 @@ If you plan to use netdata exclusively via apache, you can gain some performance
 enable web responses gzip compression = no
 ```
 
-Once you disable compression at netdata (and restart it), please verify you receive compressed responses from apache.
+Once you disable compression at netdata (and restart it), please verify you receive compressed responses from apache (it is important to receive compressed responses - the charts will be more snappy).
 
 ## Limit direct access to netdata
 

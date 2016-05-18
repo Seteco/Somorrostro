@@ -73,16 +73,16 @@
 
 ---
 
-**Advanced**
+**Running behind another web server**
 * [[Running behind nginx]]
 * [[Running behind apache]]
 * [[Running behind lighttpd]]
 * [[Running behind caddy]]
 
 
+**Advanced configurations**
 * [[netdata for IoT]]
   (configure netdata to lower its resources)
-
 * [[high performance netdata]]
   (running netdata public to the internet)
 

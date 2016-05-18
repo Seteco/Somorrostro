@@ -70,14 +70,14 @@ These options:
 
 By default Linux limits open file descriptors per process to 1024. This means that less than half of this number of client connections can be accepted by both nginx and netdata. To increase them, create 2 new files:
 
-1. `/etc/security/limits.d/nginx`, with these contents:
+1. `/etc/security/limits.d/nginx.conf`, with these contents:
 
   ```
 nginx   soft    nofile  10000
 nginx   hard    nofile  30000
 ```
 
-2. `/etc/security/limits.d/netdata`, with these contents:
+2. `/etc/security/limits.d/netdata.conf`, with these contents:
 
   ```
 netdata   soft    nofile  10000
@@ -89,4 +89,3 @@ and to activate them, run:
 ```sh
 sysctl -p
 ```
-

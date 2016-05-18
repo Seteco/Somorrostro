@@ -9,16 +9,6 @@
 
 ---
 
-* [[netdata for IoT]]
-  (configure netdata to lower its resources)
-
----
-
-**Donations**
- * [[Donations netdata has received]]
-
----
-
 **Running Netdata**
 * [[Performance]]
 * [[Memory Requirements]]
@@ -88,6 +78,18 @@
 * [[Running behind apache]]
 * [[Running behind lighttpd]]
 * [[Running behind caddy]]
+
+
+* [[netdata for IoT]]
+  (configure netdata to lower its resources)
+
+* [[high performance netdata]]
+  (running netdata public to the internet)
+
+---
+
+**Donations**
+ * [[Donations netdata has received]]
 
 ---
 

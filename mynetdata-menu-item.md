@@ -42,7 +42,7 @@ The registry keeps track of 3 entities:
 
 3. **URLs** of netdata installations (as seen by the web browsers)
 
-  For each URL, the registry keeps the URL and nothing more. Each URL is just linked to *persons* and *machines*. The only way to find a URL is to know its **machine_guid** and have a **person_guid** it is linked to it.
+  For each URL, the registry keeps the URL and nothing more. Each URL is just linked to *persons* and *machines*. The only way to find a URL is to know its **machine_guid** or have a **person_guid** it is linked to it.
 
 ## Who talks to the registry?
 

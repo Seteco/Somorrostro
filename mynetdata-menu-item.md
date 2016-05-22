@@ -7,12 +7,12 @@ It lists the netdata servers you have visited.
 
 netdata provides distributed monitoring.
 
-Traditional monitoring solutions centralize all the data to provide unified dashboards across all servers. Before netdata, this was the standard practice. However it has a few cons:
+Traditional monitoring solutions centralize all the data to provide unified dashboards across all servers. Before netdata, this was the standard practice. However it has a few issues:
 
 1. due to the resources required, the number of metrics collected is limited.
 2. for the same reason, the data collection frequency is not that high, at best it will be once every 10 or 15 seconds, at worst every 5 or 10 mins.
-2. the central monitoring solution can only *scale up*, thus becoming "another bottleneck" in the whole ecosystem. It also requires maintenance, administration, etc.
-3. due to all the above, most centralized monitoring solutions are usually only good for presenting *statistics of past performance* (i.e. cannot be used for performance troubleshooting).
+2. the central monitoring solution needs dedicated resources, thus becoming "another bottleneck" in the whole ecosystem. It also requires maintenance, administration, etc.
+3. most centralized monitoring solutions are usually only good for presenting *statistics of past performance* (i.e. cannot be used for real-time performance troubleshooting).
 
 Netdata has a different approach:
 
@@ -22,7 +22,7 @@ Netdata has a different approach:
 4. netdata servers do not talk to each other
 5. your browser connects all the netdata servers
 
-Using netdata, your monitoring infrastructure is embedded on each server, limiting significantly the need of central resources. netdata is very resource efficient and utilizes server resources that already exist and are spare (on each server). This allows **scaling out** the monitoring infrastructure. 
+Using netdata, your monitoring infrastructure is embedded on each server, limiting significantly the need of additional resources. netdata is blazingly fast, very resource efficient and utilizes server resources that already exist and are spare (on each server). This allows **scaling out** the monitoring infrastructure. 
 
 However, the netdata approach introduces a few new issues that need to be addressed, one being **the list of netdata we have installed**, i.e. the URLs our netdata servers are listening.
 

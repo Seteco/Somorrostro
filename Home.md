@@ -2,6 +2,14 @@
 
 # Welcome to netdata!
 
+> May 22th, 2016: We have poll running:
+>
+> **which is the feature we should implement next?**
+>
+> Vote here: https://github.com/firehol/netdata/issues/436
+
+--- 
+
 > May 16th, 2016
 >
 > [netdata v1.2.0 released!](https://github.com/firehol/netdata/releases)

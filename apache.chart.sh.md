@@ -94,8 +94,11 @@ You can set:
 
    The default is:
 
-   ```
+   ```sh
 apache_url="http://127.0.0.1:80/server-status?auto"
+
+# use this to set custom curl options you may need
+apache_curl_opts=""
 ```
 
  - `apache_update_every=NUMBER` to , to give the data collection frequency. The default is configured in netdata **[[Configuration]]**.

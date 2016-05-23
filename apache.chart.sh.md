@@ -88,21 +88,21 @@ From the apache status output it collects:
 
 The configuration is stored in `/etc/netdata/apache.conf`.
 
-You can set:
+The internal default is:
 
- - `apache_url` to the URL your apache server is responding with mod_status information.
-
-   The default is:
-
-   ```sh
+```sh
+# the URL your apache server is responding with mod_status information.
 apache_url="http://127.0.0.1:80/server-status?auto"
 
 # use this to set custom curl options you may need
-apache_curl_opts=""
+apache_curl_opts=
+
+# set this to a NUMBER to overwrite the update frequency
+# it is in seconds
+apache_update_every=
 ```
 
- - `apache_update_every=NUMBER` to , to give the data collection frequency. The default is configured in netdata **[[Configuration]]**.
-
+The default `apache_update_every` is configured in netdata **[[Configuration]]**.
 
 ## Auto-detection
 

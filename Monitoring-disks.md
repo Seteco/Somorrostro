@@ -94,7 +94,7 @@ curl "http://localhost:19999/netdata.conf" >netdata.conf.new
 mv netdata.conf.new netdata.conf
 ```
 
-Then edit `netdata.conf` and find this section:
+Then edit `netdata.conf` and find the following section. This is the basic plugin configuration.
 
 ```
 [plugin:proc:/proc/diskstats]
@@ -135,7 +135,8 @@ For each virtual disk, physical disk and partition you will have a section like 
 	# backlog = auto
 ```
 
-For all values:
+For all configuration options:
 `auto` = enable monitoring if the values are not zero
 `yes` = enable monitoring
 `no` = disable monitoring
+

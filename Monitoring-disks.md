@@ -140,3 +140,6 @@ For all configuration options:
 - `yes` = enable monitoring
 - `no` = disable monitoring
 
+Of course, to set options, you will have to uncomment them. The comments show the internal defaults.
+
+After saving `/etc/netdata/netdata.conf`, restart your netdata to apply them.

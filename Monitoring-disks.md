@@ -18,7 +18,7 @@ The number of I/O operations completed.
 
 ### Queued I/O operations
 
-The number of currently queued I/O operations. For traditional disks that execute command one after another, one of them is being run by the disk and the rest are just waiting in a queue.
+The number of currently queued I/O operations. For traditional disks that execute commands one after another, one of them is being run by the disk and the rest are just waiting in a queue.
 
 ### Backlog size (time in ms)
 

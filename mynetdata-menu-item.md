@@ -135,4 +135,4 @@ Both files are machine readable text files.
 
 ## The future
 
-The registry open a whole world of new possibilities for netdata. Check here what we think: https://github.com/firehol/netdata/issues/416
+The registry opens a whole world of new possibilities for netdata. Check here what we think: https://github.com/firehol/netdata/issues/416

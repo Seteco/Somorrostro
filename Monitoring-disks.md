@@ -136,7 +136,7 @@ For each virtual disk, physical disk and partition you will have a section like 
 ```
 
 For all configuration options:
-`auto` = enable monitoring if the values are not zero
-`yes` = enable monitoring
-`no` = disable monitoring
+- `auto` = enable monitoring if the values are not zero
+- `yes` = enable monitoring
+- `no` = disable monitoring
 

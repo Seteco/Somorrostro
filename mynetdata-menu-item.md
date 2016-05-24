@@ -132,3 +132,7 @@ There can be up to 2 files:
     every `[registry].registry save db every new entries` entries in `registry-log.db`, netdata will save its database to `registry.db` and empty `registry-log.db`.
 
 Both files are machine readable text files.
+
+## The future
+
+The registry open a whole world of new possibilities for netdata. Check here what we think: https://github.com/firehol/netdata/issues/416

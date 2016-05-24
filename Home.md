@@ -2,7 +2,7 @@
 
 # Welcome to netdata!
 
-> May 22th, 2016: We have poll running:
+> May 22th, 2016: We have a poll running:
 >
 > **which is the feature we should implement next?**
 >

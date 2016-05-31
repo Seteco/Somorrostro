@@ -11,6 +11,7 @@ Netdata performance is affected by:
 **Web clients accessing the data**
 - the duration of the charts in the dashboard
 - the number of charts refreshes requested
+- the compression level of the web responses
 
 ---
 

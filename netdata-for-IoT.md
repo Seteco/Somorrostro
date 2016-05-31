@@ -1,4 +1,4 @@
-Netdata is a very efficient server performance monitoring solution. With chart refreshes in about **half a millisecond** its dashboards as amazingly fast!
+Netdata is a very efficient server performance monitoring solution. With chart refreshes in about **half a millisecond** its dashboards are spontaneous, amazingly fast!
 
 Though, netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is also glibc and [musl-libc](https://www.musl-libc.org/) friendly).
 

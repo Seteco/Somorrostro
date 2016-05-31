@@ -64,6 +64,6 @@ If the CPU of the embedded device is too weak, try setting even lower update fre
 
 #### Single threaded web server
 
-Normally, netdata spawns a thread for each web client. This allows netdata to utilize all the available cores for servicing chart refreshes. You can however disable this feature and serve all charts one after another, using a single thread / core. To enable the single threaded web server, edit `/etc/netdata/netdata.conf` and set `multi threaded web server = no` in the `[global]` section.
+Normally, netdata spawns a thread for each web client. This allows netdata to utilize all the available cores for servicing chart refreshes. You can however disable this feature and serve all charts one after another, using a single thread / core. This will might lower the CPU pressure on the embedded device. To enable the single threaded web server, edit `/etc/netdata/netdata.conf` and set `multi threaded web server = no` in the `[global]` section.
 
 

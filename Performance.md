@@ -32,6 +32,8 @@ Normally, each user connected will request less than 10 chart refreshes per seco
 
 Netdata runs with the lowest possible process priority, so even if 1000 users are accessing dashboards, it should not influence your applications. CPU utilization will reach 100%, but your applications should get all the CPU they need.
 
+To lower the CPU utilization of netdata when clients are accessing the dashboard, set `web compression level = 1`, or disable web compression completely by setting `enable web responses gzip compression = no`. Both settings are in the `[global]` section.
+
 
 ## Monitoring a heavy loaded system
 
@@ -60,13 +62,8 @@ If netdata is still using a lot of CPU, lower its update frequency. Going from p
 
 If the CPU of the embedded device is too weak, try setting even lower update frequency. Experiment with `update every = 5` or `update every = 10` (higher number = lower frequency), until you get acceptable results.
 
-#### Disable web gzip compression
-
-To lower the CPU utilization of netdata when you are accessing the dashboard, set the web responses compression level to 1, or disable web compression completely.
-
-You can find all these options in `/etc/netdata/netdata.conf` in the `global` section.
-
 #### Single threaded web server
 
 Normally, netdata spawns a thread for each web client. This allows netdata to utilize all the available cores for servicing chart refreshes. You can however disable this feature and serve all charts one after another, using a single thread / core. To enable the single threaded web server, edit `/etc/netdata/netdata.conf` and set `multi threaded web server = no` in the `[global]` section.
+
 

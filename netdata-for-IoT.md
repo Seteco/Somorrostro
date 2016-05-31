@@ -50,7 +50,7 @@ For most IoT devices, you can disable all plugins except `proc`. For `proc` ther
 
 ## 2. Disable internal plugins
 
-In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another. Still each one needs some RAM and consumes some CPU cycles.
+In this section you can select which modules of the `proc` plugin you need. All these are run in a single thread, one after another. Still, each one needs some RAM and consumes some CPU cycles.
 
 ```
 [plugin:proc]
@@ -102,7 +102,7 @@ Setting the memory mode to `ram` will disable loading and saving the round robin
 
 ## 5. CPU utilization
 
-If after disabling the plugins you don't need, netdata still uses a lot of CPU without any clients accessing the dashboard, try lowering its data collection frequency. Going from "once per second" to "once every two seconds" will not have a significant difference, but it will cut the CPU resources required in half.
+If after disabling the plugins you don't need, netdata still uses a lot of CPU without any clients accessing the dashboard, try lowering its data collection frequency. Going from "once per second" to "once every two seconds" will not have a significant difference on the user experience, but it will cut the CPU resources required **in half**.
 
 To set the update frequency, edit `/etc/netdata/netdata.conf` and set:
 
@@ -139,12 +139,34 @@ Check also [[Memory Requirements]] for directions on calculating the size of the
 
 ## 7. Disable gzip compression of responses
 
-Disabling gzip compression will not make a significant difference in performance, but it will save some CPU cycles while charts are refreshed. You can disable it, like this:
+Gzip compression of the web responses is using more CPU that the rest of netdata. You cal lower the compression level or disable gzip compression completely. You can disable it, like this:
 
 ```
 [global]
 	enable web responses gzip compression = no
 ```
+
+To lower the compression level, do this:
+
+```
+[global]
+	enable web responses gzip compression = yes
+	web compression level = 1
+```
+
+---
+
+## 8. Single threaded web server
+
+Normally, netdata creates a thread for each web client accessing it. This allows netdata to utilize all the available cores. You can however lower the CPU pressure of an embedded device by using the internal single threaded web server. This web server serves all requests sequentially, one after another without any CPU context switches.
+
+To use the single threaded web server, do this:
+
+```
+[global]
+	multi threaded web server = no
+```
+
 
 ---
 

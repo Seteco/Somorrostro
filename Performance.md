@@ -16,7 +16,7 @@ Netdata performance is affected by:
 
 ## Netdata Daemon
 
-For most server systems, with a few hundred charts and a few thousand dimensions, the netdata daemon, without any web clients accessing it, should not use more than 2% of a single core.
+For most server systems, with a few hundred charts and a few thousand dimensions, the netdata daemon, without any web clients accessing it, should not use more than 1-2% of a single core.
 
 In embedded systems, if the netdata daemon is using a lot of CPU without any web clients accessing it, you should lower the data collection frequency. To set the data collection frequency, edit `/etc/netdata/netdata.conf` and set `update_every` to a higher number (this is the frequency in seconds data are collected for all charts: higher number of seconds = lower frequency, the default is 1 for per second data collection). You can also set this frequency per module or chart. Check the **[[Configuration]]** section.
 
@@ -26,11 +26,11 @@ If a plugin is using a lot of CPU, you should lower its update frequency, or if 
 
 ## CPU consumption when web clients are accessing dashboards
 
-Netdata is very efficient when servicing web clients. On most server platforms, netdata should be able to serve 300+ web client requests per second per core for random chart durations.
+Netdata is very efficient when servicing web clients. On most server platforms, netdata should be able to serve **1500+ web client requests per second per core** for auto-refreshing charts.
 
-Normally, each user connected will request less than 10 chart refreshes per second (the page may have hundreds of charts, but only the visible are refreshed). So you can expect 30 users per CPU core accessing dashboards before having any delays.
+Normally, each user connected will request less than 10 chart refreshes per second (the page may have hundreds of charts, but only the visible are refreshed). So you can expect 100 users per CPU core accessing dashboards before having any delays.
 
-Netdata runs with the lowest possible process priority, so even if 1000 users are accessing dashboards, it will not influence your applications. CPU utilization will reach 100%, but your applications should get all the CPU they need.
+Netdata runs with the lowest possible process priority, so even if 1000 users are accessing dashboards, it should not influence your applications. CPU utilization will reach 100%, but your applications should get all the CPU they need.
 
 
 ## Monitoring a heavy loaded system
@@ -59,3 +59,14 @@ We suggest to do the following:
 If netdata is still using a lot of CPU, lower its update frequency. Going from per second updates, to once every 2 seconds updates, will cut the CPU resources of all netdata programs **in half**, and you will still have very frequent updates.
 
 If the CPU of the embedded device is too weak, try setting even lower update frequency. Experiment with `update every = 5` or `update every = 10` (higher number = lower frequency), until you get acceptable results.
+
+#### Disable web gzip compression
+
+To lower the CPU utilization of netdata when you are accessing the dashboard, set the web responses compression level to 1, or disable web compression completely.
+
+You can find all these options in `/etc/netdata/netdata.conf` in the `global` section.
+
+#### Single threaded web server
+
+Normally, netdata spawns a thread for each web client. This allows netdata to utilize all the available cores for servicing chart refreshes. You can however disable this feature and serve all charts one after another, using a single thread / core. To enable the single threaded web server, edit `/etc/netdata/netdata.conf` and set `multi threaded web server = no` in the `[global]` section.
+

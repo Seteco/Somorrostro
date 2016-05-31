@@ -1,10 +1,12 @@
-Netdata is a very efficient server performance monitoring solution, but it can also be a very efficient real-time monitoring solution for IoT devices (routers, media players, wifi access points, controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is also glibc and [musl-libc](https://www.musl-libc.org/) friendly).
+Netdata is a very efficient server performance monitoring solution. With chart refreshes in about **half a millisecond** its dashboards as amazingly fast!
+
+Though, netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is also glibc and [musl-libc](https://www.musl-libc.org/) friendly).
 
 ![sensors](https://cloud.githubusercontent.com/assets/2662304/15339745/8be84540-1c8e-11e6-9e9a-106dea7539b6.gif)
 
-Netdata can serve as both a data collection agent (where you pull data using its API), but its charts can also be embedded in your web pages / consoles, or it can be used directly by connecting to the device to view its dashboard.
+Netdata can be used as both a data collection agent (where you pull data using its API), or for embedding its charts on other web pages / consoles, but it can be used directly by connecting to the device to view its dashboard.
 
-Netdata has been significantly optimized to lower the CPU and RAM resources it consumes. However, the plethora of plugins and technologies used for them, may be inappropriate for weak IoT devices.
+Although netdata has been significantly optimized to lower the CPU and RAM resources it consumes, the plethora of plugins may be inappropriate for weak IoT devices.
 
 Here are a few tricks to control the resources consumed by netdata:
 

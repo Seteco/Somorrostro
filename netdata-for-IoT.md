@@ -2,7 +2,7 @@ Netdata is a **very efficient** server performance monitoring solution.
 
 When running in server hardware, it can collect thousands of system and application metrics **per second** with just 1% CPU utilization of a single core. Its web server responds to most data requests in about **half a millisecond** making its web dashboards spontaneous, amazingly fast!
 
-We constantly improve its performance. A month ago it was able to serve 400 chart refreshes per second per core. **Today it offers 1.800 chart refreshes per second per core** and it scales up to 2.500 with web gzip compression disabled!
+We constantly improve its performance. A month ago it was able to serve 400 chart refreshes per second per core. **Today it offers 1.800 chart refreshes per second per core** and it scales up to 2.500 with web gzip compression disabled! Without web gzip compression it can produce 300Mbps of chart data per core, constantly!
 
 netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, industrial controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is glibc and [musl-libc](https://www.musl-libc.org/) friendly).
 

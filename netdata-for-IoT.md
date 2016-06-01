@@ -4,7 +4,7 @@ When running in server hardware, it can collect thousands of system and applicat
 
 netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, industrial controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is glibc and [musl-libc](https://www.musl-libc.org/) friendly).
 
-Netdata can be used as both a data collection agent (where you pull data using its API), for embedding its charts on other web pages / consoles, but it also can be used directly by connecting to the device to view its dashboard.
+You can use it as both a data collection agent (where you pull data using its API), for embedding its charts on other web pages / consoles, but also for accessing it directly with your browser to view its dashboard.
 
 The netdata web API already provides **reduce** functions allowing it to report **average** and **max** for any timeframe. It can also respond in many formats including JSON, JSONP, CSV, HTML. Its API is also a **google charts** provider so it can directly be used by google sheets, google charts, google widgets.
 

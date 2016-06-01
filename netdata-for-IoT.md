@@ -14,7 +14,8 @@ You can use it as both a data collection agent (where you pull data using its AP
 
 The netdata web API already provides **reduce** functions allowing it to report **average** and **max** for any timeframe. It can also respond in many formats including JSON, JSONP, CSV, HTML. Its API is also a **google charts** provider so it can directly be used by google sheets, google charts, google widgets.
 
-![sensors](https://cloud.githubusercontent.com/assets/2662304/15339745/8be84540-1c8e-11e6-9e9a-106dea7539b6.gif)
+This is a dashboard of netdata running on a raspberry pi 1:
+![pi1](https://cloud.githubusercontent.com/assets/2662304/15338489/ca84baaa-1c88-11e6-9ab2-118208e11ce1.gif)
 
 Although netdata has been significantly optimized to lower the CPU and RAM resources it consumes, the plethora of data collection plugins may be inappropriate for weak IoT devices.
 
@@ -126,11 +127,6 @@ To set the update frequency, edit `/etc/netdata/netdata.conf` and set:
 You may have to increase this to 5 or 10 if the CPU of the device is weak.
 
 Keep in mind this will also force dashboard chart refreshes to happen at the same rate. So increasing this number actually lowers data collection frequency but also lowers dashboard chart refreshes frequency.
-
-This is a dashboard on a device with `[global].update every = 5` (this device is a media player and is now playing a movie):
-
-![pi1](https://cloud.githubusercontent.com/assets/2662304/15338489/ca84baaa-1c88-11e6-9ab2-118208e11ce1.gif)
-
 
 ---
 

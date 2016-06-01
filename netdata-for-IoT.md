@@ -141,7 +141,7 @@ Check also [[Memory Requirements]] for directions on calculating the size of the
 
 ## 7. Disable gzip compression of responses
 
-Gzip compression of the web responses is using more CPU that the rest of netdata. You cal lower the compression level or disable gzip compression completely. You can disable it, like this:
+Gzip compression of the web responses is using more CPU that the rest of netdata. You can lower the compression level or disable gzip compression completely. You can disable it, like this:
 
 ```
 [global]

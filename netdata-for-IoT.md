@@ -1,3 +1,7 @@
+![image1](https://cloud.githubusercontent.com/assets/2662304/14252446/11ae13c4-fa90-11e5-9d03-d93a3eb3317a.gif)
+
+#### Live netdata demo: **[http://netdata.rocks](http://netdata.rocks/)**
+
 Netdata is a **very efficient** server performance monitoring solution.
 
 When running in server hardware, it can collect thousands of system and application metrics **per second** with just 1% CPU utilization of a single core. Its web server responds to most data requests in about **half a millisecond** making its web dashboards spontaneous, amazingly fast!

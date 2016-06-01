@@ -1,12 +1,16 @@
-Netdata is a very efficient server performance monitoring solution. With chart refreshes in about **half a millisecond** its dashboards are spontaneous, amazingly fast!
+Netdata is a **very efficient** server performance monitoring solution.
 
-Though, netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is also glibc and [musl-libc](https://www.musl-libc.org/) friendly).
+When running in server hardware, it can collect thousands of system and application metrics **per second** with just 1% CPU utilization of a single core. Its web server responds to most data requests in about **half a millisecond** making its web dashboards spontaneous, amazingly fast!
+
+netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, industrial controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is glibc and [musl-libc](https://www.musl-libc.org/) friendly).
+
+Netdata can be used as both a data collection agent (where you pull data using its API), for embedding its charts on other web pages / consoles, but it also can be used directly by connecting to the device to view its dashboard.
+
+The netdata web API already provides **reduce** functions allowing it to report **average** and **max** for any timeframe. It can also respond in many formats including JSON, JSONP, CSV, HTML. Its API is also a **google charts** provider so it can directly be used by google sheets, google charts, google widgets.
 
 ![sensors](https://cloud.githubusercontent.com/assets/2662304/15339745/8be84540-1c8e-11e6-9e9a-106dea7539b6.gif)
 
-Netdata can be used as both a data collection agent (where you pull data using its API), or for embedding its charts on other web pages / consoles, but it can be used directly by connecting to the device to view its dashboard.
-
-Although netdata has been significantly optimized to lower the CPU and RAM resources it consumes, the plethora of plugins may be inappropriate for weak IoT devices.
+Although netdata has been significantly optimized to lower the CPU and RAM resources it consumes, the plethora of data collection plugins may be inappropriate for weak IoT devices.
 
 Here are a few tricks to control the resources consumed by netdata:
 

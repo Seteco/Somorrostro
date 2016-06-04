@@ -1,6 +1,10 @@
 ![image7](https://cloud.githubusercontent.com/assets/2662304/14253734/536bd4c2-fa95-11e5-8872-81eed5178e4b.gif)
 
-<a href="http://registry.my-netdata.io/#netdata_registry">
+# Welcome to netdata!
+
+> June 4th, 2016: Netdata can generate badges:
+> 
+> <a href="http://registry.my-netdata.io/#netdata_registry">
 	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&points=1&after=-1&value_color=grey:null%7Cgreen&label=user%20base&units=persons&value_color=blue"
 	     alt="netdata default registry reported users since 16 May 2016">
 </a> <a href="http://registry.my-netdata.io/#netdata_registry">
@@ -11,7 +15,7 @@
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
 
-# Welcome to netdata!
+---
 
 > May 22th, 2016: We have a poll running:
 >

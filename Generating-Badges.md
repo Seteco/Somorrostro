@@ -23,4 +23,5 @@ TODO
 No, not currently. If you want to refresh a badge, you will have to do it via javascript (same logic as updating any other image).
 
 #### Is it fast?
-On modern hardware, netdata can generate about **2.000 badges per second per core**.
+On modern hardware, netdata can generate about **2.000 badges per second per core**, before noticing any delays. It generates a badge in about half a millisecond!
+

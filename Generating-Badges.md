@@ -16,7 +16,7 @@ Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/m
 
 - cpu usage of user `root` now (100% = 1 core). This will be `green <10%`, `yellow <20%`, `orange <50%`, `blue <100%` (1 core), `red` otherwise (you define thresholds and colors on the URL).
 
-  <a href="https://registry.my-netdata.io/#apps_cpu" target="_blank"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&points=1&after=-1&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu&units=%25"></img></a>
+  <a href="https://registry.my-netdata.io/#apps_cpu" target="_blank"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&points=1&after=-1&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img></a>
 
 
 ## How to create badges

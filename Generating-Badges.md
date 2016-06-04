@@ -100,6 +100,33 @@ These are options dedicated to badges:
 
   The supported operators are `<`, `>`, `<=`, `>=`, `=`.
 
+## Using the path instead of the query string
+
+The badges can also be generated using the URL path for passing parameters. The format is exactly the same.
+
+So instead of:
+
+  `http://your.netdata:19999/api/v1/badge.svg?option1&option2&option3&...`
+
+you can write:
+
+  `http://your.netdata:19999/api/v1/badge.svg/option1/option2/option3/...`
+
+
+## Escaping URLs
+
+Keep in mind that if you add badge URLs to your HTML pages you have to escape the special characters:
+
+character|name|escape sequence
+:-------:|:--:|:-------------:
+` `|space (in labels and units)|`%20`
+`#`|hash (for colors)|`%23`
+`%`|percent (in units)|`%25`
+`<`|less than|`%3C`
+`>`|greater than|`%3E`
+`\`|backslash (when you need a `/`)|`%5C`
+`|`|pipe (delimiting parameters)|`%7C`
+
 ## FAQ
 
 #### Can badges auto-refresh?

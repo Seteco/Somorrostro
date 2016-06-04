@@ -80,7 +80,7 @@ These are options dedicated to badges:
 
 - `multiply=NUMBER`
 
-  Multiple the value with this number.
+  Multiply the value with this number.
 
 - `divide=NUMBER`
 

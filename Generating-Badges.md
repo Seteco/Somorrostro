@@ -6,7 +6,7 @@ Netdata can generate badges for any chart and any dimension. The generated badge
 
 Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)):
 
-- average netdata requests per second during the last complete minute (00-59): <a href="https://registry.my-netdata.io/#netdata_netdata" target="_blank"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&points=1&after=-60&value_color=grey:null%7Cgreen&label=netdata%20web%20server%20last%20min&units=%5Cs"></img></a>
+- average netdata requests per second during the last complete minute (00-59): <a href="https://registry.my-netdata.io/#netdata_netdata" target="_blank"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&points=1&after=-60&value_color=grey:null%7Cgreen&label=netdata%20web%20server%20last%20min&units=%5Cs"></img></a> (it updates its value once per minute).
 
 - active nginx connections now <a href="https://registry.my-netdata.io/#nginx_nginx" target="_blank"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&points=1&after=-1&value_color=grey:null%7Cgreen&label=ngnix%20active%20connections&units=null"></img></a>
 

@@ -68,7 +68,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   - `null2zero`, report null values as zero.
 
-These are options dedication to badges:
+These are options dedicated to badges:
 
 - `label=TEXT`
 

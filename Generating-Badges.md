@@ -2,9 +2,11 @@
 
 Badges are cool!
 
-Netdata can generate badges for any chart and any dimension. The generated badges are `SVG` and can be put onto any page with an HTML `<IMG>` reference.
+Netdata can generate badges for any chart, any dimension at any timeframe.
 
-Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)):
+The generated badges are `SVG` and can be put onto any page with an HTML `<IMG>` reference.
+
+Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item) for serving them):
 
 - average netdata requests per second during the last complete minute (00-59, it updates its value once per minute):
 
@@ -21,7 +23,65 @@ Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/m
 
 ## How to create badges
 
-TODO
+The basic URL is `http://your.netdata:19999/api/v1/badge.svg?option1&option2&option3&...`.
+
+Here is what you can put for `options` (these are standard netdata API options):
+
+- `chart=CHART.NAME`
+
+  The chart to get the values from
+
+- `dimensions=DIMENSION1|DIMENSION2|...`
+
+  The dimensions of the chart to use. If you don't set any dimension, all will be used. When multiple dimensions are used, netdata will sum their values. You can append `options=absolute` if you want this sum to convert all values to positive before summing them.
+
+- `before=SECONDS` and `after=SECONDS`
+
+  The timeframe. These can be absolute unix timestamps, or relative to now, number of seconds. By default `before=0` and `after=0`.
+
+  To get the latest value set `after=-1` (-1 = 1 second in the past).
+
+  To get the last minute set `after=-60&points=1`. This will give the average of the last complete minute (XX:XX:00 - XX:XX:59).
+
+  To get the max of the last hour set `after=-3600&points=1&method=max`. This will give the maximum value of the last complete hour (XX:00:00 - XX:59:59)
+
+
+- `points=NUMBER`
+
+  Currently you can only set this to `points=1`. I left this API parameter available for badges so that in future we could use it to calculate incremental differences between 2 points in time (i.e. give me how much this dimension changed in the last hour, compared to the previous one, or to 12 hours ago).
+
+- `method=max` or `method=average` (the default)
+
+  If netdata will have to reduce (aggregate) the data to calculate the value, which aggregation method to use.
+
+- `options=opt1|opt2|opt3|...`
+
+  These fine tune various options of the API. Here is what you can use for badges (the API has more option, but only these are useful for badges):
+
+  - `percentage`, instead of returning the value, calculate the percentage of the sum of the selected dimensions, versus the sum of all the dimensions of the chart.
+
+  - `absolute` or `abs` or `absolute-sum`, turn all values positive and then sum them.
+
+  - `min2max`, when reducing data, calculate the difference `max value - min value`.
+
+  - `flip`, use the earliest value of the timeframe, not the latest.
+
+  - `null2zero`, report null values as zero.
+
+These are options dedication to badges:
+
+- `label=TEXT`
+
+  The label of the badge.
+
+- `units=TEXT`
+
+  The units of the badge. If you want to put a `/`, please put a `\`. This is because netdata allows badges parameters to be given as path in URL, instead of query string. You can also use `null` or `empty` to show it without any units.
+
+- `multiply=NUMBER`
+
+
+    The
 
 ## FAQ
 

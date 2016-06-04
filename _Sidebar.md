@@ -26,6 +26,11 @@
 
 ---
 
+**Netdata Badges**
+* [[Generating Badges]]
+
+---
+
 **Data Collection**
 * [[Internal Plugins]]
 * [[External Plugins]]

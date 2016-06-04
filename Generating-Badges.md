@@ -22,7 +22,7 @@ Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/m
 
 - mysql queries per second now
 
-  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&points=1&after=-1&value_color=blue&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&points=1&after=-1&label=mysql%20queries%20now&value_color=blue&units=%5Cs"></img></a>
 
 ## How to create badges
 

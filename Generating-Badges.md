@@ -141,3 +141,12 @@ No, not currently. If you want to refresh a badge, you will have to do it via ja
 
 #### Is it fast?
 On modern hardware, netdata can generate about **2.000 badges per second per core**, before noticing any delays. It generates a badge in about half a millisecond!
+
+#### Embedding badges in github
+You cannot add SVG images with markdown. You have to give them as HTML (directly in .md files).
+
+For example, this is the cpu badge shown above:
+
+```html
+ <a href="https://registry.my-netdata.io/#apps_cpu" target="_blank"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&points=1&after=-1&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img></a>
+```

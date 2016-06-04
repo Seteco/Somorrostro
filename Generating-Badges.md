@@ -80,8 +80,25 @@ These are options dedication to badges:
 
 - `multiply=NUMBER`
 
+  Multiple the value with this number.
 
-    The
+- `divide=NUMBER`
+
+  Divide the value with this number.
+
+- `label_color=COLOR`
+
+  The color of the label (the left part). You can use any HTML color, include `#NNN` and `#NNNNNN`. The following colors are defined in netdata (and you can use them by name): `green`, `brightgreen`, `yellow`, `yellowgreen`, `orange`, `red`, `blue`, `grey`, `gray`, `lightgrey`, `lightgray`. These are taken from https://github.com/badges/shields so they are compatible with standard badges.
+
+- `value_color=COLOR:null|COLOR<VALUE|COLOR>VALUE|COLOR>=VALUE|COLOR<=VALUE|...`
+
+  You can add a pipe delimited list of conditions to pick the color. The first matching (left to right) will be used.
+
+  Example: `value_color:grey:null|green<10|yellow<100|orange<1000|blue<10000|red`
+
+  The above will set `grey` if no value exists (not collected), `green` if the value is less than 10, `yellow` if the value is less than 100, etc up to `red` which will be used if no other conditions match.
+
+  The supported operators are `<`, `>`, `<=`, `>=`, `=`.
 
 ## FAQ
 

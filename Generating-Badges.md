@@ -33,7 +33,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
 - `dimensions=DIMENSION1|DIMENSION2|...`
 
-  The dimensions of the chart to use. If you don't set any dimension, all will be used. When multiple dimensions are used, netdata will sum their values. You can append `options=absolute` if you want this sum to convert all values to positive before summing them.
+  The dimensions of the chart to use. If you don't set any dimension, all will be used. When multiple dimensions are used, netdata will sum their values. You can append `options=absolute` if you want this sum to convert all values to positive before adding them.
 
 - `before=SECONDS` and `after=SECONDS`
 

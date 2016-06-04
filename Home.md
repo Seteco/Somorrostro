@@ -14,6 +14,8 @@
 	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&points=1&after=-1&value_color=grey:null%7Cgreen&label=user%20sessions&units=%20&value_color=yellowgreen"
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
+>
+> Check **[[Generating Badges]]** for more information.
 
 ---
 

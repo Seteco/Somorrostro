@@ -94,7 +94,7 @@ These are options dedicated to badges:
 
   You can add a pipe delimited list of conditions to pick the color. The first matching (left to right) will be used.
 
-  Example: `value_color:grey:null|green<10|yellow<100|orange<1000|blue<10000|red`
+  Example: `value_color=grey:null|green<10|yellow<100|orange<1000|blue<10000|red`
 
   The above will set `grey` if no value exists (not collected), `green` if the value is less than 10, `yellow` if the value is less than 100, etc up to `red` which will be used if no other conditions match.
 

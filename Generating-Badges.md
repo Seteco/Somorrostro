@@ -14,7 +14,7 @@ Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/m
 
 - active nginx connections now
 
-  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&value_color=grey:null%7Cgreen&label=ngnix%20active%20connections&units=null"></img></a>
+  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&value_color=grey:null%7Cblue&label=ngnix%20active%20connections&units=null"></img></a>
 
 - cpu usage of user `root` now (100% = 1 core). This will be `green <10%`, `yellow <20%`, `orange <50%`, `blue <100%` (1 core), `red` otherwise (you define thresholds and colors on the URL).
 

@@ -24,9 +24,9 @@ Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/m
 
   <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&label=mysql%20queries%20now&value_color=red&units=%5Cs"></img></a>
 
-- bind (ISC named) max DNS queries per second during the last complete hour (XX:00:00 - XX:59:59, its value changes once per hour)
+- bind (ISC named) max DNS queries per second during the last hour (unaligned, it examines that last 3600 seconds, on every refresh)
 
-  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&method=max&value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&method=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
 
 ---
 

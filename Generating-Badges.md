@@ -112,9 +112,17 @@ Here is what you can put for `options` (these are standard netdata API options):
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&before=-60&after=-60"></img>
   </a>
 
-- `method=max` or `method=average` (the default)
+- `group=max` or `group=average` (the default) or `group=max` or `group=incremental-sum`
 
   If netdata will have to reduce (aggregate) the data to calculate the value, which aggregation method to use.
+
+  - `max` will find the max value for the timeframe. This works on both positive and negative dimensions. It will find the most extreme value.
+
+  - `average` will calculate the average value for the timeframe.
+
+  - `sum` will sum all the values for the timeframe. This is nice for finding the volume of dimensions for a timeframe.
+
+  - `incremental-sum` will sum the difference of each values to the last value. This is used when you have charts with absolute values that always get incremented. It will give volume of such dimensions for a timeframe.
 
 - `options=opt1|opt2|opt3|...`
 

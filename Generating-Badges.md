@@ -179,16 +179,16 @@ These are options dedicated to badges:
   You can auto-refresh all the netdata badges using javascript. Add a class to all the images like this `<img class="netdata-badge" src="..."/>` and add this javascript code to your page (it requires jquery):
 
   ```html
-   <script>
-        var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5
-        function refreshBadges() {
-                $('.netdata-badge').each(function() {
-                        this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + new Date().getTime().toString();
-                });
-                setTimeout(refreshBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
-        }
-        setTimeout(refreshBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
-   </script>
+<script>
+  var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5
+  function refreshBadges() {
+    $('.netdata-badge').each(function() {
+      this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + new Date().getTime().toString();
+    });
+    setTimeout(refreshBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+  }
+  setTimeout(refreshBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+</script>
 ```
 
 ---

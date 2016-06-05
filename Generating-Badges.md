@@ -168,6 +168,18 @@ These are options dedicated to badges:
 
   The supported operators are `<`, `>`, `<=`, `>=`, `=`.
 
+- `precision=NUMBER`
+
+  The number of decimal digits of the value. By default netdata will add:
+
+  - no decimal digits for values > 1000
+  - 1 decimal digit for values > 100
+  - 2 decimal digits for values > 1
+  - 3 decimal digits for values > 0.1
+  - 4 decimal digits for values <= 0.1
+
+  Using the `precision=NUMBER` you can set your preference per badge.
+
 - `refresh=auto` or `refresh=SECONDS`
 
   This option enables auto-refreshing of images. netdata will send the HTTP header `Refresh: SECONDS` to the web browser, thus requesting automatic refresh of the images at regular intervals.

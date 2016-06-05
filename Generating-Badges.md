@@ -174,7 +174,22 @@ These are options dedicated to badges:
 
   `auto` will calculate the proper `SECONDS` to avoid unnecessary refreshes. If `SECONDS` is zero, this feature is disabled (it also disabled by default).
 
-  Auto-refreshing this way works only if you access the badge directly. So, you may have to put in an `iframe` for it to be auto-refreshed.
+  Auto-refreshing like this, works only if you access the badge directly. So, you may have to put in an `iframe` for it to be auto-refreshed. Another way is to use javascript to auto-refresh them.
+
+  You can auto-refresh all the netdata badges using javascript. Add a class to all the images like this `<img class="netdata-badge" src="..."/>` and add this javascript code to your page (it requires jquery):
+
+  ```html
+   <script>
+        var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5
+        function refreshBadges() {
+                $('.netdata-badge').each(function() {
+                        this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + new Date().getTime().toString();
+                });
+                setTimeout(refreshBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+        }
+        setTimeout(refreshBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+   </script>
+```
 
 ---
 

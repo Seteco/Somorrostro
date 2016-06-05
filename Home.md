@@ -14,7 +14,9 @@
 	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen"
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
-<br/>
+>
+> (data since May 16th 2016)
+>
 <a href="http://registry.my-netdata.io/#netdata_registry">
 	<img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&r=1"
 	     alt="New netdata users during the last 24 hours">
@@ -26,7 +28,6 @@
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
 >
-> (data since May 16th 2016)
 >
 > Check **[[Generating Badges]]** for more information.
 

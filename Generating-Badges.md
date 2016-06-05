@@ -46,12 +46,12 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   ```html
   <a href="#">
-     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.entropy"></img>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu"></img>
   </a>
 ```
 
   Which produces this: <a href="#">
-     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.entropy"></img>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu"></img>
   </a>
 
 - `dimensions=DIMENSION1|DIMENSION2|...`

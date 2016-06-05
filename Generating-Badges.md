@@ -232,17 +232,28 @@ You can also append anything else you like, like this:
 On modern hardware, netdata can generate about **2.000 badges per second per core**, before noticing any delays. It generates a badge in about half a millisecond!
 
 #### Embedding badges in github
-You cannot add SVG images with markdown. You have to give them as HTML (directly in .md files).
+
+You have 2 options a) SVG images with markdown and b) SVG images with HTML (directly in .md files).
 
 For example, this is the cpu badge shown above:
 
-```html
+- Markdown example:
+
+  ```md
+[![A nice name](https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25)](https://registry.my-netdata.io/#apps_cpu)
+```
+
+- HTML example:
+
+  ```html
 <a href="https://registry.my-netdata.io/#apps_cpu">
     <img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img>
 </a>
 ```
 
-which produces this: <a href="https://registry.my-netdata.io/#apps_cpu">
+Both produce this:
+
+<a href="https://registry.my-netdata.io/#apps_cpu">
     <img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img>
 </a>
 

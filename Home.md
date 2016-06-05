@@ -15,7 +15,7 @@
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
 >
-> (the figures are registry data, since May 16th 2016)
+> (the figures come from **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)** data, counting since May 16th 2016)
 >
 <a href="http://registry.my-netdata.io/#netdata_registry">
 	<img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&r=1"

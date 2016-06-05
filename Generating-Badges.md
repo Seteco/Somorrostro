@@ -10,23 +10,23 @@ Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/m
 
 - average netdata requests per second during the last complete minute (XX:XX:00 - XX:XX:59, it updates its value once per minute):
 
-  <a href="https://registry.my-netdata.io/#netdata_netdata"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&points=1&after=-60&value_color=grey:null%7Cgreen&label=netdata%20web%20server%20last%20min&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#netdata_netdata"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-60&value_color=grey:null%7Cgreen&label=netdata%20web%20server%20last%20min&units=%5Cs"></img></a>
 
 - active nginx connections now
 
-  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&points=1&after=-1&value_color=grey:null%7Cgreen&label=ngnix%20active%20connections&units=null"></img></a>
+  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&value_color=grey:null%7Cgreen&label=ngnix%20active%20connections&units=null"></img></a>
 
 - cpu usage of user `root` now (100% = 1 core). This will be `green <10%`, `yellow <20%`, `orange <50%`, `blue <100%` (1 core), `red` otherwise (you define thresholds and colors on the URL).
 
-  <a href="https://registry.my-netdata.io/#apps_cpu"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&points=1&after=-1&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img></a>
+  <a href="https://registry.my-netdata.io/#apps_cpu"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img></a>
 
 - mysql queries per second now
 
-  <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&points=1&after=-1&label=mysql%20queries%20now&value_color=blue&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&label=mysql%20queries%20now&value_color=blue&units=%5Cs"></img></a>
 
 - bind (ISC named) max DNS queries per second during the last complete hour (XX:00:00 - XX:59:59, updates its value once per hour)
 
-  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&points=1&after=-3600&method=max&value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&method=max&value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
 
 ---
 
@@ -46,18 +46,11 @@ Here is what you can put for `options` (these are standard netdata API options):
 
 - `before=SECONDS` and `after=SECONDS`
 
-  The timeframe. These can be absolute unix timestamps, or relative to now, number of seconds. By default `before=0` and `after=0`.
+  The timeframe. These can be absolute unix timestamps, or relative to now, number of seconds. By default `before=0` and `after=-1` (1 second in the past).
 
-  To get the latest value set `after=-1` (-1 = 1 second in the past).
+  To get the last minute set `after=-60`. This will give the average of the last complete minute (XX:XX:00 - XX:XX:59).
 
-  To get the last minute set `after=-60&points=1`. This will give the average of the last complete minute (XX:XX:00 - XX:XX:59).
-
-  To get the max of the last hour set `after=-3600&points=1&method=max`. This will give the maximum value of the last complete hour (XX:00:00 - XX:59:59)
-
-
-- `points=NUMBER`
-
-  Currently you can only set this to `points=1`. I left this API parameter available for badges so that in future we could use it to calculate incremental differences between 2 points in time (i.e. give me how much this dimension changed in the last hour, compared to the previous one, or to 12 hours ago).
+  To get the max of the last hour set `after=-3600&method=max`. This will give the maximum value of the last complete hour (XX:00:00 - XX:59:59)
 
 - `method=max` or `method=average` (the default)
 
@@ -67,9 +60,9 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   These fine tune various options of the API. Here is what you can use for badges (the API has more option, but only these are useful for badges):
 
-  - `percentage`, instead of returning the value, calculate the percentage of the sum of the selected dimensions, versus the sum of all the dimensions of the chart.
+  - `percentage`, instead of returning the value, calculate the percentage of the sum of the selected dimensions, versus the sum of all the dimensions of the chart. This also sets the units to `%`.
 
-  - `absolute` or `abs` or `absolute-sum`, turn all values positive and then sum them.
+  - `absolute` or `abs`, turn all values positive and then sum them.
 
   - `min2max`, when reducing data, calculate the difference `max value - min value`.
 
@@ -89,11 +82,11 @@ These are options dedicated to badges:
 
 - `multiply=NUMBER`
 
-  Multiply the value with this number.
+  Multiply the value with this number. The default is `1`.
 
 - `divide=NUMBER`
 
-  Divide the value with this number.
+  Divide the value with this number. The default is `1`.
 
 - `label_color=COLOR`
 
@@ -105,7 +98,7 @@ These are options dedicated to badges:
 
   Example: `value_color=grey:null|green<10|yellow<100|orange<1000|blue<10000|red`
 
-  The above will set `grey` if no value exists (not collected), `green` if the value is less than 10, `yellow` if the value is less than 100, etc up to `red` which will be used if no other conditions match.
+  The above will set `grey` if no value exists (not collected within the `gap when lost iterations above` in netdata.conf for the chart), `green` if the value is less than 10, `yellow` if the value is less than 100, etc up to `red` which will be used if no other conditions match.
 
   The supported operators are `<`, `>`, `<=`, `>=`, `=`.
 
@@ -163,5 +156,5 @@ For example, this is the cpu badge shown above:
 ```
 
 which produces this: <a href="https://registry.my-netdata.io/#apps_cpu">
-    <img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&points=1&after=-1&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img>
+    <img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img>
 </a>

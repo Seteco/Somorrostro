@@ -38,11 +38,39 @@ Here is what you can put for `options` (these are standard netdata API options):
 
 - `chart=CHART.NAME`
 
-  The chart to get the values from
+  The chart to get the values from.
+
+  **This is the only parameter required** and with just this parameter, netdata will return the sum of the latest values of all chart dimensions.
+
+  Example:
+
+  ```html
+  <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.entropy"></img>
+  </a>
+```
+
+  Which produces this: <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.entropy"></img>
+  </a>
 
 - `dimensions=DIMENSION1|DIMENSION2|...`
 
   The dimensions of the chart to use. If you don't set any dimension, all will be used. When multiple dimensions are used, netdata will sum their values. You can append `options=absolute` if you want this sum to convert all values to positive before adding them.
+
+  Pipes in HTML have to escaped with `%7C`.
+
+  Example:
+
+  ```html
+  <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&dimensions=system%7Cnice"></img>
+  </a>
+```
+
+  Which produces this: <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&dimensions=system%7Cnice"></img>
+  </a>
 
 - `before=SECONDS` and `after=SECONDS`
 

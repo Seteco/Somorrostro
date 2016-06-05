@@ -8,7 +8,7 @@
 	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&points=1&after=-1&value_color=grey:null%7Cgreen&label=user%20base&units=null&value_color=blue"
 	     alt="netdata default registry reported users since 16 May 2016">
 </a> <a href="http://registry.my-netdata.io/#netdata_registry">
-	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&points=1&after=-1&value_color=grey:null%7Cgreen&label=monitoring&units=servers&value_color=orange"
+	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&points=1&after=-1&value_color=grey:null%7Cgreen&label=servers%20monitored&units=null&value_color=orange"
 	     alt="netdata default registry reported installations since 16 May 2016">
 </a> <a href="http://registry.my-netdata.io/#netdata_registry">
 	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&points=1&after=-1&value_color=grey:null%7Cgreen&label=user%20sessions&units=%20&value_color=yellowgreen"

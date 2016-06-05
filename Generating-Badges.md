@@ -64,7 +64,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   - `absolute` or `abs`, turn all values positive and then sum them.
 
-  - `min2max`, when reducing data, calculate the difference `max value - min value`.
+  - `min2max`, when multiple dimensions are given, do not sum them, but take their `max - min`.
 
 These are options dedicated to badges:
 

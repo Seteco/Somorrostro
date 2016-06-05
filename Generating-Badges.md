@@ -168,6 +168,12 @@ These are options dedicated to badges:
 
   The supported operators are `<`, `>`, `<=`, `>=`, `=`.
 
+- `refresh=auto` or `refresh=SECONDS`
+
+  This option enables auto-refreshing of images. netdata will send the HTTP header `Refresh: SECONDS` to the web browser, thus requesting automatic refresh of the images at regular intervals.
+
+  `auto` will calculate the proper `SECONDS` to avoid unnecessary refreshes. If `SECONDS` is zero, this feature is disabled (it also disabled by default).
+
 ---
 
 ## Escaping URLs
@@ -203,9 +209,6 @@ You can also append anything else you like, like this:
   `http://your.netdata:19999/api/v1/badge.svg/option1/option2/option3/my-super-badge.svg`
 
 ## FAQ
-
-#### Can badges auto-refresh?
-No, not currently. If you want to refresh a badge, you will have to do it via javascript (same logic as updating any other image).
 
 #### Is it fast?
 On modern hardware, netdata can generate about **2.000 badges per second per core**, before noticing any delays. It generates a badge in about half a millisecond!

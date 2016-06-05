@@ -272,3 +272,9 @@ Both produce this:
 #### auto-refreshing badges in github
 
 Unfortunately it cannot be done. Github fetches all the images using a proxy and rewrites all the URLs to be served by the proxy.
+
+You can refresh them from your browser console though. Press F12 to open the web browser console (switch to the console too), paste the following and press enter. They will refresh:
+
+```js
+var len = document.images.length; while(len--) { document.images[len].src = document.images[len].src.replace(/\?cacheBuster=\d*/, "") + "?cacheBuster=" + new Date().getTime().toString(); };
+```

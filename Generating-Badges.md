@@ -66,6 +66,8 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   - `min2max`, when multiple dimensions are given, do not sum them, but take their `max - min`.
 
+  - `unaligned`, when data are reduced / aggregated (e.g. the request is about the average of the last minute, or hour), netdata by default aligns them so that the charts will have a constant shape (so average per minute returns always XX:XX:00 - XX:XX:59). Setting the `unaligned` option, netdata will aggregate data without any alignment, so if the request is for 60 seconds, it will aggregate the latest 60 seconds of collected data.
+
 These are options dedicated to badges:
 
 - `label=TEXT`

@@ -66,10 +66,6 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   - `min2max`, when reducing data, calculate the difference `max value - min value`.
 
-  - `flip`, use the earliest value of the timeframe, not the latest.
-
-  - `null2zero`, report null values as zero.
-
 These are options dedicated to badges:
 
 - `label=TEXT`

@@ -180,15 +180,15 @@ These are options dedicated to badges:
 
   ```html
 <script>
-  var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5
-  function refreshNetdataBadges() {
-    var now = new Date().getTime().toString();
-    $('.netdata-badge').each(function() {
-      this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + now;
-    });
+    var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5;
+    function refreshNetdataBadges() {
+      var now = new Date().getTime().toString();
+      $('.netdata-badge').each(function() {
+        this.src = this.src.replace(/\&_=\d*/, '') + '&_=' + now;
+      });
+      setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
+    }
     setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
-  }
-  setTimeout(refreshNetdataBadges, NETDATA_BADGES_AUTOREFRESH_SECONDS * 1000);
 </script>
 ```
 

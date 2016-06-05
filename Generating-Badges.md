@@ -174,6 +174,8 @@ These are options dedicated to badges:
 
   `auto` will calculate the proper `SECONDS` to avoid unnecessary refreshes. If `SECONDS` is zero, this feature is disabled (it also disabled by default).
 
+  Auto-refreshing this way works only if you access the badge directly. So, you may have to put in an `iframe` for it to be auto-refreshed.
+
 ---
 
 ## Escaping URLs

@@ -172,11 +172,11 @@ These are options dedicated to badges:
 
   This option enables auto-refreshing of images. netdata will send the HTTP header `Refresh: SECONDS` to the web browser, thus requesting automatic refresh of the images at regular intervals.
 
-  `auto` will calculate the proper `SECONDS` to avoid unnecessary refreshes. If `SECONDS` is zero, this feature is disabled (it also disabled by default).
+  `auto` will calculate the proper `SECONDS` to avoid unnecessary refreshes. If `SECONDS` is zero, this feature is disabled (it is also disabled by default).
 
-  Auto-refreshing like this, works only if you access the badge directly. So, you may have to put in an `iframe` for it to be auto-refreshed. Another way is to use javascript to auto-refresh them.
+  Auto-refreshing like this, works only if you access the badge directly. So, you may have to put it an `iframe` for it to be auto-refreshed. Another way is to use javascript to auto-refresh them.
 
-  You can auto-refresh all the netdata badges using javascript. Add a class to all the images like this `<img class="netdata-badge" src="..."/>` and add this javascript code to your page (it requires jquery):
+  You can auto-refresh all the netdata badges on a page using javascript. You have to add a class to all the netdata badges, like this `<img class="netdata-badge" src="..."/>`. Then add this javascript code to your page (it requires jquery):
 
   ```html
 <script>

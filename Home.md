@@ -15,6 +15,8 @@
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
 >
+> (data since May 16th 2016)
+>
 > Check **[[Generating Badges]]** for more information.
 
 ---

@@ -8,7 +8,7 @@ The generated badges are `SVG` and can be put onto any page with an HTML `<IMG>`
 
 Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item) for serving them):
 
-- average netdata requests per second during the last complete minute (XX:XX:00 - XX:XX:59, its value changes once per minute):
+- average netdata requests per second during the last complete minute (aligned: XX:XX:00 - XX:XX:59, its value changes once per minute):
 
   <a href="https://registry.my-netdata.io/#netdata_netdata"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-60&value_color=grey:null%7Cgreen&label=netdata%20server%20requests%20last%20min&units=%5Cs"></img></a>
 

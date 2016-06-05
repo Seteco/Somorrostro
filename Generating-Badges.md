@@ -112,7 +112,7 @@ Here is what you can put for `options` (these are standard netdata API options):
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&before=-60&after=-60"></img>
   </a>
 
-- `group=max` or `group=average` (the default) or `group=max` or `group=incremental-sum`
+- `group=max` or `group=average` (the default) or `group=sum` or `group=incremental-sum`
 
   If netdata will have to reduce (aggregate) the data to calculate the value, which aggregation method to use.
 

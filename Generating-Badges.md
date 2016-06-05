@@ -50,7 +50,9 @@ Here is what you can put for `options` (these are standard netdata API options):
   </a>
 ```
 
-  Which produces this: <a href="#">
+  Which produces this:
+
+  <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu"></img>
   </a>
 
@@ -68,7 +70,9 @@ Here is what you can put for `options` (these are standard netdata API options):
   </a>
 ```
 
-  Which produces this: <a href="#">
+  Which produces this:
+
+  <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&dimensions=system%7Cnice"></img>
   </a>
 
@@ -79,6 +83,34 @@ Here is what you can put for `options` (these are standard netdata API options):
   To get the last minute set `after=-60`. This will give the average of the last complete minute (XX:XX:00 - XX:XX:59).
 
   To get the max of the last hour set `after=-3600&method=max`. This will give the maximum value of the last complete hour (XX:00:00 - XX:59:59)
+
+  Example:
+
+  ```html
+  <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60"></img>
+  </a>
+```
+
+  Which produces the average of last complete minute (XX:XX:00 - XX:XX:59):
+
+  <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60"></img>
+  </a>
+
+  While this is the previous minute (one minute before the last one, again aligned XX:XX:00 - XX:XX:59):
+
+  ```html
+  <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&before=-60&after=-60"></img>
+  </a>
+```
+
+  It produces this:
+  
+  <a href="#">
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&before=-60&after=-60"></img>
+  </a>
 
 - `method=max` or `method=average` (the default)
 

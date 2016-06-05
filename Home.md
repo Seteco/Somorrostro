@@ -5,13 +5,13 @@
 > June 4th, 2016: Netdata can generate badges:
 > 
 > <a href="http://registry.my-netdata.io/#netdata_registry">
-	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&points=1&after=-1&label=user%20base&units=null&value_color=blue"
+	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&label=user%20base&units=null&value_color=blue"
 	     alt="netdata default registry reported users since 16 May 2016">
 </a> <a href="http://registry.my-netdata.io/#netdata_registry">
-	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&points=1&after=-1&label=servers%20monitored&units=null&value_color=orange"
+	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&label=servers%20monitored&units=null&value_color=orange"
 	     alt="netdata default registry reported installations since 16 May 2016">
 </a> <a href="http://registry.my-netdata.io/#netdata_registry">
-	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&points=1&after=-1&label=sessions%20served&units=null&value_color=yellowgreen"
+	<img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen"
 	     alt="netdata default registry reported sessions since 16 May 2016">
 </a>
 >

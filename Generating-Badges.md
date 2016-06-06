@@ -2,37 +2,51 @@
 
 > New to netdata? Check its demo: **[http://my-netdata.io/](http://my-netdata.io/)**
 >
-> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0)](https://registry.my-netdata.io/#netdata_registry)
-> [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0)](https://registry.my-netdata.io/#netdata_registry)
-> [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0)](https://registry.my-netdata.io/#netdata_registry)
+> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0)](https://registry.my-netdata.io/#netdata_registry) [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0)](https://registry.my-netdata.io/#netdata_registry)
 
 Badges are cool!
 
-Netdata can generate badges for any chart, any dimension at any timeframe.
+Netdata can generate badges for any chart and any dimension at any time-frame. Badges come in `SVG` and can be added to any web page using an `<IMG>` HTML tag.
 
-The generated badges are `SVG` and can be put onto any page with an HTML `<IMG>` reference.
+**Netdata badges are powerful**! Given that netdata collects from 1.000 to 5.000 metrics per server (depending on the number of network interfaces, disks, cpu cores, applications running), and that netdata has already reduction/aggregation functions embedded, the badges can be quite clever.
 
-Examples (using the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item) for serving them):
+Let's see a few examples (they come from the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)):
 
-- average netdata requests per second during the last complete minute (aligned: XX:XX:00 - XX:XX:59, its value changes once per minute):
+- **average netdata requests per second, during the last complete minute** (aligned: XX:XX:00 - XX:XX:59, its value changes once per minute):
 
-  <a href="https://registry.my-netdata.io/#netdata_netdata"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-60&value_color=grey:null%7Cgreen&label=netdata%20server%20requests%20last%20min&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#netdata_netdata"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-60&value_color=grey:null%7Cgreen&label=netdata%20server%20requests%20last%20min&units=%5Cs"/>
+  </a>
 
-- active nginx connections now
+- **active nginx connections**:
 
-  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&value_color=grey:null%7Cblue&label=ngnix%20active%20connections&units=null&precision=0"></img></a>
+  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&value_color=grey:null%7Cblue&label=ngnix%20active%20connections%20now&units=null&precision=0"/></a>  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&after=-3600&value_color=orange&label=last%20hour%20average&units=null&options=unaligned&precision=0"/></a> <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&group=max&after=-3600&value_color=red&label=last%20hour%20max&units=null&options=unaligned&precision=0"/></a>
 
-- cpu usage of user `root` now (100% = 1 core). This will be `green <10%`, `yellow <20%`, `orange <50%`, `blue <100%` (1 core), `red` otherwise (you define thresholds and colors on the URL).
+
+- **cpu usage of user `root` now** (you can pick any user; 100% = 1 core). This will be `green <10%`, `yellow <20%`, `orange <50%`, `blue <100%` (1 core), `red` otherwise (you define thresholds and colors on the URL).
 
   <a href="https://registry.my-netdata.io/#apps_cpu"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img></a>
 
-- mysql queries per second now
+- **mysql queries per second now**
 
   <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&label=mysql%20queries%20now&value_color=red&units=%5Cs"></img></a>
 
-- bind (ISC named) max DNS queries per second during the last hour (unaligned, it examines that last 3600 seconds, on every refresh)
+  **mysql SELECT statements with JOIN, which did full tables scans**:
 
-  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&method=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&label=mysql%20select%20join%20scans%20now&value_color=orange&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&after=-3600&label=total%20for%20the%20last%20hour&value_color=orange&group=sum&units=null"></img></a>
+
+  **mysql queries per seconds that are not cached in mysql query cache**:
+
+  <a href="https://registry.my-netdata.io/#mysql_local_qcache"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.qcache_ops&dimensions=not%20cached&label=mysql%20not%20cached%20queries%20now&options=absolute&value_color=red&units=%5Cs"></img></a>
+
+- **bind** (ISC named) **max DNS queries per second during the last hour** (unaligned, it examines that last 3600 seconds, on every refresh)
+
+  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&group=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
+
+  **bind recursive queries the last hour**
+
+  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.global_queries&after=-3600&dimensions=QryRecursion&group=sum&options=unaligned&value_color=blue&label=bind%20recursive%20requests%20this%20hour&units=null&precision=0"></img></a>
+
+*You have a few thousands of dimensions to pick*. For each dimension and for arbitrary time-frames you can request **max** or **average**, but also **sum** or **incremental-sum** to have their **volume**.
 
 ---
 
@@ -88,7 +102,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   To get the last minute set `after=-60`. This will give the average of the last complete minute (XX:XX:00 - XX:XX:59).
 
-  To get the max of the last hour set `after=-3600&method=max`. This will give the maximum value of the last complete hour (XX:00:00 - XX:59:59)
+  To get the max of the last hour set `after=-3600&group=max`. This will give the maximum value of the last complete hour (XX:00:00 - XX:59:59)
 
   Example:
 

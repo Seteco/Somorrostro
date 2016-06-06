@@ -8,7 +8,9 @@ Badges are cool!
 
 Netdata can generate badges for any chart and any dimension at any time-frame. Badges come in `SVG` and can be added to any web page using an `<IMG>` HTML tag.
 
-**Netdata badges are powerful**! Given that netdata collects from **1.000** to **5.000** metrics per server (depending on the number of network interfaces, disks, cpu cores, applications running, users logged in, containers running, etc) and that netdata already has data reduction/aggregation functions embedded, the badges can be quite powerful.
+**Netdata badges are powerful**!
+
+Given that netdata collects from **1.000** to **5.000** metrics per server (depending on the number of network interfaces, disks, cpu cores, applications running, users logged in, containers running, etc) and that netdata already has data reduction/aggregation functions embedded, the badges can be quite powerful.
 
 For each metric/dimension and for arbitrary time-frames badges can show **max** or **average** value, but also **sum** or **incremental-sum** to have their **volume**.
 
@@ -40,7 +42,7 @@ Let's see a few more badge examples (they come from the [netdata registry](https
 
   <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&group=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.global_queries&after=-3600&dimensions=QryRecursion&group=sum&options=unaligned&value_color=blue&label=bind%20recursive%20requests%20this%20hour&units=null&precision=0"></img></a>
 
-> Remember: every single line on the charts of [this page](https://registry.my-netdata.io/), can become a badge and this badge can calculate **average**, **max**, or **volume** for any time-frame!
+> Remember: every single line on the charts of a [netdata dashboard](http://london.my-netdata.io/), can become a badge and this badge can calculate **average**, **max**, or **volume** for any time-frame! And you can also vary the badge color using conditions on the calculated value.
 
 ---
 

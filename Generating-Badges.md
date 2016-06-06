@@ -8,28 +8,31 @@ Badges are cool!
 
 Netdata can generate badges for any chart and any dimension at any time-frame. Badges come in `SVG` and can be added to any web page using an `<IMG>` HTML tag.
 
-**Netdata badges are powerful**! Given that netdata collects from 1.000 to 5.000 metrics per server (depending on the number of network interfaces, disks, cpu cores, applications running, users logged in, etc) and that netdata already has data reduction/aggregation functions embedded, the badges can be quite powerful.
+**Netdata badges are powerful**! Given that netdata collects from **1.000** to **5.000** metrics per server (depending on the number of network interfaces, disks, cpu cores, applications running, users logged in, containers running, etc) and that netdata already has data reduction/aggregation functions embedded, the badges can be quite powerful.
 
-Let's see a few examples (they come from the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)):
+For each metric/dimension and for arbitrary time-frames badges can show **max** or **average** value, but also **sum** or **incremental-sum** to have their **volume**.
 
-- **average netdata requests per second, during the last complete minute** (aligned: XX:XX:00 - XX:XX:59, its value changes once per minute):
-
-  <a href="https://registry.my-netdata.io/#netdata_netdata"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-60&value_color=grey:null%7Cgreen&label=netdata%20server%20requests%20last%20min&units=%5Cs"/>
-  </a>
-
-- **active nginx connections**:
+For example, there is [a chart in netdata that shows the current requests/s of nginx](http://london.my-netdata.io/#nginx_nginx). Using this chart alone we can show the following badges (we could add more time-frames, like **today**, **yesterday**, etc):
 
   <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&value_color=grey:null%7Cblue&label=ngnix%20active%20connections%20now&units=null&precision=0"/></a>  <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&after=-3600&value_color=orange&label=last%20hour%20average&units=null&options=unaligned&precision=0"/></a> <a href="https://registry.my-netdata.io/#nginx_nginx"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=nginx.connections&dimensions=active&group=max&after=-3600&value_color=red&label=last%20hour%20max&units=null&options=unaligned&precision=0"/></a>
 
+Similarly, there is [a chart that shows outbound bandwidth per class](http://london.my-netdata.io/#tc_eth0), using QoS data. So it shows `kilobits/s` per class. Using this chart we can show:
+
+<a href="https://registry.my-netdata.io/#tc_eth0"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=tc.world_out&dimensions=web_server&value_color=green&label=web%20server%20sends%20now&units=kbps"/></a> <a href="https://registry.my-netdata.io/#tc_eth0"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=tc.world_out&dimensions=web_server&after=-86400&options=unaligned&group=sum&divide=8388608&value_color=blue&label=web%20server%20sent%20today&units=GB"/></a>
+
+The right one is a **volume** calculation. Netdata calculated the total of the last 86.400 seconds (a day) which gives `kilobits`, then divided it by 8 to make it KB, then by 1024 to make it MB and then by 1024 to make it GB. Calculations like this are quite accurate, since for every value collected, every second, netdata interpolates it to second boundary using microsecond calculations.
+
+Let's see a few more badge examples (they come from the [netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)):
 
 - **cpu usage of user `root`** (you can pick any user; 100% = 1 core). This will be `green <10%`, `yellow <20%`, `orange <50%`, `blue <100%` (1 core), `red` otherwise (you define thresholds and colors on the URL).
 
   <a href="https://registry.my-netdata.io/#apps_cpu"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img></a> <a href="https://registry.my-netdata.io/#apps_cpu"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&after=-3600&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20average%20cpu%20last%20hour&units=%25"></img></a>
+
 - **mysql queries per second**
 
   <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&label=mysql%20queries%20now&value_color=red&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&after=-3600&options=unaligned&group=sum&label=mysql%20queries%20this%20hour&value_color=green&units=null"></img></a> <a href="https://registry.my-netdata.io/#mysql_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.queries&dimensions=questions&after=-86400&options=unaligned&group=sum&label=mysql%20queries%20today&value_color=blue&units=null"></img></a>
 
-  niche ones: **mysql SELECT statements with JOIN, which did full tables scans**:
+  niche ones: **mysql SELECT statements with JOIN, which did full table scans**:
 
   <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&label=mysql%20select%20join%20scans%20now&value_color=orange&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&after=-3600&label=total%20for%20the%20last%20hour&value_color=orange&group=sum&units=null"></img></a>
 
@@ -37,15 +40,9 @@ Let's see a few examples (they come from the [netdata registry](https://github.c
 
   <a href="https://registry.my-netdata.io/#mysql_local_qcache"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.qcache_ops&dimensions=not%20cached&label=mysql%20not%20cached%20queries%20now&options=absolute&value_color=red&units=%5Cs"></img></a>
 
-- **bind** (ISC named) **max DNS queries per second during the last hour** (unaligned, it examines that last 3600 seconds, on every refresh)
+- **bind** (ISC named) **queries**
 
-  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&group=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a>
-
-  **bind recursive queries the last hour**
-
-  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.global_queries&after=-3600&dimensions=QryRecursion&group=sum&options=unaligned&value_color=blue&label=bind%20recursive%20requests%20this%20hour&units=null&precision=0"></img></a>
-
-*You have a few thousands of dimensions to pick*. For each dimension and for arbitrary time-frames you can request **max** or **average**, but also **sum** or **incremental-sum** to have their **volume**.
+  <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&group=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.global_queries&after=-3600&dimensions=QryRecursion&group=sum&options=unaligned&value_color=blue&label=bind%20recursive%20requests%20this%20hour&units=null&precision=0"></img></a>
 
 ---
 

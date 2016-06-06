@@ -261,6 +261,9 @@ You can also append anything else you like, like this:
 #### Is it fast?
 On modern hardware, netdata can generate about **2.000 badges per second per core**, before noticing any delays. It generates a badge in about half a millisecond!
 
+Of course these timing are for badges that use recent data. If you need badges that do calculations over long durations (a day, or more), timing will differ. netdata logs its timings at its `access.log`, so take a look there before adding a heavy badge on a busy web site. Of course, you can cache such badges or have a cron job get them from netdata and save them at your web server at regular intervals.
+
+
 #### Embedding badges in github
 
 You have 2 options a) SVG images with markdown and b) SVG images with HTML (directly in .md files).

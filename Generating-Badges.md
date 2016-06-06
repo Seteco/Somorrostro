@@ -34,15 +34,13 @@ Let's see a few more badge examples (they come from the [netdata registry](https
 
   niche ones: **mysql SELECT statements with JOIN, which did full table scans**:
 
-  <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&label=mysql%20select%20join%20scans%20now&value_color=orange&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&after=-3600&label=total%20for%20the%20last%20hour&value_color=orange&group=sum&units=null"></img></a>
-
-  or even: **mysql queries per seconds that are not cached in mysql query cache**:
-
-  <a href="https://registry.my-netdata.io/#mysql_local_qcache"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.qcache_ops&dimensions=not%20cached&label=mysql%20not%20cached%20queries%20now&options=absolute&value_color=red&units=%5Cs"></img></a>
+  <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&after=-3600&label=full%20table%scans%20the%20last%20hour&value_color=orange&group=sum&units=null"></img></a>
 
 - **bind** (ISC named) **queries**
 
   <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&group=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.global_queries&after=-3600&dimensions=QryRecursion&group=sum&options=unaligned&value_color=blue&label=bind%20recursive%20requests%20this%20hour&units=null&precision=0"></img></a>
+
+> Remember: every single line on the charts of [this page](https://registry.my-netdata.io/), can become a badge and this badge can calculate **average**, **max**, or **volume** for any time-frame!
 
 ---
 

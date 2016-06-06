@@ -38,7 +38,7 @@ Let's see a few more badge examples (they come from the [netdata registry](https
 
   niche ones: **mysql SELECT statements with JOIN, which did full table scans**:
 
-  <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&after=-3600&label=full%20table%scans%20the%20last%20hour&value_color=orange&group=sum&units=null"></img></a>
+  <a href="https://registry.my-netdata.io/#mysql_local_issues"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=mysql_local.join_issues&dimensions=scan&after=-3600&label=full%20table%20scans%20the%20last%20hour&value_color=orange&group=sum&units=null"></img></a>
 
 - **bind** (ISC named) **queries**
 

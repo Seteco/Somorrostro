@@ -1,5 +1,7 @@
 # Netdata badges
 
+> New to netdata? Check its demo: **[http://my-netdata.io/](http://my-netdata.io/)**
+
 Badges are cool!
 
 Netdata can generate badges for any chart, any dimension at any timeframe.

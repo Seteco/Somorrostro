@@ -44,7 +44,9 @@ Let's see a few more badge examples (they come from the [netdata registry](https
 
   <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.received_requests&after=-3600&group=max&options=unaligned|value_color=orange&label=bind%20max%20hourly%20requests&units=%5Cs"></img></a> <a href="https://registry.my-netdata.io/#named_local"><img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=named_local.global_queries&after=-3600&dimensions=QryRecursion&group=sum&options=unaligned&value_color=blue&label=bind%20recursive%20requests%20this%20hour&units=null&precision=0"></img></a>
 
-> Remember: every single line on the charts of a [netdata dashboard](http://london.my-netdata.io/), can become a badge and this badge can calculate **average**, **max**, or **volume** for any time-frame! And you can also vary the badge color using conditions on the calculated value.
+---
+
+> So, every single line on the charts of a [netdata dashboard](http://london.my-netdata.io/), can become a badge and this badge can calculate **average**, **max**, or **volume** for any time-frame! And you can also vary the badge color using conditions on the calculated value.
 
 ---
 

@@ -34,10 +34,13 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ---
 
-**Netdata** is a daemon that collects data in realtime (per second) and presents a web site to view and analyze them.
-The presentation is also real-time and full of interactive charts that precisely render all collected values.
+## What is it?
 
-It has been designed to be installed **on every system**, without disrupting the applications running on it:
+**Netdata** is a real-time performance monitoring solution that can be used for performance monitoring and performance troubleshooting.
+
+It is implemented as linux daemon that collects data in realtime (per second) and presents a web site to view and analyze them. The presentation is also real-time and full of interactive charts that precisely render all collected values.
+
+Netdata has been designed to be installed **on every system**, without disrupting the applications running on it:
 
 1. It will just use some spare CPU cycles (check **[[Performance]]**).
 2. It will use the memory you want it have (check **[[Memory Requirements]]**).
@@ -61,9 +64,9 @@ So, netdata is: **non disruptive, real-time performance monitoring and visualiza
 
 ---
 
-## How it works
+## How it works?
 
-You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight.
+You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight. Less than 1% CPU of single core for the thousands of metrics it collects per second.
 
 **netdata**:
 

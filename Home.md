@@ -16,25 +16,6 @@
 >
 > Check **[[Generating Badges]]** for more information.
 
----
-
-> May 22th, 2016: We have a poll running:
->
-> **which feature should we implement next?**
->
-> Vote here: https://github.com/firehol/netdata/issues/436
-
---- 
-
-> May 16th, 2016
->
-> [netdata v1.2.0 released!](https://github.com/firehol/netdata/releases)
->
-> - 30% faster!
-> - **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)**, the first step towards scaling out performance monitoring!
-> - real-time Linux Containers monitoring!
-> - dozens of additional new features, optimizations, bug-fixes
-
 ## Demo Sites
 
 Live demo installations of netdata are available at **[my-netdata.io](http://my-netdata.io)**:

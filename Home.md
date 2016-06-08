@@ -39,7 +39,7 @@
 
 Live demo installations of netdata are available at **[my-netdata.io](http://my-netdata.io)**:
 
-Location |  netdata demo URL | Requests/s Now | VM Donated by
+Location |  netdata demo URL | requests-per-sec | VM Donated by
 :-------:|:-----:|:----:|:-----------
 London (EU)|**[london.netdata.rocks](http://london.netdata.rocks)**|[![Requests Per Second](http://london.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&units=%5cs&value_color=blue&precision=0)](http://london.netdata.rocks)|Donated by [DigitalOcean.com](https://www.digitalocean.com/) and located at their excellent Cloud Computing services
 Atlanta (US)|**[atlanta.netdata.rocks](http://atlanta.netdata.rocks)**|[![Requests Per Second](http://atlanta.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&units=%5cs&value_color=blue&precision=0)](http://atlanta.netdata.rocks)|Donated by [CDN77.com](https://www.cdn77.com/) and located at their awesome CDN network

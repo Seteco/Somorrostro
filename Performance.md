@@ -31,7 +31,7 @@ If a plugin is using a lot of CPU, you should lower its update frequency, or if 
 
 Netdata is very efficient when servicing web clients. On most server platforms, netdata should be able to serve **1800 web client requests per second per core** for auto-refreshing charts.
 
-Normally, each user connected will request less than 10 chart refreshes per second (the page may have hundreds of charts, but only the visible are refreshed). So you can expect 100 users per CPU core accessing dashboards before having any delays.
+Normally, each user connected will request less than 10 chart refreshes per second (the page may have hundreds of charts, but only the visible are refreshed). So you can expect 180 users per CPU core accessing dashboards before having any delays.
 
 Netdata runs with the lowest possible process priority, so even if 1000 users are accessing dashboards, it should not influence your applications. CPU utilization will reach 100%, but your applications should get all the CPU they need.
 

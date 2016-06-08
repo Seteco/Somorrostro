@@ -68,7 +68,7 @@ So, netdata is: **non disruptive, real-time performance monitoring and visualiza
 
 ## How it works?
 
-You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight. With less than 1% CPU utilization of a single core (for the netdata core, plugins may use more), you will get hundreds of charts and thousands of metrics, **all collected and visualized per second**.
+You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight. With less than 1% CPU utilization of a single core (for the netdata core, plugins may use more), you get hundreds of charts and thousands of metrics, **all collected and visualized per second**.
 
 **netdata**:
 

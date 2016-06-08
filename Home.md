@@ -41,9 +41,9 @@ Live demo installations of netdata are available at **[my-netdata.io](http://my-
 
 Location |  netdata demo URL | requests/s | VM Donated by
 :-------:|:-----------------:|:----------:|:-------------
-London (EU)|**[london.netdata.rocks](http://london.netdata.rocks)**|[![Requests Per Second](http://london.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&units=%5cs&value_color=blue&precision=0)](http://london.netdata.rocks)|Donated by [DigitalOcean.com](https://www.digitalocean.com/) and located at their excellent Cloud Computing services
-Atlanta (US)|**[atlanta.netdata.rocks](http://atlanta.netdata.rocks)**|[![Requests Per Second](http://atlanta.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&units=%5cs&value_color=blue&precision=0)](http://atlanta.netdata.rocks)|Donated by [CDN77.com](https://www.cdn77.com/) and located at their awesome CDN network
-Athens (EU)|**[athens.netdata.rocks](http://athens.netdata.rocks)**|[![Requests Per Second](http://athens.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&units=%5cs&value_color=blue&precision=0)](http://athens.netdata.rocks)|
+London (EU)|**[london.netdata.rocks](http://london.netdata.rocks)**|[![Requests Per Second](http://london.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&label=now&units=%5cs&value_color=blue&precision=0)](http://london.netdata.rocks)|Donated by [DigitalOcean.com](https://www.digitalocean.com/) and located at their excellent Cloud Computing services
+Atlanta (US)|**[atlanta.netdata.rocks](http://atlanta.netdata.rocks)**|[![Requests Per Second](http://atlanta.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&label=now&units=%5cs&value_color=blue&precision=0)](http://atlanta.netdata.rocks)|Donated by [CDN77.com](https://www.cdn77.com/) and located at their awesome CDN network
+Athens (EU)|**[athens.netdata.rocks](http://athens.netdata.rocks)**|[![Requests Per Second](http://athens.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&label=now&units=%5cs&value_color=blue&precision=0)](http://athens.netdata.rocks)|
 
 Netdata dashboards are mobile and touch friendly.
 

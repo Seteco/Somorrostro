@@ -8,6 +8,8 @@ Netdata performance is affected by:
 - the technology of the plugins (i.e. BASH plugins are slower than binary plugins)
 - the frequency of data collection
 
+You can control all the above.
+
 **Web clients accessing the data**
 - the duration of the charts in the dashboard
 - the number of charts refreshes requested

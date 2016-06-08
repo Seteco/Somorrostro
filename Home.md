@@ -36,9 +36,11 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ## What is it?
 
-**Netdata** is a real-time performance monitoring solution that can be used for performance monitoring and performance troubleshooting.
+**Netdata** is a real-time performance monitoring solution.
 
-It is implemented as linux daemon that collects data in realtime (per second) and presents a web site to view and analyze them. The presentation is also real-time and full of interactive charts that precisely render all collected values.
+Unlike other solutions that are only capable of presenting *statistics of past performance*, netdata is designed to be perfect for **real-time performance troubleshooting**.
+
+Netdata is a linux daemon you run, which collects data in realtime (per second) and presents a web site to view and analyze them. The presentation is also real-time and full of interactive charts that precisely render all collected values.
 
 Netdata has been designed to be installed **on every system**, without disrupting the applications running on it:
 

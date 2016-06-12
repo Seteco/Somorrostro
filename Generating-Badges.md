@@ -140,9 +140,9 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   - `average` will calculate the average value for the timeframe.
 
-  - `sum` will sum all the values for the timeframe. This is nice for finding the volume of dimensions for a timeframe.
+  - `sum` will sum all the values for the timeframe. This is nice for finding the volume of dimensions for a timeframe. So if you have a dimension that reports `X per second`, you can find the volume of the dimension in a timeframe, by adding its values in that timeframe.
 
-  - `incremental-sum` will sum the difference of each values to the last value. This is used when you have charts with absolute values that always get incremented. It will give volume of such dimensions for a timeframe.
+  - `incremental-sum` will sum the difference of each value to its next. Let's assume you have a dimension that does not measure the rate of something, but the absolute value of it. So it has values like this "1, 5, 3, 7, 4". `incremental-sum` will calculate the difference of adjacent values. In this example, they will be `(5 - 1) + (3 - 5) + (7 - 3) + (4 - 7) = 3` (which is equal to the last value minus the first = 4 - 1).
 
 - `options=opt1|opt2|opt3|...`
 

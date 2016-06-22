@@ -59,7 +59,7 @@ server {
     # make sure there is a trailing slash at the browser
     # or the URLs will be wrong
     location ~ /netdata/(?<behost>.*) {
-        return 301 /netdata/$behost/
+        return 301 /netdata/$behost/;
     }
 }
 ```

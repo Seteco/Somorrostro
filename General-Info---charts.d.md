@@ -135,6 +135,9 @@ Keep in mind that if your configs are not in `/etc/netdata`, you should do the f
 export NETDATA_CONFIG_DIR="/path/to/etc/netdata"
 ```
 
+Also, remember that netdata runs `chart.d.plugin` as user `netdata` (or any other user netdata is configured to run as).
+
+
 ## Running multiple instances of charts.d.plugin
 
 Charts.d will call the `X_update()` function one after another. This means that a delay in collector `X` will also delay the collection of `Y` and `Z`.

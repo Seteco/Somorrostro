@@ -20,7 +20,7 @@
 
 Live demo installations of netdata are available at **[netdata.rocks](http://netdata.rocks)**:
 
-Location |  netdata demo URL | 60-mins-reqs | VM Donated by
+Location |  netdata demo URL | 60&nbsp;mins&nbsp;reqs | VM Donated by
 :-------:|:-----------------:|:----------:|:-------------
 London (UK)|**[london.netdata.rocks](http://london.netdata.rocks)**<br/>(this is the global netdata **registry** and has **named** and **mysql** charts)|[![Requests Per Second](http://london.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-3600&options=unaligned&group=sum&label=reqs&units=empty&value_color=blue&precision=0&v42)](http://london.netdata.rocks)|[DigitalOcean.com](https://m.do.co/c/83dc9f941745)
 Atlanta (USA)|**[atlanta.netdata.rocks](http://atlanta.netdata.rocks)**<br/>(with **named** and **mysql** charts)|[![Requests Per Second](http://atlanta.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-3600&options=unaligned&group=sum&label=reqs&units=empty&value_color=blue&precision=0&v42)](http://atlanta.netdata.rocks)|[CDN77.com](https://www.cdn77.com/)

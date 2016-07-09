@@ -3,16 +3,19 @@
 
 ## Great! You are going to install netdata!
 
-Before you start, make sure you have `zlib` (compression), `libuuid` (GUIDs) and `libmnl` (iptables/netfilter) development files installed.
+2 steps:
 
-You also need to have a basic build environment in place. You will need packages like
-`git`, `make`, `gcc`, `autoconf`, `autogen`, `automake`, `pkg-config`, etc.
+1. [Prepare your system](#1-prepare-your-system)
+
+  Install the required packages on your system.
+
+2. [Install netdata](#2-install-netdata)
+
+  Download and install netdata. You can also update it the same way.
 
 ---
 
 ### 1. Prepare your system
-
-> The latest version of netdata requires `libuuid`. If you have installed it in the past and now it fails, please check this section again.
 
 This is how to install the required packages on different distributions:
 

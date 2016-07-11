@@ -3,7 +3,12 @@
 
 ## Great! You are going to install netdata!
 
-2 steps:
+You can install the latest release of netdata, using your package manager in
+
+- Gentoo Linux (`sudo emerge --ask netdata`)
+- Arch Linux (`sudo pacman -S netdata`)
+
+For other systems, or if you want the latest unreleased version, please follow these 2 steps:
 
 1. [Prepare your system](#1-prepare-your-system)
 
@@ -17,7 +22,25 @@
 
 ### 1. Prepare your system
 
-This is how to install the required packages on different distributions:
+Try our experimental automatic requirements installer (no need to be root). This will try to find the packages that should be installed on your system to build and run netdata.
+
+Without `python-mysql` and `node.js`:
+
+```sh
+curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata
+```
+
+With `python-mysql` (monitoring mysql/mariadb) and `node.js` (named monitoring and SNMP):
+
+```sh
+curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata-all
+```
+
+If the above do not work for you, please open a github issue with a copy of the message you get on screen. We are trying to find out the variations out there.
+
+---
+
+This how to do it by hand:
 
 ```sh
 # Debian / Ubuntu
@@ -27,36 +50,6 @@ apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen aut
 yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autogen automake pkgconfig
 
 ```
-
-##### Arch Linux
-
-The latest released version of netdata is already available via `pacman`. This will install the latest released version of netdata (no need to do anything more):
-
-```sh
-pacman -S netdata
-```
-
-
-##### Synology
-
-Login into DSM
-
-- Package Center > Settings > Package Sources
-- Add http://packages.synocommunity.com/
-- Community > Install Debian Chroot
-
-ssh to diskstation as root
-
-```sh
-/var/packages/debian-chroot/scripts/start-stop-status chroot
-apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
-```
-
-continue install from this (chroot) prompt
-
----
-
-#### additional optional packages you might need
 
 It would be nice (but not required) if you also install:
 
@@ -203,3 +196,20 @@ cd /path/to/netdata.git
 ```
 
 The uninstaller will ask you to confirm all deletions.
+
+##### Synology
+
+Login into DSM
+
+- Package Center > Settings > Package Sources
+- Add http://packages.synocommunity.com/
+- Community > Install Debian Chroot
+
+ssh to diskstation as root
+
+```sh
+/var/packages/debian-chroot/scripts/start-stop-status chroot
+apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
+```
+
+continue install from this (chroot) prompt

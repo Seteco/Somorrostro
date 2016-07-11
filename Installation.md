@@ -197,6 +197,10 @@ cd /path/to/netdata.git
 
 The uninstaller will ask you to confirm all deletions.
 
+---
+
+## Other Systems
+
 ##### Synology
 
 Login into DSM

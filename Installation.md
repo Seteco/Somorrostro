@@ -30,7 +30,7 @@ Without `python-mysql` and `node.js`:
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata
 ```
 
-With `python-mysql` (monitoring mysql/mariadb) and `node.js` (named monitoring and SNMP):
+With `python-mysql` (monitoring mysql/mariadb) and `node.js` (monitoring `named` and `SNMP`):
 
 ```sh
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata-all

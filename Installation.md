@@ -36,7 +36,7 @@ With `python-mysql` (monitoring mysql/mariadb) and `node.js` (monitoring `named`
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata-all
 ```
 
-If the above do not work for you, please open a github issue with a copy of the message you get on screen. We are trying to find out the variations out there.
+If the above do not work for you, please open a github issue with a copy of the message you get on screen. We are trying to make it work everywhere.
 
 ---
 

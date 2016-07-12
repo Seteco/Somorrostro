@@ -40,7 +40,7 @@ If the above do not work for you, please [open a github issue](https://github.co
 
 ---
 
-This how to do it by hand:
+This is how to do it by hand:
 
 ```sh
 # Debian / Ubuntu

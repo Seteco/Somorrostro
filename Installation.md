@@ -24,13 +24,13 @@ For other systems, or if you want the latest unreleased version, please follow t
 
 Try our experimental automatic requirements installer (no need to be root). This will try to find the packages that should be installed on your system to build and run netdata.
 
-Without `python-mysql` and `node.js`:
+Without installing `python-mysql` and `node.js` (netdata will use them if found installed):
 
 ```sh
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata
 ```
 
-With `python-mysql` (monitoring mysql/mariadb) and `node.js` (monitoring `named` and `SNMP`):
+With installation of `python-mysql` (monitoring mysql/mariadb), `node.js` (monitoring `named` and `SNMP`), `lm-sensors` (monitoring H/W sensors):
 
 ```sh
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata-all

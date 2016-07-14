@@ -30,7 +30,7 @@ Try our experimental automatic requirements installer (no need to be root). This
 - **Red Hat** Enterprise Linux and its derivatives (including **Fedora**, **CentOS**)
 - **SuSe** Linux and its derivatives (including **openSuSe**)
 
-Install all the packages for having a **basic netdata installation** (no monitor for `mysql` / `mariadb`, `named`, hardware sensors and `SNMP`):
+Install the packages for having a **basic netdata installation** (system monitoring and many applications, without  `mysql` / `mariadb`, `named`, hardware sensors and `SNMP`):
 
 ```sh
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata

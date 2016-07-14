@@ -26,7 +26,7 @@ Try our experimental automatic requirements installer (no need to be root). This
 
 - **Arch** Linux and its derivatives
 - **Gentoo** Linux and its derivatives
-- **Debian** Linux and its derivatives (including **Ubuntu**)
+- **Debian** Linux and its derivatives (including **Ubuntu**, **Mint**)
 - **Red Hat** Enterprise Linux and its derivatives (including **Fedora**, **CentOS**)
 - **SuSe** Linux and its derivatives (including **openSuSe**)
 

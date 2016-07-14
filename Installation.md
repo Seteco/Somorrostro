@@ -22,7 +22,13 @@ For other systems, or if you want the latest unreleased version, please follow t
 
 ### 1. Prepare your system
 
-Try our experimental automatic requirements installer (no need to be root). This will try to find the packages that should be installed on your system to build and run netdata.
+Try our experimental automatic requirements installer (no need to be root). This will try to find the packages that should be installed on your system to build and run netdata. It supports most major Linux distributions released after 2010:
+
+- **Arch** Linux and its derivatives
+- **Gentoo** Linux and its derivatives
+- **Debian** Linux and its derivatives (including **Ubuntu**)
+- **Red Hat** Enterprise Linux and its derivatives (including **Fedora**, **CentOS**)
+- **SuSe** Linux and its derivatives (including **openSuSe**)
 
 Install all the packages for having a **basic netdata installation** (no monitor for `mysql` / `mariadb`, `named`, hardware sensors and `SNMP`):
 

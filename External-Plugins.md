@@ -274,11 +274,12 @@ There are a few rules for writing plugins properly:
 
    createCharts(); /* generate CHART and DIMENSION statements */
 
-   var count = 0;
+   var loops = 0;
    var last_run = 0;
+   var dt_since_last_run = 0;
    var now = currentTimeStampInMilliseconds();
 
-   /* find the time of the iteration point */
+   /* find the time of the next loop */
    var next_run = now - (now % update_every) + update_every;
 
    FOREVER {
@@ -292,13 +293,14 @@ There are a few rules for writing plugins properly:
        while ( now >= next_run )
           next_run += update_every;
 
-       count++;
+       if ( loops > 0 )
+           dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
 
-       dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
+       collectValues(); /* do your magic here */
+       printValues(dt_since_last_run); /* print BEGIN, SET, END statements */
+
        last_run = now;
-
-       collectValues();
-       printValues(); /* output dt_since_last_run in BEGIN, only if count > 1 */
+       loops++;
    }
 ```
 

@@ -241,10 +241,10 @@ or do not output the line at all.
 
 # Skeleton Plugins
 
-1. **node.js**, use `node.d.plugin`, there are a few examples in the [node.d directory](https://github.com/firehol/netdata/tree/master/node.d)
-2. **BASH**, use `charts.d.plugin`, there are many examples in the [charts.d directory](https://github.com/firehol/netdata/tree/master/charts.d)
-3. **C**, use [apps.plugin](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c#L2420)
-4. **Python**, check this example [in issue 206](https://github.com/firehol/netdata/issues/206#issuecomment-208038333)
+1. **python**, use `python.d.plugin`, there are many examples in the [python.d directory](https://github.com/firehol/netdata/tree/master/python.d)
+2. **node.js**, use `node.d.plugin`, there are a few examples in the [node.d directory](https://github.com/firehol/netdata/tree/master/node.d)
+3. **BASH**, use `charts.d.plugin`, there are many examples in the [charts.d directory](https://github.com/firehol/netdata/tree/master/charts.d)
+4. **C**, use [apps.plugin](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c#L2420)
 
 # Writing Plugins Properly
 
@@ -256,45 +256,45 @@ There are a few rules for writing plugins properly:
 
       - Initialize everything once, at the beginning. Initialization is not an expensive operation. Your plugin will most probably be started once and run forever. So, do whatever heavy operation is needed at the beginning, just once.
       - Do the absolutely minimum while iterating to collect values repeatedly.
-      - If you need to connect to another server to collect values, avoid re-connects if possible. Connect just once, with keep-alive enabled and collect values using the same connection.
-      - Avoid any CPU or memory heavy operation while collecting data.
-      - Avoid running external commands when possible.
+      - If you need to connect to another server to collect values, avoid re-connects if possible. Connect just once, with keep-alive (for HTTP) enabled and collect values using the same connection.
+      - Avoid any CPU or memory heavy operation while collecting data. If you control memory allocation, avoid any memory allocation white iterating to collect values.
+      - Avoid running external commands when possible. If you are writing shell scripts avoid especially pipes (each pipe is another fork, a very expensive operation).
 
 2. The best way to iterate at a constant pace is this pseudo code:
 
    ```js
-   update_every = argv[1] * 1000 // seconds * 1000 = milliseconds
+   update_every = argv[1] * 1000; /* seconds * 1000 = milliseconds */
 
-   readConfiguration()
+   readConfiguration();
    
    if(!verifyWeCanCollectValues()) {
-      print "DISABLE"
-      exit(1)
+      print "DISABLE";
+      exit(1);
    }
 
-   createCharts()
+   createCharts(); /* generate CHART and DIMENSION statements */
 
-   count = 0
-   last_run = 0
-   next_run = currentTimeStampInMilliseconds()
+   count = 0;
+   last_run = 0;
+   next_run = currentTimeStampInMilliseconds();
 
    FOREVER {
-       now = currentTimeStampInMilliseconds()
+       now = currentTimeStampInMilliseconds();
    
        if ( next_run <= now ) {
-           count++
+           count++;
 
            while ( next_run <= now )
-              next_run += update_every
+              next_run += update_every;
 
-           dt_since_last_run = (now - last_run) * 1000 // in microseconds
-           last_run = now
+           dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
+           last_run = now;
 
-           collectValues()
-           printValues() // output dt_since_last_run in BEGIN, only if count > 1
+           collectValues();
+           printValues(); /* output dt_since_last_run in BEGIN, only if count > 1 */
        }
 
-       sleepMilliseconds(update_every / 10)
+       sleepMilliseconds(update_every / 10);
    }
    ```
 

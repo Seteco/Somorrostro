@@ -276,29 +276,42 @@ There are a few rules for writing plugins properly:
 
    var loops = 0;
    var last_run = 0;
+   var next_run = 0;
    var dt_since_last_run = 0;
-   var now = currentTimeStampInMilliseconds();
-
-   /* find the time of the next loop */
-   var next_run = now - (now % update_every) + update_every;
+   var now = 0;
 
    FOREVER {
+       /* find the current time in milliseconds */
        now = currentTimeStampInMilliseconds();
 
+       /*
+        * find the time of the next loop
+        * this makes sure we are always aligned
+        * with the netdata daemon
+        */
+       next_run = now - (now % update_every) + update_every;
+
+       /*
+        * wait until it is time
+        * it is important to do it in a loop
+        * since many wait functions can be interrupted
+        */
        while( now < next_run ) {
            sleepMilliseconds(next_run - now);
            now = currentTimeStampInMilliseconds();
        }
        
-       while ( now >= next_run )
-          next_run += update_every;
-
+       /* calculate the time passed since the last run */
        if ( loops > 0 )
            dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
 
-       collectValues(); /* do your magic here */
+       /* do your magic here to collect values */
+       collectValues();
+
+       /* send the collected data to netdata */
        printValues(dt_since_last_run); /* print BEGIN, SET, END statements */
 
+       /* prepare for the next loop */
        last_run = now;
        loops++;
    }

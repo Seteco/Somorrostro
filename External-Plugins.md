@@ -305,15 +305,15 @@ There are a few rules for writing plugins properly:
        if ( loops > 0 )
            dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
 
+       /* prepare for the next loop */
+       last_run = now;
+       loops++;
+
        /* do your magic here to collect values */
        collectValues();
 
        /* send the collected data to netdata */
        printValues(dt_since_last_run); /* print BEGIN, SET, END statements */
-
-       /* prepare for the next loop */
-       last_run = now;
-       loops++;
    }
 ```
 

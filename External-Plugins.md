@@ -263,7 +263,7 @@ There are a few rules for writing plugins properly:
 2. The best way to iterate at a constant pace is this pseudo code:
 
    ```js
-   update_every = argv[1] * 1000; /* seconds * 1000 = milliseconds */
+   var update_every = argv[1] * 1000; /* seconds * 1000 = milliseconds */
 
    readConfiguration();
    
@@ -274,29 +274,33 @@ There are a few rules for writing plugins properly:
 
    createCharts(); /* generate CHART and DIMENSION statements */
 
-   count = 0;
-   last_run = 0;
-   next_run = currentTimeStampInMilliseconds();
+   var count = 0;
+   var last_run = 0;
+   var now = currentTimeStampInMilliseconds();
+
+   /* find the time of the iteration point */
+   var next_run = now - (now % update_every) + update_every;
 
    FOREVER {
        now = currentTimeStampInMilliseconds();
-   
-       if ( next_run <= now ) {
-           count++;
 
-           while ( next_run <= now )
-              next_run += update_every;
-
-           dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
-           last_run = now;
-
-           collectValues();
-           printValues(); /* output dt_since_last_run in BEGIN, only if count > 1 */
+       while( now < next_run ) {
+           sleepMilliseconds(next_run - now);
+           now = currentTimeStampInMilliseconds();
        }
+       
+       while ( now >= next_run )
+          next_run += update_every;
 
-       sleepMilliseconds(update_every / 10);
+       count++;
+
+       dt_since_last_run = (now - last_run) * 1000; /* in microseconds */
+       last_run = now;
+
+       collectValues();
+       printValues(); /* output dt_since_last_run in BEGIN, only if count > 1 */
    }
-   ```
+```
 
     Using the above procedure, your plugin will be synchronized to start data collection on steps of `update_every`. There will be no need to keep track of latencies in data collection.
 

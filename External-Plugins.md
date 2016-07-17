@@ -272,7 +272,7 @@ There are a few rules for writing plugins properly:
       exit(1);
    }
 
-   createCharts(); /* generate CHART and DIMENSION statements */
+   createCharts(); /* print CHART and DIMENSION statements */
 
    var loops = 0;
    var last_run = 0;

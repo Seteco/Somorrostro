@@ -141,7 +141,7 @@ The registry opens a whole world of new possibilities for netdata. Check here wh
 
 The registry URL should be set to the URL of a netdata dashboard. This server has to have `[registry].enabled = yes`. So, accessing the registry URL directly with your web browser, should present the dashboard of the netdata operating the registry.
 
-To use the registry, your web browser needs to support cookies. The registry, the first time it sees a new web browser it tries to figure if the web browser has cookies enabled or not. It does this by setting a cookie and redirecting the browser back to itself hoping that it will receive the cookie. If it does not receive the cookie, the registry will keep redirecting your web browser back to itself, which after a few redirects will fail with an error like this:
+To use the registry, your web browser needs to support **third party cookies**, since the cookies are set by the registry while you are browsing the dashboard of another netdata server. The registry, the first time it sees a new web browser it tries to figure if the web browser has cookies enabled or not. It does this by setting a cookie and redirecting the browser back to itself hoping that it will receive the cookie. If it does not receive the cookie, the registry will keep redirecting your web browser back to itself, which after a few redirects will fail with an error like this:
 
 ```
 ERROR 409: Cannot ACCESS netdata registry: https://registry.my-netdata.io responded with: {"status":"redirect","registry":"https://registry.my-netdata.io"}

@@ -86,7 +86,7 @@ We believe, it can do it...
 
 Yes, you read correct, **every netdata can be a registry**. Just pick one and configure it.
 
-To turn any netdata into a registry just edit `/etc/netdata/netdata.conf` and set:
+**To turn any netdata into a registry** just edit `/etc/netdata/netdata.conf` and set:
 
 ```
 [registry]
@@ -96,7 +96,7 @@ To turn any netdata into a registry just edit `/etc/netdata/netdata.conf` and se
 
 Restart your netdata to activate it.
 
-Then, you need to tell all your other netdata servers to advertise your registry, instead of the default. To do this, on each of your netdata servers, edit `/etc/netdata/netdata.conf` and set:
+Then, you need to tell **all your other netdata servers to advertise your registry**, instead of the default. To do this, on each of your netdata servers, edit `/etc/netdata/netdata.conf` and set:
 
 ```
 [registry]

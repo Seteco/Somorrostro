@@ -153,7 +153,7 @@ These are what we currently work on (in that order):
 
 1. Finish packaging for the various distros.
 
-2. Add health monitoring
+2. Add health monitoring (alarms, notifications, etc)
 
 3. More plugins - a lot more plugins!
 

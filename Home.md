@@ -153,18 +153,17 @@ These are what we currently work on (in that order):
 
 1. Finish packaging for the various distros.
 
-2. More plugins - a lot more plugins!
+2. Add health monitoring
 
- - monitor cgroups (containers) performance and utilization from the host
- - monitor more of the system
+3. More plugins - a lot more plugins!
+
  - monitor more applications (hadoop and friends, postgres, etc)
- - re-write BASH data collectors (squid, mysql, etc) to node.js or python
  - rewrite the netfilter plugin to use libnlm.
- - allow internal plugins to be forked to external processes (this will protect the netdata daemon from plugin crashes, allow different security schemas for each plugin, etc).
+ - allow internal plugins to be forked to external processes (this will protect the netdata daemon from plugin crashes, allow different security schemes for each plugin, etc).
 
-3. Improve the memory database (possibly using an internal deduper, compression, disk archiving, mirroring it to third party databases, etc).
+4. Improve the memory database (possibly using an internal deduper, compression, disk archiving, mirroring it to third party databases, etc).
 
-4. Invent a flexible UI to connect multiple netdata server together
+5. Invent a flexible UI to connect multiple netdata server together. We have done a lot of progress with the registry and the `my-netdata` menu, but still there are a lot more to do.
 
 5. Document everything (this is a work in progress already).
 

@@ -26,7 +26,7 @@ Using netdata, your monitoring infrastructure is embedded on each server, limiti
 
 However, the netdata approach introduces a few new issues that need to be addressed, one being **the list of netdata we have installed**, i.e. the URLs our netdata servers are listening.
 
-To solve this, netdata utilizes a **central registry**.
+To solve this, netdata utilizes a **central registry**. This registry, together with certain browser features, allow netdata to provide unified cross server dashboards. For example, using the latest git version of netdata, when you jump from server to server using the `my-netdata` menu, several session settings (like the currently viewed charts, the current zoom and pan operations on the charts, etc) are propagated to the new server, so that the new dashboard will come with exactly the same view.
 
 ## What is the registry?
 

@@ -14,7 +14,7 @@ Netdata can generate badges for any chart and any dimension at any time-frame. B
 
 Given that netdata collects from **1.000** to **5.000** metrics per server (depending on the number of network interfaces, disks, cpu cores, applications running, users logged in, containers running, etc) and that netdata already has data reduction/aggregation functions embedded, the badges can be quite powerful.
 
-For each metric/dimension and for arbitrary time-frames badges can show **max** or **average** value, but also **sum** or **incremental-sum** to have their **volume**.
+For each metric/dimension and for arbitrary time-frames badges can show **min**, **max** or **average** value, but also **sum** or **incremental-sum** to have their **volume**.
 
 For example, there is [a chart in netdata that shows the current requests/s of nginx](http://london.my-netdata.io/#nginx_nginx). Using this chart alone we can show the following badges (we could add more time-frames, like **today**, **yesterday**, etc):
 
@@ -46,7 +46,7 @@ Let's see a few more badge examples (they come from the [netdata registry](https
 
 ---
 
-> So, every single line on the charts of a [netdata dashboard](http://london.my-netdata.io/), can become a badge and this badge can calculate **average**, **max**, or **volume** for any time-frame! And you can also vary the badge color using conditions on the calculated value.
+> So, every single line on the charts of a [netdata dashboard](http://london.my-netdata.io/), can become a badge and this badge can calculate **average**, **min**, **max**, or **volume** for any time-frame! And you can also vary the badge color using conditions on the calculated value.
 
 ---
 
@@ -132,11 +132,13 @@ Here is what you can put for `options` (these are standard netdata API options):
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&before=-60&after=-60"></img>
   </a>
 
-- `group=max` or `group=average` (the default) or `group=sum` or `group=incremental-sum`
+- `group=min` or `group=max` or `group=average` (the default) or `group=sum` or `group=incremental-sum`
 
   If netdata will have to reduce (aggregate) the data to calculate the value, which aggregation method to use.
 
   - `max` will find the max value for the timeframe. This works on both positive and negative dimensions. It will find the most extreme value.
+
+  - `min` will find the min value for the timeframe. This works on both positive and negative dimensions. It will find the number closest to zero.
 
   - `average` will calculate the average value for the timeframe.
 

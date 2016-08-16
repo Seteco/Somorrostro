@@ -40,8 +40,23 @@
 
 **Python Modules**
 * [[How to write new module]]
+* [apache](https://github.com/firehol/netdata/tree/master/python.d#apache)
 * [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
-* [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
+* [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)
+* [dovecot](https://github.com/firehol/netdata/tree/master/python.d#dovecot)
+* [exim](https://github.com/firehol/netdata/tree/master/python.d#exim)
+* [hddtemp](https://github.com/firehol/netdata/tree/master/python.d#hddtemp)
+* [ipfs](https://github.com/firehol/netdata/tree/master/python.d#IPFS)
+* [memcached](https://github.com/firehol/netdata/tree/master/python.d#memcached)
+* [mysql](https://github.com/firehol/netdata/tree/master/python.d#mysql)
+* [nginx](https://github.com/firehol/netdata/tree/master/python.d#nginx)
+* [nginx_log](https://github.com/firehol/netdata/tree/master/python.d#nginx_log)
+* [phpfpm](https://github.com/firehol/netdata/tree/master/python.d#phpfpm)
+* [postfix](https://github.com/firehol/netdata/tree/master/python.d#postfix)
+* [redis](https://github.com/firehol/netdata/tree/master/python.d#redis)
+* [sensors](https://github.com/firehol/netdata/tree/master/python.d#sensors)
+* [squid](https://github.com/firehol/netdata/tree/master/python.d#squid)
+* [tomcat](https://github.com/firehol/netdata/tree/master/python.d#tomcat)
 
 **Node.js Modules**
 * [[General Info - node.d]]

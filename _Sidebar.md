@@ -38,13 +38,15 @@
 **Binary Plugins**
 * [[Apps Plugin]]
 
-**Node.js Plugins**
+**Python Modules**
+
+**Node.js Modules**
 * [[General Info - node.d]]
 * [[named.node.js]]
 * [[sma_webbox.node.js]]
 * [[snmp.node.js]]
 
-**BASH Plugins**
+**BASH Modules**
 * [[General Info - charts.d]]
 * [[ap.chart.sh]]
 * [[apache.chart.sh]]

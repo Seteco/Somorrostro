@@ -39,6 +39,7 @@
 * [[Apps Plugin]]
 
 **Python Modules**
+* [[Writing new module]]
 
 **Node.js Modules**
 * [[General Info - node.d]]

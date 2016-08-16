@@ -40,6 +40,8 @@
 
 **Python Modules**
 * [[How to write new module]]
+* [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
+* [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
 
 **Node.js Modules**
 * [[General Info - node.d]]

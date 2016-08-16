@@ -61,13 +61,15 @@ The plugin should output instructions for netdata to its output (`stdout`).
 
 the template is:
 
-> CHART type.id name title units [family [category [charttype [priority [update_every]]]]]
+> CHART type.id name title units [family [context [charttype [priority [update_every]]]]]
 
  where:
   - `type.id`
 
     uniquely identifies the chart,
     this is what will be needed to add values to the chart
+
+    the `type` part controls the menu the charts will appear in
 
   - `name`
 
@@ -88,13 +90,14 @@ the template is:
     is used to group charts together
     (for example all eth0 charts should say: eth0),
     if empty or missing, the `id` part of `type.id` will be used
+    
+    this controls the sub-menu on the dashboard
 
-  - `category`
+  - `context`
 
-    the section under which the chart will appear
-    (for example mem.ram should appear in the 'system' section),
-    the special word 'none' means: do not show this chart on the home page,
-    if empty or missing, the `type` part of `type.id` will be used
+    the context is giving the template of the chart. For example, if multiple charts present the same information for a different family, they should have the same `context`
+
+    this is used for looking up rendering information for the chart (colors, sizes, informational texts) and also apply alarms to it
 
   - `charttype`
 

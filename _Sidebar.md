@@ -35,7 +35,7 @@
 * [[Internal Plugins]]
 * [[External Plugins]]
 
-**Binary Plugins**
+**Binary Modules**
 * [[Apps Plugin]]
 
 **Python Modules**

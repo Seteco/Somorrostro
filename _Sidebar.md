@@ -16,6 +16,11 @@
 
 ---
 
+**Alarms**
+* [[health-monitoring]]
+
+---
+
 **Netdata Registry**
 * [[mynetdata Menu Item]]
 

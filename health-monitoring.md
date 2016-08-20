@@ -225,11 +225,11 @@ We do this in 2 steps:
 1. Calculate the disk fill rate
 
   ```
-template: disk_fill_rate
-      on: disk.space
-  lookup: max -1s at -30m unaligned of avail
-    calc: ($this - $avail) / (30 * 60)
-   every: 15s
+    template: disk_fill_rate
+          on: disk.space
+      lookup: max -1s at -30m unaligned of avail
+        calc: ($this - $avail) / (30 * 60)
+       every: 15s
    ```
 
   In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes before) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of bytes/second if the disk if filling up, or a negative number of bytes/second if the disk is freeing up space.
@@ -239,12 +239,12 @@ template: disk_fill_rate
 2. Predict the hours after which the disk will run out of space
 
    ```
-template: disk_full_after_hours
-      on: disk.space
-    calc: $avail / $disk_fill_rate / 3600
-   every: 10s
-    warn: $this > 0 and $this < 48
-    crit: $this > 0 and $this < 24
+    template: disk_full_after_hours
+          on: disk.space
+        calc: $avail / $disk_fill_rate / 3600
+       every: 10s
+        warn: $this > 0 and $this < 48
+        crit: $this > 0 and $this < 24
    ```
 
   the `calc` line estimates the time in hours, we will run out of disk space. Of course, only positive values are interesting for this check, so the warning and critical conditions check that we have enough free space if the rate at which we fill the disk gives us at least 48 or 24 hours respectively.

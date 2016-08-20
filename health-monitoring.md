@@ -265,6 +265,7 @@ The `lookup` line will calculate the sum of the all dropped packets in the last 
 
 The `crit` line will issue a critical alarm if even a single packet has been dropped.
 
+Note that the drops chart does not exist if a network interface has never dropped a single packet. When netdata detects a dropped packet, it will add the chart and it will automatically attach this alarm to it.
 
 ## Tracing health monitoring
 

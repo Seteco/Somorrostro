@@ -3,17 +3,17 @@
 
 ## overview
 
-netdata health moniroting is quite powerful. It can be used to create monitoring alarms on any chart, any dimension, any metric collected by netdata:
+Health moniroting in netdata is quite powerful. It can be used to create monitoring alarms on any chart, any dimension, any metric collected by netdata:
 
-1. alarms can examine current and past data, including data reduction functions (min, max, average, sum).
+1. alarms can examine current and past data, including data reduction functions (min, max, average, sum) for any timeframe.
 2. alarms can examine meta-data (like the last collected time)
 3. alarms can use **expressions** to:
   - **set variables** that can be used in other alarms
   - **evaluate** warning and critical conditions
 4. alarms can be escalated and demoted
-5. **templates of alarms** are supported (i.e. alarms for all disks, all network interfaces, all apache servers, all squid servers, all nginx servers, all redis servers, etc).
+5. **templates of alarms** are also supported (i.e. alarms for all disks, all network interfaces, all apache servers, all squid servers, all nginx servers, all redis servers, etc). This means we configure a template once, and netdata will apply it to all matching charts.
 
-netdata ships with alarms that detect many anomalies.
+netdata already ships with many **[pre-defined alarms](https://github.com/firehol/netdata/tree/master/conf.d/health.d)**.
 
 ## health configuration
 

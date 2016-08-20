@@ -88,6 +88,20 @@ The following lines are parsed:
 
   These expressions should evaluate to true or false (alternatively non-zero or zero). These trigger the alarm.
 
+- `exec: SCRIPT`
+
+  The script that will be executed when the alarm changes status.
+
+  Alarms can have the following statuses:
+
+  - `UNINITIALIZED` - the alarm is not initialized yet
+  - `UNDEFINED` - the alarm failed to be calculated (i.e. the database lookup failed, a division by zero occured, etc)
+  - `CLEAR` - the alarm is not armed
+  - `WARNING` - the warning expression resulted in true or non-zero
+  - `CRITICAL` - the critical expression resulted in true or non-zero
+
+  The `SCRIPT` will be called with a number of parameters. Check the **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** script that ships with netdata for an example.
+
 ### Expressions
 
 netdata has an internal infix expression parser. This parses expressions and creates an internal structure that allows fast execution of them.
@@ -128,7 +142,11 @@ There is also a few special variables:
   - `this`, which is resolved to the value of the current alarm
   - `now`, which is resolved to current unix timestamp
 
-## Example 1
+## Examples
+
+There are many alarms shipped with netdata already. Check the **[health.d directory](https://github.com/firehol/netdata/tree/master/conf.d/health.d)**
+
+### Example 1
 
 Check if an apache server is alive:
 
@@ -181,7 +199,7 @@ If these result in non-zero or true, they trigger the alarm.
 
 So, the warning condition checks if we have not collected data from apache for 5 iterations, which the critical conditions checks for 10 iterations.
 
-## Example 2
+### Example 2
 
 Check if any of the disks is critically low on disk space:
 
@@ -198,7 +216,7 @@ template: disk_full_percent
 
 So, the `calc` line find the percentage of used space. `$this` resolves to this percentage.
 
-## Example 3
+### Example 3
 
 Predict if any disk will run out of space in the near future.
 
@@ -214,7 +232,7 @@ template: disk_fill_rate
    every: 15s
    ```
 
-  In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes before) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of bytes/second if the disk if filling up, or a negative number of bytes/second if the disk is freeing up.
+  In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes before) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of bytes/second if the disk if filling up, or a negative number of bytes/second if the disk is freeing up space.
 
   There is no `warn` or `crit` lines here. So, this template will just do the calculation and nothing more.
 
@@ -230,6 +248,22 @@ template: disk_full_after_hours
    ```
 
   the `calc` line estimates the time in hours, we will run out of disk space. Of course, only positive values are interesting for this check, so the warning and critical conditions check that we have enough free space if the rate at which we fill the disk gives us at least 48 or 24 hours respectively.
+
+### Example 4
+
+Check if any network interface is dropping packets:
+
+```
+template: 30min_packet_drops
+      on: net.drops
+  lookup: sum -30m unaligned absolute
+   every: 10s
+    crit: $this > 0
+```
+
+The `lookup` line will calculate the sum of the all dropped packets in the last 30 minutes.
+
+The `crit` line will issue a critical alarm if even a single packet has been dropped.
 
 
 ## Tracing health monitoring

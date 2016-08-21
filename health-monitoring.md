@@ -21,7 +21,7 @@ Health monitoring is very problematic for most people. I have not seen a single 
 
 So, I decided to build a health monitoring system in netdata that will overcome most of the problems other systems have:
 
-**Configuration**. All of you that use netdata already, know I hate it. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
+**Configuration**. All of you that use netdata already, know I hate configuration. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
 
 So, netdata comes with pre-defined alarms for detecting the most common problems. Out of the box:
 

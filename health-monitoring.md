@@ -17,7 +17,7 @@ So, netdata comes with pre-defined alarms for detecting the most common problems
 - it will detect low disk space on any disk
 - it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
 
-Even when you need to configure alarms by hand, netdata offers **Alarm Templates**. Once you have configured an alarm, netdata can apply this alarm on all similar charts/metrics. So, if for example, you build an alarm to detect a web server requests flood, netdata can apply this alarm to all your web servers automatically.
+Even when you need to configure alarms by hand, netdata offers **Alarm Templates**. Once you have configured an alarm, netdata can apply this alarm on all similar charts/metrics. So, if for example, you build an alarm to detect a web server request flood, netdata can apply this alarm to all your web servers automatically.
 
 netdata also offers **Context Based Variables**. When you configure an alarm to a chart, netdata automatically brings you as variables all the chart dimensions and all the dimensions and alarms of the charts that belong to the same family (e.g. family = `eth0` or `sda` or `mysql server 1`). This creates a context where similar things are available to be used with their "first" name.
 

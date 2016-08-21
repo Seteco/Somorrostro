@@ -4,7 +4,9 @@ Dear dev-ops and sys-admins, **this is a gift!**
 
 A few months ago, when [I decided to let the netdata users decide the features they need us to develop](https://github.com/firehol/netdata/issues/436), I was somewhat surprised that most users wanted **[health monitoring](https://github.com/firehol/netdata/issues/436#issuecomment-220832546)**.
 
-I think I get it now. Health monitoring is very problematic for most admins. I have not seen a single sys-adm or dev-op totaly happy with the tools he/she has.
+I think I get it now.
+
+Health monitoring is very problematic for most people. I have not seen a single sys-adm or dev-op totaly happy with the tools he/she has.
 
 So, I decided to build a health monitoring system in netdata that will overcome most of the problems other systems have:
 

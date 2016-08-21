@@ -2,9 +2,152 @@
 
 Dear dev-ops and sys-admins, **now you can!**
 
-You can use netdata to monitor your systems and applications, applying rules to every single metric netdata collects. You can create synthetic alarms using data from any number of charts and you can do this by creating generic rules that are applied automatically to all similar metrics!
+A few months ago, when [I decided to let the netdata users decide the features they need us to develop](https://github.com/firehol/netdata/issues/436), I was somewhat surprised that most users wanted **[health monitoring](https://github.com/firehol/netdata/issues/436#issuecomment-220832546)**.
 
-## overview
+I think I get it now. Health monitoring is very problematic for most admins. I have not seen a single sys-adm or dev-op 100% happy with the tools he/she has.
+
+So, I decided to build a health monitoring system in netdata that will overcome most of the problems other systems have:
+
+**Configuration**. All of you that use netdata, know I hate it. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
+
+So, netdata comes with pre-defined alarms for detecting the most common problems. Out of the box, it will trigger alarms when the applications it monitors stop, it will detect network interfaces errors, it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
+
+Even when you need to configure alarms by hand, netdata offers **Alarm Templates**. Once you have configured an alarm, netdata can apply this alarm on all similar charts/metrics. So, if for example, you build an alarm to detect a web server requests flood, netdata can apply this alarm to all your web servers automatically.
+
+netdata also offers **Context Based Variables**. When you configure an alarm to a chart, netdata automatically brings you as variables all the chart dimensions and all the dimensions and alarms of the charts that belong to the same family (e.g. family = `eth0` or `sda` or `mysql server 1`). This creates a context where similar things are available to be used with their "first" name.
+
+netdata alarms are based on **expressions**. These expressions can use data from any chart, any dimension, any metric. If you want, you can correlate the backlog of the disk, to the number of database queries, to the packets rate of a network interface, to number of requests to a web server. This together with poweful **database lookup and reduce functions** allow you to create alarms for everything imaginable.
+
+## Examples
+
+Check the **[health.d directory](https://github.com/firehol/netdata/tree/master/conf.d/health.d)** for all alarms shipped with netdata.
+
+Here are a few examples:
+
+### Example 1
+
+A simple check if an apache server is alive:
+
+```
+template: apache_last_collected_secs
+      on: apache.requests
+    calc: $now - $last_collected_t
+   every: 10s
+    warn: $this > ( 5 * $update_every)
+    crit: $this > (10 * $update_every)
+```
+
+The above checks that netdata is able to collect data from apache. In detail:
+
+```
+template: apache_last_collected_secs
+```
+
+The above defines a **template** named `apache_last_collected_secs`. The name is important since `$apache_last_collected_secs` resolves to the `calc` line. So, try to give something descriptive.
+
+```
+      on: apache.requests
+```
+
+The above applies the **template** to all charts that have `context = apache.requests` (i.e. all your apache servers).
+
+```
+    calc: $now - $last_collected_t
+```
+
+`$now` is a standard variable that resolves to the current timestamp.
+`$last_collected_t` is the last data collection timestamp of the chart. So this calculation gives the number of seconds passed since the last data collection.
+
+```
+   every: 10s
+```
+
+The alarm will be evaluated every 10 seconds.
+
+```
+    warn: $this > ( 5 * $update_every)
+    crit: $this > (10 * $update_every)
+```
+
+If these result in non-zero or true, they trigger the alarm.
+
+`$this` refers to the value of this alarm (i.e. the result of the `calc` line. We could also use `$apache_last_collected_secs`.
+
+`$update_every` is the update frequency of the chart, in seconds.
+
+So, the warning condition checks if we have not collected data from apache for 5 iterations and the critical condition checks for 10 iterations.
+
+### Example 2
+
+Check if any of the disks is critically low on disk space:
+
+```
+template: disk_full_percent
+      on: disk.space
+    calc: $used * 100 / ($avail + $used)
+   every: 1m
+    warn: $this > 80
+    crit: $this > 95
+```
+
+`$used` and `$avail`  are the `used` and `avail` chart dimensions as shown on the dashboard.
+
+So, the `calc` line finds the percentage of used space. `$this` resolves to this percentage.
+
+### Example 3
+
+Predict if any disk will run out of space in the near future.
+
+We do this in 2 steps:
+
+1. Calculate the disk fill rate
+
+  ```
+    template: disk_fill_rate
+          on: disk.space
+      lookup: max -1s at -30m unaligned of avail
+        calc: ($this - $avail) / (30 * 60)
+       every: 15s
+   ```
+
+  In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes ago) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of bytes/second if the disk if filling up, or a negative number of bytes/second if the disk is freeing up space.
+
+  There is no `warn` or `crit` lines here. So, this template will just do the calculation and nothing more.
+
+2. Predict the hours after which the disk will run out of space
+
+   ```
+    template: disk_full_after_hours
+          on: disk.space
+        calc: $avail / $disk_fill_rate / 3600
+       every: 10s
+        warn: $this > 0 and $this < 48
+        crit: $this > 0 and $this < 24
+   ```
+
+  the `calc` line estimates the time in hours, we will run out of disk space. Of course, only positive values are interesting for this check, so the warning and critical conditions check for positive values and that we have enough free space for 48 and 24 hours respectively.
+
+### Example 4
+
+Check if any network interface is dropping packets:
+
+```
+template: 30min_packet_drops
+      on: net.drops
+  lookup: sum -30m unaligned absolute
+   every: 10s
+    crit: $this > 0
+```
+
+The `lookup` line will calculate the sum of the all dropped packets in the last 30 minutes.
+
+The `crit` line will issue a critical alarm if even a single packet has been dropped.
+
+Note that the drops chart does not exist if a network interface has never dropped a single packet. When netdata detects a dropped packet, it will add the chart and it will automatically attach this alarm to it.
+
+---
+
+## health overview
 
 Health moniroting in netdata is quite powerful:
 
@@ -16,8 +159,6 @@ Health moniroting in netdata is quite powerful:
   - **evaluate** warning and critical conditions
 4. alarms can be escalated and demoted (`CLEAR` to `WARNING` to `CRITICAL` and the opposite).
 5. **templates of alarms** are supported (i.e. alarms for all disks, all network interfaces, all apache servers, all squid servers, all nginx servers, all redis servers, etc). This means we configure a template once, and netdata will apply it to all matching charts.
-
-netdata already ships with many **[pre-defined alarms](https://github.com/firehol/netdata/tree/master/conf.d/health.d)**.
 
 ## health configuration
 
@@ -146,130 +287,7 @@ There is also a few special variables:
   - `this`, which is resolved to the value of the current alarm
   - `now`, which is resolved to current unix timestamp
 
-## Examples
 
-There are many alarms shipped with netdata already. Check the **[health.d directory](https://github.com/firehol/netdata/tree/master/conf.d/health.d)**
-
-### Example 1
-
-Check if an apache server is alive:
-
-```
-template: apache_last_collected_secs
-      on: apache.requests
-    calc: $now - $last_collected_t
-   every: 10s
-    warn: $this > ( 5 * $update_every)
-    crit: $this > (10 * $update_every)
-```
-
-The above checks that netdata is able to collect data from apache. In detail:
-
-```
-template: apache_last_collected_secs
-```
-
-The above defines a **template** named `apache_last_collected_secs`. The name is important since `$apache_last_collected_secs` resolves to the `calc` line. So, try to give something descriptive.
-
-```
-      on: apache.requests
-```
-
-The above applies the **template** to all charts that have `context = apache.requests`.
-
-```
-    calc: $now - $last_collected_t
-```
-
-`$now` is a standard variable that resolved to the current timestamp.
-`$last_collected_t` is the last data collection timestamp of the chart. So this calculation gives the number of seconds passed since the last data collection.
-
-```
-   every: 10s
-```
-
-The alarm will be evaluated every 10 seconds.
-
-```
-    warn: $this > ( 5 * $update_every)
-    crit: $this > (10 * $update_every)
-```
-
-If these result in non-zero or true, they trigger the alarm.
-
-`$this` refers to the value of this alarm (i.e. the result of the `calc` line. We could also use `$apache_last_collected_secs`.
-
-`$update_every` is the update frequency of the chart, in seconds.
-
-So, the warning condition checks if we have not collected data from apache for 5 iterations, which the critical conditions checks for 10 iterations.
-
-### Example 2
-
-Check if any of the disks is critically low on disk space:
-
-```
-template: disk_full_percent
-      on: disk.space
-    calc: $used * 100 / ($avail + $used)
-   every: 1m
-    warn: $this > 80
-    crit: $this > 95
-```
-
-`$used` and `$avail`  are the `used` and `avail` chart dimensions as shown on the dashboard.
-
-So, the `calc` line find the percentage of used space. `$this` resolves to this percentage.
-
-### Example 3
-
-Predict if any disk will run out of space in the near future.
-
-We do this in 2 steps:
-
-1. Calculate the disk fill rate
-
-  ```
-    template: disk_fill_rate
-          on: disk.space
-      lookup: max -1s at -30m unaligned of avail
-        calc: ($this - $avail) / (30 * 60)
-       every: 15s
-   ```
-
-  In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes before) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of bytes/second if the disk if filling up, or a negative number of bytes/second if the disk is freeing up space.
-
-  There is no `warn` or `crit` lines here. So, this template will just do the calculation and nothing more.
-
-2. Predict the hours after which the disk will run out of space
-
-   ```
-    template: disk_full_after_hours
-          on: disk.space
-        calc: $avail / $disk_fill_rate / 3600
-       every: 10s
-        warn: $this > 0 and $this < 48
-        crit: $this > 0 and $this < 24
-   ```
-
-  the `calc` line estimates the time in hours, we will run out of disk space. Of course, only positive values are interesting for this check, so the warning and critical conditions check that we have enough free space if the rate at which we fill the disk gives us at least 48 or 24 hours respectively.
-
-### Example 4
-
-Check if any network interface is dropping packets:
-
-```
-template: 30min_packet_drops
-      on: net.drops
-  lookup: sum -30m unaligned absolute
-   every: 10s
-    crit: $this > 0
-```
-
-The `lookup` line will calculate the sum of the all dropped packets in the last 30 minutes.
-
-The `crit` line will issue a critical alarm if even a single packet has been dropped.
-
-Note that the drops chart does not exist if a network interface has never dropped a single packet. When netdata detects a dropped packet, it will add the chart and it will automatically attach this alarm to it.
 
 ## Tracing health monitoring
 

@@ -1,14 +1,14 @@
 # netdata got health monitoring!
 
-Dear dev-ops and sys-admins, **now you can!**
+Dear dev-ops and sys-admins, **this is a gift!**
 
 A few months ago, when [I decided to let the netdata users decide the features they need us to develop](https://github.com/firehol/netdata/issues/436), I was somewhat surprised that most users wanted **[health monitoring](https://github.com/firehol/netdata/issues/436#issuecomment-220832546)**.
 
-I think I get it now. Health monitoring is very problematic for most admins. I have not seen a single sys-adm or dev-op 100% happy with the tools he/she has.
+I think I get it now. Health monitoring is very problematic for most admins. I have not seen a single sys-adm or dev-op totaly happy with the tools he/she has.
 
 So, I decided to build a health monitoring system in netdata that will overcome most of the problems other systems have:
 
-**Configuration**. All of you that use netdata, know I hate it. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
+**Configuration**. All of you that use netdata already, know I hate it. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
 
 So, netdata comes with pre-defined alarms for detecting the most common problems. Out of the box, it will trigger alarms when the applications it monitors stop, it will detect network interfaces errors, it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
 

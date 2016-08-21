@@ -301,6 +301,11 @@ There is also a few special variables:
   - `now`, which is resolved to current unix timestamp
 
 
+## Receiving alarms via email
+
+netdata will send the emails from user `netdata` to user `root`. So, configure your MTA to route these emails to you.
+
+You need a working `sendmail` command for email alerts to work. Almost all MTAs provide a `sendmail` interface.
 
 ## Tracing health monitoring
 

@@ -1,6 +1,6 @@
 # netdata got health monitoring!
 
-Dear dev-ops and sys-admins, **this is a gift!**
+Dear dev-ops and sys-admins, **netdata got alarms**!
 
 A few months ago, when [I decided to let the netdata users decide the features they need us to develop](https://github.com/firehol/netdata/issues/436), I was somewhat surprised that most users wanted **[health monitoring](https://github.com/firehol/netdata/issues/436#issuecomment-220832546)**.
 

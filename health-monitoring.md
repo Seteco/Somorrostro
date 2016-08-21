@@ -16,6 +16,7 @@ So, netdata comes with pre-defined alarms for detecting the most common problems
 
 - it will trigger alarms when the applications it monitors stop
 - it will detect network interfaces errors
+- it will detect disks not catching up with the load they are offered
 - it will detect low disk space on any disk
 - it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
 

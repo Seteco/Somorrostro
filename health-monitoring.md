@@ -115,7 +115,7 @@ We do this in 2 steps:
        every: 15s
    ```
 
-  In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes ago) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of bytes/second if the disk if filling up, or a negative number of bytes/second if the disk is freeing up space.
+  In the `calc` line: `$this` is the result of the `lookup` line (i.e. the free space 30 minutes ago) and `$avail` is the current disk free space. So the `calc` line will either have a positive number of GB/second if the disk if filling up, or a negative number of GB/second if the disk is freeing up space.
 
   There is no `warn` or `crit` lines here. So, this template will just do the calculation and nothing more.
 

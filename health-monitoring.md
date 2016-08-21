@@ -10,7 +10,12 @@ So, I decided to build a health monitoring system in netdata that will overcome 
 
 **Configuration**. All of you that use netdata already, know I hate it. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
 
-So, netdata comes with pre-defined alarms for detecting the most common problems. Out of the box, it will trigger alarms when the applications it monitors stop, it will detect network interfaces errors, it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
+So, netdata comes with pre-defined alarms for detecting the most common problems. Out of the box, it will trigger alarms:
+
+- when the applications it monitors stop
+- it will detect network interfaces errors
+- it will detect low disk space on any disk
+- it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
 
 Even when you need to configure alarms by hand, netdata offers **Alarm Templates**. Once you have configured an alarm, netdata can apply this alarm on all similar charts/metrics. So, if for example, you build an alarm to detect a web server requests flood, netdata can apply this alarm to all your web servers automatically.
 

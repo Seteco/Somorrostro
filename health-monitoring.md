@@ -19,6 +19,7 @@ So, netdata comes with pre-defined alarms for detecting the most common problems
 - it will detect disks not catching up with the load they are offered
 - it will detect low disk space on any disk
 - it will even **predict in how many hours your system is going to be out of disk space** and notify you if it is less than 48 hours.
+- it will alert you if your system is running low on entropy (random numbers pool)
 
 Even when you need to configure alarms by hand, netdata offers **Alarm Templates**. Once you have configured an alarm, netdata can apply this alarm on all similar charts/metrics. So, if for example, you build an alarm to detect a web server request flood, netdata can apply this alarm to all your web servers automatically.
 

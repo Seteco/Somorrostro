@@ -136,6 +136,10 @@ We do this in 2 steps:
 
   the `calc` line estimates the time in hours, we will run out of disk space. Of course, only positive values are interesting for this check, so the warning and critical conditions check for positive values and that we have enough free space for 48 and 24 hours respectively.
 
+  Once this alarm triggers we will receive an email like this:
+
+  ![image](https://cloud.githubusercontent.com/assets/2662304/17839993/87872b32-6802-11e6-8e08-b2e4afef93bb.png)
+
 ### Example 4
 
 Check if any network interface is dropping packets:

@@ -1,17 +1,21 @@
 # netdata got health monitoring!
 
+Dear dev-ops and sys-admins, **now you can!**
+
+You can use netdata to monitor your systems and applications, applying rules to every single metric netdata collects. You can create synthetic alarms using data from any number of charts and you can do this by creating generic rules that are applied automatically to all similar metrics!
 
 ## overview
 
-Health moniroting in netdata is quite powerful. It can be used to create monitoring alarms on any chart, any dimension, any metric collected by netdata:
+Health moniroting in netdata is quite powerful:
 
 1. alarms can examine current and past data, including data reduction functions (min, max, average, sum) for any timeframe.
-2. alarms can examine meta-data (like the last collected time)
+2. each alarm can have its own update frequency with the most frequent being **per second**.
+2. alarms can examine meta-data (like the last collected time of a metric, so that you can check if your application is alive).
 3. alarms can use **expressions** to:
   - **set variables** that can be used in other alarms
   - **evaluate** warning and critical conditions
-4. alarms can be escalated and demoted
-5. **templates of alarms** are also supported (i.e. alarms for all disks, all network interfaces, all apache servers, all squid servers, all nginx servers, all redis servers, etc). This means we configure a template once, and netdata will apply it to all matching charts.
+4. alarms can be escalated and demoted (`CLEAR` to `WARNING` to `CRITICAL` and the opposite).
+5. **templates of alarms** are supported (i.e. alarms for all disks, all network interfaces, all apache servers, all squid servers, all nginx servers, all redis servers, etc). This means we configure a template once, and netdata will apply it to all matching charts.
 
 netdata already ships with many **[pre-defined alarms](https://github.com/firehol/netdata/tree/master/conf.d/health.d)**.
 
@@ -60,11 +64,11 @@ The following lines are parsed:
   This makes a database lookup to find a value. Everything is the same with [badges](https://github.com/firehol/netdata/wiki/Generating-Badges). In short:
 
     - `METHOD` is one of `average`, `min`, `max`, `sum`, `incremental-sum`. This is required.
-    - `AFTER` is a relative number of seconds, but it also accepts a single letter for changing the units, like `1s` = 1 second, `1m` = 1 minute, `1h` = 1 hour, `1d` = 1 day. You probably need a negative number of `AFTER` (i.e. how far in the past to look for the value). This is required.
-    - `at BEFORE` is by default 0 and is not required. Using this you can lookup data some time in the past.
+    - `AFTER` is a relative number of seconds, but it also accepts a single letter for changing the units, like `-1s` = 1 second in the past, `-1m` = 1 minute in the past, `-1h` = 1 hour in the past, `-1d` = 1 day in the past. You need a negative number (i.e. how far in the past to look for the value). This is required.
+    - `at BEFORE` is by default 0 and is not required. Using this you can define the end of the lookup. So data will be evaluated between `AFTER` and `BEFORE`.
     - `every DURATION` sets the updated frequency of the lookup (supports single letter units as above too).
     - `OPTIONS` can be `percentage`, `absolute`, `min2max`, `unaligned`. Check also the the badges documentation for more info.
-    - `of DIMENSIONS` is optional and has to be the last parameter. Dimensions have to be separated by `,` or `|`. The space characters found in dimensions will be keps as-is (a few dimensions have spaces in their names).
+    - `of DIMENSIONS` is optional and has to be the last parameter. Dimensions have to be separated by `,` or `|`. The space characters found in dimensions will be kept as-is (a few dimensions have spaces in their names).
 
   The result of the lookup will be available as `$this` and `$NAME` in expressions.
 
@@ -78,9 +82,9 @@ The following lines are parsed:
 
 - `calc: EXPRESSION`
 
-  This expression is evaluated just after the lookup. Its purpose is to apply some calculation before using the value looked up from the db. You can also have an expression without a lookup, using other variables that are available (so you can also create variables).
+  This expression is evaluated just after the lookup. Its purpose is to apply some calculation before using the value looked up from the db. You can also have an expression without a lookup, using other variables that are available (so you can create new variables).
 
-  The result of the calculation will be available as `$this` and `$NAME` in expressions (overwriting the `lookup` ones).
+  The result of the calculation will be available as `$this` and `$NAME` in warning and critical expressions (overwriting the `lookup` one).
 
   Check expressions below for more information.
 

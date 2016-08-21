@@ -76,6 +76,12 @@ Here is what you can put for `options` (these are standard netdata API options):
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu"></img>
   </a>
 
+- `alarm=NAME`
+
+  Render the current value and status of an alarm linked to the chart. This option can be ignored if the badge to be generated is not related to an alarm.
+
+  The current value of the alarm will be rendered. The color of the badge will indicate the status of the alarm.
+
 - `dimensions=DIMENSION1|DIMENSION2|...`
 
   The dimensions of the chart to use. If you don't set any dimension, all will be used. When multiple dimensions are used, netdata will sum their values. You can append `options=absolute` if you want this sum to convert all values to positive before adding them.

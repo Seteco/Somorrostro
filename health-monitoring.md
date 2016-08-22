@@ -21,6 +21,16 @@ Health monitoring is very problematic for most people. I have not seen a single 
 
 So, I decided to build a health monitoring system in netdata that will overcome most of the problems other systems have:
 
+**Fexibility**. Of course an alarm is just a threshold, i.e. `A > 90`. But netdata goes a lot beyond that:
+
+netdata allows you to correlate different metrics. It is not just if `A > 90`. It can be: `(A > 90 AND (B > 80 OR C < 40)) OR (D > 50 AND E < 30))`. This means for example that you can raise an alarm on the number of database requests only when the disk is congested, or when cpu utilization is too high too.
+
+netdata allows you to take into account the values of the same metrics some time in the past. So you can say: `A(now) > 90 AND A(30 mins ago) < 30`.
+
+You can even calculate rates: `A(now) - A(30 mins ago) / (30 * 60)` = the rate A changes over the last 30 minutes. Then you can raise an alarm when: `A(rate of the last 30 mins) > 10`. This means you can detect if your web server is facing an abnormal request flood, or if your web server although operational is getting way too low requests.
+  
+  You can calculate a percentage of change over the last period: `(A(now) - A(1 min ago)) * 100 / (A(1 min ago) - A(2 min ago))` = the percentage of the volume of the last minute compared to the volume of its previous minute. This means you can track your servers minute-by-minute and trigger alarms based on their changes.
+
 **Configuration**. All of you that use netdata already, know I hate configuration. I find absolutely no joy in configuring applications. Although netdata provides tons of configuration options, I always do my best so that most installations will need to configure nothing.
 
 So, netdata comes with pre-defined alarms for detecting the most common problems. Out of the box:

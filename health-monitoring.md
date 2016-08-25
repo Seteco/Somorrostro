@@ -181,19 +181,6 @@ Note that the drops chart does not exist if a network interface has never droppe
 
 ---
 
-## health overview
-
-Health moniroting in netdata is quite powerful:
-
-1. alarms can examine current and past data, including data reduction functions (min, max, average, sum) for any timeframe.
-2. each alarm can have its own update frequency with the most frequent being **per second**.
-2. alarms can examine meta-data (like the last collected time of a metric, so that you can check if your application is alive).
-3. alarms can use **expressions** to:
-  - **set variables** that can be used in other alarms
-  - **evaluate** warning and critical conditions
-4. alarms can be escalated and demoted (`CLEAR` to `WARNING` to `CRITICAL` and the opposite).
-5. **templates of alarms** are supported (i.e. alarms for all disks, all network interfaces, all apache servers, all squid servers, all nginx servers, all redis servers, etc). This means we configure a template once, and netdata will apply it to all matching charts.
-
 ## health configuration
 
 Everything related to health configuration is in `/etc/netdata/health.d`. In this directory you can put any number of files (in any number of sub-directories) with a suffix `.conf` to have them processed by netdata.

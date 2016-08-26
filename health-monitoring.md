@@ -232,7 +232,7 @@ The following lines are parsed:
     - `OPTIONS` can be `percentage`, `absolute`, `min2max`, `unaligned`. Check also the the badges documentation for more info.
     - `of DIMENSIONS` is optional and has to be the last parameter. Dimensions have to be separated by `,` or `|`. The space characters found in dimensions will be kept as-is (a few dimensions have spaces in their names).
 
-  The result of the lookup will be available as `$this` and `$NAME` in expressions.
+  The result of the lookup will be available as `$this` and `$NAME` in expressions. The timestamps of the timeframe evaluated by the database lookup is available as variables `$after` and `$before` (both are unix timestamps).
 
 - `green: NUMBER` and `red: NUMBER`
 
@@ -274,6 +274,8 @@ netdata has an internal infix expression parser. This parses expressions and cre
 
 These operators are supported `+`, `-`, `*`, `/`, `<`, `<=`, `<>`, `!=`, `>`, `>=`, `&&`, `||`, `!`, `AND`, `OR`, `NOT`. Boolean operators result in either `1` (true) or `0` (false).
 
+The conditional evaluation operator `?` is supported too. Using this operator IF-THEN-ELSE conditional statements can be specified. The format is: `(condition) ? (true expression) : (false expression)`. So, netdata will first evaluate the `condition` and based on the result will either evaluate `true expression` or `false expression`. Example: `($this > 0) ? ($avail * 2) : ($used / 2)`. Nested such expressions are also supported (i.e. `true expression` and `false expression` can contain conditional evaluations).
+
 Expressions also support the `abs()` function.
 
 Expressions can have variables. Variables start with `$`. Check below for more information.
@@ -303,7 +305,7 @@ netdata supports 3 new internal indexes for variables that will be used in healt
 
   - **host variables**. All the dimensions of all charts, including all alarms, in fullname. Fullname is `CHART.VARIABLE`, where `CHART` is either the chart id or the chart name (both are supported).
 
-There is also a few special variables:
+There are also a few special variables:
 
   - `this`, which is resolved to the value of the current alarm
   - `now`, which is resolved to current unix timestamp

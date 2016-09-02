@@ -7,6 +7,7 @@ Cloud VM|[netdata2.firehol.org](http://netdata2.firehol.org) (US located demo of
 Localization Management|[netdata localization project](https://crowdin.com/project/netdata) (check issue [#279](https://github.com/firehol/netdata/issues/279))|**[Crowdin.com](https://crowdin.com/)**|**Crowdin.com** donated an open source license to their Localization Management Platform.
 Cloud VM|[netdata.firehol.org](http://netdata.firehol.org) (EU located demo of netdata)|**[DigitalOcean.com](https://www.digitalocean.com/)**|**DigitalOcean.com** donated 1000 USD to be used in their excellent Cloud Computing services. Many thanks to [Justin Paine](https://github.com/xxdesmus) for making this happen.
 Development IDE|-|**[JetBrains.com](https://www.jetbrains.com/)**|**JetBrains.com** donated an open source license for 4 developers  for 1 year, to their excellent IDEs.
+k0nsl.org|[dacentec.netdata.k0nsl.org](http://dacentec.netdata.k0nsl.org/): a cluster of 5 netdata VPS nodes in a round-robin configuration — all located in USA.|**[k0nsl.org](https://k0nsl.org/blog/)**|**k0nsl** provides this cluster located in USA for demoing the latest version of netdata.
 
 Thank you!
 

@@ -29,7 +29,7 @@ A few months ago, when [I decided to let the netdata users decide the features t
 
 I think I get it now.
 
-Health monitoring is very problematic for most people. I have not seen a single sys-adm or dev-op totaly happy with the tools he/she has.
+Health monitoring is problematic for most people. I have not seen a single sys-adm or dev-op totaly happy with the tools he/she has.
 
 So, I decided to build a health monitoring system in netdata that will overcome most of the problems other systems have:
 

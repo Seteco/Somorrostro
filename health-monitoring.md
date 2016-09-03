@@ -270,19 +270,9 @@ The following lines are parsed:
 
   The script that will be executed when the alarm changes status.
 
-  Alarms can have the following statuses:
-
-  - `UNINITIALIZED` - the alarm is not initialized yet
-  - `UNDEFINED` - the alarm failed to be calculated (i.e. the database lookup failed, a division by zero occured, etc)
-  - `CLEAR` - the alarm is not armed
-  - `WARNING` - the warning expression resulted in true or non-zero
-  - `CRITICAL` - the critical expression resulted in true or non-zero
-
-  The `SCRIPT` will be called with a number of parameters. Check the **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** script that ships with netdata for an example.
-
 - `to: ROLE`
 
-  This will be the first parameter of the script to be executed. **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** uses this as a **role**, for example `sysadmin`, `webmaster`, `dba`, etc. The email addresses of the recipients for each role are defined in **[/etc/netdata/health_email_recipients.conf](https://github.com/firehol/netdata/blob/master/conf.d/health_email_recipients.conf)**.
+  This will be the first parameter of the script to be executed.
 
 ### Expressions
 
@@ -329,9 +319,29 @@ There are also a few special variables:
 
 ## Alarm Actions
 
-netdata will send the emails from user `netdata` to user `root`. So, configure your MTA to route these emails to you.
+The `exec` line in health configuration defines an external script that will be called once the alarm is triggered. The default script is **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** which sends a descriptive email about the event.
+
+You can use `alarm-email.sh` as a template for writing your own alarm actions (e.g. for sending the events to another NMS, sending SMS, etc).
+
+### Alarm Emails
 
 You need a working `sendmail` command for email alerts to work. Almost all MTAs provide a `sendmail` interface.
+
+The `to` line in health configuration is the first parameter to **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** which uses this as a **role**. For example `sysadmin`, `webmaster`, `dba`, etc. The email addresses of the recipients for each role are defined in **[/etc/netdata/health_email_recipients.conf](https://github.com/firehol/netdata/blob/master/conf.d/health_email_recipients.conf)**.
+
+**[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** will send the emails from user `netdata` to the email address of the recipient.
+
+### Alarm Statuses
+
+Alarms can have the following statuses:
+
+  - `UNINITIALIZED` - the alarm is not initialized yet
+  - `UNDEFINED` - the alarm failed to be calculated (i.e. the database lookup failed, a division by zero occurred, etc)
+  - `CLEAR` - the alarm is not armed / raised (i.e. is OK)
+  - `WARNING` - the warning expression resulted in true or non-zero
+  - `CRITICAL` - the critical expression resulted in true or non-zero
+
+The external script will be called for all status changes.
 
 ## Troubleshooting
 

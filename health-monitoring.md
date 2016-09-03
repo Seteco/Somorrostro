@@ -7,6 +7,20 @@
 
 ---
 
+## table of contents
+
+- [Overview](#netdata-got-health-monitoring)
+- [Examples](#examples)
+- [Health Configuration](#health-configuration)
+  - [Entities in the Health files](#entities-in-the-health-files)
+  - [The Format](#the-format)
+  - [Expressions](#expressions)
+  - [Variables](#variables)
+- [Alarm Actions](#alarm-actions)
+- [Troubleshooting](#troubleshooting)
+
+---
+
 # netdata got health monitoring!
 
 Dear dev-ops and sys-admins, **netdata got alarms**!
@@ -191,7 +205,7 @@ killall -USR2 netdata
 
 Reloading health configuration will re-do the actions of the alarms (i.e. will re-send emails for warning and critical alarms).
 
-## Entities in the health files
+### Entities in the health files
 
 There are 2 entities:
 
@@ -313,13 +327,13 @@ There are also a few special variables:
   - `now`, which is resolved to current unix timestamp
 
 
-## Receiving alarms via email
+## Alarm Actions
 
 netdata will send the emails from user `netdata` to user `root`. So, configure your MTA to route these emails to you.
 
 You need a working `sendmail` command for email alerts to work. Almost all MTAs provide a `sendmail` interface.
 
-## Tracing health monitoring
+## Troubleshooting
 
 Edit your netdata.conf and set `debug flags = 0x00800000`. Then check your `/var/log/netdata/debug.log`. It will show you how it works.
 

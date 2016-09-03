@@ -35,9 +35,9 @@ So, I decided to build a health monitoring system in netdata that will overcome 
 
 **Fexibility**. Of course an alarm is just a threshold, i.e. `A > 90`. But netdata goes a lot beyond that:
 
-netdata allows you to correlate different metrics. It is not just if `A > 90`. It can be: `(A > 90 AND (B > 80 OR C < 40)) OR (D > 50 AND E < 30))`. This means for example that you can raise an alarm on the number of database requests only when the disk is congested, or when cpu utilization is too high too.
+Of course, netdata allows you to correlate different metrics. It is not just if `A > 90`. It can be: `(A > 90 AND (B > 80 OR C < 40)) OR (D > 50 AND E < 30))`. This means for example that you can raise an alarm on the number of database requests only when the disk is congested, or when cpu utilization is too high too.
 
-netdata allows you to take into account the values of the same metrics some time in the past. So you can say: `A(now) > 90 AND A(30 mins ago) < 30`.
+But also, netdata allows you to take into account the values of the same metrics **some time in the past**. So you can say: `A(now) > 90 AND A(30 mins ago) < 30`.
 
 You can even calculate rates: `A(now) - A(30 mins ago) / (30 * 60)` = the rate A changes over the last 30 minutes. Then you can raise an alarm when: `A(rate of the last 30 mins) > 10`. This means you can detect if your web server is facing an abnormal request flood, or if your web server although operational is getting way too low requests.
   

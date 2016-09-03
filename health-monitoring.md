@@ -266,7 +266,7 @@ The following lines are parsed:
 
   The `SCRIPT` will be called with a number of parameters. Check the **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** script that ships with netdata for an example.
 
- - `to: ROLE`
+- `to: ROLE`
 
   This will be the first parameter of the script to be executed. **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** uses this as a **role**, for example `sysadmin`, `webmaster`, `dba`, etc. The email addresses of the recipients for each role are defined in **[/etc/netdata/health_email_recipients.conf](https://github.com/firehol/netdata/blob/master/conf.d/health_email_recipients.conf)**.
 

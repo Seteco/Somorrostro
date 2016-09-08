@@ -219,6 +219,8 @@ There are 2 entities:
 
 Both of these entities have exactly the same format and feature set. The only difference is the label `alarm` or `template`.
 
+netdata supports overriding **templates** with **alarms**. For example, when a template is defined for a set of charts, an alarm with exactly the same name attached to the same chart the template matches, will have higher precedence (i.e. netdata will use the alarm on this chart and prevent the template from being applied to it).
+
 ### The format
 
 The following lines are parsed:

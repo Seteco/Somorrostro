@@ -105,3 +105,11 @@ nginx logs accesses and netdata logs them too. You can prevent netdata from gene
 [global]
       access log = none
 ```
+
+## SELinux
+
+If you get an 502 Bad Gateway error you might check your nginx error log: cat /var/log/nginx/error.log:
+
+2016/09/09 12:34:05 [crit] 5731#5731: *1 connect() to 127.0.0.1:19999 failed (13: Permission denied) while connecting to upstream, client: 1.2.3.4, server: netdata.example.com, request: "GET / HTTP/2.0", upstream: "http://127.0.0.1:19999/", host: "netdata.example.com"
+
+If you see something like the above, chances are high that SELinux prevents nginx from connecting to the backend server. To fix that, just use this policy: `setsebool -P httpd_can_network_connect true`.

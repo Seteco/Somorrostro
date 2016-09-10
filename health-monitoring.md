@@ -359,7 +359,9 @@ Such web notifications look like this:
 
 You need a working `sendmail` command for email alerts to work. Almost all MTAs provide a `sendmail` interface.
 
-**[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** will send the emails from user `netdata` to the email address of the recipient.
+**[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)** will send the emails from user `netdata` to the email address of the recipient.
+
+edit `/etc/netdata/health_alarm_notify.conf` to configure recipients per role.
 
 email notifications look like this:
 

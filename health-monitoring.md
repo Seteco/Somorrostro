@@ -325,15 +325,27 @@ There are also a few special variables:
 
 ## Alarm Actions
 
-The `exec` line in health configuration defines an external script that will be called once the alarm is triggered. The default script is **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** which sends a descriptive email about the event.
+The `exec` line in health configuration defines an external script that will be called once the alarm is triggered. The default script is **[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)** which sends a descriptive email about the event.
 
-You can use `alarm-email.sh` as a template for writing your own alarm actions (e.g. for sending the events to another NMS, sending SMS, etc).
+`alarm-notify.sh` is capable of:
+
+1. sending emails
+2. sending pushover.net notifications
+3. sending messages to slack.com channels
+
+It uses **roles**. For example `sysadmin`, `webmaster`, `dba`, etc.
+
+Each alarm is assigned to one or more roles, using the `to` line of the alarm configuration. Then `alarm-notify.sh` uses its own configuration (`/etc/netdata/health_alarm_notify.conf` the default is [here](https://github.com/firehol/netdata/blob/master/conf.d/health_alarm_notify.conf)) to find the destination address of the notification for each method. Each role may have one or more destinations.
+
+So, for example the `sysadmin` role may send:
+
+1. emails to admin1@example.com and admin2@example.com
+2. pushover.net notifications to USERTOKENS `A`, `B` and `C`.
+3. messages to slack.com channel `#alarms` and `#systems`.
 
 ### Alarm Emails
 
 You need a working `sendmail` command for email alerts to work. Almost all MTAs provide a `sendmail` interface.
-
-The `to` line in health configuration is the first parameter to **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** which uses this as a **role**. For example `sysadmin`, `webmaster`, `dba`, etc. The email addresses of the recipients for each role are defined in **[/etc/netdata/health_email_recipients.conf](https://github.com/firehol/netdata/blob/master/conf.d/health_email_recipients.conf)**.
 
 **[alarm-email.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-email.sh)** will send the emails from user `netdata` to the email address of the recipient.
 
@@ -341,6 +353,7 @@ The `to` line in health configuration is the first parameter to **[alarm-email.s
 
 Alarms can have the following statuses:
 
+  - `REMOVED` - the alarm has been deleted (this happens when a SIGUSR2 is sent to netdata to reload health configuration)
   - `UNINITIALIZED` - the alarm is not initialized yet
   - `UNDEFINED` - the alarm failed to be calculated (i.e. the database lookup failed, a division by zero occurred, etc)
   - `CLEAR` - the alarm is not armed / raised (i.e. is OK)
@@ -352,4 +365,3 @@ The external script will be called for all status changes.
 ## Troubleshooting
 
 Edit your netdata.conf and set `debug flags = 0x00800000`. Then check your `/var/log/netdata/debug.log`. It will show you how it works.
-

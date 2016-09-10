@@ -378,6 +378,8 @@ You need:
 1. The **incoming webhook URL** as given by slack.com. You can use the same on all your netdata servers (or you can have multiple if you like - your decision).
 2. One or more channels to post the messages to.
 
+Get them here: https://api.slack.com/incoming-webhooks
+
 Set them in `/etc/netdata/health_alarm_notify.conf`, like this:
 
 ```

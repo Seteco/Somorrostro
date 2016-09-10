@@ -17,6 +17,7 @@
   - [Expressions](#expressions)
   - [Variables](#variables)
 - [Alarm Actions](#alarm-actions)
+  - [web browser notifications](#web-browser-notifications)
   - [email messages](#alarm-emails)
   - [slack.com team collaboration](#slackcom-messages)
   - [pushover.net push notifications](#pushovernet-push-notifications)
@@ -345,6 +346,14 @@ So, for example the `sysadmin` role may send:
 1. emails to admin1@example.com and admin2@example.com
 2. pushover.net notifications to USERTOKENS `A`, `B` and `C`.
 3. messages to slack.com channel `#alarms` and `#systems`.
+
+### Web Browser Notifications
+
+The netdata dashboard shows HTML notifications, when it is open.
+Such web notifications look like this:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/18407279/82bac6a6-7714-11e6-847e-c2e84eeacbfb.png)
+
 
 ### Alarm Emails
 

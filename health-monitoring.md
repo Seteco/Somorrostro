@@ -329,12 +329,12 @@ There are also a few special variables:
 
 ## Alarm Actions
 
-The `exec` line in health configuration defines an external script that will be called once the alarm is triggered. The default script is **[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)** which sends a descriptive email about the event.
+The `exec` line in health configuration defines an external script that will be called once the alarm is triggered. The default script is **[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)**. You can change the default script by editing `/etc/netdata/netdata.conf` (if you installation is old, you may need to download a fresh copy of it from netdata using the url `http://your.netdata:19999/netdata.conf).
 
 `alarm-notify.sh` is capable of:
 
 1. sending emails
-2. sending pushover.net notifications
+2. sending pushover.net notifications (push notification to your mobile)
 3. sending messages to slack.com channels
 
 It uses **roles**. For example `sysadmin`, `webmaster`, `dba`, etc.

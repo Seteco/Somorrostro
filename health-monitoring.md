@@ -423,6 +423,10 @@ You need:
 
 The configuration is like above (slack messages).
 
+pushover.net notifications look like this:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/18407302/2361e56c-7715-11e6-9994-1c6933dbcc8b.png)
+
 ### Alarm Statuses
 
 Alarms can have the following statuses:

@@ -17,6 +17,9 @@
   - [Expressions](#expressions)
   - [Variables](#variables)
 - [Alarm Actions](#alarm-actions)
+  - [email messages](#alarm-emails)
+  - [slack.com team collaboration](#slackcom-messages)
+  - [pushover.net push notifications](#pushovernet-push-notifications)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -356,7 +359,7 @@ This is what you will get:
 
 You need:
 
-1. The **incoming webhook URL** as given by slack.com
+1. The **incoming webhook URL** as given by slack.com. You can use the same on all your netdata servers (or you can have multiple if you like - your decision).
 2. One or more channels to post the messages to.
 
 Set them in `/etc/netdata/health_alarm_notify.conf`, like this:
@@ -392,6 +395,19 @@ role_recipients_slack[webmaster]="marketing development"
 ```
 
 The keywords `systems`, `databases`, `marketing`, `development` are slack.com channels (they should already exist in slack).
+
+### pushover.net push notifications
+
+pushover.net allows you to receive push notifications on your mobile phone. The service seems free for up to 7.500 messages per month.
+
+netdata will send warning messages with priority `0` and critical messages with priority `1`. pushover.net allows you to select do-not-disturb hours. The way this is configured, critical notifications will ring and vibrate your phone, even during the do-not-disturb-hours. All other notifications will be delivered silently.
+
+You need:
+
+1. APP TOKEN. You can use the same on all your netdata servers.
+2. USER TOKEN for each user you are going to send notifications to. This is the actual recipient of the notification.
+
+The configuration is like above (slack messages).
 
 ### Alarm Statuses
 

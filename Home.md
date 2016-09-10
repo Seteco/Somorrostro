@@ -2,6 +2,8 @@
 
 # Welcome to netdata!
 
+> Sep 10, 2016: **[netdata alarms can push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
+>
 > Aug 28th, 2016: **[netdata 1.3.0 released](https://github.com/firehol/netdata/releases/tag/v1.3.0)**, which includes **[health monitoring - alarms](https://github.com/firehol/netdata/wiki/health-monitoring)**!
 >
 > ---

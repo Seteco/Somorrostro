@@ -286,7 +286,7 @@ The following lines are parsed:
 
 - `delay: up U down D multiplier M max X`
 
-  This is used to provide optional hysteresis settings for the notifications, to defend against notification flood. These settings do not affect the actual alarm - only the time the `exec` script is executed is affected.
+  This is used to provide optional hysteresis settings for the notifications, to defend against notification flood. These settings do not affect the actual alarm - only the time the `exec` script is executed.
   
   `up U` defines the delay to be applied to a notification for an alarm that raised its status (i.e. CLEAR to WARNING, CLEAR to CRITICAL, WARNING to CRITICAL). For example, `up 10s`, the notification for this event will be send 10 seconds after the actual event. This is used in hope the alarm will get back to its previous state within the duration given. The default `U` is zero.
   
@@ -294,9 +294,7 @@ The following lines are parsed:
   
   `mutliplier M` is multiplies `U` and `D` when a alarm changes state, while a notification is pending. The default multiplier is `1.0`.
   
-  `max X`  defines the maximum absolute notification delay an alarm may get. The default `X` is zero (i.e. no delay allowed).
-
-  Keep in mind that If notifications for an alarm are already delayed and the alarm changes state with a lower delay, the old (longer) delay will be used.
+  `max X`  defines the maximum absolute notification delay an alarm may get. The default `X` is zero (i.e. no delay allowed - so you have to set `max X` to enable notification delays).
 
   Example:
 
@@ -308,12 +306,11 @@ The following lines are parsed:
   -------------|----------|:---:|-------------------------|---
   00:00:01 | WARNING | `up 10s` | 00:00:11 |first state switch
   00:00:05 | CLEAR |  `down 15m x2`| 00:30:05 |the alarm changed state while we had a delay in place, so it was multiplied
-  00:00:06 | WARNING | `up 10s x2 x2` | 00:30:05 |the existing delay is longer that the new one
-  00:00:07|CLEAR|`down 15m x2 x2 x2`|01:00:07|the max allowed delay is used.
+  00:00:06 | WARNING | `up 10s x2 x2` | 00:00:26 |multiplied twice
+  00:00:07|CLEAR|`down 15m x2 x2 x2`|00:45:07|multiplied 3 times.
 
   So:
   -  `U` and `D` are multiplied by `M` every time the alarm changes state (any state, not just their matching one) and a delay is in place.
-  - If a longer delay is already in place, it will not be changed.
   - All are reset to their defaults when the alarm switches state without a delay in place.
 
 

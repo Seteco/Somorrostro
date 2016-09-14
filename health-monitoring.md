@@ -284,7 +284,7 @@ The following lines are parsed:
 
   This will be the first parameter of the script to be executed. Its meaning is left up to the `exec` script. The default `exec` script, `alarm-notify.sh`, uses this field as a space separated list of roles, which are then consulted to find the exact recipients per notification method.
 
-- `delay: up U down D multiplier M max X`
+- `delay: [[[up U] [down D] multiplier M] max X]`
 
   This is used to provide optional hysteresis settings for the notifications, to defend against notification flood. These settings do not affect the actual alarm - only the time the `exec` script is executed.
   
@@ -292,9 +292,9 @@ The following lines are parsed:
   
   `down D` defines the delay to be applied to a notification for an alarm that moves to lower state (i.e. CRITICAL to WARNING, CRITICAL to CLEAR, WARNING to CLEAR). For example, `down 1m` will delay the notification by 1 minute. This is used to prevent notifications for flapping alarms. The default `D` is zero.
   
-  `mutliplier M` is multiplies `U` and `D` when a alarm changes state, while a notification is pending. The default multiplier is `1.0`.
+  `mutliplier M` multiplies `U` and `D` when an alarm changes state, while a notification is delayed. The default multiplier is `1.0`.
   
-  `max X`  defines the maximum absolute notification delay an alarm may get. The default `X` is zero (i.e. no delay allowed - so you have to set `max X` to enable notification delays).
+  `max X`  defines the maximum absolute notification delay an alarm may get. The default `X` is `max(U * M, D * M)` (i.e. the max duration of `U` or `D` multiplied once with `M`).
 
   Example:
 
@@ -305,7 +305,7 @@ The following lines are parsed:
   time of event|new status|delay|notification will be sent|why
   -------------|----------|:---:|-------------------------|---
   00:00:01 | WARNING | `up 10s` | 00:00:11 |first state switch
-  00:00:05 | CLEAR |  `down 15m x2`| 00:30:05 |the alarm changed state while we had a delay in place, so it was multiplied
+  00:00:05 | CLEAR |  `down 15m x2`| 00:30:05 |the alarm changes state while a notification is delayed, so it was multiplied
   00:00:06 | WARNING | `up 10s x2 x2` | 00:00:26 |multiplied twice
   00:00:07|CLEAR|`down 15m x2 x2 x2`|00:45:07|multiplied 3 times.
 

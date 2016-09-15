@@ -353,8 +353,9 @@ netdata supports 3 new internal indexes for variables that will be used in healt
 
 There are also a few special variables:
 
-  - `this`, which is resolved to the value of the current alarm
-  - `now`, which is resolved to current unix timestamp
+  - `this`, which is resolved to the value of the current alarm.
+  - `status`, which is resolved to the current status of the alarm (the current = the last status, i.e. before the current database lookup and the evaluation of the `calc` line). This values can be compared with `$REMOVED`, `$UNINITIALIZED`, `$UNDEFINED`, `$CLEAR`, `$WARNING`, `$CRITICAL`. These values are incremental, ie. `$status > $CLEAL` works as expected.
+  - `now`, which is resolved to current unix timestamp.
 
 
 ## Alarm Actions
@@ -478,3 +479,7 @@ The external script will be called for all status changes.
 ## Troubleshooting
 
 Edit your netdata.conf and set `debug flags = 0x00800000`. Then check your `/var/log/netdata/debug.log`. It will show you how it works.
+
+You can find the context of charts by looking up the chart in either `http://your.netdata:19999/netdata.conf` or `http://your.netdata:19999/api/v1/charts`.
+
+You can find how netdata interpreted the expressions by examining the alarm at `http://your.netdata:19999/api/v1/alarms?all`. For each expression, netdata will return the expression as given in its config file, and the same expression with additional parentheses added to indicate the evaluation flow of the expression. 

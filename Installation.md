@@ -147,7 +147,11 @@ The installer, when run as `root`, will install `/etc/logrotate.d/netdata`.
 
 ## Updating netdata after its installation
 
-You can update netdata to the latest version by getting into `netdata.git` you downloaded before and running:
+`netdata-installer.sh` every time it successfuly installs netdata, it generates another script called `netdata-updater.sh`. You can use this script to update your netdata installation. No options are needed for this script. It uses the same options you used to install netdata.
+
+You can call `netdata-updater.sh` from a cron job. When it detects that it is not running on a terminal it will not print anything on screen, so that a successful update will not trigger an email from crond. It will only print the log if the installation fails for some reason.
+
+You can also update netdata to the latest version by hand, using this:
 
 ```sh
 # go to the git downloaded directory

@@ -6,7 +6,7 @@
 >
 > Sep 16, 2016: are you getting alarms about **packet drops** on your servers? Install the git version of netdata, it will tell you what is wrong and how to fix it.
 >
-> Sep 15, 2016: netdata alarms now support notification hysteresis and dynamic thresholds, to prevent alarm notification flood!
+> Sep 15, 2016: netdata alarms now support **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood!
 >
 > Sep 10, 2016: **[netdata alarms can push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
 >

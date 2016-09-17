@@ -198,14 +198,6 @@ crontab -e
 
 ---
 
-## Starting netdata at boot
-
-To start it at boot, just run `/usr/sbin/netdata` from your `/etc/rc.local` or equivalent.
-
-You can also find systemd and openrc scripts in the **[system](https://github.com/firehol/netdata/tree/master/system)** directory.
-
----
-
 ## Working with netdata
 
 - You can start netdata by executing it with `/usr/sbin/netdata` (the installer will also start it).

@@ -25,7 +25,7 @@
 
 ## demo sites
 
-Live demo installations of netdata are available at **[netdata.rocks](http://netdata.rocks)**:
+Live demo installations of netdata are available at **[http://netdata.rocks](http://netdata.rocks)**:
 
 Location |  netdata demo URL | 60&nbsp;mins&nbsp;reqs | VM Donated by
 :-------:|:-----------------:|:----------:|:-------------

@@ -50,16 +50,15 @@ This is how to do it by hand:
 
 ```sh
 # Debian / Ubuntu
-apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config
+apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config curl
 
 # Centos / Fedora / Redhat
-yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf-archive autogen automake pkgconfig
+yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf-archive autogen automake pkgconfig curl
 
 ```
 
 It would be nice (but not required) if you also install:
 
-- `curl` (used by shell plugins to collect data from applications),
 - `jq` (a JSON parser and query command line tool),
 - `nodejs` (used for `node.js` plugins for monitoring `named` and SNMP devices)
 
@@ -67,10 +66,10 @@ You can install them using this:
 
 ```sh
 # debian / ubuntu
-apt-get install curl jq nodejs
+apt-get install jq nodejs
 
 # centos / fedora / redhat
-yum install curl jq nodejs
+yum install jq nodejs
 ```
 
 ---

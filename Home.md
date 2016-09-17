@@ -2,35 +2,28 @@
 
 # Welcome to netdata!
 
-> Sep 16, 2016: netdata on **github's top projects for 2016**: https://octoverse.github.com/
+> [![User Base](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&label=user%20base&units=null&value_color=blue&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Monitored Servers](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&label=servers%20monitored&units=null&value_color=orange&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Served](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)<br/>(the figures come from **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)** data, counting since May 16th 2016)
 >
-> Sep 16, 2016: are you getting alarms about **packet drops** on your servers? Install the git version of netdata, it will tell you what is wrong and how to fix it.
->
-> Sep 15, 2016: netdata alarms now support **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood!
->
-> Sep 10, 2016: **[netdata alarms can push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
->
-> ---
->
-> Aug 28th, 2016: **[netdata 1.3.0 released](https://github.com/firehol/netdata/releases/tag/v1.3.0)**, which includes **[health monitoring - alarms](https://github.com/firehol/netdata/wiki/health-monitoring)**!
->
-> ---
+> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)<br/>Check **[[Generating Badges]]** for more information.
 
-> June 4th, 2016: Netdata can generate badges:
->
-> [![User Base](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&label=user%20base&units=null&value_color=blue&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
-> [![Monitored Servers](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&label=servers%20monitored&units=null&value_color=orange&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
-> [![Sessions Served](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
->
-> (the figures come from **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)** data, counting since May 16th 2016)
->
-> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
-> [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
-> [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
->
-> Check **[[Generating Badges]]** for more information.
+## latest news
 
-## Demo Sites
+- `Sep 17, 2016`<br/>netdata can now **filter notifications based on their severity per recipient** (so that given recipients will only receive critical notifications, while others will receive all of them).
+
+- `Sep 17, 2016`<br/>netdata can now collect NFS statistics on **NFS Clients (v2, v3, v4)** (it was already able to collect NFS statistics on **NFS Servers (v2, v3, v4)**).
+
+- `Sep 16, 2016`<br/>netdata on **github's top projects for 2016**: **[https://octoverse.github.com/](https://octoverse.github.com/)**. Wow!
+
+- `Sep 16, 2016`<br/>are you getting alarms about **packet drops** on your servers? Install the git version of netdata, it will tell you what is wrong and how to fix it.
+
+- `Sep 15, 2016`<br/>netdata alarms now support alarm **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood!
+
+- `Sep 10, 2016`<br/>netdata alarms can now **[push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
+
+- `Aug 28th, 2016`<br/>**[netdata 1.3.0 released](https://github.com/firehol/netdata/releases/tag/v1.3.0)**, which includes **[health monitoring - alarms](https://github.com/firehol/netdata/wiki/health-monitoring)**!
+
+
+## demo sites
 
 Live demo installations of netdata are available at **[netdata.rocks](http://netdata.rocks)**:
 
@@ -45,7 +38,7 @@ San Francisco (USA)|**[sanfrancisco.netdata.rocks](http://sanfrancisco.netdata.r
 Singapore|**[singapore.netdata.rocks](http://singapore.netdata.rocks)**|[![Requests Per Second](http://singapore.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-3600&options=unaligned&group=sum&label=reqs&units=empty&value_color=blue&precision=0&v42)](http://singapore.netdata.rocks)|[DigitalOcean.com](https://m.do.co/c/83dc9f941745)
 Toronto (Canada)|**[toronto.netdata.rocks](http://toronto.netdata.rocks)**|[![Requests Per Second](http://toronto.netdata.rocks/api/v1/badge.svg?chart=netdata.requests&dimensions=requests&after=-3600&options=unaligned&group=sum&label=reqs&units=empty&value_color=blue&precision=0&v42)](http://toronto.netdata.rocks)|[DigitalOcean.com](https://m.do.co/c/83dc9f941745)
 
-Netdata dashboards are mobile and touch friendly.
+*Netdata dashboards are mobile and touch friendly.*
 
 ## Installation
 
@@ -55,11 +48,11 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ## What is it?
 
-**Netdata** is a real-time performance monitoring solution.
+**Netdata** is a real-time performance and health monitoring solution.
 
 Unlike other solutions that are only capable of presenting *statistics of past performance*, netdata is designed to be perfect for **real-time performance troubleshooting**.
 
-Netdata is a linux daemon you run, which collects data in realtime (per second) and presents a web site to view and analyze them. The presentation is also real-time and full of interactive charts that precisely render all collected values.
+Netdata is a linux daemon you run, that collects data in realtime (per second) and presents a web site to view and analyze them. The presentation is also real-time and full of interactive charts that precisely render all collected values.
 
 Netdata has been designed to be installed **on every system**, without disrupting the applications running on it:
 
@@ -81,13 +74,11 @@ To achieve that, it focuses on **real-time visualization** of what is happening 
 
 **netdata** tries to visualize the truth of **now**, in its **greatest detail**, with detail comparable to the console tools!
 
-So, netdata is: **non disruptive, real-time performance monitoring and visualization, in the greatest possible detail**.
-
 ---
 
 ## How it works?
 
-You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight. With less than 1% CPU utilization of a single core (for the netdata core, plugins may use more), you get hundreds of charts and thousands of metrics, **all collected and visualized per second**.
+You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight. With less than *1% CPU utilization of a single core* (for the netdata core, plugins may use more), you get hundreds of charts and thousands of metrics, **all collected and visualized per second**.
 
 **netdata**:
 

@@ -8,6 +8,8 @@
 
 ## latest news
 
+These are the key changes since the last release of netdata:
+
 - `Sep 17, 2016`<br/>netdata can now **[filter notifications based on their severity per recipient](https://github.com/firehol/netdata/pull/967)** (so that given recipients will only receive critical notifications, while others will receive all of them). This works for emails, pushover mobile notifications and slack channels' messages.
 
 - `Sep 17, 2016`<br/>netdata can now [collect NFS statistics on **NFS Clients (v2, v3, v4)**](https://github.com/firehol/netdata/pull/968) (it was already able to collect NFS statistics on **NFS Servers (v2, v3, v4)**).

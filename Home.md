@@ -16,7 +16,7 @@
 
 - `Sep 16, 2016`<br/>netdata now [collects **softnet** metrics that are used to indicate the source of network packet drops](https://github.com/firehol/netdata/pull/960). Using these metrics special alarms have been added to let you know how to fix a **dropped packets** problem.
 
-- `Sep 15, 2016`<br/>netdata alarms now support alarm **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood!
+- `Sep 15, 2016`<br/>netdata alarms now support alarm **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood! With these features, netdata alarm notifications are sent only when something is really persisting.
 
 - `Sep 10, 2016`<br/>netdata alarms can now **[push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
 

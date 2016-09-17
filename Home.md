@@ -10,7 +10,7 @@
 
 - `Sep 17, 2016`<br/>netdata can now **filter notifications based on their severity per recipient** (so that given recipients will only receive critical notifications, while others will receive all of them).
 
-- `Sep 17, 2016`<br/>netdata can now collect NFS statistics on **NFS Clients (v2, v3, v4)** (it was already able to collect NFS statistics on **NFS Servers (v2, v3, v4)**).
+- `Sep 17, 2016`<br/>netdata can now [collect NFS statistics on **NFS Clients (v2, v3, v4)**](https://github.com/firehol/netdata/pull/968) (it was already able to collect NFS statistics on **NFS Servers (v2, v3, v4)**).
 
 - `Sep 16, 2016`<br/>netdata on **github's top projects for 2016**: **[https://octoverse.github.com/](https://octoverse.github.com/)**. Wow!
 

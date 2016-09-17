@@ -10,6 +10,8 @@
 
 These are the key changes since the last release of netdata:
 
+> There have been **significant changes to alarms** in netdata since release 1.3.0. Alarms flood protection, hysteresis, dynamic thresholds, mobile phone push notifications, slack notifications, role-based notifications, multiple recipients per alarm, a lot more alarms, etc.
+
 - `Sep 17, 2016`<br/>netdata can now [detect port scans or busy daemons crashes by examining TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970).
 
 - `Sep 17, 2016`<br/>netdata now collects IPv4 ICMP and UDPLite statistics (it was already collecting generic IPv4 counters, TCP, UDP, fragments, etc).
@@ -25,6 +27,8 @@ These are the key changes since the last release of netdata:
 - `Sep 15, 2016`<br/>netdata alarms now support alarm **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood! With these features, netdata alarm notifications are now a lot more useful (self-cancelled alarms do not send notifications, flapping alarms do not produce a notification flood, etc).
 
 - `Sep 10, 2016`<br/>netdata alarms can now **[push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
+
+- `Sep 5, 2016`<br/>netdata alarms modal on the dashboard, has been improved significantly, now rendering all the information related to each alarm. Also web browser push notifications are now supported. The dashboard itself got a few improvements too.
 
 - `Aug 28th, 2016`<br/>**[netdata 1.3.0 released](https://github.com/firehol/netdata/releases/tag/v1.3.0)**, which includes **[health monitoring - alarms](https://github.com/firehol/netdata/wiki/health-monitoring)**!
 

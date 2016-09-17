@@ -10,7 +10,7 @@
 
 These are the key changes since the last release of netdata:
 
-- `Sep 17, 2016`<br/>netdata can now [detect port scan or busy daemons crashes by examining TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970).
+- `Sep 17, 2016`<br/>netdata can now [detect port scans or busy daemons crashes by examining TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970).
 
 - `Sep 17, 2016`<br/>netdata now collects IPv4 ICMP and UDPLite statistics (it was already collecting generic IPv4 counters, TCP, UDP, fragments, etc).
 

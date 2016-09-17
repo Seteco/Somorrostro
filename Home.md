@@ -10,7 +10,7 @@
 
 These are the key changes since the last release of netdata:
 
-> There have been **significant changes to alarms** in netdata since release 1.3.0. Alarms flood protection, hysteresis, dynamic thresholds, mobile phone push notifications, slack notifications, role-based notifications, multiple recipients per alarm, a lot more alarms, etc.
+> There have been **significant changes to alarms** in netdata since release 1.3.0. Alarms flood protection, notifications' hysteresis, dynamic warning and critical thresholds, mobile phone push notifications, slack notifications, role-based recipients, multiple recipients per alarm, a lot more alarms, etc.
 
 - `Sep 17, 2016`<br/>netdata can now [detect port scans or busy daemons crashes by examining TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970).
 

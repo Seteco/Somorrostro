@@ -14,7 +14,7 @@
 
 - `Sep 16, 2016`<br/>netdata on **github's top projects for 2016**: **[https://octoverse.github.com/](https://octoverse.github.com/)**. Wow!
 
-- `Sep 16, 2016`<br/>are you getting alarms about **packet drops** on your servers? Install the git version of netdata, it will tell you what is wrong and how to fix it.
+- `Sep 16, 2016`<br/>netdata can collects **softnet** metrics that are used to indicate the source of network packet drops. Using these metrics special alarms have been added to let you know how to fix **dropped packets** problem due to network interface issues.
 
 - `Sep 15, 2016`<br/>netdata alarms now support alarm **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood!
 

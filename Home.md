@@ -12,7 +12,7 @@
 
 These are the key changes since the last release of netdata:
 
-- `Sep 18, 2016`<br/>netdata now collects **[extended TCP kernel statistics](https://github.com/firehol/netdata/pull/982)**. These are very important since they can be used to detect tunable parameters for low latency and best performance of TCP servers. _There is more work to be done to properly render them on the dashboard and add alarms for them - if you can help to properly categorize all the TCP metrics into charts, comment on PR [#982](https://github.com/firehol/netdata/pull/982)_.
+- `Sep 18, 2016`<br/>netdata now collects **[extended TCP kernel statistics](https://github.com/firehol/netdata/pull/982)**. These are very important since they can be used to detect tunable parameters for low latency and best performance of TCP servers. _There is more work to be done to properly render all of them on the dashboard and add related alarms - if you can help to categorize all the TCP metrics into charts, comment on PR [#982](https://github.com/firehol/netdata/pull/982)_.
 
 - `Sep 17, 2016`<br/>netdata can now **[detect port scans or busy daemons crashes by examining IPv4 TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970)**.
 

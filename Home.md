@@ -8,7 +8,7 @@
 
 ## latest news
 
-> _There have been **significant changes to alarms** in netdata since release 1.3.0. Notifications flood protection, notifications' hysteresis, self cancelling notifications, clickable notifications that automatically lead you to the chart that raised the alarm, dynamic warning and critical thresholds, mobile phone push notifications, web browser push notifications, slack notifications, role-based recipients, multiple recipients per alarm, notification filtering based on severity per recipient and a lot more alarms. Alarm thresholds and severities have also been significantly improved to avoid unnecessary notifications._
+> _There have been **significant improvements to alarms** in netdata since release 1.3.0. Alarms and notifications now support hysteresis, dynamic thresholds, self cancellation, they are clickable to lead you to the chart that raised the alarm, they can be sent as mobile phone push notifications, web browser push notifications, slack notifications, they support roles, with multiple recipients and filtering based on severity per recipient. New alarms have been added and the thresholds and severities of all alarms have improved to avoid unnecessary notifications._
 
 These are the key changes since the last release of netdata:
 

@@ -12,6 +12,8 @@
 
 These are the key changes since the last release of netdata:
 
+- `Sep 18, 2016`<br/>netdata now collects [extended TCP kernel statistics](https://github.com/firehol/netdata/pull/982). There is more work to be done to properly render them on the dashboard - _if you can help to properly categorize all the TCP metrics into charts, comment on PR [#982](https://github.com/firehol/netdata/pull/982)_.
+
 - `Sep 17, 2016`<br/>netdata can now **[detect port scans or busy daemons crashes by examining IPv4 TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970)**.
 
 - `Sep 17, 2016`<br/>netdata can now **[filter notifications based on their severity per recipient](https://github.com/firehol/netdata/pull/967)** (so that given recipients will only receive critical notifications, while others will receive all of them). This works for emails, pushover mobile notifications and slack channels' messages.

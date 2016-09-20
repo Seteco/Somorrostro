@@ -232,6 +232,8 @@ The uninstaller will ask you to confirm all deletions.
 
 ## Other Systems
 
+We are trying to collect all the information about netdata package maintainers at [issue 651](https://github.com/firehol/netdata/issues/651). So, please have a look there for ASUSTOR NAS, OpenWRT, ReadyNAS, etc.
+
 ##### Synology
 
 Login into DSM

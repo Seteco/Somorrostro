@@ -119,3 +119,5 @@ curl "http://127.0.0.1:80/server-status?auto"
 ```
 
 netdata will be able to do it too.
+
+Notice: You may need to have the default `000-default.conf ` website enabled in order for the status mod to work.

@@ -132,10 +132,35 @@ Netdata is stable. We use it on production systems without any issues.
 
 Yeap! Check the [releases page](https://github.com/firehol/netdata/releases).
 
-## Can I code too?
+## Can I help?
 
-Of course! Fork the repo, adapt as you see fit and create pull requests.
-If you want to discuss your plans, open a github issue to start the discussion.
+Of course! Please do!
+
+These are areas we need help:
+
+1. _Can you code?_
+
+  - you can **write plugins for data collection**. This is very easy and any language can be used.
+  - you can **write dashboards**, specially optimised for monitoring the applications you use.
+
+2. _Do you use it?_
+
+  - **contribute to documentation**. We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
+  - **open github issues** for the things that are not working well for you. This will help us make netdata better.
+
+3. _Do you have other special skills?_
+
+  - are you a marketing guy? Help us setup a **social media strategy** to build and grow the netdata community.
+  - are you a dev-ops guy? Help us setup and maintain the public global servers.
+  - are you a linux packaging guy? Help us **distribute pre-compiled packages** of netdata for all major distributions.
+
+3. _Do you just love it?_
+
+  - **spread the word**. Give the project a star, post on facebook, twitter, etc. Let other know.
+
+4. _Do you hate it?_
+
+  - we are very sorry... but **let us know why**. We are trying hard to make netdata the best possible, and if it is not good for you, it would be very helpful for the project to let us know.
 
 ## Why you wrote data collection?
 

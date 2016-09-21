@@ -27,7 +27,7 @@ Try our experimental automatic requirements installer (no need to be root). This
 - **Arch** Linux and its derivatives
 - **Gentoo** Linux and its derivatives
 - **Debian** Linux and its derivatives (including **Ubuntu**, **Mint**)
-- **Red Hat** Enterprise Linux and its derivatives (including **Fedora**, **CentOS**)
+- **Fedora** and its derivatives (including **Red Hat Enterprise Linux**, **CentOS**)
 - **SuSe** Linux and its derivatives (including **openSuSe**)
 
 Install the packages for having a **basic netdata installation** (system monitoring and many applications, without  `mysql` / `mariadb`, `named`, hardware sensors and `SNMP`):
@@ -52,7 +52,11 @@ This is how to do it by hand:
 # Debian / Ubuntu
 apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config curl
 
-# Centos / Fedora / Redhat
+# Fedora
+dnf install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf-archive autogen automake pkgconfig curl
+
+
+# CentOS / Red Hat Enterprise Linux
 yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf-archive autogen automake pkgconfig curl
 
 ```
@@ -65,10 +69,13 @@ It would be nice (but not required) if you also install:
 You can install them using this:
 
 ```sh
-# debian / ubuntu
+# Debian / Ubuntu
 apt-get install jq nodejs
 
-# centos / fedora / redhat
+# Fedora
+dnf install jq nodejs
+
+# CentOS / Red Hat Enterprise Linux
 yum install jq nodejs
 ```
 

@@ -156,7 +156,7 @@ These are areas we need help:
 
 3. _Do you just love it?_
 
-  - **spread the word**. Give the project a star, post on facebook, twitter, etc. Let other know.
+  - **spread the word**. Give the project a star, post on facebook, twitter, etc. Let others know. I have been developing netdata for 3 years. The best progress though has been done once users started using it. **The more people using, the better the project is**.
 
 4. _Do you hate it?_
 

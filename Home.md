@@ -132,32 +132,6 @@ Netdata is stable. We use it on production systems without any issues.
 
 Yeap! Check the [releases page](https://github.com/firehol/netdata/releases).
 
-## Can I help?
-
-Of course! Please do!
-
-As with all open source projects, **the more people using it, the better the project is**. Spreading the word costs you nothing and helps the project improve. It is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
-
-Also important is to **open github issues** for the things that are not working well for you. This will help us make netdata better.
-
-These are others areas we need help:
-
-- _Can you code?_
-
-  - you can **write plugins for data collection**. This is very easy and any language can be used.
-  - you can **write dashboards**, specially optimised for monitoring the applications you use.
-
-- _Can you write documentation?_
-
-  - We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
-
-- _Do you have special skills?_
-
-  - are you a **marketing** guy? Help us setup a **social media strategy** to build and grow the netdata community.
-  - are you a **devops** guy? Help us setup and maintain the public global servers.
-  - are you a **linux packaging** guy? Help us **distribute pre-compiled packages** of netdata for all major distributions, or help netdata be included in official distributions.
-
-
 ## Why you wrote data collection?
 
 Well, there are plenty of data collectors already. But we have one or more of the following problems with them:
@@ -182,6 +156,30 @@ We strongly believe monitoring should be scaled out, not up. A "central" monitor
 
 We all have a wonderful tool on our desktops, that connects us to the entire world: the **web browser**! This is the "central" netdata that connects all the netdata installations. We have done a lot of work towards this and we believe we are very close to show you what we mean. Patience...
 
+## Can I help?
+
+Of course! Please do!
+
+As with all open source projects, **the more people using it, the better the project is**. Spreading the word costs you nothing and helps the project improve. It is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
+
+Also important is to **open github issues** for the things that are not working well for you. This will help us make netdata better.
+
+These are others areas we need help:
+
+- _Can you code?_
+
+  - you can **write plugins for data collection**. This is very easy and any language can be used.
+  - you can **write dashboards**, specially optimised for monitoring the applications you use.
+
+- _Can you write documentation?_
+
+  - We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
+
+- _Do you have special skills?_
+
+  - are you a **marketing** guy? Help us setup a **social media strategy** to build and grow the netdata community.
+  - are you a **devops** guy? Help us setup and maintain the public global servers.
+  - are you a **linux packaging** guy? Help us **distribute pre-compiled packages** of netdata for all major distributions, or help netdata be included in official distributions.
 
 ## Is there a roadmap?
 

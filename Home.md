@@ -160,7 +160,7 @@ These are areas we need help:
 
 4. _Do you hate it?_
 
-  - we are very sorry... but **let us know why**. We are trying hard to make netdata the best possible, and if it is not good for you, it would be very helpful for the project to let us know.
+  - we are very sorry... but **let us know why**. We are trying hard to make netdata the best possible, and if it is not good for you, it would be very helpful for the project to let us know what bothers you, what is not good enough for your case.
 
 ## Why you wrote data collection?
 

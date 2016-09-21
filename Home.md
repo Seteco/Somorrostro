@@ -136,7 +136,9 @@ Yeap! Check the [releases page](https://github.com/firehol/netdata/releases).
 
 Of course! Please do!
 
-These are areas we need help:
+As with all open source projects, **the more people using, the better the project is**. Spreading the word costs you nothing and is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
+
+These are others areas we need help:
 
 - _Can you code?_
 
@@ -145,22 +147,15 @@ These are areas we need help:
 
 - _Do you use it?_
 
-  - **contribute to documentation**. We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
   - **open github issues** for the things that are not working well for you. This will help us make netdata better.
+  - **contribute to documentation**. We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
 
-- _Do you have other special skills?_
+- _Do you have special skills?_
 
-  - are you a marketing guy? Help us setup a **social media strategy** to build and grow the netdata community.
-  - are you a dev-ops guy? Help us setup and maintain the public global servers.
-  - are you a linux packaging guy? Help us **distribute pre-compiled packages** of netdata for all major distributions.
+  - are you a **marketing** guy? Help us setup a **social media strategy** to build and grow the netdata community.
+  - are you a **devops** guy? Help us setup and maintain the public global servers.
+  - are you a **linux packaging** guy? Help us **distribute pre-compiled packages** of netdata for all major distributions, or help netdata be included in official distributions.
 
-- _Do you just love it?_
-
-  - **spread the word**. Give the project a star, post on facebook, twitter, etc. Let others know. I have been developing netdata for 3 years. The best progress though has been done once users started using it. **The more people using, the better the project is**.
-
-- _Do you hate it?_
-
-  - we are very sorry... but **let us know why**. We are trying hard to make netdata the best possible, and if it is not good for you, it would be very helpful for the project to let us know what bothers you, what is not good enough for your case.
 
 ## Why you wrote data collection?
 

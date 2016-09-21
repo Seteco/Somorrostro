@@ -160,7 +160,7 @@ We all have a wonderful tool on our desktops, that connects us to the entire wor
 
 Of course! Please do!
 
-As with all open source projects, **the more people using it, the better the project is**. So give it a github star, post about it one facebook, twitter, reddit, google+, etc. Spreading the word costs you nothing and helps the project improve. It is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
+As with all open source projects, **the more people using it, the better the project is**. So give it a github star, post about it on facebook, twitter, reddit, google+, hacker news, etc. Spreading the word costs you nothing and helps the project improve. It is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
 
 Also important is to **open github issues** for the things that are not working well for you. This will help us make netdata better.
 

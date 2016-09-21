@@ -136,7 +136,7 @@ Yeap! Check the [releases page](https://github.com/firehol/netdata/releases).
 
 Of course! Please do!
 
-As with all open source projects, **the more people using, the better the project is**. Spreading the word costs you nothing and is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
+As with all open source projects, **the more people using, the better the project is**. Spreading the word costs you nothing and helps the project improve. It is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
 
 These are others areas we need help:
 

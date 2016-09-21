@@ -138,6 +138,8 @@ Of course! Please do!
 
 As with all open source projects, **the more people using it, the better the project is**. Spreading the word costs you nothing and helps the project improve. It is the minimum you should give back for using a project that has thousands of hours of work in it and you get it for free.
 
+Also important is to **open github issues** for the things that are not working well for you. This will help us make netdata better.
+
 These are others areas we need help:
 
 - _Can you code?_
@@ -145,10 +147,9 @@ These are others areas we need help:
   - you can **write plugins for data collection**. This is very easy and any language can be used.
   - you can **write dashboards**, specially optimised for monitoring the applications you use.
 
-- _Do you use it?_
+- _Can you write documentation?_
 
-  - **open github issues** for the things that are not working well for you. This will help us make netdata better.
-  - **contribute to documentation**. We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
+  - We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
 
 - _Do you have special skills?_
 

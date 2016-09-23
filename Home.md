@@ -8,7 +8,7 @@
 
 ## latest news
 
-[![netdata at the state of github octoverse 2016](https://cloud.githubusercontent.com/assets/2662304/18794894/75f41d3a-81ca-11e6-862f-7664250ef0fb.png)](https://octoverse.github.com/)
+[![netdata at the state of github octoverse 2016](https://cloud.githubusercontent.com/assets/2662304/18795170/ec321f32-81cb-11e6-92a8-d03492f0b00d.png)](https://octoverse.github.com/)
 
 > _There have been **significant improvements to alarms** in netdata since release 1.3.0. Alarms and notifications now support hysteresis, dynamic thresholds, self cancellation, they are clickable to lead you to the chart that raised the alarm, they can be sent as mobile phone push notifications (pushover.net), web browser push notifications, slack notifications, telegram.org notifications, they support roles with with multiple recipients and filtering based on severity per recipient. New alarms have been added and the thresholds and severities of all alarms have been improved to avoid unnecessary notifications._
 

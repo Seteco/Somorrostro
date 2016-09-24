@@ -111,3 +111,5 @@ Add to virtualhost:
 
 </VirtualHost>
 ```
+#Reboot Rerver
+`reboot`

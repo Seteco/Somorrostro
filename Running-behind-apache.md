@@ -111,5 +111,5 @@ Add to virtualhost:
 
 </VirtualHost>
 ```
-#Reboot Rerver
-`reboot`
+
+Changes are applied by restarting apache.

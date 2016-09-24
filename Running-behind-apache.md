@@ -112,4 +112,4 @@ Add to virtualhost:
 </VirtualHost>
 ```
 
-Changes are applied by restarting apache.
+Changes are applied by reloading or restarting apache.

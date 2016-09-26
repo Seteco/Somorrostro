@@ -241,6 +241,23 @@ The uninstaller will ask you to confirm all deletions.
 
 We are trying to collect all the information about netdata package maintainers at [issue 651](https://github.com/firehol/netdata/issues/651). So, please have a look there for ASUSTOR NAS, OpenWRT, ReadyNAS, etc.
 
+##### Alpine 3.4
+
+Execute these commands:
+
+```
+# install required packages
+apk add alpine-sdk bash curl zlib-dev util-linux-dev libmnl-dev gcc make git autoconf automake pkgconfig
+
+# add the netdata user and group by had
+# the installer uses the commands useradd and groupadd,
+# but these are not available in alpine
+addgroup netdata
+adduser -D -G netdata netdata
+```
+
+Then, follow the netdata installation procedure, as given [above](#2-install-netdata).
+
 ##### Synology
 
 Login into DSM

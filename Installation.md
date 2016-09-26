@@ -247,16 +247,28 @@ Execute these commands:
 
 ```
 # install required packages
-apk add alpine-sdk bash curl zlib-dev util-linux-dev libmnl-dev gcc make git autoconf automake pkgconfig
+apk add alpine-sdk bash curl zlib-dev util-linux-dev libmnl-dev gcc make git autoconf automake pkgconfig python logrotate
 
 # add the netdata user and group by had
 # the installer uses the commands useradd and groupadd,
 # but these are not available in alpine
 addgroup netdata
 adduser -D -G netdata netdata
+
+# if you plan to run node.js netdata plugins
+apk add nodejs
+
+# make netdata start at boot
+echo -e "#!/usr/bin/env bash\n/usr/sbin/netdata" >/etc/local.d/netdata.start
+chmod 755 /etc/local.d/netdata.start
+
+# make netdata stop at shutdown
+echo -e "#!/usr/bin/env bash\nkillall netdata" >/etc/local.d/netdata.stop
+chmod 755 /etc/local.d/netdata.stop
 ```
 
 Then, follow the netdata installation procedure, as given [above](#2-install-netdata).
+
 
 ##### Synology
 

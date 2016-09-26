@@ -266,6 +266,9 @@ chmod 755 /etc/local.d/netdata.start
 echo -e "#!/usr/bin/env bash\nkillall netdata" >/etc/local.d/netdata.stop
 chmod 755 /etc/local.d/netdata.stop
 
+# enable the local service to start automatically
+rc-update add local
+
 # download netdata - the directory 'netdata' will be created
 git clone https://github.com/firehol/netdata.git --depth=1
 cd netdata

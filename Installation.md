@@ -243,7 +243,7 @@ We are trying to collect all the information about netdata package maintainers a
 
 ##### Alpine 3.4
 
-Execute these commands:
+Execute these commands to install netdata in Alpine Linux 3.4:
 
 ```
 # install required packages
@@ -265,10 +265,14 @@ chmod 755 /etc/local.d/netdata.start
 # make netdata stop at shutdown
 echo -e "#!/usr/bin/env bash\nkillall netdata" >/etc/local.d/netdata.stop
 chmod 755 /etc/local.d/netdata.stop
+
+# download netdata - the directory 'netdata' will be created
+git clone https://github.com/firehol/netdata.git --depth=1
+cd netdata
+
+# build it, install it, start it
+./netdata-installer.sh
 ```
-
-Then, follow the netdata installation procedure, as given [above](#2-install-netdata).
-
 
 ##### Synology
 

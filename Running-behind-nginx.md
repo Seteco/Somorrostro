@@ -2,6 +2,8 @@
 
 To pass netdata via a nginx, use this:
 
+### as a virtual host
+
 ```
 upstream backend {
     # the netdata server
@@ -29,7 +31,7 @@ server {
 }
 ```
 
-### Add as subfolder
+### As a subfolder to an existing virtual host
 
 ```
 upstream netdata {
@@ -64,7 +66,7 @@ server {
     }
 ```
 
-### Access multiple netdata servers, via one nginx
+### As a subfoldder for multiple netdata servers, via one nginx
 
 ```
 upstream backend-server1 {

@@ -42,8 +42,8 @@ upstream netdata {
 server {
    listen 80;
 
-   # the virtual host name of this
-   server_name netdata.example.com;
+   # the virtual host name of this subfolder should be exposed
+   #server_name netdata.example.com;
 
    location /netdata {
         return 301 /netdata/;
@@ -83,8 +83,8 @@ upstream backend-server2 {
 server {
     listen 80;
 
-    # the virtual host name of this
-    server_name netdata.example.com;
+    # the virtual host name of this subfolder should be exposed
+    #server_name netdata.example.com;
 
     location ~ /netdata/(?<behost>.*)/(?<ndpath>.*) {
         proxy_set_header X-Forwarded-Host $host;

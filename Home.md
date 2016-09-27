@@ -14,7 +14,7 @@
 
 These are the key changes since the last release of netdata:
 
-- `Sep 27, 2016`<br/>netdata is now [Alpine Linux](https://alpinelinux.org/) friendly. It compiles and works perfectly with [musl libc](https://www.musl-libc.org/). You can now have netdata inside your applications' containers...
+- `Sep 27, 2016`<br/>netdata is now [Alpine Linux](https://alpinelinux.org/) friendly. It compiles and works perfectly with [musl libc](https://www.musl-libc.org/). You can now have netdata inside your alpine containers too...
 
 - `Sep 18, 2016`<br/>netdata now collects **[extended TCP kernel statistics](https://github.com/firehol/netdata/pull/982)**. These are very important since they can be used to detect tunable parameters for low latency and best performance of TCP servers. _There is more work to be done to properly render all of them on the dashboard and add related alarms - if you can help to categorize all the TCP metrics into charts, comment on PR [#982](https://github.com/firehol/netdata/pull/982)_.
 

@@ -13,7 +13,7 @@ upstream backend {
 
 server {
     # nginx listens to this
-    listen 10.1.1.1:80;
+    listen 80;
 
     # the virtual host name of this
     server_name netdata.example.com;
@@ -41,7 +41,9 @@ upstream netdata {
 
 server {
    listen 80;
-   server_name localhost 127.0.0.1;
+
+   # the virtual host name of this
+   server_name netdata.example.com;
 
    location /netdata {
         return 301 /netdata/;
@@ -66,7 +68,7 @@ server {
     }
 ```
 
-### As a subfoldder for multiple netdata servers, via one nginx
+### As a subfolder for multiple netdata servers, via one nginx
 
 ```
 upstream backend-server1 {
@@ -79,8 +81,10 @@ upstream backend-server2 {
 }
 
 server {
-    listen 10.1.1.1;
-    server_name 10.1.1.1;
+    listen 80;
+
+    # the virtual host name of this
+    server_name netdata.example.com;
 
     location ~ /netdata/(?<behost>.*)/(?<ndpath>.*) {
         proxy_set_header X-Forwarded-Host $host;

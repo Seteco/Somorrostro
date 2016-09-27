@@ -64,6 +64,40 @@ server {
 }
 ```
 
+### Add as subdomain
+```
+upstream netdata {
+    server 127.0.0.1:19999;
+    keepalive 64;
+}
+
+server {
+   listen 80;
+   server_name localhost 127.0.0.1;
+
+   location /netdata {
+        return 301 /netdata/;
+   }
+
+   location ~ /netdata/(?<ndpath>.*) {
+        proxy_redirect off;
+        proxy_set_header Host $host;
+
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_http_version 1.1;
+        proxy_pass_request_headers on;
+        proxy_set_header Connection "keep-alive";
+        proxy_store off;
+        proxy_pass http://netdata/$ndpath$is_args$args;
+
+        gzip on;
+        gzip_proxied any;
+        gzip_types *;
+    }
+```
+
 Of course you can add as many backend servers as you like.
 
 Using the above, you access netdata on the backend servers, like this:

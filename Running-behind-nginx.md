@@ -2,7 +2,7 @@
 
 To pass netdata via a nginx, use this:
 
-### as a virtual host
+### As a virtual host
 
 ```
 upstream backend {

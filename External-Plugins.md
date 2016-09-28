@@ -24,6 +24,8 @@ Each of these modules plugins has each own methods for defining modules. Please 
 
 ---
 
+## native netdata plugin API
+
 The information below is the standard netdata plugin API.
 
 Any program that can print a few values to its standard output can become

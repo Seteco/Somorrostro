@@ -6,7 +6,7 @@ Plugins using the native netdata plugin API (described below in detail), go to `
 
   Examples: https://github.com/firehol/netdata/tree/master/plugins.d
 
-Additionally, netdata offers a set of **modular plugins**. They are modular since they also support custom made modules to be included. Writing modules for these plugins is easier than accessing the native netdata API directly.
+Additionally, netdata offers a set of **modular plugins**. They are modular since they accept custom made modules to be included. Writing modules for these plugins is easier than accessing the native netdata API directly.
 
 1. modules of the default `bash` plugin ([charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)), go to `/usr/libexec/netdata/charts.d/*.chart.sh`.
 

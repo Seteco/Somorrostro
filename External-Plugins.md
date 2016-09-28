@@ -1,5 +1,30 @@
-netdata plugins
-===============
+# netdata plugins
+
+netdata supports several plugin methods:
+
+Plugins using the native netdata plugin API (described below in detail), go to `/usr/libexec/netdata/plugins.d/*.plugin`. These can be written in any computer language (i.e. `c`, `c++`, `go`, `lua`, `java`, `ruby`, or whatever...).
+
+  Examples: https://github.com/firehol/netdata/tree/master/plugins.d
+
+Additionally, netdata offers a set of **modular plugins**. They are modular since they also support custom made modules to be included. Writing modules for these plugins is easier than accessing the native netdata API directly.
+
+1. modules of the default `bash` plugin ([charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)), go to `/usr/libexec/netdata/charts.d/*.chart.sh`.
+
+  Examples: https://github.com/firehol/netdata/tree/master/charts.d
+
+2. modules of the default `python` plugin ([python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)), go to `/usr/libexec/netdata/python.d/*.chart.py`.
+
+  Examples: https://github.com/firehol/netdata/tree/master/python.d
+
+3. modules of the default `node.js` plugin ([node.d.plugin(https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)), go to `/usr/libexec/netdata/python.d/*.node.js`.
+
+  Examples: https://github.com/firehol/netdata/tree/master/node.d
+
+Each of these modules plugins has each own methods for defining modules. Please check the examples and their documentation.
+
+---
+
+The information below is the standard netdata plugin API.
 
 Any program that can print a few values to its standard output can become
 a netdata plugin.

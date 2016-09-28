@@ -20,7 +20,7 @@ Additionally, netdata offers a set of **modular plugins**. They are modular sinc
 
   Examples: https://github.com/firehol/netdata/tree/master/node.d
 
-Each of these modules plugins has each own methods for defining modules. Please check the examples and their documentation.
+Each of these modular plugins has each own methods for defining modules. Please check the examples and their documentation.
 
 ---
 

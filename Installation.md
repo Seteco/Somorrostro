@@ -137,6 +137,7 @@ In the system directory you can find `netdata-init-d`. Copy it to the proper pla
 
 ```
 cp system/netdata-init-d /etc/init.d/netdata
+chmod +x /etc/init.d/netdata
 update-rc.d netdata defaults
 ```
 

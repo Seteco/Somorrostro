@@ -29,4 +29,4 @@ netdata also supports `jemalloc` and `tcmalloc`, however both behave exactly the
 
 No, it is not.
 
-Linux reserves real memory (physical RAM) in pages (on x86 machines pages are 4KB each). So even if the system memory allocator is allocating huge amounts of virtual memory, only the 4KB pages that are actually used are reserving physical RAM. The real memory applications chart on netdata, shows the amount of memory these pages occupy in physical RAM (it accounts the whole page, even if part of it is used).
+Linux reserves real memory (physical RAM) in pages (on x86 machines pages are 4KB each). So even if the system memory allocator is allocating huge amounts of virtual memory, only the 4KB pages that are actually used are reserving physical RAM. The **real memory** chart on netdata application section, shows the amount of physical memory these pages occupy(it accounts the whole pages, even if parts of them are actually used).

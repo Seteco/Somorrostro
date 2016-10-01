@@ -147,7 +147,15 @@ In the `system` directory you can find `netdata-openrc`. Copy it to the proper p
 
 #### centos
 
-Check PR https://github.com/firehol/netdata/pull/403
+For older versions of RHEL/CentOS that don't have systemd, an init script is included in the system directory. This can be installed by running the following commands as root.
+
+```
+cp system/netdata-init-d /etc/init.d/netdata
+chmod +x /etc/init.d/netdata
+chkconfig --add netdata
+```
+
+_There have been some recent work on the init script, see PR https://github.com/firehol/netdata/pull/403_
 
 #### other systems
 

@@ -1,5 +1,3 @@
-## netdata virtual memory size
-
 You may notice that netdata's virtual memory size, as reported by `ps` or `/proc/pid/status`  (or even netdata's applications virtual memory chart)  is unrealistically high.
 
 For example, it may be reported to be 150+MB, even if the resident memory size is just 25MB. Similar values may be reported for netdata plugins too.

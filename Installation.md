@@ -133,10 +133,10 @@ service netdata start
 
 #### init.d
 
-In the system directory you can find `netdata-init-d`. Copy it to the proper place according to your distribution documentation. For Ubuntu, this can be done via running the following commands as root.
+In the system directory you can find `netdata-lsb`. Copy it to the proper place according to your distribution documentation. For Ubuntu, this can be done via running the following commands as root.
 
 ```
-cp system/netdata-init-d /etc/init.d/netdata
+cp system/netdata-lsb /etc/init.d/netdata
 chmod +x /etc/init.d/netdata
 update-rc.d netdata defaults
 ```

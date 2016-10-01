@@ -55,11 +55,12 @@ apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-ar
 # Fedora
 dnf install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf-archive autogen automake pkgconfig curl
 
-
 # CentOS / Red Hat Enterprise Linux
 yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf-archive autogen automake pkgconfig curl
 
 ```
+
+Please note that for RHEL/CentOS you might need [EPEL](http://www.tecmint.com/how-to-enable-epel-repository-for-rhel-centos-6-5/).
 
 It would be nice (but not required) if you also install:
 
@@ -145,7 +146,7 @@ update-rc.d netdata defaults
 
 In the `system` directory you can find `netdata-openrc`. Copy it to the proper place according to your distribution documentation.
 
-#### centos
+#### CentOS / Red Hat Enterprise Linux
 
 For older versions of RHEL/CentOS that don't have systemd, an init script is included in the system directory. This can be installed by running the following commands as root.
 

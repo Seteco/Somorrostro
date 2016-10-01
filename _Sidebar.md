@@ -13,6 +13,7 @@
 * [[Performance]]
 * [[Memory Requirements]]
     - [[Memory Deduplication - Kernel Same Page Merging - KSM]]
+    - [[netdata virtual memory size]]
 
 ---
 

@@ -21,7 +21,7 @@ This behaviour is system specific. For example, the chart above when running net
 
 Since netdata already uses minimal memory allocations while it runs (i.e. it adapts its memory on start, so that while repeatedly collects data it does not do memory allocations), it already instructs the system memory allocator to minimize the memory arenas for each thread. We have also added 2 configuration options to allow you tweak these settings: https://github.com/firehol/netdata/blob/5645b1ee35248d94e6931b64a8688f7f0d865ec6/src/main.c#L410-L418
 
-However, even if we instructed the memory allocator to use just one arena, it seem it allocates an arena per thread.
+However, even if we instructed the memory allocator to use just one arena, it seems it allocates an arena per thread.
 
 netdata also supports `jemalloc` and `tcmalloc`, however both of which behave exactly the same to the glibc memory allocator in this aspect.
 

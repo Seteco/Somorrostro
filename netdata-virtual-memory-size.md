@@ -23,7 +23,7 @@ Since netdata already uses minimal memory allocations while it runs (i.e. it ada
 
 However, even if we instructed the memory allocator to use just one arena, it seems it allocates an arena per thread.
 
-netdata also supports `jemalloc` and `tcmalloc`, however both of which behave exactly the same to the glibc memory allocator in this aspect.
+netdata also supports `jemalloc` and `tcmalloc`, however both behave exactly the same to the glibc memory allocator in this aspect.
 
 ### Is this a problem?
 

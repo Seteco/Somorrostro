@@ -4,38 +4,22 @@
 
 > [![User Base](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&label=user%20base&units=null&value_color=blue&precision=0&v42)](https://registry.my-netdata.io/#netdata_registry) [![Monitored Servers](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&label=servers%20monitored&units=null&value_color=orange&precision=0&v42)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Served](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen&precision=0&v42)](https://registry.my-netdata.io/#netdata_registry)<br/>_(the figures come from **[netdata registry](https://github.com/firehol/netdata/wiki/mynetdata-menu-item)** data, showing only installations that use the public global registry, counting since May 16th 2016)_
 >
-> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0&v42)](https://registry.my-netdata.io/#netdata_registry) [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0&v42)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0&v42)](https://registry.my-netdata.io/#netdata_registry)<br/>_Check **[[Generating Badges]]** for more information._
+> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0&v42)](https://registry.my-netdata.io/#menu_netdata_submenu_registry) [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0&v42)](https://registry.my-netdata.io/#menu_netdata_submenu_registry) [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0&v42)](https://registry.my-netdata.io/#menu_netdata_submenu_registry)<br/>_Check **[[Generating Badges]]** for more information._
 
 ## latest news
 
 [![netdata at the state of github octoverse 2016](https://cloud.githubusercontent.com/assets/2662304/18795170/ec321f32-81cb-11e6-92a8-d03492f0b00d.png)](https://octoverse.github.com/)
 
-> _There have been **significant improvements to alarms** in netdata since release 1.3.0. Alarms and notifications now support hysteresis, dynamic thresholds, self cancellation, they are clickable to lead you to the chart that raised the alarm, they can be sent as mobile phone push notifications (pushover.net), web browser push notifications, slack notifications, telegram.org notifications, they support roles with multiple recipients and filtering based on severity per recipient. New alarms have been added and the thresholds and severities of all alarms have been improved to avoid unnecessary notifications._
 
-These are the key changes since the last release of netdata:
-
-- `Sep 27, 2016`<br/>netdata is now [Alpine Linux](https://alpinelinux.org/) friendly. It compiles and works perfectly with [musl libc](https://www.musl-libc.org/). You can now have netdata inside your alpine containers too...
-
-- `Sep 18, 2016`<br/>netdata now collects **[extended TCP kernel statistics](https://github.com/firehol/netdata/pull/982)**. These are very important since they can be used to detect tunable parameters for low latency and best performance of TCP servers. _There is more work to be done to properly render all of them on the dashboard and add related alarms - if you can help to categorize all the TCP metrics into charts, comment on PR [#982](https://github.com/firehol/netdata/pull/982)_.
-
-- `Sep 17, 2016`<br/>netdata can now **[detect port scans or busy daemons crashes by examining IPv4 TCP handshake statistics counters](https://github.com/firehol/netdata/issues/970)**.
-
-- `Sep 17, 2016`<br/>netdata can now **[filter notifications based on their severity per recipient](https://github.com/firehol/netdata/pull/967)** (so that given recipients will only receive critical notifications, while others will receive all of them). This works for emails, pushover mobile notifications and slack channels' messages.
-
-- `Sep 17, 2016`<br/>netdata can now [collect NFS statistics on **NFS Clients (v2, v3, v4)**](https://github.com/firehol/netdata/pull/968) (it was already able to collect NFS statistics on **NFS Servers (v2, v3, v4)**). Also, netdata now collects **IPv4 ICMP and UDPLite** statistics (it was already collecting generic IPv4 counters, TCP, UDP, fragments, etc).
-
-- `Sep 16, 2016`<br/>netdata on **github's top projects for 2016**: **[https://octoverse.github.com/](https://octoverse.github.com/)**. Wow!
-
-- `Sep 16, 2016`<br/>netdata now [collects **softnet** metrics that are used to indicate the source of network packet drops](https://github.com/firehol/netdata/pull/960). Using these metrics special alarms have been added to let you know how to fix a **dropped packets** problem.
-
-- `Sep 15, 2016`<br/>netdata alarms now support alarm **notification hysteresis and dynamic thresholds**, to prevent alarm notification flood! With these features, netdata alarm notifications are now a lot more useful (self-cancelled alarms do not send notifications, flapping alarms do not produce a notification flood, etc).
-
-- `Sep 10, 2016`<br/>netdata alarms can now **[push notifications to your mobile phone and post notifications to slack channels](https://github.com/firehol/netdata/wiki/health-monitoring#alarm-actions)**!
-
-- `Sep 5, 2016`<br/>netdata alarms modal on the dashboard, has been improved significantly, now rendering all the information related to each alarm. Also web browser push notifications are now supported. The dashboard itself got a few improvements too.
-
-- `Aug 28th, 2016`<br/>**[netdata 1.3.0 released](https://github.com/firehol/netdata/releases/tag/v1.3.0)**, which includes **[health monitoring - alarms](https://github.com/firehol/netdata/wiki/health-monitoring)**!
-
+> Oct 4th, 2016
+>
+> [netdata v1.4.0 released!](https://github.com/firehol/netdata/releases)
+>
+> - the fastest netdata ever (with a better look too)!
+> - improved IoT and containers support!
+> - alarms improved in almost every way!
+> - new plugins:  softnet netdev, extended TCP metrics, UDPLite, NFS v2, v3 client (server was there already), NFS v4 server & client, APCUPSd, RetroShare
+> - improved plugins: mysql, cgroups, hddtemp, sensors, phpfm, tc (QoS)
 
 ## demo sites
 

@@ -14,7 +14,7 @@ The source code of the plugin is [here](https://github.com/firehol/netdata/blob/
 
 ## Configuration
 
-You will need to create the file `/etc/netdata/snmp.conf` with data like the following.
+You will need to create the file `/etc/netdata/node.d/snmp.conf` with data like the following.
 
 In this example:
 

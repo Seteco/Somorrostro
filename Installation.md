@@ -144,9 +144,14 @@ service netdata start
 
 In the system directory you can find `netdata-lsb`. Copy it to the proper place according to your distribution documentation. For Ubuntu, this can be done via running the following commands as root.
 
-```
+```sh
+# copy the netdata startup file to /etc/init.d
 cp system/netdata-lsb /etc/init.d/netdata
+
+# make sure it is executable
 chmod +x /etc/init.d/netdata
+
+# enable it
 update-rc.d netdata defaults
 ```
 
@@ -158,9 +163,14 @@ In the `system` directory you can find `netdata-openrc`. Copy it to the proper p
 
 For older versions of RHEL/CentOS that don't have systemd, an init script is included in the system directory. This can be installed by running the following commands as root.
 
-```
+```sh
+# copy the netdata startup file to /etc/init.d
 cp system/netdata-init-d /etc/init.d/netdata
+
+# make sure it is executable
 chmod +x /etc/init.d/netdata
+
+# enable it
 chkconfig --add netdata
 ```
 

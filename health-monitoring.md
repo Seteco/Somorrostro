@@ -21,6 +21,7 @@
   - [email messages](#alarm-emails)
   - [slack.com team collaboration](#slackcom-messages)
   - [pushover.net push notifications](#pushovernet-push-notifications)
+  - [pushbullet.com push notifications](#pushbulletcom-push-notifications)
   - [telegram.org push messages](#telegramorg-messages)
 - [Troubleshooting](#troubleshooting)
 
@@ -367,7 +368,8 @@ The `exec` line in health configuration defines an external script that will be 
 
 1. sending emails
 2. sending pushover.net notifications (push notification to your mobile)
-3. sending messages to slack.com channels
+3. sending pushbullet.com notifications (push notifications to all devices linked within pushbullet account)
+4. sending messages to slack.com channels
 
 It uses **roles**. For example `sysadmin`, `webmaster`, `dba`, etc.
 
@@ -377,13 +379,13 @@ So, for example the `sysadmin` role may send:
 
 1. emails to admin1@example.com and admin2@example.com
 2. pushover.net notifications to USERTOKENS `A`, `B` and `C`.
-3. messages to slack.com channel `#alarms` and `#systems`.
+3. pushbullet.com push notifications to admin1@example.com and admin2@example.com
+4. messages to slack.com channel `#alarms` and `#systems`.
 
 ### Web Browser Notifications
 
 The netdata dashboard shows HTML notifications, when it is open.
 Such web notifications look like this:
-
 ![image](https://cloud.githubusercontent.com/assets/2662304/18407279/82bac6a6-7714-11e6-847e-c2e84eeacbfb.png)
 
 
@@ -398,6 +400,48 @@ edit `/etc/netdata/health_alarm_notify.conf` to configure recipients per role.
 email notifications look like this:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/18407294/e9218c68-7714-11e6-8739-e4dd8a498252.png)
+
+### Pushbullet.com push notifications 
+Will look like this on your browser:
+![image](https://lh3.googleusercontent.com/-EobKlar2aVKMwKMRJBmWT2ExK-tCN98KByItzo7fIBbNJY2UJ8FkgX5Ee_3CeHDz7EV0XF4=w1680-h885)
+
+And like this on your Android device:
+
+
+![image](https://lh4.googleusercontent.com/PJD20oVzxZtzGtRBQ8q2d0F6EUC3FZvJTUpnPUKWutacs9YHUKf_96YjEZl-zgvN3EAstATM=w1680-h885-rw)
+
+You will need:
+
+1. Signup and Login to pushbullet.com
+2. Get your Access Token, go to https://www.pushbullet.com/#settings/account and create a new one
+3. Fill in the PUSHBULLET_ACCESS_TOKEN with that value
+4. Add the recipient emails to DEFAULT_RECIPIENT_PUSHBULLET
+!!PLEASE NOTE THAT IF THE RECIPIENT DOES NOT HAVE A PUSHBULLET ACCOUNT, PUSHBULLET SERVICE WILL SEND AN EMAIL!!
+
+Set them in `/etc/netdata/health_alarm_notify.conf`, like this:
+
+```
+###############################################################################
+# pushbullet (pushbullet.com) push notification options
+
+# multiple recipients can be given like this:
+#                  "user1@email.com user2@mail.com"
+
+# enable/disable sending pushover notifications
+SEND_PUSHBULLET="YES"
+
+# Signup and Login to pushbullet.com
+# To get your Access Token, go to https://www.pushbullet.com/#settings/account
+# And create a new access token
+# Then just set the recipients emails
+# Please note that the if the email in the DEFAULT_RECIPIENT_PUSHBULLET does
+# not have a pushbullet account, the pushbullet service will send an email
+# to that address instead
+
+# Without an access token, netdata cannot send pushbullet notifications.
+PUSBULLET_ACCESS_TOKEN="o.Sometokenhere"
+DEFAULT_RECIPIENT_PUSHBULLET="admin1@example.com admin3@somemail.com"
+```
 
 
 ### Slack.com messages

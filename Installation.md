@@ -115,7 +115,9 @@ In the `system` directory you can find scripts and configurations for the variou
 
 #### systemd
 
-Run these to have netdata managed by systemd:
+The installer already installs `netdata.service` if it detects a systemd system.
+
+To install `netdata.service` by hand, run:
 
 ```sh
 # stop netdata

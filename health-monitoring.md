@@ -403,12 +403,12 @@ email notifications look like this:
 
 ### Pushbullet.com push notifications 
 Will look like this on your browser:
-![image](https://lh3.googleusercontent.com/-EobKlar2aVKMwKMRJBmWT2ExK-tCN98KByItzo7fIBbNJY2UJ8FkgX5Ee_3CeHDz7EV0XF4=w1680-h885)
+![image](https://cloud.githubusercontent.com/assets/4300670/19109636/278b1c0c-8aee-11e6-8a09-7fc94fdbfec8.png)
 
 And like this on your Android device:
 
 
-![image](https://lh4.googleusercontent.com/PJD20oVzxZtzGtRBQ8q2d0F6EUC3FZvJTUpnPUKWutacs9YHUKf_96YjEZl-zgvN3EAstATM=w1680-h885-rw)
+![image](https://cloud.githubusercontent.com/assets/4300670/19109635/278a1dde-8aee-11e6-9984-0bc87a13312d.png)
 
 You will need:
 

@@ -69,6 +69,8 @@ package|description
 `libuuid`|part of `util-linux` for GUIDs management
 `zlib`|gzip compression for the web server
 
+*netdata will fail to start without the above.*
+
 netdata plugins and various aspects of netdata can be enabled or benefit when these are installed (they are optional):
 
 package|description
@@ -81,6 +83,8 @@ package|description
 `nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
 `lm_sensors`|for monitoring hardware sensors
 `libmnl`|for collecting netfilter metrics
+
+*netdata will greatly benefit if you have the above packages installed.*
 
 ---
 

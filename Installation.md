@@ -62,23 +62,25 @@ yum install zlib-devel libuuid-devel libmnl-devel gcc make git autoconf autoconf
 
 Please note that for RHEL/CentOS you might need [EPEL](http://www.tecmint.com/how-to-enable-epel-repository-for-rhel-centos-6-5/).
 
-It would be nice (but not required) if you also install:
+Once netdata is compiled, to run it the following packages are required (already installed using the above commands):
 
-- `jq` (a JSON parser and query command line tool),
-- `nodejs` (used for `node.js` plugins for monitoring `named` and SNMP devices)
+package|description
+:-----:|-----------
+`libuuid`|part of `util-linux` for GUIDs management
+`zlib`|gzip compression for the web server
 
-You can install them using this:
+netdata plugins can benefit when these are installed (they are optional):
 
-```sh
-# Debian / Ubuntu
-apt-get install jq nodejs
-
-# Fedora
-dnf install jq nodejs
-
-# CentOS / Red Hat Enterprise Linux
-yum install jq nodejs
-```
+package|description
+:-----:|-----------
+`bash`|for shell plugins and alarm notifications
+`curl`|for shell plugins and alarm notifications
+`tc`|for monitoring Linux QoS
+`python`|for most of the external plugins
+`python-mysqldb`|used for monitoring mysql databases
+`nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
+`lm_sensors`|for monitoring hardware sensors
+`libmnl`|for collecting netfilter metrics
 
 ---
 

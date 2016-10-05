@@ -427,7 +427,7 @@ Set them in `/etc/netdata/health_alarm_notify.conf`, like this:
 # multiple recipients can be given like this:
 #                  "user1@email.com user2@mail.com"
 
-# enable/disable sending pushover notifications
+# enable/disable sending pushbullet notifications
 SEND_PUSHBULLET="YES"
 
 # Signup and Login to pushbullet.com

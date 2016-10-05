@@ -69,7 +69,7 @@ package|description
 `libuuid`|part of `util-linux` for GUIDs management
 `zlib`|gzip compression for the web server
 
-netdata plugins can benefit when these are installed (they are optional):
+netdata plugins and various aspects of netdata can be enabled or benefit when these are installed (they are optional):
 
 package|description
 :-----:|-----------

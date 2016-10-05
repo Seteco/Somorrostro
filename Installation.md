@@ -84,6 +84,7 @@ package|description
 `nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
 `lm_sensors`|for monitoring hardware sensors
 `libmnl`|for collecting netfilter metrics
+`netcat`|for collecting metrics from remote systems
 
 *netdata will greatly benefit if you have the above packages installed.*
 

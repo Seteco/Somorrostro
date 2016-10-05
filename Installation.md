@@ -79,6 +79,7 @@ package|description
 `curl`|for shell plugins and alarm notifications
 `tc`|for monitoring Linux QoS
 `python`|for most of the external plugins
+`python-yaml`|for parsing `python.d.plugin` configuration
 `python-mysqldb`|used for monitoring mysql databases
 `nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
 `lm_sensors`|for monitoring hardware sensors

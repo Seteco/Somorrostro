@@ -67,7 +67,7 @@ Once netdata is compiled, to run it the following packages are required (already
 package|description
 :-----:|-----------
 `libuuid`|part of `util-linux` for GUIDs management
-`zlib`|gzip compression for the web server
+`zlib`|gzip compression for the internal netdata web server
 
 *netdata will fail to start without the above.*
 

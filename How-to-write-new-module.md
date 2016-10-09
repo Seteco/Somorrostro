@@ -1,11 +1,12 @@
 Basic information
 =================
 
-Writing new python module is simple. You just need to remember to include 4 major things:
+Writing new python module is simple. You just need to remember to include 5 major things:
 - **ORDER** global list
 - **CHART** global dictionary
 - **Service** class
 - **_get_data** method
+- all code needs to be compatible with Python 2 (**≥ 2.7**) *and* 3 (**≥ 3.1**)
 
 ### Global variables `ORDER` and `CHART`
 

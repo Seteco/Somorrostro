@@ -78,7 +78,7 @@ Station 40:b8:37:5a:ed:5e (on wlan0)
 
 ## Configuration
 
-You can only set `ap_update_every=NUMBER` to `/etc/netdata/ap.conf`, to give the data collection frequency.
+You can only set `ap_update_every=NUMBER` to `/etc/netdata/charts.d/ap.conf`, to give the data collection frequency.
 
 ## Auto-detection
 

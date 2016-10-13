@@ -86,7 +86,7 @@ From the apache status output it collects:
 
 ## Configuration
 
-The configuration is stored in `/etc/netdata/apache.conf`.
+The configuration is stored in `/etc/netdata/charts.d/apache.conf`.
 
 The internal default is:
 

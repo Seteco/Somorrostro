@@ -66,9 +66,9 @@
 
 **Node.js Modules**
 * [[General Info - node.d]]
-* [[named.node.js]]
-* [[sma_webbox.node.js]]
-* [[snmp.node.js]]
+* [named.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/named.conf.md)
+* [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf.md)
+* [snmp.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf.md)
 
 **BASH Modules**
 * [[General Info - charts.d]]

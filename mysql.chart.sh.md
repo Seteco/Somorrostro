@@ -7,7 +7,7 @@ It generates 20+ charts for each mysql server.
 
 By default (not configured) it will attempt to connect to a mysql server at localhost. If it succeeds it will proceed.
 
-You can configure the mysql servers to connect to, by editing `/etc/netdata/mysql.conf`.
+You can configure the mysql servers to connect to, by editing `/etc/netdata/charts.d/mysql.conf`.
 
 To setup 2 servers (MY_A and MY_B) this is what you will need:
 

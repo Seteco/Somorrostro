@@ -1,3 +1,7 @@
+This plugin is obsolete. Use the python.d one in new installations.
+
+---
+
 Documentation is not written yet. This is just a quick and dirty guide.
 
 The shell script code is [here](https://github.com/firehol/netdata/blob/master/charts.d/mysql.chart.sh)

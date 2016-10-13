@@ -1,6 +1,6 @@
 # node.js plugins
 
-Node.js is perfect for asynchronous operations, and since data collection should not be a CPU intensive task, using node.js for data collection provides an ideal solution.
+Node.js is perfect for asynchronous operations. It is very fast and quite common (actually the whole web is based on it). Since data collection is not a CPU intensive task, node.js is an ideal solution for it.
 
 `node.d.plugin` is a netdata plugin that provides an abstraction layer to allow easy and quick development of data collectors in node.js. It also manages all its data collectors (placed in `/usr/libexec/netdata/node.d`) using a single instance of node, thus lowering the memory footprint of data collection.
 
@@ -8,27 +8,21 @@ Of course, there can be independent plugins written in node.js (placed in `/usr/
 
 To run `node.js` plugins you need to have `node` installed in your system.
 
-In some older systems, the package named `node` is not node.js. It is a terminal emulation program called `ax25-node`. In this case the node.js package may be referred as `nodejs`. Once you install `nodejs`, you will have to link `/usr/bin/nodejs` to `/usr/bin/node` for this plugin to work, so that typing `node` in your terminal, opens node.js. For more information check the **[[Installation]]** guide.
+In some older systems, the package named `node` is not node.js. It is a terminal emulation program called `ax25-node`. In this case the node.js package may be referred as `nodejs`. Once you install `nodejs`, we suggest to link `/usr/bin/nodejs` to `/usr/bin/node`, so that typing `node` in your terminal, opens node.js. For more information check the **[[Installation]]** guide.
 
 ## configuring `node.d.plugin`
 
-`node.d.plugin` can work even without any configuration, if it can find an operational collector in `/usr/libexec/netdata/node.d`.
+`node.d.plugin` can work even without any configuration. Its default configuration file is [/etc/netdata/node.d.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d.conf).
 
-Using its configuration file `/etc/netdata/node.d.conf` you can control its default behaviour
+## debugging modules written for node.d.plugin
 
-*FIXME: document the options and the file format*
-
-## debugging collectors written for node.d.plugin
-
-To test `node.d.plugin` collectors, which are placed in `/usr/libexec/netdata/node.d`:
-
-You can run `node.d.plugin` by hand, with something like this:
+To test `node.d.plugin` collectors, which are placed in `/usr/libexec/netdata/node.d`, you can run `node.d.plugin` by hand, with something like this:
 
 ```sh
 /usr/libexec/netdata/plugins.d/node.d.plugin debug 1 X Y Z
 ```
 
-`node.d.plugin` will run in `debug` mode (lots of debug info), with an update frequency of `1` second, evaluating only the collector scripts `X` (i.e. `/usr/libexec/netdata/node.d/X.node.js`), `Y` and `Z`. You can define zero or more collector scripts. If none is defined, `node.d.plugin` will evaluate all collector script available.
+`node.d.plugin` will run in `debug` mode (lots of debug info), with an update frequency of `1` second, evaluating only the collector scripts `X` (i.e. `/usr/libexec/netdata/node.d/X.node.js`), `Y` and `Z`. You can define zero or more modules. If none is defined, `node.d.plugin` will evaluate all modules available.
 
 Keep in mind that if your configs are not in `/etc/netdata`, you should do the following before running `node.d.plugin`:
 
@@ -38,28 +32,25 @@ export NETDATA_CONFIG_DIR="/path/to/etc/netdata"
 
 ---
 
-## developing `node.d.plugin` collectors
+## developing `node.d.plugin` modules
 
-These are the entities involved:
+Your data collection module should be split in 3 parts:
 
-1. `node.d.plugin`
+   - a function to fetch the data from its source. `node.d.plugin` already can fetch data from web sources, so you don't need to do anything about it for http.
 
-  `node.d.plugin` is a netdata plugin that provides an abstraction layer to allow you write netdata plugins in node.js quickly. It also manages all node.js plugins using a single instance of node, thus lowering the memory footprint of data collection.
+   - a function to process the fetched/manipulate the data fetched. This function will make a number of calls to create charts and dimensions and pass the collected values to netdata. This is the only function you need to write for collecting http JSON data.
 
-2. Your data collection module should be split in 2 parts:
+   - a `configure` and an `update` function, which take care of your module configuration and data refresh respectively. You can use the supplied ones.
 
-   - a `processor` to fetch the data from its source. `node.d.plugin` already provides an `http` collector to fetch data from web sources.
-   - the chart generation, that will instruct netdata what charts to create and which values to update
+Your module will automatically be able to process any number of servers, with different settings (even different data collection frequencies). You will write just the work needed for one and `node.d.plugin` will do the rest. For each server you are going to fetch data from, you will have to create a `service` (more later).
 
-3. Your module will automatically be able to process any number of servers, with different settings (even different data collection frequencies). You will write just the work needed for one, `node.d.plugin` will do the rest. For each server you are going to fetch data from, you will have to create a `service` (more later).
-
-### writing a collector
+### writing the data collection module
 
 To provide a module called `mymodule`, you have create the file `/usr/libexec/netdata/node.d/mymodule.node.js`, with this structure:
 
 ```js
 
-// this processor is needed only
+// the processor is needed only
 // if you need a custom processor
 // other than http
 netdata.processors.myprocessor = {
@@ -151,7 +142,7 @@ module.exports = mymodule;
 #### configure(config)
 
 `configure(config)` is called just once, when `node.d.plugin` starts.
-The config file will contain the contents of `/etc/netdata/mymodule.conf`.
+The config file will contain the contents of `/etc/netdata/node.d/mymodule.conf`.
 This file should have the following format:
 
 ```js
@@ -162,15 +153,15 @@ This file should have the following format:
 }
 ```
 
-If the config file `/etc/netdata/mymodule.conf` does not give a `enable_autodetect` or `update_every`, these will be added by `node.d.plugin`. So you module will always have them.
+If the config file `/etc/netdata/node.d/mymodule.conf` does not give a `enable_autodetect` or `update_every`, these will be added by `node.d.plugin`. So you module will always have them.
 
-The configuration file `/etc/netdata/mymodule.conf` may contain whatever else is needed for `mymodule`.
+The configuration file `/etc/netdata/node.d/mymodule.conf` may contain whatever else is needed for `mymodule`.
 
 #### processResponse(data)
 
 `data` may be `null` or whatever the processor specified in the `service` returned.
 
-The `service` object defines a set of functions to allow you send information to the netdata server about:
+The `service` object defines a set of functions to allow you send information to the netdata core about:
 
 1. Charts and dimension definitions
 2. Updated values, from the collected values

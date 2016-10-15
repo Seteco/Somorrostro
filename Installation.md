@@ -30,7 +30,7 @@ Try our experimental automatic requirements installer (no need to be root). This
 - **Fedora** and its derivatives (including **Red Hat Enterprise Linux**, **CentOS**)
 - **SuSe** Linux and its derivatives (including **openSuSe**)
 
-Install the packages for having a **basic netdata installation** (system monitoring and many applications, without  `mysql` / `mariadb`, `named`, hardware sensors and `SNMP`):
+Install the packages for having a **basic netdata installation** (system monitoring and many applications, without  `mysql` / `mariadb`, `postgres`, `named`, hardware sensors and `SNMP`):
 
 ```sh
 curl -Ss 'https://raw.githubusercontent.com/firehol/netdata-demo-site/master/install-required-packages.sh' >/tmp/kickstart.sh && bash /tmp/kickstart.sh netdata
@@ -81,6 +81,7 @@ package|description
 `python`|for most of the external plugins
 `python-yaml`|for parsing `python.d.plugin` configuration
 `python-mysqldb`|used for monitoring mysql databases
+`python-psycopg2`|used for monitoring postgres databases
 `nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
 `lm_sensors`|for monitoring hardware sensors
 `libmnl`|for collecting netfilter metrics

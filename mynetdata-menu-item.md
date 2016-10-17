@@ -50,17 +50,7 @@ Your web browser **only**!
 
 Your netdata servers do not talk to the registry. This is a UML diagram of its operation:
 
-![image](https://cloud.githubusercontent.com/assets/2662304/15268669/2990d818-19ef-11e6-831f-4328c8484424.png)
-
-```sequence
-web browser->netdata1: give me the dashboard
-netdata1-->web browser: here it is
-web browser->netdata1: give me registry info
-netdata1-->web browser:  here it is, talk to registry1
-web browser->registry1: Hey registry1, I am accessing netdata1
-registry1-->web browser: nice!, here are other netdata servers you have accessed in the past
-```
-
+![registry](https://cloud.githubusercontent.com/assets/2662304/19448565/11a70632-94ab-11e6-9d80-f410b4acb797.png)
 
 ## What data the registry maintains?
 

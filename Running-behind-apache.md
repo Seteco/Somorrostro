@@ -165,7 +165,7 @@ You might edit netdata to suit those changes.
 Then restart netdata to apply the new configuration.
 ````bash
 killall netdata
-/usr/sbin/netdat
+/usr/sbin/netdata
 ````
 
 

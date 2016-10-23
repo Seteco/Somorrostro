@@ -66,6 +66,7 @@ server {
         gzip_proxied any;
         gzip_types *;
     }
+}
 ```
 
 ### As a subfolder for multiple netdata servers, via one nginx

@@ -16,7 +16,7 @@ Additionally, netdata offers a set of **modular plugins**. They are modular sinc
 
   Examples: https://github.com/firehol/netdata/tree/master/python.d
 
-3. modules of the default `node.js` plugin ([node.d.plugin(https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)), go to `/usr/libexec/netdata/python.d/*.node.js`.
+3. modules of the default `node.js` plugin ([node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)), go to `/usr/libexec/netdata/python.d/*.node.js`.
 
   Examples: https://github.com/firehol/netdata/tree/master/node.d
 

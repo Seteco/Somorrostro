@@ -15,7 +15,7 @@ Writing new python module is simple. You just need to remember to include 5 majo
 ORDER = ['first_chart', 'second_chart', 'third_chart']
 ```
 
-`CHART` dictionary is a little bit trickier. It should contain chart definition in following format:
+`CHART` dictionary is a little bit trickier. It should contain the chart definition in following format:
 ```py
 CHART = {
     id: {
@@ -24,19 +24,21 @@ CHART = {
             [unique_dimension_name, name, algorithm, multiplier, divisor]
         ]}
 ```
-All names are better explained in [External Plugins](https://github.com/firehol/netdata/wiki/External-Plugins) section.
+
+All names are better explained in the [External Plugins](https://github.com/firehol/netdata/wiki/External-Plugins) section.
 Parameters like `priority` and `update_every` are handled by `python.d.plugin`.
 
 ### `Service` class
 
-Every module needs to implement its own `Service` class. This class should inherit from one of framework classes:
+Every module needs to implement its own `Service` class. This class should inherit from one of the framework classes:
+
 - `SimpleService`
 - `UrlService`
 - `SocketService`
 - `LogService`
 - `ExecutableService`
 
-Also it needs to invoke parent class constructor in a specific way as well as assign global variables to class variables. 
+Also it needs to invoke the parent class constructor in a specific way as well as assign global variables to class variables. 
 
 Simple example:
 ```py
@@ -65,9 +67,9 @@ def _get_data(self):
 More about framework classes
 ============================
 
-Every framework class has some user-configurable variables which are specific to this particular class. Those variables should have default values initialized in child class constructor.
+Every framework class has some user-configurable variables which are specific to this particular class. Those variables should have default values initialized in the child class constructor.
 
-If module needs some additional user-configurable variable, it can be accessed from `self.configuration` list and assigned in constructor or custom `check` method. Example:
+If module needs some additional user-configurable variable, it can be accessed from the `self.configuration` list and assigned in constructor or custom `check` method. Example:
 ```py
 def __init__(self, configuration=None, name=None):
     UrlService.__init__(self, configuration=configuration, name=name)
@@ -77,7 +79,7 @@ def __init__(self, configuration=None, name=None):
         self.baseurl = "http://localhost:5001"
 ```
 
-Classes implement `_get_raw_data` which should be used to grab raw data. This method usually returns list of strings.
+Classes implement `_get_raw_data` which should be used to grab raw data. This method usually returns a list of strings.
 
 ### `SimpleService`
 

@@ -101,3 +101,19 @@ Next, netdata can generate a valid configuration for the user to edit. No need t
 
 Last, what about options you believe you have set, but you misspelled? When you get the configuration file from the server, there will be a comment above all `name = value` pairs the server does not use. So you know that whatever you wrote there, is not used.
 
+
+## Applying changes
+
+After `netdata.conf` has been modified, netdata needs to be restarted for changes to apply:
+
+```bash
+sudo service netdata restart
+```
+
+If the above does not work, try the following:
+
+```bash
+sudo killall netdata; sleep 10; sudo netdata
+```
+
+Please note that your data history will be lost if you have modified `history` parameter in section `[global]`.

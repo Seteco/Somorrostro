@@ -91,12 +91,11 @@ server {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_pass http://backend-$behost/$ndpath$is_args$args;
         proxy_http_version 1.1;
         proxy_pass_request_headers on;
         proxy_set_header Connection "keep-alive";
         proxy_store off;
-        proxy_pass http://netdata/$ndpath$is_args$args;
+        proxy_pass http://backend-$behost/$ndpath$is_args$args;
 
         gzip on;
         gzip_proxied any;

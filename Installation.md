@@ -29,6 +29,7 @@ Try our experimental automatic requirements installer (no need to be root). This
 - **Debian** Linux and its derivatives (including **Ubuntu**, **Mint**)
 - **Fedora** and its derivatives (including **Red Hat Enterprise Linux**, **CentOS**)
 - **SuSe** Linux and its derivatives (including **openSuSe**)
+- **SLE12** Must have your system registered with Suse Customer Center or have the DVD.
 
 Install the packages for having a **basic netdata installation** (system monitoring and many applications, without  `mysql` / `mariadb`, `postgres`, `named`, hardware sensors and `SNMP`):
 

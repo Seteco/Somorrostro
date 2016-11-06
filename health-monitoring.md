@@ -23,6 +23,7 @@
   - [pushover.net push notifications](#pushovernet-push-notifications)
   - [pushbullet.com push notifications](#pushbulletcom-push-notifications)
   - [telegram.org push messages](#telegramorg-messages)
+- [API Calls](#api-calls)
 - [Troubleshooting](#troubleshooting)
 
 ---

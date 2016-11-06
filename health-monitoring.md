@@ -532,8 +532,7 @@ Telegram messages look like this:
 
 Will look like this on your Android device:
 
-
-![image](https://cloud.githubusercontent.com/assets/4300670/19109635/278a1dde-8aee-11e6-9984-0bc87a13312d.png)
+![image](https://cloud.githubusercontent.com/assets/17090999/20034652/620b6100-a39b-11e6-96af-4f83b8e830e2.png)
 
 You will need:
 

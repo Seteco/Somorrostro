@@ -582,6 +582,14 @@ Alarms can have the following statuses:
 
 The external script will be called for all status changes.
 
+## API Calls
+
+- `http://your.netdata.ip:19999/api/v1/alarms?all` returns all the running alarms.
+- `http://your.netdata.ip:19999/api/v1/alarms` returns all the raised alarms.
+- `http://your.netdata.ip:19999/api/v1/alarm_log` returns all the events of the alarm log.
+- `http://your.netdata.ip:19999/api/v1/alarm_log?after=UNIQUEID` returns all the events of the alarm log, that occurred after UNIQUEID (so you can poll it, and remember the last UNIQUEID of what is returned, which you give it back to get incrementally the events, etc).
+- `http://your.netdata.ip:19999/api/v1/badge.svg?alarm=NAME` returns an SVG (XML) of the given alarm NAME.
+
 ## Troubleshooting
 
 Edit your netdata.conf and set `debug flags = 0x00800000`. Then check your `/var/log/netdata/debug.log`. It will show you how it works.

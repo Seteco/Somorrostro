@@ -361,6 +361,8 @@ There are also a few special variables:
   - `now`, which is resolved to current unix timestamp.
 
 
+You can find all the variables that can be used for a given chart, using `http://your.netdata.ip:19999/api/v1/alarm_variables?chart=NAME`. This will dump all the indexes from the chart's perspective.
+
 ## Alarm Actions
 
 The `exec` line in health configuration defines an external script that will be called once the alarm is triggered. The default script is **[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)**. You can change the default script by editing `/etc/netdata/netdata.conf` (if you installation is old, you may need to download a fresh copy of it from netdata using the url `http://your.netdata:19999/netdata.conf).

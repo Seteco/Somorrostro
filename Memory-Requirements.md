@@ -55,6 +55,6 @@ There are 2 settings for you to tweak:
 
 By default `update every = 1` and `history = 3600`. This gives you an hour of data with per second updates.
 
-If you set `update every = 2` and `history = 1800`, you will still have an hour of data, but collected once every 2 seconds. This will **cut in half** both CPU and RAM resources consumed by netdata.
+If you set `update every = 2` and `history = 1800`, you will still have an hour of data, but collected once every 2 seconds. This will **cut in half** both CPU and RAM resources consumed by netdata. Of course experiment a bit. On very weak devices you might have to use `update every = 5` and `history = 720` (still 1 hour of data, but 1/5 of the CPU and RAM resources).
 
 You can also disable plugins you don't need. Disabling the plugins will also free both CPU and RAM resources.

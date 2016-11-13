@@ -361,7 +361,7 @@ There are also a few special variables:
   - `now`, which is resolved to current unix timestamp.
 
 
-You can find all the variables that can be used for a given chart, using `http://your.netdata.ip:19999/api/v1/alarm_variables?chart=NAME`. This will dump all the indexes from the chart's perspective.
+You can find all the variables that can be used for a given chart, using `http://your.netdata.ip:19999/api/v1/alarm_variables?chart=NAME`. This will dump all the indexes from the chart's perspective. Example: [variables for the `system.cpu` chart of the registry](https://registry.my-netdata.io/api/v1/alarm_variables?chart=system.cpu).
 
 ## Alarm Actions
 

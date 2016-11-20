@@ -46,6 +46,7 @@
 
 **Binary Modules**
 * [[Apps Plugin]]
+* [[fping Plugin]]
 
 **Python Modules**
 * [[How to write new module]]

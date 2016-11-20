@@ -88,3 +88,15 @@ netdata adds 4 alarms:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/20463779/a46ed1c2-af43-11e6-91a5-07ca4533cac3.png)
 
+## adding more backends
+
+netdata already has the code to connect to a TCP socket and send data: https://github.com/firehol/netdata/blob/master/src/backends.c
+
+To add new backends you will have to provide:
+
+1. Two very simple functions to construct the message for each metric. For example these are responsible for `graphite`: https://github.com/firehol/netdata/blob/531363a6de2cd3a7247a34fccd27fefb3eea06ae/src/backends.c#L219-L236
+
+2. A very simple code to set the default port to connect to and set the right functions for formatting the messages. For example, this is the code for `graphite`: https://github.com/firehol/netdata/blob/531363a6de2cd3a7247a34fccd27fefb3eea06ae/src/backends.c#L311-L317
+
+By providing such code, netdata can send its metrics to any other TCP-based backend.
+

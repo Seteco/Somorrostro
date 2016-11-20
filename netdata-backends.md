@@ -39,10 +39,10 @@ A new section will appear in netdata.conf, like this:
 	# destination = localhost
 	# data source = average
 	# prefix = netdata
-        # hostname = my-name
+	# hostname = my-name
 	# update every = 10
 	# buffer on failures = 10
-        # timeout ms = 20000
+	# timeout ms = 20000
 ```
 
 - `enable = yes/no`, enables or disables sending data to a backend

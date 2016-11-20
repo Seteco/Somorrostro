@@ -20,6 +20,9 @@
 **Alarms**
 * [[health-monitoring]]
 
+**Backends**
+* [[netdata-backends]]
+
 ---
 
 **Netdata Registry**

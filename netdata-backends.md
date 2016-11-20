@@ -77,6 +77,8 @@ netdata provides 5 charts:
 
 ## alarms
 
+The latest version of the alarms configuration for monitoring the backend is here: https://github.com/firehol/netdata/blob/master/conf.d/health.d/backend.conf
+
 netdata adds 4 alarms:
 
 1. `backend_last_buffering`, number of seconds since the last successful buffering of backend data

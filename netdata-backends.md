@@ -34,7 +34,7 @@ A new section will appear in netdata.conf, like this:
 
 ```
 [backend]
-	# enable = no
+	# enabled = no
 	# type = graphite
 	# destination = localhost
 	# data source = average
@@ -45,7 +45,7 @@ A new section will appear in netdata.conf, like this:
 	# timeout ms = 20000
 ```
 
-- `enable = yes/no`, enables or disables sending data to a backend
+- `enabled = yes/no`, enables or disables sending data to a backend
 
 - `type = graphite` or `type = opentsdb`, selects the backend type
 

@@ -100,3 +100,4 @@ To add new backends you will have to provide:
 
 By providing such code, netdata can send its metrics to any other TCP-based backend.
 
+Keep in mind that the existing code is uni-directional. netdata only check that the backend server received the data stream with the metrics. It does not have any means the verify the backend server did something with them.

@@ -49,7 +49,7 @@ A new section will appear in netdata.conf, like this:
 
 - `type = graphite` or `type = opentsdb`, selects the backend type
 
-- `destination = host`, accepts a space separated list of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the first available to send the metrics. The format is like this: `host1:port1 host2:port2 host3:port3 ...`. For IPv6 addresses this is supported: `[IPV6_IP]:PORT` (like the web clients).
+- `destination = host`, accepts a space separated list of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the first available to send the metrics. The format is like this: `host1:port1 host2:port2 host3:port3 ...`. For IPv6 addresses this is supported: `[IPV6_IP]:PORT` (like the web clients). This features allows netdata to load-balance different servers (just give your servers in different order on each netdata) and react to failures (i.e. if the first server is not there, netdata will check the next one, and so forth).
 
 - `data source = as collected`, or `data source = average`, or `data source = sum`, selects the kind of data that will be sent to the backend.
 

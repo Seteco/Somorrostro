@@ -1,9 +1,11 @@
 
 # add more charts to netdata
 
-netdata supports a plugin architecture for data collection. You can add custom plugins following the [External Plugins Guide](https://github.com/firehol/netdata/wiki/External-Plugins).
+netdata collects system metrics by itself. It has many internal plugins, for collecting most of the metrics presented by default when it starts, collecting data from `/proc`, `/sys` and other Linux kernel sources.
 
-The following are the currently available plugins:
+To collect non-system metrics, netdata supports a plugin architecture. You can add custom plugins following the [External Plugins Guide](https://github.com/firehol/netdata/wiki/External-Plugins).
+
+The following are the currently available external plugins:
 
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres
@@ -134,6 +136,7 @@ sensors|python<br/>v2 or v3|Uses `lmsensors` to collect sensor data.<br/>&nbsp;<
 application|language|notes|
 :---------:|:------:|:----|
 ap|BASH<br/>Shell Script|Uses the `iw` command to provide statistics of wireless clients connected to a wireless access point running on this host (works well with `hostapd`).<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [ap.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/ap.chart.sh)<br/>configuration file: [charts.d/ap.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/ap.conf)|
+fping|C|Charts network latency statistics for any number of nodes, using the `fping` command. A recent (probably unreleased) version of fping is required. The plugin supplied can install it in `/usr/local`.<br/>&nbsp;<br/>netdata plugin: [fping.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/fping.plugin) (this is a shell wrapper to start fping - once fping is started, netdata and fping communicate directly - it can also install the right version of fping)<br/>configuration file: [fping.conf](https://github.com/firehol/netdata/blob/master/conf.d/fping.conf)|
 snmp|node.js|Connects to multiple snmp servers to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [snmp.node.js](https://github.com/firehol/netdata/blob/master/node.d/snmp.node.js)<br/>configuration file: [node.d/snmp.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf)|
 
 

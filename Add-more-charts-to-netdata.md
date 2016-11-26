@@ -1,6 +1,3 @@
-
-# add more charts to netdata
-
 netdata collects system metrics by itself. It has many internal plugins, for collecting most of the metrics presented by default when it starts, collecting data from `/proc`, `/sys` and other Linux kernel sources.
 
 To collect non-system metrics, netdata supports a plugin architecture. You can add custom plugins following the [External Plugins Guide](https://github.com/firehol/netdata/wiki/External-Plugins).

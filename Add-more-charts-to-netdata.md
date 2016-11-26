@@ -5,6 +5,20 @@ netdata supports a plugin architecture for data collection. You can add custom p
 
 The following are the currently available plugins:
 
+- **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
+- **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres
+- **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
+- **[Proxy Servers](#proxy-servers)**, like squid
+- **[Name Servers](#name-servers)** (DNS), like bind
+- **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
+- **[Mail Servers](#mail-servers)**, like postfix, exim
+- **[System](#system)**, for processes and other system metrics
+- **[Sensors](#sensors)**, like temperature, fans speed, voltage, humidity
+- **[Network](#network)**, such as SNMP devices, access points
+- **[Telephony Servers](#telephony-servers)**, like openSIPS
+- **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
+
+
 ---
 
 ## Web Servers
@@ -67,7 +81,7 @@ named|node.js|Connects to multiple named (ISC-Bind) servers (local or remote) to
 
 ---
 
-## Power Supply
+## UPS and Power
 
 application|language|notes|
 :---------:|:------:|:----|
@@ -93,13 +107,22 @@ postfix|BASH<br/>Shell Script|Charts the postfix queue size.<br/><br/>DEPRECATED
 
 application|language|notes|
 :---------:|:------:|:----|
+apps|C|`apps.plugin` collects resource usage statistics for all processes running in the system. It groups the entire process tree and reports dozens of metrics for CPU utilization, memory footprint, disk I/O, swap memory, network connections, open files and sockets, etc. It reports metrics for application groups, users and user groups.<br/>&nbsp;<br/>netdata plugin: [apps_plugin.c](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c)<br/>configuration file: [apps_groups.conf](https://github.com/firehol/netdata/blob/master/conf.d/apps_groups.conf)|
 cpu_apps|BASH<br/>Shell Script|Collects the CPU utilization of select apps.<br/><br/>DEPRECATED IN FAVOR OF `apps.plugin`. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [cpu_apps.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/cpu_apps.chart.sh)<br/>configuration file: [charts.d/cpu_apps.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/cpu_apps.conf)|
+load_average|BASH<br/>Shell Script|Collects the current system load average.<br/><br/>DEPRECATED IN FAVOR OF THE NETDATA INTERNAL ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [load_average.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/load_average.chart.sh)<br/>configuration file: [charts.d/load_average.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/load_average.conf)|
+mem_apps|BASH<br/>Shell Script|Collects the memory footprint of select applications.<br/><br/>DEPRECATED IN FAVOR OF `apps.plugin`. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [mem_apps.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/mem_apps.chart.sh)<br/>configuration file: [charts.d/mem_apps.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/mem_apps.conf)|
+
+
+---
+
+## Sensors
+
+application|language|notes|
+:---------:|:------:|:----|
 cpufreq|python<br/>v2 or v3|Collects the current CPU frequency from `/sys/devices`.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [cpufreq.chart.py](https://github.com/firehol/netdata/blob/master/python.d/cpufreq.chart.py)<br/>configuration file: [python.d/cpufreq.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/cpufreq.conf)|
 cpufreq|BASH<br/>Shell Script|Collects current CPU frequency from `/sys/devices`.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [cpufreq.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/cpufreq.chart.sh)<br/>configuration file: [charts.d/cpufreq.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/cpufreq.conf)|
 hddtemp|python<br/>v2 or v3|Connects to multiple hddtemp servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [hddtemp.chart.py](https://github.com/firehol/netdata/blob/master/python.d/hddtemp.chart.py)<br/>configuration file: [python.d/hddtemp.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/hddtemp.conf)|
 hddtemp|BASH<br/>Shell Script|Connects to a hddtemp server (local or remote) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [hddtemp.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/hddtemp.chart.sh)<br/>configuration file: [charts.d/hddtemp.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/hddtemp.conf)|
-load_average|BASH<br/>Shell Script|Collects the current system load average.<br/><br/>DEPRECATED IN FAVOR OF THE NETDATA INTERNAL ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [load_average.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/load_average.chart.sh)<br/>configuration file: [charts.d/load_average.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/load_average.conf)|
-mem_apps|BASH<br/>Shell Script|Collects the memory footprint of select applications.<br/><br/>DEPRECATED IN FAVOR OF `apps.plugin`. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [mem_apps.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/mem_apps.chart.sh)<br/>configuration file: [charts.d/mem_apps.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/mem_apps.conf)|
 sensors|BASH<br/>Shell Script|Collects sensors values from files in `/sys`.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [sensors.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/sensors.chart.sh)<br/>configuration file: [charts.d/sensors.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/sensors.conf)|
 sensors|python<br/>v2 or v3|Uses `lmsensors` to collect sensor data.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [sensors.chart.py](https://github.com/firehol/netdata/blob/master/python.d/sensors.chart.py)<br/>configuration file: [python.d/sensors.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/sensors.conf)|
 
@@ -113,6 +136,7 @@ application|language|notes|
 ap|BASH<br/>Shell Script|Uses the `iw` command to provide statistics of wireless clients connected to a wireless access point running on this host (works well with `hostapd`).<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [ap.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/ap.chart.sh)<br/>configuration file: [charts.d/ap.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/ap.conf)|
 snmp|node.js|Connects to multiple snmp servers to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [snmp.node.js](https://github.com/firehol/netdata/blob/master/node.d/snmp.node.js)<br/>configuration file: [node.d/snmp.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf)|
 
+
 ---
 
 ## Telephony Servers
@@ -124,7 +148,7 @@ opensips|BASH<br/>Shell Script|Connects to an opensips server (local only) to co
 
 ---
 
-## Examples
+## Skeleton Plugins
 
 application|language|notes|
 :---------:|:------:|:----|

@@ -76,7 +76,7 @@ squid|BASH<br/>Shell Script|Connects to a squid server (local or remote) to coll
 
 application|language|notes|
 :---------:|:------:|:----|
-named|node.js|Connects to multiple named (ISC-Bind) servers (local or remote) to collect real-time performance metrics. All versions of bind after 9.9.10 are supported.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [named.node.js](https://github.com/firehol/netdata/blob/master/node.d/named.node.js)<br/>configuration file: [node.d/named.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/named.conf)|
+named|node.js|Connects to multiple named (ISC-Bind) servers (local or remote) to collect real-time performance metrics. All versions of bind after 9.9.10 are supported.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [named.node.js](https://github.com/firehol/netdata/blob/master/node.d/named.node.js)<br/>configuration file: [node.d/named.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/named.conf.md)|
 
 
 ---
@@ -87,7 +87,7 @@ application|language|notes|
 :---------:|:------:|:----|
 apcupsd|BASH<br/>Shell Script|Connects to an apcupsd server to collect real-time statistics of an APC UPS.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [apcupsd.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/apcupsd.chart.sh)<br/>configuration file: [charts.d/apcupsd.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/apcupsd.conf)|
 nut|BASH<br/>Shell Script|Connects to a nut server (upsd) to collect real-time UPS statistics.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [nut.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/nut.chart.sh)<br/>configuration file: [charts.d/nut.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/nut.conf)|
-sma_webbox|node.js|Connects to multiple remote SMA webboxes to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/node.d/sma_webbox.node.js)<br/>configuration file: [node.d/sma_webbox.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf)|
+sma_webbox|node.js|Connects to multiple remote SMA webboxes to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/node.d/sma_webbox.node.js)<br/>configuration file: [node.d/sma_webbox.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf.md)|
 
 
 ## Mail Servers
@@ -135,7 +135,7 @@ application|language|notes|
 :---------:|:------:|:----|
 ap|BASH<br/>Shell Script|Uses the `iw` command to provide statistics of wireless clients connected to a wireless access point running on this host (works well with `hostapd`).<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/charts.d.plugin)<br/>plugin module: [ap.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/ap.chart.sh)<br/>configuration file: [charts.d/ap.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/ap.conf)|
 fping|C|Charts network latency statistics for any number of nodes, using the `fping` command. A recent (probably unreleased) version of fping is required. The plugin supplied can install it in `/usr/local`.<br/>&nbsp;<br/>netdata plugin: [fping.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/fping.plugin) (this is a shell wrapper to start fping - once fping is started, netdata and fping communicate directly - it can also install the right version of fping)<br/>configuration file: [fping.conf](https://github.com/firehol/netdata/blob/master/conf.d/fping.conf)|
-snmp|node.js|Connects to multiple snmp servers to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [snmp.node.js](https://github.com/firehol/netdata/blob/master/node.d/snmp.node.js)<br/>configuration file: [node.d/snmp.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf)|
+snmp|node.js|Connects to multiple snmp servers to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>plugin module: [snmp.node.js](https://github.com/firehol/netdata/blob/master/node.d/snmp.node.js)<br/>configuration file: [node.d/snmp.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf.md)|
 
 
 ---

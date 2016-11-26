@@ -39,9 +39,8 @@ update every|1|The frequency in seconds, for data collection. For more informati
 run as user|`netdata`|The user netdata will run as.
 web files owner|`netdata`|The user that owns the web static files. Netdata will refuse to serve a file that is not owned by this user, even if it has read access to that file. If the user given is not found, netdata will only serve files owned by user given in `run as user`.
 http port listen backlog|100|The port backlog. Check `man 2 listen`.
-port|19999|The port to listen for web clients.
-ip version|any|Can be `any` to attempt opening both IPv4 and IPv6 ports, `ipv4` to attempt only IPv4, `ipv6` to attempt only IPv6. If the port cannot be opened, netdata will refuse to run.
-bind socket to IP|`*`|The IP address to listen to. This can be an IPv4 or an IPv6 address. The default will bind to all IP addresses. It is interesting that, in the current kernels, using the value `::1`, although netdata will request IPv6, it exposes netdata to local processes using either IPv4 or IPv6, while the value `127.0.0.1` exposes netdata to local processes using IPv4 only.
+default port|19999|The default port to listen for web clients.
+bind to|`*`|The IP address and port to listen to. This is a space separated list of IPv4 or IPv6 address and ports. The default will bind to all IP addresses. Example: `bind to = 127.0.0.1:19999 10.11.12.1:19998 [::1]:19999`.
 disconnect idle web clients after seconds|60|The time in seconds to disconnect web clients after being totally idle.
 enable web responses gzip compression|yes|When set to `yes`, netdata web responses will be GZIP compressed, if the web client accepts such responses.
 

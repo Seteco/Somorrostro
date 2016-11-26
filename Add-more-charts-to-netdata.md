@@ -10,9 +10,9 @@ The following are the currently available plugins:
 ## web servers
 ### nginx
 
-server|netdata<br/>plugin|configuration<br/>file|multiple<br/>servers|operation
-:----:|:----:|:----:|:------------------:|:--------|
-nginx|[python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>[nginx.chart.py](https://github.com/firehol/netdata/blob/master/python.d/nginx.chart.py)|[python.d/nginx.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/nginx.conf)|YES|connects to nginx|
+server|type|netdata<br/>plugin|configuration<br/>file|multiple<br/>servers|operation
+:----:|:--:|:----:|:----:|:------------------:|:--------|
+nginx|web server real-time metrics|[python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/node.d.plugin)<br/>[nginx.chart.py](https://github.com/firehol/netdata/blob/master/python.d/nginx.chart.py)|[python.d/nginx.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/nginx.conf)|YES|connects to nginx|
 
 ### apache
 - apache real-time metrics

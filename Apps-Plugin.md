@@ -1,5 +1,3 @@
-# Apps.plugin
-
 This plugin provides charts for 3 sections of the default dashboard:
 
 1. Per application charts

@@ -1,3 +1,4 @@
+
 netdata collects system metrics by itself. It has many internal plugins, for collecting most of the metrics presented by default when it starts, collecting data from `/proc`, `/sys` and other Linux kernel sources.
 
 To collect non-system metrics, netdata supports a plugin architecture. You can add custom plugins following the [External Plugins Guide](https://github.com/firehol/netdata/wiki/External-Plugins).
@@ -13,7 +14,7 @@ The following are the currently available external plugins:
 - **[Mail Servers](#mail-servers)**, like postfix, exim
 - **[System](#system)**, for processes and other system metrics
 - **[Sensors](#sensors)**, like temperature, fans speed, voltage, humidity
-- **[Network](#network)**, such as SNMP devices, access points
+- **[Network](#network)**, such as SNMP devices, `fping`, access points
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 

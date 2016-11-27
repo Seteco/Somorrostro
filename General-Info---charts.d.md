@@ -51,7 +51,7 @@ The standard netdata plugin variables are also available (check **[[External Plu
 
 ### X_check()
 
-The purpose of the BASH function `X_check()` is to check is the configuration of the script is working. It should also be used for detecting configuration when possible.
+The purpose of the BASH function `X_check()` is to check if the configuration of the script is working. It should also be used for detecting configuration when possible.
 
 For example, if your collector is about monitoring a local mysql database, the `X_check()` function may attempt to connect to a local mysql database to find out if it can read the values it needs. Keep in mind that configuration should override auto-detection.
 

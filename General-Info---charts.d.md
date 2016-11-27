@@ -30,7 +30,7 @@ For a collector called `X`, the following criteria must be met:
 
 1. The collector script must be called `X.chart.sh` and placed in `/usr/libexec/netdata/charts.d`.
 
-2. If the collector script needs a configuration, it should be called `X.conf` and placed in `/etc/netdata`. The configuration file `X.conf` is also a BASH script itself.
+2. If the collector script needs a configuration, it should be called `X.conf` and placed in `/etc/netdata/charts.d`. The configuration file `X.conf` is also a BASH script itself.
 
 3. All functions and global variables defined in the script and its configuration, must begin with `X_`.
 

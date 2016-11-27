@@ -1,4 +1,6 @@
-netdata supports backends for archiving the metrics, or providing long term dashboards, using grafana or other tools.
+netdata supports backends for archiving the metrics, or providing long term dashboards, using grafana or other tools, like this:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/20649711/29f182ba-b4ce-11e6-97c8-ab2c0ab59833.png)
 
 Since netdata collects thousands of metrics per server per second, which would easily congest any backend server when several netdata servers are sending data to it, netdata allows sending metrics at a lower frequency. So, although netdata collects metrics every second, it can send to the backend servers averages or sums every X seconds (although it can send them per second if you need it to).
 

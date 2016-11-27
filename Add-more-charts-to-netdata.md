@@ -143,7 +143,7 @@ snmp|node.js|Connects to multiple snmp servers to collect real-time performance 
 
 application|language|notes|
 :---------:|:------:|:----|
-opensips|BASH<br/>Shell Script|Connects to an opensips server (local only) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [opensips.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/opensips.chart.sh)<br/>configuration file: [charts.d/opensips.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/opensips.conf)|
+opensips|BASH<br/>Shell Script|Connects to an opensips server (local only) to collect real-time performance metrics.<br/><br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [opensips.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/opensips.chart.sh)<br/>configuration file: [charts.d/opensips.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/opensips.conf)|
 
 
 ---

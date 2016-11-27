@@ -46,50 +46,41 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ## What is it?
 
-**Netdata** is a real-time performance and health monitoring solution.
+**netdata** is *scalable, distributed real-time performance and health monitoring*:
 
-Unlike other solutions that are only capable of presenting *statistics of past performance*, netdata is designed to be perfect for **real-time performance troubleshooting**.
+### distributed
+A **netdata** should be installed on each of your servers. It is the equivalent of a monitoring agent, as provided by all other monitoring solutions. It runs everywhere a Linux kernel runs: PCs, servers, embedded devices, IoT, etc.
 
-Netdata is a linux daemon you run, that collects data in realtime (per second) and presents a web site to view and analyze them. The presentation is also real-time and full of interactive charts that precisely render all collected values.
+Netdata is very resource efficient and you can control its resource consumption. It will use:
 
-Netdata has been designed to be installed **on every system**, without disrupting the applications running on it:
+- some spare CPU cycles, usually just 1-3% of a single core (check **[[Performance]]**),
+- the RAM you want it have (check **[[Memory Requirements]]**), and
+- no disk I/O at all, apart its logging (check **[[Log Files]]**). Of course it saves its DB to disk when it exits and loads it back when it starts.
 
-1. It will just use some spare CPU cycles (check **[[Performance]]**).
-2. It will use the memory you want it have (check **[[Memory Requirements]]**).
-3. Once started and while running, it does not use any disk I/O, apart its logging (check **[[Log Files]]**). Of course it saves its DB to disk when it exits and loads it back when it starts.
+### scalable
+Unlike traditional monitoring solutions that move all the metrics collected on all servers, to a central place, **netdata** keeps all the data on the server they are collected.
 
-You can use it to monitor all your systems and applications. It will run on Linux PCs, servers or embedded devices.
+This allows **netdata** to collect _thousands of metrics **per second**_ on each server.
 
-Out of the box, it comes with plugins that collect key system metrics and metrics of popular applications.
+When you use **netdata**, adding 10 more servers or collecting 10000 more metrics does not have any measurable impact on the monitoring infrastructure or the servers they are collected. This provides virtually **unlimited scalability**.
 
----
+**netdata** collected metrics can be pushed to central time-series databases (like `graphite` or `opentsdb`) for archiving (check **[[netdata backends]]**), and **netdata** can push these data at a lower frequency/detail to allow these servers scale, but this is not required. It exists only for long-term archiving of the data and **netdata** never uses these databases as a data source.
 
-## Why another monitoring tool?
+### real-time
+Everything **netdata** does is **per-second** so that the dashboards presented are just a second behind reality, much like the console tools do. Of course, when [**netdata** is installed on weak IoT devices](https://github.com/firehol/netdata/wiki/Performance#running-netdata-in-embedded-devices), this frequency can be lowered, to control the CPU utilization of the device.
 
-The key goal of **netdata** is to help you achieve **operational excellence**.
+**netdata** is adaptive. It adapts its internal structures to the system it runs, so that the repeating task of data collection is performed utilizing the minimum of CPU resources.
 
-To achieve that, it focuses on **real-time visualization** of what is happening on your systems or applications *now* and in the *recent past*.
+The web dashboards are also real-time and interactive. **netdata** achieves this, by splitting to work load, between the server and the dashboard client. Each server is collecting the metrics and maintaining a very fast round-robin database in memory, while providing basic data manipulation tasks (like data reduction functions), while each web client accessing these metrics is taking care of everything for data visualization. The result is:
 
-**netdata** tries to visualize the truth of **now**, in its **greatest detail**, with detail comparable to the console tools!
+- minimum CPU resources on the servers
+- fully interactive real-time web dashboards, with some CPU pressure on the web browser while the dashboard is shown.
 
----
+### performance monitoring
+**netdata** collects and visualizes metrics. If it is a number and it can be collected somehow, netdata can visualize it. Out of the box, it comes with plugins that collect hundreds of system metrics and metrics of [popular applications](https://github.com/firehol/netdata/wiki/Add-more-charts-to-netdata).
 
-## How it works?
-
-You run a daemon on your linux: `netdata`. This daemon is written in C and is extremely lightweight. With less than *1% CPU utilization of a single core* (for the netdata core, plugins may use more), you get hundreds of charts and thousands of metrics, **all collected and visualized per second**.
-
-**netdata**:
-
-  - Spawns threads to collect all the data from all sources - it uses **[[Internal Plugins]]** and **[[External Plugins]]** for this.
-  - Keeps track of the collected values in memory (no disk I/O at all, check **[[Memory Requirements]]**).
-  - Is a standalone web server that serves its static files, for rendering its dashboards.
-  - It provides a **[[REST API v1]]** for your browser to access the data.
-
-If you install it on all your systems, each **netdata** will be standalone. There is no *central* netdata. Your web browser is the only entity that can *connect* all the netdata installations together. netdata dashboards can have charts from multiple netdata installations and these charts will still behave, on your browser, as if they were coming from the same netdata server!
-
-In this image you can see netdata displaying charts from 2 servers. On the left is the demo site and on the right is a local installation of it (you have the same page on your netdata too, at `/tv.html`):
-
-![tv](https://cloud.githubusercontent.com/assets/2662304/14262483/6d8500f8-fabe-11e5-84e1-c510b3bd6ebd.gif)
+### health monitoring
+**netdata** provides powerful [alarms and notifications](https://github.com/firehol/netdata/wiki/health-monitoring). It comes preconfigured with dozens of alarms to detect common health and performance issues and it also accepts custom alarms defined by you.
 
 ---
 

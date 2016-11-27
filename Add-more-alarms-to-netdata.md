@@ -1,1 +1,1 @@
-test
+Check [Health Configuration](https://github.com/firehol/netdata/wiki/health-monitoring#health-configuration)

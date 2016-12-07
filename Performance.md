@@ -21,6 +21,8 @@ You can control all the above.
 
 For most server systems, with a few hundred charts and a few thousand dimensions, the netdata daemon, without any web clients accessing it, should not use more than 1% of a single core.
 
+To prove netdata scalability, check issue [#1323](https://github.com/firehol/netdata/issues/1323#issuecomment-265501668) where netdata collects 95.000 metrics per second, with 12% CPU utilization of a single core!
+
 In embedded systems, if the netdata daemon is using a lot of CPU without any web clients accessing it, you should lower the data collection frequency. To set the data collection frequency, edit `/etc/netdata/netdata.conf` and set `update_every` to a higher number (this is the frequency in seconds data are collected for all charts: higher number of seconds = lower frequency, the default is 1 for per second data collection). You can also set this frequency per module or chart. Check the **[[Configuration]]** section.
 
 ## Plugins

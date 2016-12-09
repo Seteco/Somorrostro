@@ -19,7 +19,7 @@ To pass netdata through mod_proxy, you need to create a VirtualHost.
 Create a VirtualHost:
 
 ````bash
-nano /etc/netdata/sites-available/netdata.conf
+nano /etc/apache2/sites-available/netdata.conf
 ````
 
 This VirtualHost  will allow you to access netdata with `http://you-public-ip/netdata` or `http://your-domain.tld/netdata`
@@ -53,7 +53,7 @@ If mod_ssl is enabled and you're hosting at least one domain with an valid TLS c
 Create a VirtualHost:
 
 ````bash
-nano /etc/netdata/sites-available/netdata-ssl.conf
+nano /etc/apache2/sites-available/netdata-ssl.conf
 ````
 
 This VirtualHost will allow you to access netdata `https://your-domain.tld/netdata`:  
@@ -97,7 +97,7 @@ Note: Changes are applied by reloading or restarting apache.
 
 If you wish to add an authentication (user/password) to access your nedtdata
 
-Then with eleveted privileges:  
+Then with elevated privileges:  
 
 1) Install required dependencies  
 `apt-get install apache2-utils`

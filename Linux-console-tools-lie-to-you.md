@@ -11,7 +11,7 @@
 
 Yes, I know what you think. This cannot be happening.
 
-Well, guess what... it does!
+Well... it does!
 
 Let's see an example. Execute this in a shell:
 

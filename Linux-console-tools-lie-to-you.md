@@ -23,7 +23,7 @@ In most systems `/tmp` is a `tmpfs` device, so there is nothing that can stop th
 
 As we will see below, **none of the console performance monitoring tools can report that this command is using 100% CPU**. They do report of course that the CPU is busy, but **they fail to identify the process that consumes so much CPU**.
 
-This is because all the console tools report usage based on the processes found running at the moment they examine the process tree. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
+This happens because all the console tools report usage based on the processes found running *at the moment they examine the process tree*. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 
 When I realized this fact, I got surprised. The Linux kernel accounts at the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
 

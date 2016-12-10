@@ -137,7 +137,7 @@ NET | eth0    ---- | pcki      16 | pcko      15 | si    1 Kbps | so    4 Kbps |
 
 And the same is true for `glances`. The system's runs at 100%, but `glances` reports only 17% per process utilization.
 
-Note also, that being a `python` program, `glances` uses some CPU while it runs.
+Note also, that being a `python` program, `glances` uses 1.6% CPU while it runs.
 
 ```
 localhost                                               Uptime: 3 days, 21:42:00

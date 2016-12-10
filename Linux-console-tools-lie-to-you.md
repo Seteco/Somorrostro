@@ -13,9 +13,13 @@ In most systems `/tmp` is a `tmpfs` device, so there is nothing that can stop th
 
 **None of the console performance monitoring tools can report that this command is using 100% CPU**. They do report of course that the CPU is busy, but **they fail to identify the process that consumes this CPU**.
 
-This is because all the console tools report usage based on the processes found running at the instance they examine the process tree. The BASH process that runs this, actually forks another process; it executes `ls`. This `ls` command is very short living and every iteration spawns a new one. Unfortunately, all the console tools, somehow manage to miss this little information.
+This is because all the console tools report usage based on the processes found running at the moment they examine the process tree.
 
-The Linux kernel reports to its parent process, the CPU time of a process that exits. However, the calculation to properly report the right CPU time on each process, including its children that have exited, is quite complex. In netdata, `apps.plugin` does this properly. Actually, `apps.plugin` is the most complex part in netdata. It also magically fast, given the amount of work it performs.
+The shell process that runs this, actually forks another process; it executes `ls`. This `ls` command is very short living and every iteration spawns a new one. Unfortunately, all the console tools, somehow manage to miss this little information.
+
+When I realized that, I got surprised. The Linux kernel reports to the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
+
+In netdata, `apps.plugin` does this properly. Actually, `apps.plugin` is the most complex part in netdata. Given the amount of work it performs, it is magically fast.
 
 So, let's see what netdata reports.
 
@@ -29,7 +33,7 @@ And now, let's find out which applications netdata believes are using all this C
 
 So, my `ssh` session is using 97% CPU time. `apps.plugin` groups all processes based on its configuration file (`/etc/netdata/apps_groups.conf`). The default configuration has nothing for `bash`, but it has for `sshd`, so netdata accumulates all ssh sessions to a dimension on the charts, called `ssh`. This includes all the processes in the process tree of `sshd`, including the exited children.
 
-Distributions based on `systemd`, provide another way to get cpu utilization per user session or service running: control groups, or cgroups. `apps.plugin` does not use these mechanisms. The process grouping made by `apps.plugin` works on any Linux, `systemd` based or not.
+> Distributions based on `systemd`, provide another way to get cpu utilization per user session or service running: control groups, or cgroups. `apps.plugin` does not use these mechanisms. The process grouping made by `apps.plugin` works on any Linux, `systemd` based or not.
 
 Let's see what the most famous console tools say:
 

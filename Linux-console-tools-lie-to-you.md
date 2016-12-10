@@ -79,7 +79,7 @@ KiB Swap:        0 total,        0 free,        0 used.   753712 avail Mem
 
 ## htop
 
-Exactly like `top`, `htop` is also providing an incomplete breakdown of the system CPU utilization.
+Exactly like `top`, `htop` is providing an incomplete breakdown of the system CPU utilization.
 
 ```
   CPU[||||||||||||||||||||||||100.0%]   Tasks: 27, 11 thr; 2 running

@@ -278,6 +278,13 @@ The uninstaller will ask you to confirm all deletions.
 
 We are trying to collect all the information about netdata package maintainers at [issue 651](https://github.com/firehol/netdata/issues/651). So, please have a look there for ASUSTOR NAS, OpenWRT, ReadyNAS, etc.
 
+##### FreeBSD
+
+Initial FreeBSD support was introduced with #1321.
+
+`e2fsprogs-libuuid`, `gcc` and `autotools` are mandatory for installing `netdata` on FreeBSD at present time.
+
+
 ##### Alpine 3.4
 
 Execute these commands to install netdata in Alpine Linux 3.4:

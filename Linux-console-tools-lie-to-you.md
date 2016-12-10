@@ -13,15 +13,11 @@ In most systems `/tmp` is a `tmpfs` device, so there is nothing that can stop th
 
 **None of the console performance monitoring tools can report that this command is using 100% CPU**. They do report of course that the CPU is busy, but **they fail to identify the process that consumes this CPU**.
 
-This is because all the console tools report usage based on the processes found running at the moment they examine the process tree.
+This is because all the console tools report usage based on the processes found running at the moment they examine the process tree. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 
-The shell process that runs this, actually forks another process; it executes `ls`. This `ls` command is very short living and every iteration spawns a new one. Unfortunately, all the console tools, somehow manage to miss this little information.
+When I realized this fact, I got surprised. The Linux kernel reports to the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
 
-When I realized that, I got surprised. The Linux kernel reports to the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
-
-In netdata, `apps.plugin` does this properly. Actually, `apps.plugin` is the most complex part in netdata. Given the amount of work it performs, it is magically fast.
-
-So, let's see what netdata reports.
+In netdata, `apps.plugin` does this properly. So, let's see what netdata reports.
 
 First, let's check the total CPU utilization of the system:
 

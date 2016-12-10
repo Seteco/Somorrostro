@@ -31,13 +31,15 @@ In netdata, `apps.plugin` does this properly. So, let's see what netdata reports
 
 First, let's check the total CPU utilization of the system:
 
-![image](https://cloud.githubusercontent.com/assets/2662304/21075487/1e86d1ca-bf1c-11e6-9c73-55ca8edb66b4.png)
+![image](https://cloud.githubusercontent.com/assets/2662304/21076212/9198e5a6-bf2e-11e6-9bc0-6bdea25befb2.png)
 
 And now, let's find out which applications netdata believes are using all this CPU:
 
-![image](https://cloud.githubusercontent.com/assets/2662304/21075508/85b9ecb0-bf1c-11e6-8ab1-b7c3531762f4.png)
+![image](https://cloud.githubusercontent.com/assets/2662304/21076220/c9687848-bf2e-11e6-8d81-348592c5aca2.png)
 
-So, my `ssh` session is using 97% CPU time. `apps.plugin` groups all processes based on its configuration file (`/etc/netdata/apps_groups.conf`). The default configuration has nothing for `bash`, but it has for `sshd`, so netdata accumulates all ssh sessions to a dimension on the charts, called `ssh`. This includes all the processes in the process tree of `sshd`, including the exited children.
+So, my `ssh` session is using 95% CPU time.
+
+Why `ssh`? `apps.plugin` groups all processes based on its configuration file (`/etc/netdata/apps_groups.conf`). The default configuration has nothing for `bash`, but it has for `sshd`, so netdata accumulates all ssh sessions to a dimension on the charts, called `ssh`. This includes all the processes in the process tree of `sshd`, including the exited children.
 
 > Distributions based on `systemd`, provide another way to get cpu utilization per user session or service running: control groups, or cgroups. `apps.plugin` does not use these mechanisms. The process grouping made by `apps.plugin` works on any Linux, `systemd` based or not.
 

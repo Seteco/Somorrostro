@@ -33,6 +33,8 @@ First, let's check the total CPU utilization of the system:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/21076212/9198e5a6-bf2e-11e6-9bc0-6bdea25befb2.png)
 
+*Figure 1: The system overview section at netdata, just a few seconds after the command was run*
+
 And now, let's find out which applications netdata believes are using all this CPU:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/21076220/c9687848-bf2e-11e6-8d81-348592c5aca2.png)

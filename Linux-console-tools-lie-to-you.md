@@ -21,7 +21,7 @@ while [ 1 ]; do ls -l /tmp >/dev/null; done
 
 In most systems `/tmp` is a `tmpfs` device, so there is nothing that can stop this command from consuming entirely one of the CPU cores of the machine.
 
-As we will see below, **none of the console performance monitoring tools can report that this command is using 100% CPU**. They do report of course that the CPU is busy, but **they fail to identify the process that consumes this CPU**.
+As we will see below, **none of the console performance monitoring tools can report that this command is using 100% CPU**. They do report of course that the CPU is busy, but **they fail to identify the process that consumes so much CPU**.
 
 This is because all the console tools report usage based on the processes found running at the moment they examine the process tree. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 

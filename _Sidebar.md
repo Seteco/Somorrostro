@@ -134,6 +134,10 @@
 ---
 
 **Blog**
+* December, 2016
+
+  **[[Linux console tools lie to you]]**
+
 * April, 2016
 
   **[[netdata v1.1.0 released]]**

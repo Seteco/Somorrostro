@@ -25,7 +25,7 @@ As we will see below, **none of the console performance monitoring tools can rep
 
 This happens because all the console tools report usage based on the processes found running *at the moment they examine the process tree*. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 
-When I realized this fact, I got surprised. The Linux kernel accounts at the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
+When I realized this fact, I got surprised. The Linux kernel accounts at the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite tricky, so all console tools preferred to just ignore it!
 
 In netdata, `apps.plugin` does this properly. So, let's see what netdata reports.
 
@@ -182,7 +182,7 @@ FILE SYS    Used  Total      0.3   2.1  7009 netdata      0 S /usr/sbin/netdata
 
 From a performance monitoring perspective, the lack of properly identifying the CPU consumption used by processes, is terrifying. All tools I found, fail to properly report where the CPU goes.
 
-In several cases, this leads to wrong conclusions. For example, I use several **pacemaker** clusters. Before netdata, I was not aware that the clustering software itself requires so much CPU:
+In several cases, this leads to wrong conclusions. For example, I use several **pacemaker** clusters. Before netdata, I was not aware that the clustering software itself requires so much CPU.
 
 pacemaker running on server A:
 

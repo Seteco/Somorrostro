@@ -25,7 +25,7 @@ In most systems `/tmp` is a `tmpfs` device, so there is nothing that can stop th
 
 This is because all the console tools report usage based on the processes found running at the moment they examine the process tree. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 
-When I realized this fact, I got surprised. The Linux kernel reports to the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
+When I realized this fact, I got surprised. The Linux kernel accounts at the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite complex.
 
 In netdata, `apps.plugin` does this properly. So, let's see what netdata reports.
 

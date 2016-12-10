@@ -47,7 +47,7 @@ Let's see what the most famous console tools say:
 
 `top` reports that `bash` is using just 14%.
 
-If you check the total system CPU utilization at the top, it says there is no idle CPU at all, but `top` fails to provide a breakdown of the CPU consumption in the system. To sum of the CPU utilization of all processes reported is 15.6%.
+If you check the total system CPU utilization at the top, it says there is no idle CPU at all, but `top` fails to provide a breakdown of the CPU consumption in the system. The sum of the CPU utilization of all processes reported by `top`, is 15.6%.
 
 ```
 top - 18:46:28 up 3 days, 20:14,  2 users,  load average: 0.22, 0.05, 0.02

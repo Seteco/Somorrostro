@@ -1,11 +1,7 @@
-**GitHub stars** allow netdata to expand its reach, to attract people with skills.
+**GitHub stars** allow netdata to expand its reach, to attract people to use it and especially people with skills willing to contribute. Compared to its first release, netdata is now twice as fast, has all its bugs settled and a lot more functionality. This happened because a lot of people find it useful, use it and contribute to it.
 
-netdata needs people with skills. Compared to the time it was first released, netdata is now twice as fast, has all its bugs settled and a lot more functionality. This happened mainly because of the **GitHub stars** it received.
+**GitHub stars** also motivate us. They state that you find our work **useful**. They give us strength to continue developing it and making it better.
 
-**GitHub stars** also motivate us. They state that you find our work **useful**.
-
-So, we need your help to make netdata better.
-
-Give netdata a **GitHub star**, at the top right of this page.
+So, give netdata a **GitHub star**, at the top right of this page.
 
 Thank you!

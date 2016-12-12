@@ -26,6 +26,8 @@ It is even trickier, because walking through the entire process tree takes some 
 
 So, surprise! It is 2016, Linux exists for 25 years and netdata is the first tool (I found) that does this properly...
 
+(to calm you down, I changed the title. Keep in mind though that your favorite console tools are simply lying to you).
+
 ## let's see what netdata reports
 
 First, let's check the total CPU utilization of the system:

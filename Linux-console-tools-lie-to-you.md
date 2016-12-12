@@ -1,0 +1,1 @@
+[moved here](https://github.com/firehol/netdata/wiki/Linux-console-tools-report-misleading-CPU-utilization)

@@ -1,5 +1,3 @@
-# Linux console tools, lie to us
-
 Yes, I know what you think. This cannot be happening.
 
 Well... it does!

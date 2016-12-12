@@ -22,7 +22,7 @@ What is even more interesting, is that I posted this article on [reddit r/sysadm
 
 Well, here is the proof: netdata reads `/proc/<pid>/stat` for all processes, once per second and extracts `utime` and `stime` (user and system cpu utilization), much like all the console tools do. But it [also extracts `cutime` and `cstime`](https://github.com/firehol/netdata/blob/62596cc6b906b1564657510ca9135c08f6d4cdda/src/apps_plugin.c#L636-L642) that account the user and system time of the exited children of each process. By keeping a map in memory of the whole process tree, it is capable of assigning the right time to every process, taking into account all its exited children. It is tricky, since a process may be running for 1 hour and once it exits, its parent cannot receive the whole 1 hour of cpu time in just 1 second - you have to substract the cpu time that has been reported for it prior to this iteration.
 
-To your surprise, netdata does this properly...
+So, surprise! It is 2016, Linux exists for 25 years and netdata is the first tool (I found) that does this properly...
 
 ## let's see what netdata reports
 

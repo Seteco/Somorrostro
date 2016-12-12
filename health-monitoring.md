@@ -385,6 +385,21 @@ So, for example the `sysadmin` role may send:
 3. pushbullet.com push notifications to admin1@example.com and admin2@example.com
 4. messages to slack.com channel `#alarms` and `#systems`.
 
+#### testing alarms
+
+You can run the following command by hard, to test alarms configuration:
+
+```sh
+# become user netdata
+su -s /bin/bash netdata
+
+# send test alarms to sysadmin
+/usr/libexec/netdata/plugins.d/alarm-notify.sh test
+
+# send test alarms to any role
+/usr/libexec/netdata/plugins.d/alarm-notify.sh test "ROLE"
+```
+
 ### Web Browser Notifications
 
 The netdata dashboard shows HTML notifications, when it is open.

@@ -1,1 +1,0 @@
-[moved here](https://github.com/firehol/netdata/wiki/Linux-console-based-monitoring-tools-report-misleading-utilization)

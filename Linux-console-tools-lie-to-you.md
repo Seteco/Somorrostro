@@ -20,11 +20,11 @@ When I realized this fact, I got surprised. The Linux kernel accounts at the par
 
 What is even more interesting, is that I posted this article on [reddit r/sysadmin](https://www.reddit.com/r/sysadmin/comments/5ht4g6/linux_console_tools_like_top_atop_htop_glances/) and [reddit r/linuxadmin](https://www.reddit.com/r/linuxadmin/comments/5ht2fw/linux_console_tools_like_top_atop_htop_glances/). Guess what... there are sysadmins that do not believe this is true! They thought I spammed reddit with ads about netdata!
 
-Well, here is the proof: netdata reads `/proc/<pid>/stat` for all processes, once per second, much like all the console tools. From these files it extracts `utime` and `stime` much like the console tools do. But it [also extracts `cutime` and `cstime`](https://github.com/firehol/netdata/blob/62596cc6b906b1564657510ca9135c08f6d4cdda/src/apps_plugin.c#L636-L642) that account the user and system time of the exited children of each process. By keeping a map in memory of the whole process tree, it is capable of assigning the right time to every process, taking into account all its exited children. It is tricky, since a process may be running for 1 hour and once it exits, its parent cannot receive the whole 1 hour in 1 second. But netdata does it properly.
+Well, here is the proof: netdata reads `/proc/<pid>/stat` for all processes, once per second and extracts `utime` and `stime` (user and system cpu utilization), much like all the console tools do. But it [also extracts `cutime` and `cstime`](https://github.com/firehol/netdata/blob/62596cc6b906b1564657510ca9135c08f6d4cdda/src/apps_plugin.c#L636-L642) that account the user and system time of the exited children of each process. By keeping a map in memory of the whole process tree, it is capable of assigning the right time to every process, taking into account all its exited children. It is tricky, since a process may be running for 1 hour and once it exits, its parent cannot receive the whole 1 hour of cpu time in just 1 second - you have to substract the cpu time that has been reported for it prior to this iteration.
 
-## let's see netdata
+To your surprise, netdata does this properly...
 
-So, let's see what netdata reports.
+## let's see what netdata reports
 
 First, let's check the total CPU utilization of the system:
 

@@ -1,14 +1,3 @@
-
-> New to netdata? Check its demo: **[http://my-netdata.io/](http://my-netdata.io/)**
->
-> [![User Base](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&label=user%20base&units=null&value_color=blue&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Monitored Servers](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&label=servers%20monitored&units=null&value_color=orange&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Served](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
-> 
-> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0&v40)](https://registry.my-netdata.io/#netdata_registry) [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0&v40)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0&v40)](https://registry.my-netdata.io/#netdata_registry)
-
----
-
-# Linux console tools lie to you
-
 Yes, I know what you think. This cannot be happening.
 
 Well... it does!
@@ -23,9 +12,9 @@ In most systems `/tmp` is a `tmpfs` device, so there is nothing that can stop th
 
 As we will see below, **none of the console performance monitoring tools can report that this command is using 100% CPU**. They do report of course that the CPU is busy, but **they fail to identify the process that consumes so much CPU**.
 
-This happens because all the console tools report usage based on the processes found running *at the moment they examine the process tree*. So, they see just one `ls`. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
+This happens because all the console tools report usage based on the processes found running *at the moment they examine the process tree*. So, they see just one `ls` which is actually very quick with minor CPU utilization. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 
-When I realized this fact, I got surprised. The Linux kernel accounts at the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite tricky, so all console tools preferred to just ignore it!
+When I realized this fact, I got surprised. The Linux kernel accounts at the parent process, the CPU time of processes that exit. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite tricky, so all console tools preferred to just ignore it! **YES, THE LINUX KERNEL REPORTS THIS**, so these tools could have used it.
 
 In netdata, `apps.plugin` does this properly. So, let's see what netdata reports.
 

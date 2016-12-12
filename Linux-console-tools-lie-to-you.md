@@ -32,7 +32,7 @@ So, my `ssh` session is using 95% CPU time.
 
 Why `ssh`? `apps.plugin` groups all processes based on its configuration file ([`/etc/netdata/apps_groups.conf`](https://github.com/firehol/netdata/blob/master/conf.d/apps_groups.conf)). The default configuration has nothing for `bash`, but it has for `sshd`, so netdata accumulates all ssh sessions to a dimension on the charts, called `ssh`. This includes all the processes in the process tree of `sshd`, including the exited children.
 
-> Distributions based on `systemd`, provide another way to get cpu utilization per user session or service running: control groups, or cgroups. `apps.plugin` does not use these mechanisms. The process grouping made by `apps.plugin` works on any Linux, `systemd` based or not.
+> Distributions based on `systemd`, provide another way to get cpu utilization per user session or service running: control groups, or cgroups, commonly used as part of containers. `apps.plugin` does not use these mechanisms. The process grouping made by `apps.plugin` works on any Linux, `systemd` based or not.
 > Keep in mind **netdata** does detect containers and report resource utilization for each of them, but this is subject to another article...
 
 Let's see what the most famous console tools say:

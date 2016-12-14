@@ -70,3 +70,31 @@ cat /proc/X/status
 The first line on the output is `Name: xxxxx`. This is the process name `apps.plugin` sees.
 
 The order of the lines in the file is important only if you include the same process name to multiple groups.
+
+## Apps plugin is missing information
+
+`apps.plugin` requires additional privileges to collect all the information it needs. The problem is described in issue #157.
+
+When netdata is installed, `apps.plugin` is given the capabilities `cap_dac_read_search,cap_sys_ptrace+ep`. If that is not possible (i.e. `setcap` fails), `apps.plugin` is setuid to `root`.
+
+## linux capabilities in containers
+
+There are a few cases, like `docker` and `virtuozzo` containers, where `setcap` succeeds, but the capabilities are silently ignored (in `lxc` containers `setcap` fails).
+
+In these cases that `setcap` succeeds by capabilities do not work, you will have to setuid to root `apps.plugin` by running these commands:
+
+```sh
+chown root:netdata /usr/libexec/netdata/plugins.d/apps.plugin
+chmod 4755 /usr/libexec/netdata/plugins.d/apps.plugin
+```
+
+You will have to run these, every time you update netdata.
+
+
+### Is is safe to give `apps.plugin` these privileges?
+
+`apps.plugin` performs a hard-coded function of building the process tree in memory, iterating forever, collecting metrics for each running process and sending them to netdata. This is a one-way communication, from `apps.plugin` to netdata.
+
+So, since `apps.plugin` cannot be instructed by netdata for the actions it performs, we think it is pretty safe to allow it have these increased privileges.
+
+Keep in mind that `apps.plugin` will still run without these permissions, but it will not be able to collect all the data for every process.

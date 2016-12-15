@@ -23,6 +23,7 @@
   - [pushover.net push notifications](#pushovernet-push-notifications)
   - [pushbullet.com push notifications](#pushbulletcom-push-notifications)
   - [telegram.org push messages](#telegramorg-messages)
+  - [PagerDuty notifications](#pagerduty-notifications)
 - [API Calls](#api-calls)
 - [Troubleshooting](#troubleshooting)
 
@@ -593,7 +594,7 @@ DEFAULT_RECIPIENT_TWILIO="+15555555555"
 
 Here is an example of a PagerDuty dashboard with netdata notifications:
 
-[!image](https://cloud.githubusercontent.com/assets/19278582/21233877/b466a08a-c2a5-11e6-8d66-ee6eed43818f.png)
+![PagerDuty dashboard with netdata notifications](https://cloud.githubusercontent.com/assets/19278582/21233877/b466a08a-c2a5-11e6-8d66-ee6eed43818f.png)
 
 To have netdata send notifications to PagerDuty, you'll first need to set up a PagerDuty `Generic API` service and install the PagerDuty agent on the host running netdata.  See the following guide for details:
 

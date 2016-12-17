@@ -280,9 +280,20 @@ We are trying to collect all the information about netdata package maintainers a
 
 ##### FreeBSD
 
-Initial FreeBSD support was introduced with #1321.
+Initial FreeBSD support was introduced with [PR #1321](https://github.com/firehol/netdata/pull/1321), by [@vlvkobal](https://github.com/vlvkobal).
 
-`e2fsprogs-libuuid`, `gcc` and `autotools` are mandatory for installing `netdata` on FreeBSD at present time.
+This is how to install netdata on FreeBSD:
+
+```sh
+# install required packages
+pkg install bash e2fsprogs-libuuid git wget curl autogen autoconf autoconf-archive automake gcc libtool pkgconf 
+
+# download netdata
+git clone https://github.com/firehol/netdata.git netdata.git
+
+# install netdata in /opt/netdata
+./netdata-installer.sh --install /opt
+```
 
 
 ##### Alpine 3.4

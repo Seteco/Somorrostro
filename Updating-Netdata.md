@@ -8,11 +8,11 @@ The update procedure depends on how you installed it:
 
 ## You downloaded it from github using git
 
-If you installed netdata by downloading from github and running our `netdata-installer.sh`, you can just install it again, over the old installation. Your configuration will not be touched.
+The installer should have created a `netdata-updater.sh` script in the directory you downloaded. Just run it and it will download and install the latest version. The same script can be put in a cronjob to update your netdata at regular intervals.
 
-Just follow the **[[Installation]]** instructions again and your are done!
+If you don't have this script (e.g. you deleted the directory where you downloaded netdata), just follow the **[[Installation]]** instructions again. The installers preserves your configuration.
 
-Keep in mind though, netdata may now have new features, or certain old features may now behave differently. So pay some attention to it after updating.
+Keep in mind, netdata may now have new features, or certain old features may now behave differently. So pay some attention to it after updating.
 
 ## You downloaded a binary package
 

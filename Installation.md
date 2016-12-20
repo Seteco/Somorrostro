@@ -286,7 +286,7 @@ This is how to install netdata on FreeBSD:
 
 ```sh
 # install required packages
-pkg install bash e2fsprogs-libuuid git wget curl autogen autoconf autoconf-archive automake gcc libtool pkgconf 
+pkg install bash e2fsprogs-libuuid git wget curl autogen autoconf autoconf-archive automake gcc libtool pkgconf pidof
 
 # download netdata
 git clone https://github.com/firehol/netdata.git netdata.git

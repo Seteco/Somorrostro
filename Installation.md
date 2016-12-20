@@ -296,22 +296,25 @@ git clone https://github.com/firehol/netdata.git netdata.git
 ```
 
 
-##### Alpine 3.4
+##### Alpine 3.x
 
-Execute these commands to install netdata in Alpine Linux 3.4:
+Execute these commands to install netdata in Alpine Linux 3.x:
 
 ```
 # install required packages
 apk add alpine-sdk bash curl zlib-dev util-linux-dev libmnl-dev gcc make git autoconf automake pkgconfig python logrotate
 
-# add the netdata user and group by had
-# the installer uses the commands useradd and groupadd,
-# but these are not available in alpine
-addgroup netdata
-adduser -D -G netdata netdata
-
 # if you plan to run node.js netdata plugins
 apk add nodejs
+
+# download netdata - the directory 'netdata' will be created
+git clone https://github.com/firehol/netdata.git --depth=1
+cd netdata
+
+
+# build it, install it, start it
+./netdata-installer.sh
+
 
 # make netdata start at boot
 echo -e "#!/usr/bin/env bash\n/usr/sbin/netdata" >/etc/local.d/netdata.start
@@ -323,13 +326,6 @@ chmod 755 /etc/local.d/netdata.stop
 
 # enable the local service to start automatically
 rc-update add local
-
-# download netdata - the directory 'netdata' will be created
-git clone https://github.com/firehol/netdata.git --depth=1
-cd netdata
-
-# build it, install it, start it
-./netdata-installer.sh
 ```
 
 ##### Synology

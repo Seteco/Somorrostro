@@ -280,7 +280,7 @@ We are trying to collect all the information about netdata package maintainers a
 
 ##### FreeBSD
 
-Initial FreeBSD support was introduced with [PR #1321](https://github.com/firehol/netdata/pull/1321), by [@vlvkobal](https://github.com/vlvkobal).
+Initial FreeBSD support was introduced with [PR #1321](https://github.com/firehol/netdata/pull/1321).
 
 This is how to install netdata on FreeBSD:
 
@@ -289,12 +289,38 @@ This is how to install netdata on FreeBSD:
 pkg install bash e2fsprogs-libuuid git wget curl autogen autoconf autoconf-archive automake gcc libtool pkgconf pidof
 
 # download netdata
-git clone https://github.com/firehol/netdata.git netdata.git
+git clone https://github.com/firehol/netdata.git
 
 # install netdata in /opt/netdata
+cd netdata
 ./netdata-installer.sh --install /opt
 ```
 
+##### macOS
+
+Initial macOS support was introduced with [PR #1419](https://github.com/firehol/netdata/pull/1419). It still has limited charts, but external plugins do work.
+
+This is how to install netdata on macOS:
+
+```sh
+# install Xcode Command Line Tools
+xcode-select --install
+```
+click `Install` in the software update popup window, then
+```sh
+# install HomeBrew package manager
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# install required packages
+brew install ossp-uuid autoconf automake pkg-config
+
+# download netdata
+git clone https://github.com/firehol/netdata.git
+
+# install netdata in ~/opt/netdata
+cd netdata
+./netdata-installer.sh --install ~/opt
+```
 
 ##### Alpine 3.x
 

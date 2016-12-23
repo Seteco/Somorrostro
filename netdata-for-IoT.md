@@ -1,14 +1,16 @@
 ![image1](https://cloud.githubusercontent.com/assets/2662304/14252446/11ae13c4-fa90-11e5-9d03-d93a3eb3317a.gif)
 
-#### Live netdata demo: **[http://netdata.rocks](http://netdata.rocks/)**
+> New to netdata? Check its demo: **[http://my-netdata.io/](http://my-netdata.io/)**
+>
+> [![User Base](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&label=user%20base&units=null&value_color=blue&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Monitored Servers](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&label=servers%20monitored&units=null&value_color=orange&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Served](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&label=sessions%20served&units=null&value_color=yellowgreen&precision=0&v41)](https://registry.my-netdata.io/#netdata_registry)
+> 
+> [![New Users Today](http://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=persons&after=-86400&options=unaligned&group=incremental-sum&label=new%20users%20today&units=null&value_color=blue&precision=0&v40)](https://registry.my-netdata.io/#netdata_registry) [![New Machines Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_entries&dimensions=machines&group=incremental-sum&after=-86400&options=unaligned&label=servers%20added%20today&units=null&value_color=orange&precision=0&v40)](https://registry.my-netdata.io/#netdata_registry) [![Sessions Today](https://registry.my-netdata.io/api/v1/badge.svg?chart=netdata.registry_sessions&after=-86400&group=incremental-sum&options=unaligned&label=sessions%20served%20today&units=null&value_color=yellowgreen&precision=0&v40)](https://registry.my-netdata.io/#netdata_registry)
 
-Netdata is a **very efficient** server performance monitoring solution.
+---
 
-When running in server hardware, it can collect thousands of system and application metrics **per second** with just 1% CPU utilization of a single core. Its web server responds to most data requests in about **half a millisecond** making its web dashboards spontaneous, amazingly fast!
+netdata is a **very efficient** server performance monitoring solution. When running in server hardware, it can collect thousands of system and application metrics **per second** with just 1% CPU utilization of a single core. Its web server responds to most data requests in about **half a millisecond** making its web dashboards spontaneous, amazingly fast!
 
-We constantly improve its performance. A month ago it was able to serve 400 chart refreshes per second per core. **Today it offers 1.800 chart refreshes per second per core** and it scales up to 2.500 with web gzip compression disabled! Without web gzip compression it can sustainably produce 350Mbps of chart data per core!
-
-netdata can also be a very efficient real-time monitoring solution for **IoT devices** (routers, media players, wifi access points, industrial controller and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is glibc and [musl-libc](https://www.musl-libc.org/) friendly).
+netdata can also be a very efficient real-time monitoring solution for **IoT devices** (RPIs, routers, media players, wifi access points, industrial controllers and sensors of all kinds). Netdata will generally run everywhere a Linux kernel runs (and it is glibc and [musl-libc](https://www.musl-libc.org/) friendly).
 
 You can use it as both a data collection agent (where you pull data using its API), for embedding its charts on other web pages / consoles, but also for accessing it directly with your browser to view its dashboard.
 

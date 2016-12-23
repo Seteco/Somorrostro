@@ -1,3 +1,4 @@
+![image1](https://cloud.githubusercontent.com/assets/2662304/14252446/11ae13c4-fa90-11e5-9d03-d93a3eb3317a.gif)
 
 > New to netdata? Check its demo: **[http://my-netdata.io/](http://my-netdata.io/)**
 >
@@ -8,8 +9,6 @@
 ---
 
 Live demo of QoS: **[see QoS in action here](http://london.my-netdata.io/default.html#menu_tc_submenu_eth0)** !
-
-![image1](https://cloud.githubusercontent.com/assets/2662304/14252446/11ae13c4-fa90-11e5-9d03-d93a3eb3317a.gif)
 
 ---
 

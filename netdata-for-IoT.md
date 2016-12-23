@@ -20,6 +20,8 @@ The netdata web API already provides **reduce** functions allowing it to report 
 
 Although netdata has been significantly optimized to lower the CPU and RAM resources it consumes, the plethora of data collection plugins may be inappropriate for weak IoT devices.
 
+> keep in mind that netdata on RPi 2 and 3 does not require any tuning. The default settings will be good. The following tunables apply only when running netdata on RPi 1 or other very weak IoT devices.
+
 Here are a few tricks to control the resources consumed by netdata:
 
 ## 1. Disable External plugins

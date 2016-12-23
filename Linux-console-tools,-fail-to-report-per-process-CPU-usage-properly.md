@@ -7,7 +7,7 @@
 
 ---
 
-# Console tools... lie to you!
+# Console tools... provide false information!
 
 Yes, I know what you think. This cannot be happening.
 

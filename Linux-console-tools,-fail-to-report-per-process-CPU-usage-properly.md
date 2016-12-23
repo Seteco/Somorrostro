@@ -23,7 +23,7 @@ In most systems `/var/run` is a `tmpfs` device, so there is nothing that can sto
 
 As we will see below, **none** of the console performance monitoring tools can report that this command is using 100% CPU. They do report of course that the CPU is busy, but **they fail to identify the process that consumes so much CPU**.
 
-Let's see what these common Linux console monitoring tools report:
+Here is what common Linux console monitoring tools report:
 
 ## top
 
@@ -116,18 +116,18 @@ FILE SYS    Used  Total      0.3   2.1  7009 netdata      0 S /usr/sbin/netdata
 
 ## why this happens?
 
-This happens because all the console tools report usage based on the processes found running *at the moment they examine the process tree*. So, they see just one `ls` command, which is actually very quick with minor CPU utilization. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
+All the console tools report usage based on the processes found running *at the moment they examine the process tree*. So, they see just one `ls` command, which is actually very quick with minor CPU utilization. But the shell, is spawning hundreds of them, one after another (much like shell scripts do).
 
-When I realized this fact, I got surprised. The Linux kernel **accounts at the parent process, the CPU time of processes that exit**. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite tricky, so all console tools preferred to just ignore it!
+When I realized this fact, I got surprised! The Linux kernel **accounts at the parent process, the CPU time of processes that exit**. However, the calculation to properly report the CPU time on each process, including its children that have exited, is quite tricky, so all console tools preferred to just ignore it!
 
-## let's see what netdata reports
+## what netdata reports?
 
-First, let's check the total CPU utilization of the system:
+The total CPU utilization of the system:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/21076212/9198e5a6-bf2e-11e6-9bc0-6bdea25befb2.png)
 <br/>_**Figure 1**: The system overview section at netdata, just a few seconds after the command was run_
 
-And now, let's find out which applications netdata believes are using all this CPU:
+And now, the applications netdata believes are using all this CPU:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/21076220/c9687848-bf2e-11e6-8d81-348592c5aca2.png)
 <br/>_**Figure 2**: The Applications section at netdata, just a few seconds after the command was run_
@@ -136,7 +136,7 @@ So, my `ssh` session is using 95% CPU time.
 
 Why `ssh`?
 
-`apps.plugin` groups all processes based on its configuration file ([`/etc/netdata/apps_groups.conf`](https://github.com/firehol/netdata/blob/master/conf.d/apps_groups.conf)). The default configuration has nothing for `bash`, but it has for `sshd`, so netdata accumulates all ssh sessions to a dimension on the charts, called `ssh`. This includes all the processes in the process tree of `sshd`, including the exited children.
+`apps.plugin` groups all processes based on its configuration file ([`/etc/netdata/apps_groups.conf`](https://github.com/firehol/netdata/blob/master/conf.d/apps_groups.conf)). The default configuration has nothing for `bash`, but it has for `sshd`, so netdata accumulates all ssh sessions to a dimension on the charts, called `ssh`. This includes all the processes in the process tree of `sshd`, **including the exited children**.
 
 > Distributions based on `systemd`, provide another way to get cpu utilization per user session or service running: control groups, or cgroups, commonly used as part of containers. `apps.plugin` does not use these mechanisms. The process grouping made by `apps.plugin` works on any Linux, `systemd` based or not.
 > Keep in mind **netdata** does detect containers and report resource utilization for each of them, but this is subject to another article...

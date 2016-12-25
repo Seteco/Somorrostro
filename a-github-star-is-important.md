@@ -1,4 +1,4 @@
-**GitHub stars** allow netdata to expand its reach, its community, especially people with skills willing to contribute to it.
+**GitHub stars** allow netdata to expand its reach, its community, especially attract people with skills willing to contribute to it.
 
 Compared to its first release, netdata is now twice as fast, has all its bugs settled and a lot more functionality. This happened because a lot of people find it useful, use it, rely on it and contribute to it.
 

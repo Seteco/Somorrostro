@@ -8,6 +8,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
 - **[Name Servers](#name-servers)** (DNS), like bind
+- **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
 - **[Mail Servers](#mail-servers)**, like postfix, exim
 - **[System](#system)**, for processes and other system metrics
@@ -81,6 +82,13 @@ named|node.js|Connects to multiple named (ISC-Bind) servers (local or remote) to
 
 ---
 
+## DHCP Servers
+
+application|language|notes|
+:---------:|:------:|:----|
+isc dhcp|python<br/>v2 or v3|Monitor lease database to show all active leases.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [isc-dhcpd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/isc_dhcpd.chart.py)<br/>configuration file: [python.d/isc-dhcpd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/isc_dhcpd.conf)|
+
+---
 ## UPS and Power
 
 application|language|notes|

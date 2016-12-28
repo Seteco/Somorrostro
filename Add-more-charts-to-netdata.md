@@ -14,7 +14,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[System](#system)**, for processes and other system metrics
 - **[Sensors](#sensors)**, like temperature, fans speed, voltage, humidity
 - **[Network](#network)**, such as SNMP devices, `fping`, access points
-- **[Security](#security)**, like FreeRADIUS, OpenVPN
+- **[Security](#security)**, like FreeRADIUS, OpenVPN, Fail2ban
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
@@ -154,6 +154,7 @@ application|language|notes|
 :---------:|:------:|:----|
 freeradius|python<br/>v2 or v3|Uses the radclient command to provide freeradius statistics (authentication, accounting, proxy-authentication, proxy-accounting).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [freeradius.chart.py](https://github.com/firehol/netdata/blob/master/python.d/freeradius.chart.py)<br/>configuration file: [python.d/freeradius.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/freeradius.conf)|
 openvpn|python<br/>v2 or v3|All data from openvpn-status.log in your dashboard! <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [ovpn_status_log.chart.py](https://github.com/firehol/netdata/blob/master/python.d/ovpn_status_log.chart.py)<br/>configuration file: [python.d/ovpn_status_log.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/ovpn_status_log.conf)|
+fail2ban|python<br/>v2 or v3|Monitor fail2ban log file to show all bans for all active jails <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [fail2ban.chart.py](https://github.com/firehol/netdata/blob/master/python.d/fail2ban.chart.py)<br/>configuration file: [python.d/fail2ban.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/fail2ban.conf)|
 
 ---
 

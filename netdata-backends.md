@@ -17,11 +17,11 @@ Since netdata collects thousands of metrics per server per second, which would e
 
 1. Supported backends
 
-   1. **graphite** (plaintext interface, e.g. Graphite, InfluxDB, KairosDB, Blueflood and other software with Graphite support)
+   1. **graphite** (`plaintext interface`, used by **Graphite**, **InfluxDB**, **KairosDB**, **Blueflood**, etc)
 
-      metrics are sent to graphite as `prefix.hostname.chart.dimension`. `prefix` is configured below, `hostname` is the hostname of the machine.
+      metrics are sent to the backend server as `prefix.hostname.chart.dimension`. `prefix` is configured below, `hostname` is the hostname of the machine (can also be configured).
 
-   2. **opentsdb** (telnet interface, e.g. OpenTSDB, InfluxDB, KairosDB and other software with OpenTSDB support)
+   2. **opentsdb** (`telnet interface`, used by **OpenTSDB**, **InfluxDB**, **KairosDB**, etc)
 
       metrics are sent to opentsdb as `prefix.chart.dimension` with tag `host=hostname`.
 
@@ -33,7 +33,7 @@ Since netdata collects thousands of metrics per server per second, which would e
 
    1. `as collected`: the latest collected value is sent to the backend. This means that if netdata is configured to send data to the backend every 10 seconds, only 1 out of 10 values will appear at the backend server. The values are sent exactly as collected, before any multipliers or dividers applied and before any interpolation. This mode emulates other data collectors, such as `collectd`.
 
-   2. `average`: the average of the interpolated values shown on the netdata graphs is sent to the backend. So, if netdata is configured to send data to the backend server every 10 seconds, the average of the 10 values shown on the netdata charts will be used. If you don't know which mode to pick, use this.
+   2. `average`: the average of the interpolated values shown on the netdata graphs is sent to the backend. So, if netdata is configured to send data to the backend server every 10 seconds, the average of the 10 values shown on the netdata charts will be used. **If you can't decide which mode to use, use `average`.**
 
    3. `sum` or `volume`: the sum of the interpolated values shown on the netdata graphs is sent to the backend. So, if netdata is configured to send data to the backend every 10 seconds, the sum of the 10 values shown on the netdata charts will be used.
 
@@ -60,7 +60,29 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
 - `type = graphite` or `type = opentsdb`, selects the backend type
 
-- `destination = host`, accepts a space separated list of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the first available to send the metrics. The format is like this: `host1:port1 host2:port2 host3:port3 ...`. For IPv6 addresses this is supported: `[IPV6_IP]:PORT` (like the web clients). This features allows netdata to load-balance different servers (just give your servers in different order on each netdata) and react to failures (i.e. if the first server is not there, netdata will check the next one, and so forth).
+- `destination = host`, accepts **a space separated list** of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the first available to send the metrics.
+
+   The format of each item in this list, is: `[PROTOCOL:]IP[:PORT]`.
+
+   `PROTOCOL` can be `udp` or `tcp`. `tcp` is the default and only supported by the current backends.
+
+   `IP` can be `XX.XX.XX.XX` (IPv4), or `[XX:XX...XX:XX]` (IPv6). For IPv6 you can to enclose the IP in `[]` to separate it from the port.
+
+   `PORT` can be a number of a service name. If omitted, the default port for the backend will be used (graphite = 2003, opentstb = 4242).
+
+   Example IPv4:
+
+   ```
+   destination = 10.11.14.2:4242 10.11.14.3:4242 10.11.14.4:4242
+```
+
+   Example IPv6 and IPv4 together:
+   
+   ```
+   destination = [ffff:...:0001]:2003 10.11.12.1:2003
+```
+
+   When multiple servers are defined, netdata will try the next one when the first one fails. This allows you to load-balance different servers: give your backend servers in different order on each netdata.
 
 - `data source = as collected`, or `data source = average`, or `data source = sum`, selects the kind of data that will be sent to the backend.
 
@@ -95,7 +117,7 @@ netdata adds 4 alarms:
 1. `backend_last_buffering`, number of seconds since the last successful buffering of backend data
 2. `backend_metrics_sent`, percentage of metrics sent to the backend server
 3. `backend_metrics_lost`, number of metrics lost due to repeating failures to contact the backend server
-4. `backend_slow`, the percentage of time between iterations needed by the backend time to process the data sent by netdata
+4. ~~`backend_slow`, the percentage of time between iterations needed by the backend time to process the data sent by netdata~~ (this was misleading and has been removed).
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/20463779/a46ed1c2-af43-11e6-91a5-07ca4533cac3.png)
 

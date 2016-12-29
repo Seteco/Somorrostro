@@ -41,7 +41,7 @@ Since netdata collects thousands of metrics per server per second, which would e
 
 ## configuration
 
-A new section will appear in netdata.conf, like this:
+In `/etc/netdata/netdata.conf` you should have something like this (if not download the latest version of `netdata.conf` from your netdata):
 
 ```
 [backend]

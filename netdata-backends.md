@@ -80,7 +80,7 @@ netdata provides 5 charts:
 
 1. **Buffered metrics**, the number of metrics netdata added to the buffer for dispatching them to the backend server.
 2. **Buffered data size**, the amount of data (in KB) netdata added the buffer.
-3. **Backend latency**, the time the backend server needed to process the data netdata sent. If there was a re-connection involved, this includes the connection time.
+3. ~~**Backend latency**, the time the backend server needed to process the data netdata sent. If there was a re-connection involved, this includes the connection time.~~ (this chart has been removed, because it only measures the time netdata needs to give the data to the O/S - since the backend servers do not ack the reception, netdata does not have any means to measure this properly)
 4. **Backend operations**, the number of operations performed by netdata.
 5. **Backend thread CPU usage**, the CPU resources consumed by the netdata thread, that is responsible for sending the metrics to the backend server.
 

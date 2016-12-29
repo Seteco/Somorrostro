@@ -17,11 +17,11 @@ Since netdata collects thousands of metrics per server per second, which would e
 
 1. Supported backends
 
-   1. **graphite** (plaintext interface)
+   1. **graphite** (plaintext interface, e.g. Graphite, InfluxDB, KairosDB, Blueflood and other software with Graphite support)
 
       metrics are sent to graphite as `prefix.hostname.chart.dimension`. `prefix` is configured below, `hostname` is the hostname of the machine.
 
-   2. **opentsdb** (telnet interface)
+   2. **opentsdb** (telnet interface, e.g. OpenTSDB, InfluxDB, KairosDB and other software with OpenTSDB support)
 
       metrics are sent to opentsdb as `prefix.chart.dimension` with tag `host=hostname`.
 

@@ -33,7 +33,7 @@ Since netdata collects thousands of metrics per server per second, which would e
 
    1. `as collected`: the latest collected value is sent to the backend. This means that if netdata is configured to send data to the backend every 10 seconds, only 1 out of 10 values will appear at the backend server. The values are sent exactly as collected, before any multipliers or dividers applied and before any interpolation. This mode emulates other data collectors, such as `collectd`.
 
-   2. `average`: the average of the interpolated values shown on the netdata graphs is sent to the backend. So, if netdata is configured to send data to the backend server every 10 seconds, the average of the 10 values shown on the netdata charts will be used.
+   2. `average`: the average of the interpolated values shown on the netdata graphs is sent to the backend. So, if netdata is configured to send data to the backend server every 10 seconds, the average of the 10 values shown on the netdata charts will be used. If you don't know which mode to pick, use this.
 
    3. `sum` or `volume`: the sum of the interpolated values shown on the netdata graphs is sent to the backend. So, if netdata is configured to send data to the backend every 10 seconds, the sum of the 10 values shown on the netdata charts will be used.
 

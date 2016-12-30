@@ -33,14 +33,15 @@ fping_opts="-R -b 56 -i 1 -r 0 -t 5000"
 
 ## multiple fping plugins with different settings
 
-You may need to run multiple fping hosts with different settings for different hosts.
-You can add as many of them as you like.
+You may need to run multiple fping plugins with different settings for different hosts. For example, you may need to ping a few hosts 10 times per second, and others once per second.
+
+netdata allows you to add as many `fping` plugins as you like.
 
 Follow this procedure:
 
 1. copy `fping.conf` to `fping2.conf`, in `/etc/netdata`
 2. edit `fping2.conf` and set the settings and the hosts you need
-3. soft link `fping.plugin` to `fping2.plugin`, in `/usr/libexec/netdata/plugins.d`
+3. soft link `fping.plugin` to `fping2.plugin`, in `/usr/libexec/netdata/plugins.d`.
 
 That's it. netdata will detect the new plugin and start it.
 

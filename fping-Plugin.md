@@ -8,7 +8,7 @@ A recent, unreleased, version of `fping` is required. The supplied plugin can in
 /usr/libexec/netdata/plugins/fping.plugin install
 ```
 
-The above will download, build and install the right version.
+The above will download, build and install the right version as `/usr/local/bin/fping`.
 
 Then you need to edit `/etc/netdata/netdata.conf` like this:
 

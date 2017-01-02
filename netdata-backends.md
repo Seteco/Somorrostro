@@ -127,9 +127,11 @@ netdata already has the code to connect to a TCP socket and send data: https://g
 
 To add new backends you will have to provide:
 
-1. Two very simple functions to construct the message for each metric. For example these are responsible for `graphite`: https://github.com/firehol/netdata/blob/531363a6de2cd3a7247a34fccd27fefb3eea06ae/src/backends.c#L219-L236
+1. Functions to construct the part of the message for each metric. This is an example for `opentsdb`: https://github.com/firehol/netdata/blob/46785b4cc1a3d5f7264e8e73dbe4dd16a246b9f6/src/backends.c#L78-L95
 
-2. A very simple code to set the default port to connect to and set the right functions for formatting the messages. For example, this is the code for `graphite`: https://github.com/firehol/netdata/blob/531363a6de2cd3a7247a34fccd27fefb3eea06ae/src/backends.c#L311-L317
+2. A function to process the response from the backend (any any). This is an example for `opentsdb`: https://github.com/firehol/netdata/blob/46785b4cc1a3d5f7264e8e73dbe4dd16a246b9f6/src/backends.c#L114-L129
+
+3 Add the new backend at the configuration selection. This is an example for `opentsdb`: https://github.com/firehol/netdata/blob/46785b4cc1a3d5f7264e8e73dbe4dd16a246b9f6/src/backends.c#L195-L203
 
 By providing such code, netdata can send its metrics to any other TCP-based backend.
 

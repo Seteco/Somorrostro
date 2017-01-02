@@ -119,7 +119,9 @@ Then edit `netdata.conf` and find the following section. This is the basic plugi
 	# filename to monitor = /proc/diskstats
 	# path to get block device infos = /sys/dev/block/%lu:%lu/%s
 	# path to get h/w sector size = /sys/block/%s/queue/hw_sector_size
-	# path to get h/w sector size for partitions = /sys/dev/block/%lu:%lu/subsystem/%s/../queue/hw_sector_size
+	# path to get h/w sector size for partitions = /sys/dev/block/%lu:%lu/subsystem/%s/../queue
+/hw_sector_size
+        
 ```
 
 For each virtual disk, physical disk and partition you will have a section like this:
@@ -145,3 +147,27 @@ For all configuration options:
 Of course, to set options, you will have to uncomment them. The comments show the internal defaults.
 
 After saving `/etc/netdata/netdata.conf`, restart your netdata to apply them.
+
+#### Disabling performance metrics for individual device and to multiple devices by device type
+You can pretty easy disable performance metrics for individual device, for ex.:
+```
+[plugin:proc:/proc/diskstats:sda]
+	enable performance metrics = no
+```
+But sometimes you need disable performance metrics for all devices with the same type, to do it you need to figure out device type from `/proc/diskstats` for ex.:
+```
+   7       0 loop0 1651 0 3452 168 0 0 0 0 0 8 168
+   7       1 loop1 4955 0 11924 880 0 0 0 0 0 64 880
+   7       2 loop2 36 0 216 4 0 0 0 0 0 4 4
+   7       6 loop6 0 0 0 0 0 0 0 0 0 0 0
+   7       7 loop7 0 0 0 0 0 0 0 0 0 0 0
+ 251       2 zram2 27487 0 219896 188 79953 0 639624 1640 0 1828 1828
+ 251       3 zram3 27348 0 218784 152 79952 0 639616 1960 0 2060 2104
+```
+All zram devices starts with `251` number and all loop devices starts with `7`.  
+So, to disable performance metrics for all loop devices you could add `performance metrics for disks with major 7 = no` to `[plugin:proc:/proc/diskstats]` section.
+```
+[plugin:proc:/proc/diskstats]
+       performance metrics for disks with major 7 = no
+```
+

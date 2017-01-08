@@ -52,6 +52,7 @@
 * [[How to write new module]]
 * [apache](https://github.com/firehol/netdata/tree/master/python.d#apache)
 * [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
+* [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
 * [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)
 * [dovecot](https://github.com/firehol/netdata/tree/master/python.d#dovecot)
 * [exim](https://github.com/firehol/netdata/tree/master/python.d#exim)

@@ -1,6 +1,6 @@
 # lighttpd v1.4.x
 
-Here is a config for accessing netdata via lighttpd 1.4.x:
+Here is a config for accessing netdata in a suburl via lighttpd 1.4.x:
 
 ```txt
 $HTTP["url"] =~ "^/netdata/" {
@@ -14,6 +14,26 @@ $SERVER["socket"] == ":19998" {
 ```
 
 As you see you have to use a chain, as explained [at this stackoverflow answer](http://stackoverflow.com/questions/14536554/lighttpd-configuration-to-proxy-rewrite-from-one-domain-to-another).
+
+---
+
+If the only thing the server is exposing via the web is netdata (and thus no suburl rewriting required),
+then you can get away with just
+```
+proxy.server  = ( "" => ( ( "host" => "127.0.0.1", "port" => 19999 )))
+```
+Though if it's public facing you might then want to put some authentication on it.  htdigest support
+looks like:
+```
+auth.backend = "htdigest"
+auth.backend.htdigest.userfile = "/etc/lighttpd/lighttpd.htdigest"
+auth.require = ( "" => ( "method" => "digest", 
+                         "realm" => "netdata", 
+                         "require" => "valid-user" 
+                       )
+               )
+```
+other auth methods, and more info on htdigest, can be found in lighttpd's [mod_auth docs](http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ModAuth).
 
 ---
 

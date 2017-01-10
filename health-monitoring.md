@@ -24,6 +24,7 @@
   - [pushbullet.com push notifications](#pushbulletcom-push-notifications)
   - [telegram.org push messages](#telegramorg-messages)
   - [PagerDuty notifications](#pagerduty-notifications)
+  - [Twilio SMS notifications](#twilio-sms-notifications)
 - [API Calls](#api-calls)
 - [Troubleshooting](#troubleshooting)
 

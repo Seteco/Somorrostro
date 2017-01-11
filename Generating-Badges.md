@@ -174,6 +174,8 @@ These are options dedicated to badges:
 
   The units of the badge. If you want to put a `/`, please put a `\`. This is because netdata allows badges parameters to be given as path in URL, instead of query string. You can also use `null` or `empty` to show it without any units.
 
+  The units `seconds`, `minutes` and `hours` trigger special formatting. The value has to be in this unit, and netdata will automatically change it to show a more pretty duration.
+
 - `multiply=NUMBER`
 
   Multiply the value with this number. The default is `1`.

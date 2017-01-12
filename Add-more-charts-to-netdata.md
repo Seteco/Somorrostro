@@ -4,6 +4,7 @@ netdata collects system metrics by itself. It has many [internal plugins](https:
 To collect non-system metrics, netdata supports a plugin architecture. The following are the currently available external plugins:
 
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
+- **[Load Balancers](#load-balancers)**, like haproxy
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
@@ -87,6 +88,14 @@ bind_rndc|python<br/>v2 or v3|Parse named.stats dump file to collect real-time p
 application|language|notes|
 :---------:|:------:|:----|
 isc dhcp|python<br/>v2 or v3|Monitor lease database to show all active leases.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [isc-dhcpd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/isc_dhcpd.chart.py)<br/>configuration file: [python.d/isc-dhcpd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/isc_dhcpd.conf)|
+
+---
+
+## Load Balancers
+
+application|language|notes|
+:---------:|:------:|:----|
+haproxy|python<br/>v2 or v3|Monitor frontend, backend and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [haproxy.chart.py](https://github.com/firehol/netdata/blob/master/python.d/haproxy.chart.py)<br/>configuration file: [python.d/haproxy.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/haproxy.conf)|
 
 ---
 ## UPS and Power

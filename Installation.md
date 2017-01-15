@@ -78,7 +78,7 @@ package|description
 :-----:|-----------
 `bash`|for shell plugins and alarm notifications
 `curl`|for shell plugins and alarm notifications
-`tc`|for monitoring Linux QoS
+`iproute`|for monitoring Linux QoS
 `python`|for most of the external plugins
 `python-yaml`|for parsing `python.d.plugin` configuration
 `python-mysqldb`|used for monitoring mysql databases

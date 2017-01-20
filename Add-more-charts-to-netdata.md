@@ -8,6 +8,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
+- **[HTTP accelerators](#http-accelerators)**, like varnish cache
 - **[Name Servers](#name-servers)** (DNS), like bind
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
@@ -71,6 +72,13 @@ application|language|notes|
 squid|python<br/>v2 or v3|Connects to multiple squid servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [squid.chart.py](https://github.com/firehol/netdata/blob/master/python.d/squid.chart.py)<br/>configuration file: [python.d/squid.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/squid.conf)|
 squid|BASH<br/>Shell Script|Connects to a squid server (local or remote) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [squid.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/squid.chart.sh)<br/>configuration file: [charts.d/squid.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/squid.conf)|
 
+---
+
+## HTTP Accelerators
+
+application|language|notes|
+:---------:|:------:|:----|
+varnish|python<br/>v2 or v3|Uses the varnishstat command to provide varnish cache statistics (client metrics, cache perfomance, thread-related metrics, backend health, memory usage etc.).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [varnish.chart.py](https://github.com/firehol/netdata/blob/master/python.d/varnish.chart.py)<br/>configuration file: [python.d/varnish.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/varnish.conf)|
 
 ---
 

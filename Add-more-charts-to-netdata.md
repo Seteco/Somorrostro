@@ -83,7 +83,7 @@ varnish|python<br/>v2 or v3|Uses the varnishstat command to provide varnish cach
 
 ---
 
-## Search engines
+## Search Engines
 
 application|language|notes|
 :---------:|:------:|:----|

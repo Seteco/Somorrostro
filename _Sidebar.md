@@ -75,7 +75,7 @@
 * [sensors](https://github.com/firehol/netdata/tree/master/python.d#sensors)
 * [squid](https://github.com/firehol/netdata/tree/master/python.d#squid)
 * [tomcat](https://github.com/firehol/netdata/tree/master/python.d#tomcat)
-* [varnish](https://github.com/firehol/netdata/tree/master/python.d#varnish)
+* [varnish](https://github.com/firehol/netdata/tree/master/python.d#varnish-cache)
 
 **Node.js Modules**
 * [[General Info - node.d]]

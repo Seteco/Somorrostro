@@ -55,6 +55,7 @@
 * [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
 * [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)
 * [dovecot](https://github.com/firehol/netdata/tree/master/python.d#dovecot)
+* [elasticsearch](https://github.com/firehol/netdata/tree/master/python.d#elasticsearch)
 * [exim](https://github.com/firehol/netdata/tree/master/python.d#exim)
 * [fail2ban](https://github.com/firehol/netdata/tree/master/python.d#fail2ban)
 * [freeradius](https://github.com/firehol/netdata/tree/master/python.d#freeradius)
@@ -74,6 +75,7 @@
 * [sensors](https://github.com/firehol/netdata/tree/master/python.d#sensors)
 * [squid](https://github.com/firehol/netdata/tree/master/python.d#squid)
 * [tomcat](https://github.com/firehol/netdata/tree/master/python.d#tomcat)
+* [varnish](https://github.com/firehol/netdata/tree/master/python.d#varnish)
 
 **Node.js Modules**
 * [[General Info - node.d]]

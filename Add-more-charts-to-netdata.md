@@ -9,6 +9,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
 - **[HTTP accelerators](#http-accelerators)**, like varnish cache
+- **[Search engines](#search-engines)**, like elasticsearch
 - **[Name Servers](#name-servers)** (DNS), like bind
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
@@ -79,6 +80,14 @@ squid|BASH<br/>Shell Script|Connects to a squid server (local or remote) to coll
 application|language|notes|
 :---------:|:------:|:----|
 varnish|python<br/>v2 or v3|Uses the varnishstat command to provide varnish cache statistics (client metrics, cache perfomance, thread-related metrics, backend health, memory usage etc.).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [varnish.chart.py](https://github.com/firehol/netdata/blob/master/python.d/varnish.chart.py)<br/>configuration file: [python.d/varnish.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/varnish.conf)|
+
+---
+
+## Search engines
+
+application|language|notes|
+:---------:|:------:|:----|
+elasticsearch|python<br/>v2 or v3|Monitor elasticsearch performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [elasticsearch.chart.py](https://github.com/firehol/netdata/blob/master/python.d/elasticsearch.chart.py)<br/>configuration file: [python.d/elasticsearch.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/elasticsearch.conf)|
 
 ---
 

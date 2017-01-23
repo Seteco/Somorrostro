@@ -20,6 +20,7 @@
   - [web browser notifications](#web-browser-notifications)
   - [email messages](#alarm-emails)
   - [slack.com team collaboration](#slackcom-messages)
+  - [Discord team collaboration](#discord-messages)
   - [pushover.net push notifications](#pushovernet-push-notifications)
   - [pushbullet.com push notifications](#pushbulletcom-push-notifications)
   - [telegram.org push messages](#telegramorg-messages)
@@ -376,6 +377,7 @@ The `exec` line in health configuration defines an external script that will be 
 2. sending pushover.net notifications (push notification to your mobile)
 3. sending pushbullet.com notifications (push notifications to all devices linked within pushbullet account)
 4. sending messages to slack.com channels
+5. sending messages to Discord channels
 
 It uses **roles**. For example `sysadmin`, `webmaster`, `dba`, etc.
 
@@ -387,6 +389,7 @@ So, for example the `sysadmin` role may send:
 2. pushover.net notifications to USERTOKENS `A`, `B` and `C`.
 3. pushbullet.com push notifications to admin1@example.com and admin2@example.com
 4. messages to slack.com channel `#alarms` and `#systems`.
+5. messages to Discord channels `#alarms` and `#systems`.
 
 #### testing alarms
 
@@ -510,6 +513,53 @@ role_recipients_slack[webmaster]="marketing development"
 ```
 
 The keywords `systems`, `databases`, `marketing`, `development` are slack.com channels (they should already exist in slack).
+
+
+### Discord messages
+
+This is what you will get:
+
+![image](https://cloud.githubusercontent.com/assets/7321975/22215935/b49ede7e-e162-11e6-98d0-ae8541e6b92e.png)
+
+You need:
+
+1. The **incoming webhook URL** as given by Discord. Create a webhook by following the official [Discord documentation](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks). You can use the same on all your netdata servers (or you can have multiple if you like - your decision).
+2. One or more Discord channels to post the messages to.
+
+Set them in `/etc/netdata/health_alarm_notify.conf`, like this:
+
+```
+###############################################################################
+# sending discord notifications
+
+# note: multiple recipients can be given like this:
+#                  "CHANNEL1 CHANNEL2 ..."
+
+# enable/disable sending discord notifications
+SEND_DISCORD="YES"
+
+# Create a webhook by following the official documentation -
+# https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks
+DISCORD_WEBHOOK_URL="https://discordapp.com/api/webhooks/XXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+# if a role's recipients are not configured, a notification will be send to
+# this discord channel (empty = do not send a notification for unconfigured
+# roles):
+DEFAULT_RECIPIENT_DISCORD="alarms"
+
+```
+
+You can define multiple channels like this: `alarms systems`.
+You can give different channels per **role** using these (at the same file):
+
+```
+role_recipients_discord[sysadmin]="systems"
+role_recipients_discord[dba]="databases systems"
+role_recipients_discord[webmaster]="marketing development"
+```
+
+The keywords `systems`, `databases`, `marketing`, `development` are discordapp.com channels (they should already exist within your discord server).
+
 
 ### pushover.net push notifications
 

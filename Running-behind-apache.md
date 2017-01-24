@@ -184,11 +184,11 @@ Once you disable compression at netdata (and restart it), please verify you rece
 You would also need to instruct netdata to listen only from localhost `127.0.0.1` or `::1`.
 
 ````
-bind socket to IP = 127.0.0.1
+bind to = 127.0.0.1
 ```` 
 or  
 ````
-bind socket to IP = ::1
+bind to = ::1
 ````
 
 ## prevent the double access.log

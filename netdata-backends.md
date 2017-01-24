@@ -25,7 +25,7 @@ Since netdata collects thousands of metrics per server per second, which would e
 
       metrics are sent to opentsdb as `prefix.chart.dimension` with tag `host=hostname`.
 
-2. Only one backed may be active at a time.
+2. Only one backend may be active at a time.
 
 3. All metrics are transferred to the backend - netdata does not implement any metric filtering.
 

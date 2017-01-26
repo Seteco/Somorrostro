@@ -24,6 +24,7 @@ For other systems, or if you want the latest unreleased version, please follow t
 
 Try our experimental automatic requirements installer (no need to be root). This will try to find the packages that should be installed on your system to build and run netdata. It supports most major Linux distributions released after 2010:
 
+- **Alpine** Linux and its derivatives (you have to install `bash` yourself, before using the installer)
 - **Arch** Linux and its derivatives
 - **Gentoo** Linux and its derivatives
 - **Debian** Linux and its derivatives (including **Ubuntu**, **Mint**)

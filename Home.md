@@ -14,15 +14,16 @@ Netdata is featured at <b><a href="https://octoverse.github.com/" target="_blank
 </p>
 
 
-> Oct 4th, 2016
->
-> [netdata v1.4.0 released!](https://github.com/firehol/netdata/releases)
->
-> - the fastest netdata ever (with a better look too)!
-> - improved IoT and containers support!
-> - alarms improved in almost every way!
-> - new plugins:  softnet netdev, extended TCP metrics, UDPLite, NFS v2, v3 client (server was there already), NFS v4 server & client, APCUPSd, RetroShare
-> - improved plugins: mysql, cgroups, hddtemp, sensors, phpfm, tc (QoS)
+`Jan 22nd, 2017` - **[netdata v1.5.0 released!](https://github.com/firehol/netdata/releases)**
+
+ - netdata now runs on **FreeBSD** and **MacOS**
+ - netdata now supports **Graphite**, **OpenTSDB**, **Prometheus** and compatible backends
+ - netdata now monitors **systemd Services**
+ - new plugins: fping, postgres, varnish, elasticsearch, haproxy, freeradius, mdstat, ISC dhcpd, fail2ban, openvpn, NUMA memory, CPU Idle States, gunicorn, ECC memory errors, IPC semaphores, uptime
+ - improved plugins: netfilter conntrack, mysql/mariadb, ipfs, cpufreq, hddtemp, sensors, nginx, nginx_log, phpfpm, redis, dovecot, containers and cgroups, disk space, apps.plugin, tc (QoS) and almost all internal plugins (memory, IPv4 and IPv6, network interfaces, QoS, etc)
+ - dozens of new and improved alarms (including performance monitoring alarms for mysql)
+ - new alarm notifications: messagebird.com, pagerduty.com, pushbullet.com, twilio.com, hipchat, kafka
+ - dozens more improvements and performance optimizations
 
 ## demo sites
 
@@ -46,6 +47,53 @@ Toronto (Canada)|**[toronto.netdata.rocks](http://toronto.netdata.rocks)**|[![Re
 Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ---
+
+## Welcome note
+
+Welcome. I am @ktsaou, the founder of [firehol.org](http://firehol.org) and [my-netdata.io](https://my-netdata.io).
+
+netdata is **a scalable, distributed, real-time, performance and health monitoring solution** for Linux, FreeBSD and MacOS. It is **open-source** too.
+
+Out of the box, it collects 1k to 5k metrics **per server per second**. It is the corresponding of running: `top`, `vmstat`, `iostat`, `iotop`, `sar`, `systemd-cgtop` and a dozen more console tools running in parallel. netdata is very efficient in this: the daemon needs just 1% to 3% cpu of a single core, even when it runs on IoT.
+
+Many people view netdata as a  `collectd` + `graphite` + `grafana` alternative, or compare it with `cacti` or `munin`. All these are really great tools, but they are not netdata. Let's see why.
+
+My primary goal when I was designing netdata was to help us find why our systems and applications are slow or misbehaving. To provide a system that could kill the console for performance monitoring.
+
+To do this, I decided that:
+
+- **high resolution metrics** is more important than long history
+- **the more metrics collected, the better** - we should not fear to add 1k metrics more
+- effective monitoring starts with **monitoring everything about each node**
+
+Enterprises usually have dedicated resources and departments for collecting and analyzing system and application metrics at similar resolution and scale. netdata attempts to offer this functionality to everyone, without the dedicated resources - of course within limits.
+
+For big setups, netdata can [archive its metrics](https://github.com/firehol/netdata/wiki/netdata-backends) to `graphite`, `opentsdb`, `prometheus` and all compatible ones (`kairosdb`, `influxdb`, etc). This allows even enterprises with dedicated departments and infrastructure, to use netdata for data collection and real-time alarms.
+
+netdata alarms can be setup on any metric or combination of metrics and can send notifications to:
+
+- email addresses
+- slack channels
+- discord channels
+- pushover
+- pushbullet
+- telegram.org
+- pagerduty
+- twilio
+- messagebird
+
+Alarms are role based (each alarm can go to one or more roles), roles are multi-recipient and multi-channel (i.e. `sysadmin` = several email recipients + pushover) and each recipient may filter severity. You can also add more notification methods quite easily ([it is a shell script](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)).
+
+The number of metrics collected by netdata provides very interesting alarms. Install netdata and run this:
+
+```sh
+while [ 1 ]; do telnet HOST 12345; done
+```
+
+where `HOST` is your default gateway (`12345` is a random non existing port). It will not work of course. But leave it running for a few seconds. You will get an alert that your system is receiving an abnormally high number of TCP resets. If `HOST` is also running netdata, you will receive another alert there, that the system is sending an abnormally high number of TCP resets. This means that if you run a busy daemon and it crashes, you will get notified, although netdata knows nothing specific about it.
+
+Of course netdata is young and still far from a complete monitoring solution that could replace everything.
+We work on it... patience...
 
 ## What is it?
 

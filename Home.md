@@ -48,9 +48,9 @@ Want to set it up on your systems now? Jump to **[[Installation]]**.
 
 ---
 
-## Welcome note
+## A welcome note
 
-Welcome. I am @ktsaou, the founder of [firehol.org](http://firehol.org) and [my-netdata.io](https://my-netdata.io).
+Welcome. I am [@ktsaou](https://github.com/ktsaou), the founder of [firehol.org](http://firehol.org) and [my-netdata.io](https://my-netdata.io).
 
 netdata is **a scalable, distributed, real-time, performance and health monitoring solution** for Linux, FreeBSD and MacOS. It is **open-source** too.
 

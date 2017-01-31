@@ -1,6 +1,6 @@
 Each netdata alarm can have its own alarm action.
 
-The default alarm action is the script `[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)`.
+The default alarm action is the script [`alarm-notify.sh`](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh).
 
 This script has the following features:
 

@@ -33,6 +33,7 @@
   - [slack.com](https://github.com/firehol/netdata/wiki/slack-notifications)
   - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
+* [[health API calls]]
 
 ---
 

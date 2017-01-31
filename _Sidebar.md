@@ -17,7 +17,9 @@
 
 ---
 
-**Alarms**
+**Health monitoring - alarms**
+<br/>alarms and alarm notifications in netdata
+
 * [[health-monitoring]]
 * [health configuration reference](https://github.com/firehol/netdata/wiki/health-configuration-reference)
 

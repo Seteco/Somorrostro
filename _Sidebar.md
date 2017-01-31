@@ -18,8 +18,8 @@ Special Uses
 * [[high performance netdata]]<br/>netdata public on the internet
 
 Notes on memory management
-* [Memory deduplication](https://github.com/firehol/netdata/wiki/Memory-Deduplication---Kernel-Same-Page-Merging---KSM)<br/>how to enable kernel same page merging (KSM) to half netdata memory requirements
-* [[netdata virtual memory size]]<br/>why you should not consider netdata virtual memory size
+* [Memory deduplication](https://github.com/firehol/netdata/wiki/Memory-Deduplication---Kernel-Same-Page-Merging---KSM)<br/>half netdata memory requirements
+* [[netdata virtual memory size]]
 
 ---
 

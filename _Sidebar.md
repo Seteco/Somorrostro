@@ -23,6 +23,8 @@
 ---
 
 **Backends**
+<br/>archiving netdata collected metrics to a time-series database
+
 * [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`
 * [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
 

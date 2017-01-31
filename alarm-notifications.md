@@ -18,3 +18,6 @@ Edit [`/etc/netdata/health_alarm_notify.conf`](https://github.com/firehol/netdat
    all notification methods except email, require some configuration (i.e. API keys, tokens, destination rooms, channels, etc).
 
 2. **recipients** per **role** per **notification method**
+
+
+See also [alarm actions](https://github.com/firehol/netdata/wiki/health-configuration-reference#alarm-actions)

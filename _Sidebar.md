@@ -22,14 +22,6 @@
 
 * [[health-monitoring]]
 * [health configuration reference](https://github.com/firehol/netdata/wiki/health-configuration-reference)
-
----
-
-**Backends**
-<br/>archiving netdata collected metrics to a time-series database
-
-* [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`
-* [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
 * alarm notifications
   - [emails](https://github.com/firehol/netdata/wiki/email-notifications)
   - [discord.com](https://github.com/firehol/netdata/wiki/discord-notifications)
@@ -40,6 +32,14 @@
   - [slack.com](https://github.com/firehol/netdata/wiki/slack-notifications)
   - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
+
+---
+
+**Backends**
+<br/>archiving netdata collected metrics to a time-series database
+
+* [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`
+* [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
 
 ---
 

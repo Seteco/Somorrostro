@@ -13,4 +13,7 @@ This script has the following features:
 Edit [`/etc/netdata/health_alarm_notify.conf`](https://github.com/firehol/netdata/blob/master/conf.d/health_alarm_notify.conf) to configure:
 
 1. settings per notification method
+
+   all notification methods except email, require some configuration (i.e. API keys, tokens, destination rooms, channels, etc).
+
 2. **recipients** per **role** per **notification method**

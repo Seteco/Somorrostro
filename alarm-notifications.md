@@ -9,7 +9,7 @@ This script has the following features:
 3. Each **recipient** can filter severity (i.e. receive only critical notifications).
 4. The special role `silent` can be used in alarms that should not send any kind of notification.
 
-## configuration
+## Notifications Configuration
 
 Edit [`/etc/netdata/health_alarm_notify.conf`](https://github.com/firehol/netdata/blob/master/conf.d/health_alarm_notify.conf) to configure:
 
@@ -21,3 +21,19 @@ Edit [`/etc/netdata/health_alarm_notify.conf`](https://github.com/firehol/netdat
 
 
 See also [alarm actions](https://github.com/firehol/netdata/wiki/health-configuration-reference#alarm-actions).
+
+
+## Testing Notifications
+
+You can run the following command by hard, to test alarms configuration:
+
+```sh
+# become user netdata
+su -s /bin/bash netdata
+
+# send test alarms to sysadmin
+/usr/libexec/netdata/plugins.d/alarm-notify.sh test
+
+# send test alarms to any role
+/usr/libexec/netdata/plugins.d/alarm-notify.sh test "ROLE"
+```

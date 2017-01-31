@@ -1,6 +1,8 @@
 Each netdata alarm can have its own alarm action.
 
-The default alarm action is the script **[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)**. This script has the following features:
+The default alarm action is the script **[alarm-notify.sh](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)**.
+
+This script has the following features:
 
 1. The `to` line of alarms can list one or more **roles**.
 2. Each **role** can correspond to multiple **recipients**, using multiple **notification methods** (email, slack, discord, twilio, pageduty, etc).

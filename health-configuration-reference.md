@@ -179,18 +179,15 @@ So, for example the `sysadmin` role may send:
 4. messages to slack.com channel `#alarms` and `#systems`.
 5. messages to Discord channels `#alarms` and `#systems`.
 
-#### testing alarms
+## Alarm Statuses
 
-You can run the following command by hard, to test alarms configuration:
+Alarms can have the following statuses:
 
-```sh
-# become user netdata
-su -s /bin/bash netdata
+  - `REMOVED` - the alarm has been deleted (this happens when a SIGUSR2 is sent to netdata to reload health configuration)
+  - `UNINITIALIZED` - the alarm is not initialized yet
+  - `UNDEFINED` - the alarm failed to be calculated (i.e. the database lookup failed, a division by zero occurred, etc)
+  - `CLEAR` - the alarm is not armed / raised (i.e. is OK)
+  - `WARNING` - the warning expression resulted in true or non-zero
+  - `CRITICAL` - the critical expression resulted in true or non-zero
 
-# send test alarms to sysadmin
-/usr/libexec/netdata/plugins.d/alarm-notify.sh test
-
-# send test alarms to any role
-/usr/libexec/netdata/plugins.d/alarm-notify.sh test "ROLE"
-```
-
+The external script will be called for all status changes.

@@ -23,6 +23,7 @@
 * [[health-monitoring]]
 * [health configuration reference](https://github.com/firehol/netdata/wiki/health-configuration-reference)
 * [[alarm notifications]]
+  - [HTML5 web notifications](https://github.com/firehol/netdata/wiki/web-browser-notifications)
   - [emails](https://github.com/firehol/netdata/wiki/email-notifications)
   - [discord.com](https://github.com/firehol/netdata/wiki/discord-notifications)
   - [messagebird.com](https://github.com/firehol/netdata/wiki/messagebird-notifications)

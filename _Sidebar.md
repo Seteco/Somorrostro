@@ -19,6 +19,7 @@
 
 **Alarms**
 * [[health-monitoring]]
+* [health configuration reference](https://github.com/firehol/netdata/wiki/health-configuration-reference)
 
 ---
 

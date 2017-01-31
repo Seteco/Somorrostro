@@ -14,8 +14,8 @@
 * [[Memory Requirements]]
 
 Special Uses
-* [[netdata for IoT]]<br/>configure netdata to lower its resource utilization
-* [[high performance netdata]]<br/>running netdata public to the internet
+* [[netdata for IoT]]<br/>lower netdata resource utilization
+* [[high performance netdata]]<br/>netdata public on the internet
 
 Notes on memory management
 * [Memory deduplication](https://github.com/firehol/netdata/wiki/Memory-Deduplication---Kernel-Same-Page-Merging---KSM)<br/>how to enable kernel same page merging (KSM) to half netdata memory requirements

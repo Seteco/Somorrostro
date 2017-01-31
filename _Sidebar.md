@@ -12,8 +12,10 @@
 **Running Netdata**
 * [[Performance]]
 * [[Memory Requirements]]
-    - [[Memory Deduplication - Kernel Same Page Merging - KSM]]
-    - [[netdata virtual memory size]]
+  - [ksm](https://github.com/firehol/netdata/wiki/Memory-Deduplication---Kernel-Same-Page-Merging---KSM)<br/>kernel memory deduplication
+  - [[netdata virtual memory size]]
+* [[netdata for IoT]]<br/>configure netdata to lower its resource utilization
+* [[high performance netdata]]<br/>running netdata public to the internet
 
 ---
 
@@ -149,13 +151,6 @@
 * [[Running behind apache]]
 * [[Running behind lighttpd]]
 * [[Running behind caddy]]
-
-
-**Advanced configurations**
-* [[netdata for IoT]]
-  (configure netdata to lower its resources)
-* [[high performance netdata]]
-  (running netdata public to the internet)
 
 ---
 

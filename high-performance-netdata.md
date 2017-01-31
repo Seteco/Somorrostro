@@ -66,7 +66,7 @@ These options:
 - `[global].disconnect idle web clients after seconds = 3600` will kill inactive web threads after an hour of inactivity.
 - `[global].enable web responses gzip compression = no` disables gzip compression at netdata (nginx will compress the responses).
 
-## 2. open files limits (non-systemd)
+## 2. increase open files limit (non-systemd)
 
 By default Linux limits open file descriptors per process to 1024. This means that less than half of this number of client connections can be accepted by both nginx and netdata. To increase them, create 2 new files:
 
@@ -90,7 +90,7 @@ and to activate them, run:
 sysctl -p
 ```
 
-## 2b. limit open files (systemd)
+## 2b. increase open files limit (systemd)
 
 Thanks to [@leleobhz](https://github.com/firehol/netdata/issues/655#issue-163932584), this is what you need to raise the limits using systemd:
 

@@ -30,6 +30,16 @@
 
 * [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`
 * [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
+* alarm notifications
+  - [emails](https://github.com/firehol/netdata/wiki/email-notifications)
+  - [discord.com](https://github.com/firehol/netdata/wiki/discord-notifications)
+  - [messagebird.com](https://github.com/firehol/netdata/wiki/messagebird-notifications)
+  - [pagerduty.com](https://github.com/firehol/netdata/wiki/pagerduty-notifications)
+  - [pushbullet.com](https://github.com/firehol/netdata/wiki/pushbullet-notifications)
+  - [pushover.net](https://github.com/firehol/netdata/wiki/pushover-notifications)
+  - [slack.com](https://github.com/firehol/netdata/wiki/slack-notifications)
+  - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
+  - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
 
 ---
 

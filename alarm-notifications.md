@@ -5,7 +5,7 @@ The default alarm action is the script [`alarm-notify.sh`](https://github.com/fi
 This script has the following features:
 
 1. The `to` line of alarms can list one or more **roles**.
-2. Each **role** can correspond to multiple **recipients**, using multiple **notification methods** (email, slack, discord, twilio, pageduty, etc).
+2. Each **role** can correspond to multiple **recipients**, using multiple **notification methods** (email, slack, discord, twilio, pagerduty, etc).
 3. Each **recipient** can filter severity (i.e. receive only critical notifications).
 4. The special role `silent` can be used in alarms that should not send any kind of notification.
 

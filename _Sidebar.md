@@ -12,10 +12,14 @@
 **Running Netdata**
 * [[Performance]]
 * [[Memory Requirements]]
-  - [ksm](https://github.com/firehol/netdata/wiki/Memory-Deduplication---Kernel-Same-Page-Merging---KSM)<br/>kernel memory deduplication
-  - [[netdata virtual memory size]]
+
+Special Uses
 * [[netdata for IoT]]<br/>configure netdata to lower its resource utilization
 * [[high performance netdata]]<br/>running netdata public to the internet
+
+Notes on memory management
+* [Memory deduplication](https://github.com/firehol/netdata/wiki/Memory-Deduplication---Kernel-Same-Page-Merging---KSM)<br/>how to enable kernel same page merging (KSM) to half netdata memory requirements
+* [[netdata virtual memory size]]<br/>why you should not consider netdata virtual memory size
 
 ---
 

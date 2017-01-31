@@ -20,4 +20,4 @@ Edit [`/etc/netdata/health_alarm_notify.conf`](https://github.com/firehol/netdat
 2. **recipients** per **role** per **notification method**
 
 
-See also [alarm actions](https://github.com/firehol/netdata/wiki/health-configuration-reference#alarm-actions)
+See also [alarm actions](https://github.com/firehol/netdata/wiki/health-configuration-reference#alarm-actions).

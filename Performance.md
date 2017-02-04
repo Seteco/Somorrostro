@@ -106,7 +106,7 @@ These priorities are usually from 0 to 99. Higher numbers make the process more 
 
 ### nice level
 
-It can only be set when the policy is set to `other` or `batch`. The following will appear:
+It can only be set when the policy is set to `other`, `nice`, or `batch`. The following will appear:
 
 ```
 [global]

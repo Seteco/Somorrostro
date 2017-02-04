@@ -17,7 +17,7 @@ Since netdata collects thousands of metrics per server per second, which would e
 
 1. Supported backends
 
-   1. **graphite** (`plaintext interface`, used by **Graphite**, **InfluxDB**, **KairosDB**, **Blueflood**, etc)
+   1. **graphite** (`plaintext interface`, used by **Graphite**, **InfluxDB**, **KairosDB**, **Blueflood**, **ElasticSearch** via logstash tcp input and the graphite codec, etc)
 
       metrics are sent to the backend server as `prefix.hostname.chart.dimension`. `prefix` is configured below, `hostname` is the hostname of the machine (can also be configured).
 

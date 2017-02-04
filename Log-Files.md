@@ -17,9 +17,11 @@ So if any process in the netdata process tree writes anything to its standard er
 
 For most netdata programs (including plugins in all languages), the following lines may appear:
 
-1. `INFO` = something important you should know.
-2. `ERROR` = something that might disable a part of netdata - the log line includes errno (if it is not zero).
-3. `FATAL` = something that prevented a program from running - the log line includes errno and the program exits.
+tag|description
+:--:|:----
+`INFO`|something important you should know.
+`ERROR`|something that might disable a part of netdata - the log line includes errno (if it is not zero).
+`FATAL`|something that prevented a program from running - the log line includes errno and the program exits.
 
 So, when netdata auto-detection of something fails, an `ERROR` is logged, the relevant module is disabled but the program continues to run. When the program cannot run at all, a `FATAL` is logged.
 

@@ -48,7 +48,7 @@ Notes on memory management
 **Backends**
 <br/>archiving netdata collected metrics to a time-series database
 
-* [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`
+* [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`, `elasticsearch`, `blueflood`
 * [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
 
 ---

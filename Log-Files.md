@@ -1,32 +1,33 @@
-# Log Files
-
 There are 3 kinds of log files:
 
-1. error.log
-2. access.log
-3. debug.log
+1. `error.log`
+2. `access.log`
+3. `debug.log`
 
 Any of them can be disabled by setting it to `/dev/null` or `none` in the [[Configuration]].
-By default `error.log` and `access.log` are enabled. `debug.log` is only enabled if debugging is also enabled.
+By default `error.log` and `access.log` are enabled. `debug.log` is only enabled if debugging/tracing is also enabled.
 
-## Error Log
+---
 
-The `error.log` is the `stderr` of the netdata daemon and all plugins run by netdata.
+## error.log
 
-So if any process in the netdata process tree writes anything to its standard error, it will appear in the `error.log`.
+The `error.log` is the `stderr` of the netdata daemon and all external plugins run by netdata.
 
-For most netdata programs (including plugins in all languages), the following lines may appear:
+So if any process, in the netdata process tree, writes anything to its standard error, it will appear in `error.log`.
+
+For most netdata programs (including standard external plugins shipped by netdata), the following lines may appear:
 
 tag|description
 :--:|:----
-`INFO`|something important you should know.
-`ERROR`|something that might disable a part of netdata<br/>the log line includes errno (if it is not zero).
-`FATAL`|something that prevented a program from running<br/>the log line includes errno and the program exits.
+`INFO`|Something important the user should know.
+`ERROR`|Something that might disable a part of netdata.<br/>The log line includes `errno` (if it is not zero).
+`FATAL`|Something prevented a program from running.<br/>The log line includes `errno` (if it is not zero) and the program exited.
 
-So, when auto-detection of data collection fails, `ERROR` lines are logged, the relevant modules are disabled but the program continues to run. When a netdata program cannot run at all, a `FATAL` line is logged.
+So, when auto-detection of data collection fail, `ERROR` lines are logged and the relevant modules are disabled, but the program continues to run. When a netdata program cannot run at all, a `FATAL` line is logged.
 
+---
 
-## Access Log
+## access.log
 
 The `access.log` logs web requests. The format is:
 
@@ -45,6 +46,8 @@ where:
  - `TOTAL_TIME` is the total time the request was inside netdata (from the first byte of the request to the last byte of the response).
  - `ACTION` can be `filecopy`, `options` (used in CORS), `data` (API call).
 
-## Debug Log
+---
+
+## debug.log
 
 Check the [[Tracing Options]] section.

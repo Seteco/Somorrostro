@@ -84,7 +84,7 @@ Possible values are:
 
 policy|description
 :-----:|:--------
-`idle`|use CPU only when there is spare - this is lower than nice 19 - this is the default for netdata and it is so low that netdata will run in "slow motion" under extreme system load, resulting in gaps at the charts.
+`idle`|use CPU only when there is spare - this is lower than nice 19 - this is the default for netdata and it is so low that netdata will run in "slow motion" under extreme system load, resulting in short (1-2 seconds) gaps at the charts.
 `other`<br/>or<br/>`nice`|this is the default policy for all processes under Linux. It provides dynamic priorities based on the nice level of each process.
 `batch`|This policy is similar to `other` in that it schedules the thread according to its dynamic priority (based on the nice value).  The difference is that this policy will cause the scheduler to always assume that the thread is CPU-intensive.  Consequently, the scheduler will  apply a small scheduling penalty with respect to wakeup behavior, so that this thread is mildly disfavored in scheduling decisions.
 `fifo`|`fifo` can be used only with static priorities higher than 0, which means that when a `fifo` threads becomes runnable, it will always  immediately  preempt  any  currently running  `other`, `batch`, or `idle` thread.  `fifo` is a simple scheduling algorithm without time slicing.

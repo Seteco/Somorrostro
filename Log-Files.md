@@ -20,8 +20,8 @@ For most netdata programs (including plugins in all languages), the following li
 tag|description
 :--:|:----
 `INFO`|something important you should know.
-`ERROR`|something that might disable a part of netdata - the log line includes errno (if it is not zero).
-`FATAL`|something that prevented a program from running - the log line includes errno and the program exits.
+`ERROR`|something that might disable a part of netdata<br/>the log line includes errno (if it is not zero).
+`FATAL`|something that prevented a program from running<br/>the log line includes errno and the program exits.
 
 So, when auto-detection of data collection fails, `ERROR` lines are logged, the relevant modules are disabled but the program continues to run. When a netdata program cannot run at all, a `FATAL` line is logged.
 

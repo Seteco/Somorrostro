@@ -80,7 +80,7 @@ in `netdata.conf`, there is:
     process scheduling policy = idle
 ```
 
-Possible values are `idle`, `other` (or `nice`), `rr` (i.e. round-robin), `fifo`, `batch`, `keep` (or `none`).
+Possible values are:
 
 policy|description
 :-----:|:--------

@@ -32,7 +32,7 @@ Notes on memory management
 * [Notifications Configuration](https://github.com/firehol/netdata/wiki/alarm-notifications)<br/>
   - [web notifications](https://github.com/firehol/netdata/wiki/web-browser-notifications)
   - [emails](https://github.com/firehol/netdata/wiki/email-notifications)
-  - [discord.com](https://github.com/firehol/netdata/wiki/discord-notifications)
+  - [discordapp.com](https://github.com/firehol/netdata/wiki/discord-notifications)
   - [messagebird.com](https://github.com/firehol/netdata/wiki/messagebird-notifications)
   - [pagerduty.com](https://github.com/firehol/netdata/wiki/pagerduty-notifications)
   - [pushbullet.com](https://github.com/firehol/netdata/wiki/pushbullet-notifications)

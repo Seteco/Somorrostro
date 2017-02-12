@@ -1,3 +1,14 @@
+
+netdata is a real-time performance monitoring system. Its cause is to help you diagnose and troubleshoot performance problems. Normally, it does not need too many data. The default is to keep one hour of metrics in memory. This is more than enough for evaluating the current situation and finding the issue at hand.
+
+Many users ask for historical performance statistics. Currently netdata is not very efficient in this. It needs a lot of memory (mainly because the metrics are too many - a few thousands per server - and the resolution is too high - per second).
+
+If you want more than a few hours of data in netdata, we suggest to enable KSM (the kernel memory deduper). In the past KSM has been criticized for consuming a lot of CPU resources. Although this is true when KSM is used for deduplicating certain applications, it is not true with netdata, since the netdata memory is written very infrequently (if you have 24 hours of metrics in netdata, each byte at the in-memory database will be updated once per day). So, KSM is a solution that will provide 60+% memory savings.
+
+Of course, you can always stream netdata metrics to graphite, opentsdb, prometheus, infuxdb, kairosdb, etc. So, if you need statistics of past performance, we suggest to use a dedicated time-series database.
+
+---
+
 # Netdata Memory Requirements
 
 Although `netdata` does all its calculations using `long double` (128 bit) arithmetics, it stores all values using a **custom-made 32-bit number**.

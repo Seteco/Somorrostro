@@ -1,5 +1,5 @@
 
-netdata is a real-time performance monitoring system. Its cause is to help you diagnose and troubleshoot performance problems. Normally, it does not need too many data. The default is to keep one hour of metrics in memory. This is more than enough for evaluating the current situation and finding the issue at hand.
+netdata is a real-time performance monitoring system. Its cause is to help you diagnose and troubleshoot performance problems. Normally, it does not need too many data. The default is to keep one hour of metrics in memory, which depending on number of metrics may lead to 15-25 MB of RAM. This is more than enough for evaluating the current situation and finding the performance issue at hand.
 
 Many users ask for historical performance statistics. Currently netdata is not very efficient in this. It needs a lot of memory (mainly because the metrics are too many - a few thousands per server - and the resolution is too high - per second).
 

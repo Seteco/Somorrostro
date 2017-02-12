@@ -282,9 +282,9 @@ We are trying to collect all the information about netdata package maintainers a
 
 ##### FreeBSD
 
-Initial FreeBSD support was introduced with [PR #1321](https://github.com/firehol/netdata/pull/1321).
+You can install netdata from ports or packages collection.
 
-This is how to install netdata on FreeBSD:
+This is how to install the latest netdata version from sources on FreeBSD:
 
 ```sh
 # install required packages
@@ -297,6 +297,9 @@ git clone https://github.com/firehol/netdata.git
 cd netdata
 ./netdata-installer.sh --install /opt
 ```
+
+##### pfSense
+To install netdata on pfSense run `pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.5.0.txz` (change platform and versions according to your environment). More information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages
 
 ##### macOS
 

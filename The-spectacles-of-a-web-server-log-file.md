@@ -12,7 +12,7 @@
 
 Web server log files exist for more than 20 years. All web servers of all kinds, from all vendors, [since the times NCSA httpd was powering the web](https://en.wikipedia.org/wiki/NCSA_HTTPd), produce log files, saving in real-time all accesses to web sites and APIs.
 
-Yet, after the domination of the world with google analytics and similar services, and the rise of APM (Application Performance Monitoring) with sophisticated time-series databases that collect and analyze metrics at the application level, all these web server log files are mostly just filling our disks, rotated every night without any use whatsoever.
+Yet, after the appearance of google analytics and similar services, and the recent rise of APM (Application Performance Monitoring) with sophisticated time-series databases that collect and analyze metrics at the application level, all these web server log files are mostly just filling our disks, rotated every night without any use whatsoever.
 
 **This is about to change!**
 
@@ -163,7 +163,7 @@ The magic of [**netdata**](https://my-netdata.io/) is that all metrics are colle
 alarm|description|minimum<br/>requests|warning|critical
 :-------|-------|:------:|:-----:|:------:
 `1m_redirects`|The ratio of HTTP redirects (3xx except 304) over all the requests, during the last minute.<br/>&nbsp;<br/>*Detects if the site or the web API is suffering from too many or circular redirects.*<br/>&nbsp;<br/>(i.e. **oops!** *this should not redirect clients to itself*)|120/min|&gt; 20%|&gt; 30%
-`1m_bad_requests`|The ratio of HTTP bad requests (4xx) over all the requests, during the last minute.<br/>&nbsp;<br/>*Detects if the site or the web API receiving too many bad requests, including `404`, not found.*<br/>&nbsp;<br/>(i.e. **oops!** *a few files were not uploaded*)|120/min|&gt; 30%|&gt; 50%
+`1m_bad_requests`|The ratio of HTTP bad requests (4xx) over all the requests, during the last minute.<br/>&nbsp;<br/>*Detects if the site or the web API is receiving too many bad requests, including `404`, not found.*<br/>&nbsp;<br/>(i.e. **oops!** *a few files were not uploaded*)|120/min|&gt; 30%|&gt; 50%
 `1m_internal_errors`|The ratio of HTTP internal server errors (5xx), over all the requests, during the last minute.<br/>&nbsp;<br/>*Detects if the site is facing difficulties to serve requests.*<br/>&nbsp;<br/>(i.e. **oops!** *this release crashes too much*)|120/min|&gt; 2%|&gt; 5%
 `5m_requests_ratio`|The percentage of successful web requests of the last 5 minutes, compared with the previous 5 minutes.<br/>&nbsp;<br/>*Detects if the site or the web API is suddenly getting too many or too few requests.*<br/>&nbsp;<br/>(i.e. too many = **oops!** *we are under attack*)<br/>(i.e. too few = **oops!** *call the network guys*)|120/5min|&gt; double or &lt; half|&gt; 4x or &lt; 1/4x
 `web_slow`|The average time to respond to requests, over the last 1 minute, compared to the average of last 10 minutes.<br/>&nbsp;<br/>*Detects if the site or the web API is suddenly a lot slower.*<br/>&nbsp;<br/>(i.e. **oops!** *the database is slow again*)|120/min|&gt; 2x|&gt; 4x

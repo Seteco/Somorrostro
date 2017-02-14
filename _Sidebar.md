@@ -60,6 +60,7 @@ Notes on memory management
 
 **Monitoring Info**
 * [Monitoring web servers](https://github.com/firehol/netdata/wiki/The-spectacles-of-a-web-server-log-file)
+<br/>The spectacles of a web server log file
 * [[Monitoring disks]]
 
 ---

@@ -77,7 +77,7 @@ This VirtualHost will allow you to access netdata `https://your-domain.tld/netda
 
 Enable the VirtualHost: 
 ````
-a2ensite netdata.conf && service apache2 reload
+a2ensite netdata-ssl.conf && service apache2 reload
 ````
 
 ## Multiple proxies

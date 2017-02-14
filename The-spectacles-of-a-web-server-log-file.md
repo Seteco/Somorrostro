@@ -10,7 +10,7 @@
 
 # The spectacles of a web server log file
 
-Web server log files exist for more than 20 years. All web servers of all kinds, from all vendors, [since the times NCSA httpd was powering the web](https://en.wikipedia.org/wiki/NCSA_HTTPd), produce log files, saving in real-time all accesses to web sites and APIs.
+Web server log files exist for more than 20 years. All web servers of all kinds, from all vendors, [since the time NCSA httpd was powering the web](https://en.wikipedia.org/wiki/NCSA_HTTPd), produce log files, saving in real-time all accesses to web sites and APIs.
 
 Yet, after the appearance of google analytics and similar services, and the recent rise of APM (Application Performance Monitoring) with sophisticated time-series databases that collect and analyze metrics at the application level, all these web server log files are mostly just filling our disks, rotated every night without any use whatsoever.
 

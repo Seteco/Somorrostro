@@ -60,7 +60,7 @@ server {
         proxy_pass_request_headers on;
         proxy_set_header Connection "keep-alive";
         proxy_store off;
-        proxy_pass http://netdata/$ndpath$is_args$args;
+        proxy_pass http://backend/$ndpath$is_args$args;
 
         gzip on;
         gzip_proxied any;

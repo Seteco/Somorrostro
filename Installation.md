@@ -251,7 +251,7 @@ crontab -e
     You can stop and start netdata at any point. Netdata saves on exit its round robbin
     database to `/var/cache/netdata` so that it will continue from where it stopped the last time.
 
-To access the web site for all graphs, go to:
+Access to the web site, for all graphs, is by default on port `19999`, so go to:
 
  ```
  http://127.0.0.1:19999/

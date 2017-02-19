@@ -104,14 +104,14 @@ Do this to install and run netdata:
 git clone https://github.com/firehol/netdata.git --depth=1
 cd netdata
 
-# build it, install it, start it
+# run script with root privileges to build, install, start netdata
 ./netdata-installer.sh
 
 ```
 
-The script `netdata-installer.sh` will build netdata and install it to your system.
+* If you don't want to run it straight-away, add `--dont-start-it` option.
 
-If you don't want to install it on the default directories, you can run the installer like this: `./netdata-installer.sh --install /opt`. This one will install netdata in `/opt/netdata`.
+* If you don't want to install it on the default directories, you can run the installer like this: `./netdata-installer.sh --install /opt`. This one will install netdata in `/opt/netdata`.
 
 Once the installer completes, the file `/etc/netdata/netdata.conf` will be created (if you changed the installation directory, the configuration will appear in that directory too).
 

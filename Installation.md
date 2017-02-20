@@ -291,7 +291,7 @@ This is how to install the latest netdata version from sources on FreeBSD:
 pkg install bash e2fsprogs-libuuid git curl autoconf automake gcc pkgconf pidof
 
 # download netdata
-git clone https://github.com/firehol/netdata.git
+git clone https://github.com/firehol/netdata.git --depth=1
 
 # install netdata in /opt/netdata
 cd netdata
@@ -299,7 +299,12 @@ cd netdata
 ```
 
 ##### pfSense
-To install netdata on pfSense run `pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.5.0.txz` (change platform and versions according to your environment). More information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages
+To install netdata on pfSense run (change platform and versions according to your environment):
+```
+pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/e2fsprogs-libuuid-1.43.4.txz
+pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.5.0.txz
+```
+More information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages
 
 ##### macOS
 
@@ -320,7 +325,7 @@ click `Install` in the software update popup window, then
 brew install ossp-uuid autoconf automake pkg-config
 
 # download netdata
-git clone https://github.com/firehol/netdata.git
+git clone https://github.com/firehol/netdata.git --depth=1
 
 # install netdata in ~/opt/netdata
 cd netdata

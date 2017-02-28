@@ -71,6 +71,7 @@ Notes on memory management
 ---
 
 **Data Collection**
+* [Add more charts to netdata](https://github.com/firehol/netdata/wiki/Add-more-charts-to-netdata)
 * [[Internal Plugins]]
 * [[External Plugins]]
 

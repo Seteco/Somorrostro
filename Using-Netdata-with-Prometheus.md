@@ -52,7 +52,7 @@ chown prometheus:prometheus /opt/prometheus
 #### Untar prometheus directory
 
 ```
-tar -xvf /tmp/prometheus-1.4.1.tar.gz -C /opt/prometheus --strip=1
+tar -xvf /tmp/prometheus-1.4.1.linux-amd64.tar.gz -C /opt/prometheus --strip=1
 ```
 
 #### Install prometheus.yml

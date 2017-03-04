@@ -23,11 +23,12 @@ Notes on memory management
 
 ---
 
-**Common setups**
+**Database Replication and Mirroring**
 
-* [[monitoring-ephemeral-nodes]]
-* [[monitoring-ephemeral-containers]]
-* [[netdata-proxies]]
+* [[Replication Overview]]
+* [[monitoring ephemeral nodes]]<br/>Use netdata to monitor auto-scaled cloud servers.
+* [[monitoring ephemeral containers]]<br/>Use netdata to monitor auto-scaled containers.
+* [[netdata proxies]]<br/>Streaming netdata metrics between netdata servers.
 
 ---
 

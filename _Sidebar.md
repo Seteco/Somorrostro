@@ -23,6 +23,14 @@ Notes on memory management
 
 ---
 
+**Common setups**
+
+* [[monitoring-ephemeral-nodes]]
+* [[monitoring-ephemeral-containers]]
+* [[netdata-proxies]]
+
+---
+
 **Health monitoring - Alarms**
 <br/>alarms and alarm notifications in netdata
 

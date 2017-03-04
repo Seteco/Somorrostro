@@ -27,7 +27,6 @@ Notes on memory management
 
 * [[Replication Overview]]
 * [[monitoring ephemeral nodes]]<br/>Use netdata to monitor auto-scaled cloud servers.
-* [[monitoring ephemeral containers]]<br/>Use netdata to monitor auto-scaled containers.
 * [[netdata proxies]]<br/>Streaming netdata metrics between netdata servers.
 
 ---
@@ -70,6 +69,7 @@ Notes on memory management
 **Monitoring Info**
 * [Monitoring web servers](https://github.com/firehol/netdata/wiki/The-spectacles-of-a-web-server-log-file)
 <br/>The spectacles of a web server log file
+* [[monitoring ephemeral containers]]<br/>Use netdata to monitor auto-scaled containers.
 * [[Monitoring disks]]
 
 ---

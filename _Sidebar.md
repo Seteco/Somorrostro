@@ -32,6 +32,14 @@ Notes on memory management
 
 ---
 
+**Backends**
+<br/>archiving netdata collected metrics to a time-series database
+
+* [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`, `elasticsearch`, `blueflood`
+* [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
+
+---
+
 **Health monitoring - Alarms**
 <br/>alarms and alarm notifications in netdata
 
@@ -51,14 +59,6 @@ Notes on memory management
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
 * [[health API calls]]
 * [[troubleshooting alarms]]
-
----
-
-**Backends**
-<br/>archiving netdata collected metrics to a time-series database
-
-* [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`, `elasticsearch`, `blueflood`
-* [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
 
 ---
 

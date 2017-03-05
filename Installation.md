@@ -7,6 +7,7 @@ You can install the latest release of netdata, using your package manager in
 
 - Arch Linux (`sudo pacman -S netdata`)
 - Gentoo Linux (`sudo emerge --ask netdata`)
+- Solus Linux (`sudo eopkg install netdata`)
 
 For other systems, or if you want the latest unreleased version, please follow these 2 steps:
 

@@ -5,7 +5,9 @@ Auto-scaling is probably the most trendy service deployment strategy these days.
 
 Auto-scaling detects the need for additional resources and boots VMs on demand, based on a template. Soon after they start running the applications, a load balancer starts distributing traffic to them, allowing the service to grow horizontally to the scale needed to handle the load. When demands falls, auto-scaling starts shutting down VMs that are no longer needed.
 
+<center>
 ![copy of netdata-for-ephemeral-nodes 1](https://cloud.githubusercontent.com/assets/2662304/23627426/65a9074a-02b9-11e7-9664-cd8f258a00af.png)
+</center>
 
 What a fantastic feature for controlling infrastructure costs! Pay only for what you need for the time you need it!
 
@@ -42,7 +44,9 @@ netdata used to be self-contained, so that all these functions were handled enti
 
 ## configuring an auto-scaling setup
 
+<center>
 ![copy of netdata-for-ephemeral-nodes 2](https://cloud.githubusercontent.com/assets/2662304/23627468/96daf7ba-02b9-11e7-95ac-1f767dd8dab8.png)
+</center>
 
 You need a netdata `master`. This node should not be ephemeral. It will be the node where all ephemeral nodes (let's call them `slaves`) will be sending their metrics.
 
@@ -54,7 +58,7 @@ API keys are just random GUIDs. Use the Linux command `uuidgen` to generate one.
 
 We suggest to use the same API key for each ephemeral node template you have, so that all replicas of the same ephemeral node will have exactly the same configuration.
 
-I will use this API_KEY: `11111111-2222-3333-4444-555555555555`. Replace this with your own.
+I will use this API_KEY: `11111111-2222-3333-4444-555555555555`. Replace it with your own.
 
 ### configuring the `master`
 
@@ -119,7 +123,7 @@ Both the sender and the receiver of metrics log information at `/var/log/netdata
 
 ## archiving to a time-series database
 
-The `master` netdata node can also archive metrics to a time-series database. At the time of this writing, netdata supports:
+The `master` netdata node can also archive metrics, for all `slaves`, to a time-series database. At the time of this writing, netdata supports:
 
 - graphite
 - opentsdb
@@ -127,7 +131,18 @@ The `master` netdata node can also archive metrics to a time-series database. At
 - json document DBs
 - all the compatibles to the above (e.g. kairosdb, influxdb, etc)
 
-This is how it can work:
+Check the netdata [backends documentation](https://github.com/firehol/netdata/wiki/netdata-backends) for configuring this.
 
+This is how such a solution will work:
+
+<center>
 ![netdata-for-ephemeral-nodes](https://cloud.githubusercontent.com/assets/2662304/23627295/e3569adc-02b8-11e7-9d55-4014bf98c1b3.png)
+</center>
 
+## a really advanced setup
+
+netdata also supports `proxies` with and without a local database, and data retention can be different between all nodes.
+
+This means a setup like the following is also possible:
+
+![netdata-proxies-example](https://cloud.githubusercontent.com/assets/2662304/23629551/bb1fd9c2-02c0-11e7-90f5-cab5a3ed4c53.png)

@@ -5,9 +5,9 @@ Auto-scaling is probably the most trendy service deployment strategy these days.
 
 Auto-scaling detects the need for additional resources and boots VMs on demand, based on a template. Soon after they start running the applications, a load balancer starts distributing traffic to them, allowing the service to grow horizontally to the scale needed to handle the load. When demands falls, auto-scaling starts shutting down VMs that are no longer needed.
 
-<center>
-![copy of netdata-for-ephemeral-nodes 1](https://cloud.githubusercontent.com/assets/2662304/23627426/65a9074a-02b9-11e7-9664-cd8f258a00af.png)
-</center>
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/2662304/23627426/65a9074a-02b9-11e7-9664-cd8f258a00af.png"/>
+</p>
 
 What a fantastic feature for controlling infrastructure costs! Pay only for what you need for the time you need it!
 
@@ -44,9 +44,9 @@ netdata used to be self-contained, so that all these functions were handled enti
 
 ## configuring an auto-scaling setup
 
-<center>
-![copy of netdata-for-ephemeral-nodes 2](https://cloud.githubusercontent.com/assets/2662304/23627468/96daf7ba-02b9-11e7-95ac-1f767dd8dab8.png)
-</center>
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/2662304/23627468/96daf7ba-02b9-11e7-95ac-1f767dd8dab8.png"/>
+</p>
 
 You need a netdata `master`. This node should not be ephemeral. It will be the node where all ephemeral nodes (let's call them `slaves`) will be sending their metrics.
 
@@ -135,9 +135,9 @@ Check the netdata [backends documentation](https://github.com/firehol/netdata/wi
 
 This is how such a solution will work:
 
-<center>
-![netdata-for-ephemeral-nodes](https://cloud.githubusercontent.com/assets/2662304/23627295/e3569adc-02b8-11e7-9d55-4014bf98c1b3.png)
-</center>
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/2662304/23627295/e3569adc-02b8-11e7-9d55-4014bf98c1b3.png"/>
+</p>
 
 ## an advanced setup
 
@@ -145,4 +145,6 @@ netdata also supports `proxies` with and without a local database, and data rete
 
 This means a setup like the following is also possible:
 
-![netdata-proxies-example](https://cloud.githubusercontent.com/assets/2662304/23629551/bb1fd9c2-02c0-11e7-90f5-cab5a3ed4c53.png)
+<p align="center">
+<img src="https://cloud.githubusercontent.com/assets/2662304/23629551/bb1fd9c2-02c0-11e7-90f5-cab5a3ed4c53.png"/>
+</p>

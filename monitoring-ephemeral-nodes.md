@@ -139,7 +139,7 @@ This is how such a solution will work:
 ![netdata-for-ephemeral-nodes](https://cloud.githubusercontent.com/assets/2662304/23627295/e3569adc-02b8-11e7-9d55-4014bf98c1b3.png)
 </center>
 
-## a really advanced setup
+## an advanced setup
 
 netdata also supports `proxies` with and without a local database, and data retention can be different between all nodes.
 

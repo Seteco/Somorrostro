@@ -5,6 +5,8 @@ Auto-scaling is probably the most trendy service deployment strategy these days.
 
 Auto-scaling detects the need for additional resources and boots VMs on demand, based on a template. Soon after they start running the applications, a load balancer starts distributing traffic to them, allowing the service to grow horizontally to the scale needed to handle the load. When demands falls, auto-scaling starts shutting down VMs that are no longer needed.
 
+![copy of netdata-for-ephemeral-nodes 1](https://cloud.githubusercontent.com/assets/2662304/23627426/65a9074a-02b9-11e7-9664-cd8f258a00af.png)
+
 What a fantastic feature for controlling infrastructure costs! Pay only for what you need for the time you need it!
 
 In auto-scaling, all servers are ephemeral, they live for just of few hours. Every VM is a brand new instance of the application, that was automatically created based on a template.
@@ -40,9 +42,9 @@ netdata used to be self-contained, so that all these functions were handled enti
 
 ## configuring an auto-scaling setup
 
-![netdata-for-ephemeral-nodes](https://cloud.githubusercontent.com/assets/2662304/23620490/bb950542-029f-11e7-89a3-848fc1692694.png)
+![copy of netdata-for-ephemeral-nodes 2](https://cloud.githubusercontent.com/assets/2662304/23627468/96daf7ba-02b9-11e7-95ac-1f767dd8dab8.png)
 
-You need a netdata `master` (the `central netdata` at the chart). This node should not be ephemeral. It will be the node where all ephemeral nodes (let's call them `slaves`) will be sending their metrics.
+You need a netdata `master`. This node should not be ephemeral. It will be the node where all ephemeral nodes (let's call them `slaves`) will be sending their metrics.
 
 The master will need to authorize the slaves for accepting their metrics. This is done with an API key.
 
@@ -113,4 +115,19 @@ Keep in mind that setting `memory mode = none` will also force `[health].enabled
 ### troubleshooting metrics streaming
 
 Both the sender and the receiver of metrics log information at `/var/log/netdata/error.log`.
+
+
+## archiving to a time-series database
+
+The `master` netdata node can also archive metrics to a time-series database. At the time of this writing, netdata supports:
+
+- graphite
+- opentsdb
+- prometheus
+- json document DBs
+- all the compatibles to the above (e.g. kairosdb, influxdb, etc)
+
+This is how it can work:
+
+![netdata-for-ephemeral-nodes](https://cloud.githubusercontent.com/assets/2662304/23627295/e3569adc-02b8-11e7-9d55-4014bf98c1b3.png)
 

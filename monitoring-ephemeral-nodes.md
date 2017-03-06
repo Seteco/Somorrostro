@@ -1,11 +1,11 @@
 
-# Real-Time Performance Monitoring for Ephemeral Servers
+# Real-time performance monitoring for ephemeral nodes
 
 Auto-scaling is probably the most trendy service deployment strategy these days.
 
-Auto-scaling detects the need for additional resources and boots VMs on demand, based on a template. Soon after they start running the applications, a load balancer starts distributing traffic to them, allowing the service to grow horizontally to the scale needed to handle the load. When demands falls, auto-scaling starts shutting down and destroying VMs that are no longer needed.
+Auto-scaling detects the need for additional resources and boots VMs on demand, based on a template. Soon after they start running the applications, a load balancer starts distributing traffic to them, allowing the service to grow horizontally to the scale needed to handle the load. When demands falls, auto-scaling starts shutting down VMs that are no longer needed.
 
-What a fantastic feature for controlling infrastructure costs! Pay only for what you really need for the time you need it!
+What a fantastic feature for controlling infrastructure costs! Pay only for what you need for the time you need it!
 
 In auto-scaling, all servers are ephemeral, they live for just of few hours. Every VM is a brand new instance of the application, that was automatically created based on a template.
 
@@ -18,31 +18,31 @@ We recently made a significant improvement at the core of netdata to support mon
 Following the netdata way of monitoring, we wanted:
 
 1. **real-time performance monitoring**, collecting **_thousands of metrics per server per second_**, visualized in interactive, automatically created dashboards.
-2. **real-time alarms**, for all servers.
-3. **zero configuration**, all ephemeral servers should have exactly the same configuration, and nothing should be configured at any other system for each of the ephemeral nodes. We shouldn't care if 10 or 100 servers are spawned to handle the load.
-4. **self-cleanup**, so that nothing needs to be done to cleanup the monitoring infrastructure from the hundreds of nodes that may have been monitored through time.
+2. **real-time alarms**, for all nodes.
+3. **zero configuration**, all ephemeral servers should have exactly the same configuration, and nothing should be configured at any system for each of the ephemeral nodes. We shouldn't care if 10 or 100 servers are spawned to handle the load.
+4. **self-cleanup**, so that nothing needs to be done for cleaning up the monitoring infrastructure from the hundreds of nodes that may have been monitored through time.
 
 ### how it works
 
 All monitoring solutions, including netdata, work like this:
 
-1. `collect metrics`, from various sources
+1. `collect metrics`, from the system and the running applications
 2. `store metrics`, in a time-series database
-3. `examine metrics` periodically, for triggering alarms and sending notifications
+3. `examine metrics` periodically, for triggering alarms and sending alarm notifications
 4. `visualize metrics`, so that users can see what exactly is happening
 
-netdata used to be self-contained, so that all these functions were handled entirely by each server.
-
-The changes we made, allow each netdata to be configured independently for each function. So, each netdata can now act as:
+netdata used to be self-contained, so that all these functions were handled entirely by each server. The changes we made, allow each netdata to be configured independently for each function. So, each netdata can now act as:
 
 - a `self contained system`, much like it used to be.
 - a `data collector`, that collects metrics from a host and pushes them to another netdata (with or without a local database and alarms).
-- a `proxy`, that receives metrics from other hosts and pushes them immediately to other netdata. netdata proxies can also be `store and forward proxies` meaning that they are also able to maintain a local database for all metrics passing through them (with or without alarms).
-- a `metrics database` node, where data are kept, alarms are run and queries are served to visualize the metrics.
+- a `proxy`, that receives metrics from other hosts and pushes them immediately to other netdata servers. netdata proxies can also be `store and forward proxies` meaning that they are able to maintain a local database for all metrics passing through them (with or without alarms).
+- a `time-series database` node, where data are kept, alarms are run and queries are served to visualise the metrics.
 
 ## configuring an auto-scaling setup
 
-You need a netdata `master`. This node should not be ephemeral. It will be the node where all ephemeral nodes (let's call them `slaves`) will be sending their metrics.
+![netdata-for-ephemeral-nodes](https://cloud.githubusercontent.com/assets/2662304/23620490/bb950542-029f-11e7-89a3-848fc1692694.png)
+
+You need a netdata `master` (the `central netdata` at the chart). This node should not be ephemeral. It will be the node where all ephemeral nodes (let's call them `slaves`) will be sending their metrics.
 
 The master will need to authorize the slaves for accepting their metrics. This is done with an API key.
 

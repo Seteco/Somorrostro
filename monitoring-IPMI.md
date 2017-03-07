@@ -31,6 +31,8 @@ It also adds 2 alarms:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/23674138/88926a20-037d-11e7-89c0-20e74ee10cd1.png)
 
+The plugin does a speed test when it starts, to find out the duration needed by the IPMI processor to respond. Depending on the speed of your IPMI processor, charts may need several seconds to show up on the dashboard.
+
 ## `freeipmi.plugin` configuration
 
 The plugin supports a few options. To see them, run:

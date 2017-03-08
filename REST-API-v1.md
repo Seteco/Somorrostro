@@ -8,4 +8,4 @@ If your prefer it over the Swagger Editor, you can also use **[Swagger UI](http:
 
 netdata is a [Google Visualization API datatable and datasource provider](https://developers.google.com/chart/interactive/docs/reference), so it can directly be used with [Google Charts](https://developers.google.com/chart/interactive/docs/).
 
-Check this [single chart, jsfiddle example](https://jsfiddle.net/ktsaou/ensu4uws/8/) and this [multi chart, jsfiddle example](https://jsfiddle.net/ktsaou/L5y2eqp2/).
+Check this [single chart, jsfiddle example](https://jsfiddle.net/ktsaou/ensu4uws/9/) and this [multi chart, jsfiddle example](https://jsfiddle.net/ktsaou/L5y2eqp2/).

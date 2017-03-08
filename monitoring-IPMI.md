@@ -64,3 +64,18 @@ You can set these options in `/etc/netdata/netdata.conf` at this section:
 
 The minimum `update every` is 5. IPMI is slow and CPU hungry. So, once every 5 seconds is pretty acceptable.
 
+
+### kipmi CPU usage
+
+There have been reports that kipmi is showing increased CPU when the IPMI is queried.
+
+[IBM has given a few explanations](http://www-01.ibm.com/support/docview.wss?uid=nas7d580df3d15874988862575fa0050f604)
+
+Check also [this stackexchange post](http://unix.stackexchange.com/questions/74900/kipmi0-eating-up-to-99-8-cpu-on-centos-6-4)
+
+If you need to disable IPMI for netdata, edit `/etc/netdata/netdata.conf` and set:
+
+```
+[plugins]
+    freeipmi = no
+```

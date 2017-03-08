@@ -65,7 +65,7 @@ You can set these options in `/etc/netdata/netdata.conf` at this section:
 The minimum `update every` is 5. IPMI is slow and CPU hungry. So, once every 5 seconds is pretty acceptable.
 
 
-### kipmi CPU usage
+## kipmi0 CPU usage
 
 There have been reports that kipmi is showing increased CPU when the IPMI is queried.
 

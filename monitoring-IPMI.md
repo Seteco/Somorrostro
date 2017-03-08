@@ -79,6 +79,13 @@ To lower the CPU consumption of the system you can issue this command:
 echo 10 > /sys/module/ipmi_si/parameters/kipmid_max_busy_us
 ```
 
+You can also permanently set the above setting by creating the file `/etc/modprobe.d/ipmi.conf` with this content:
+
+```sh
+# prevent kipmi from consuming 100% CPU
+options ipmi_si kipmid_max_busy_us=10
+```
+
 This instructs the the kernel IPMI module to pause for a tick between checking IPMI. Querying IPMI will be a lot slower now (e.g. 10 seconds for IPMI to respond), but `kipmi` will not use any noticeable CPU. You can also use a higher number (this is the number of microseconds to poll IPMI for a response, before waiting for a tick).
 
 If you need to disable IPMI for netdata, edit `/etc/netdata/netdata.conf` and set:

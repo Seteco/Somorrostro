@@ -4,3 +4,6 @@ The complete documentation of the netdata API is available at the **[Swagger Edi
 
 If your prefer it over the Swagger Editor, you can also use **[Swagger UI](http://my-netdata.io/swagger/#!/default/get_data)**. This however does not provide all the information available.
 
+## google charts
+
+netdata is a Google Visualization API datatable and datasource provider. Check this [jsfiddle example](https://jsfiddle.net/ktsaou/ensu4uws/7/).

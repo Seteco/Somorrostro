@@ -69,9 +69,17 @@ The minimum `update every` is 5. IPMI is slow and CPU hungry. So, once every 5 s
 
 There have been reports that kipmi is showing increased CPU when the IPMI is queried.
 
-[IBM has given a few explanations](http://www-01.ibm.com/support/docview.wss?uid=nas7d580df3d15874988862575fa0050f604)
+[IBM has given a few explanations](http://www-01.ibm.com/support/docview.wss?uid=nas7d580df3d15874988862575fa0050f604).
 
 Check also [this stackexchange post](http://unix.stackexchange.com/questions/74900/kipmi0-eating-up-to-99-8-cpu-on-centos-6-4)
+
+To lower the CPU consumption of the system you can issue this command:
+
+```sh
+echo 1 > /sys/module/ipmi_si/parameters/kipmid_max_busy_us
+```
+
+This instructs the the kernel IPMI module to pause for a tick between checking IPMI. Querying IPMI will be a lot slower now (e.g. 10 seconds for IPMI to respond), but `kipmi` will not use any noticeable CPU. You can also use a higher number (this is the number of IPMI checks before waiting for a tick).
 
 If you need to disable IPMI for netdata, edit `/etc/netdata/netdata.conf` and set:
 

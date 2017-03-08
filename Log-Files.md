@@ -7,6 +7,8 @@ There are 3 kinds of log files:
 Any of them can be disabled by setting it to `/dev/null` or `none` in the [[Configuration]].
 By default `error.log` and `access.log` are enabled. `debug.log` is only enabled if debugging/tracing is also enabled.
 
+Log files are stored in `/var/log/netdata/` by default.
+
 ---
 
 ## error.log

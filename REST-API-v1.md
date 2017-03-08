@@ -6,4 +6,6 @@ If your prefer it over the Swagger Editor, you can also use **[Swagger UI](http:
 
 ## google charts
 
-netdata is a Google Visualization API datatable and datasource provider. Check this [jsfiddle example](https://jsfiddle.net/ktsaou/ensu4uws/7/).
+netdata is a [Google Visualization API datatable and datasource provider](https://developers.google.com/chart/interactive/docs/reference), so it can directly be used with [Google Charts](https://developers.google.com/chart/interactive/docs/).
+
+Check this [jsfiddle example](https://jsfiddle.net/ktsaou/ensu4uws/7/).

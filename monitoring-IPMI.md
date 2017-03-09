@@ -4,7 +4,7 @@ netdata has a [freeipmi](https://www.gnu.org/software/freeipmi/) plugin.
 
 ## compile `freeipmi.plugin`
 
-1. install `libipmimonitoring-dev` or `libipmimonitoring-devel` using the package manager of your system.
+1. install `libipmimonitoring-dev` or `libipmimonitoring-devel` (`freeipmi-devel` on RHEL based OS) using the package manager of your system.
 
 2. re-install netdata from source. The installer will detect that the required libraries are now available and will also build `freeipmi.plugin`.
 

@@ -10,6 +10,8 @@ netdata has a [freeipmi](https://www.gnu.org/software/freeipmi/) plugin.
 
 Keep in mind IPMI requires root access, so the plugin is setuid to root.
 
+If you just installed the required IPMI tools, please run at least once the command `ipmimonitoring`. This command initialises IPMI configuration, so that the plugin will be able to work.
+
 ## netdata use
 
 The plugin creates (up to) 8 charts, based on the information collected from IPMI:

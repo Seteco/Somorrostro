@@ -121,6 +121,32 @@ Keep in mind that setting `memory mode = none` will also force `[health].enabled
 Both the sender and the receiver of metrics log information at `/var/log/netdata/error.log`.
 
 
+On both master and slave do this:
+
+```
+tail -f /var/log/netdata/error.log | grep STREAM
+```
+
+If the slave manages to connect to the master you will see something like (on the master):
+
+```
+2017-03-09 09:38:52: netdata: INFO : STREAM [receive from [10.11.12.86]:38564]: new client connection.
+2017-03-09 09:38:52: netdata: INFO : STREAM xxx [10.11.12.86]:38564: receive thread created (task id 27721)
+2017-03-09 09:38:52: netdata: INFO : STREAM xxx [receive from [10.11.12.86]:38564]: client willing to stream metrics for host 'xxx' with machine_guid '1234567-1976-11e6-ae19-7cdd9077342a': update every = 1, history = 3600, memory mode = ram, health auto
+2017-03-09 09:38:52: netdata: INFO : STREAM xxx [receive from [10.11.12.86]:38564]: initializing communication...
+2017-03-09 09:38:52: netdata: INFO : STREAM xxx [receive from [10.11.12.86]:38564]: receiving metrics...
+```
+
+and something like this on the slave:
+
+```
+2017-03-09 09:38:28: netdata: INFO : STREAM xxx [send to box:19999]: connecting...
+2017-03-09 09:38:28: netdata: INFO : STREAM xxx [send to box:19999]: initializing communication...
+2017-03-09 09:38:28: netdata: INFO : STREAM xxx [send to box:19999]: waiting response from remote netdata...
+2017-03-09 09:38:28: netdata: INFO : STREAM xxx [send to box:19999]: established communication - sending metrics...
+```
+
+
 ## archiving to a time-series database
 
 The `master` netdata node can also archive metrics, for all `slaves`, to a time-series database. At the time of this writing, netdata supports:

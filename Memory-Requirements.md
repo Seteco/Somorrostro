@@ -127,3 +127,5 @@ There are 2 more options to tweak:
 These control the amount of memory that should be dirty for disk syncing to be triggered. On dedicated netdata servers, I pick: `80` and `90` respectively, so that all RAM is given to netdata.
 
 With these settings, you can expect a little `iowait` spike once every 10 minutes and in case of system crash, data on disk will be up to 10 minutes old.
+
+![image](https://cloud.githubusercontent.com/assets/2662304/23835030/ba4bf506-0768-11e7-9bc6-3b23e080c69f.png)

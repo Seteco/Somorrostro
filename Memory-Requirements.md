@@ -69,3 +69,52 @@ By default `update every = 1` and `history = 3600`. This gives you an hour of da
 If you set `update every = 2` and `history = 1800`, you will still have an hour of data, but collected once every 2 seconds. This will **cut in half** both CPU and RAM resources consumed by netdata. Of course experiment a bit. On very weak devices you might have to use `update every = 5` and `history = 720` (still 1 hour of data, but 1/5 of the CPU and RAM resources).
 
 You can also disable plugins you don't need. Disabling the plugins will also free both CPU and RAM resources.
+
+
+## running a dedicated central netdata server
+
+netdata allows streaming data between netdata nodes. This allows us to have a central netdata server that will maintain the entire database for all nodes, and will also run health checks/alarms for all nodes.
+
+For this central netdata, memory size can be a problem. Fortunately, netdata supports several memory modes:
+
+1. `memory mode = save` is the default mode, when data are maintained in memory and saved to disk when netdata exits.
+2. `memory mode = ram`, maintains the data exclusively on memory and never saves them.
+3. `memory mode = map`, is like swap, files are mapped to memory on demand.
+4. `memory mode = none`, disables the database (used when data are streamed to a remote netdata).
+
+### `memory mode = map`
+
+In this mode, the database of netdata is stored in memory mapped files. netdata continues to read and write the database in memory, but the kernel automatically loads and saves memory pages from/to disk.
+
+**We suggest _not_ to use this mode on nodes that run other applications.** There will always be dirty memory to be synced and this syncing process may influence the way other applications work. This mode however is ideal when we need a central netdata server that would normally need huge amounts of memory. Using memory mode `map` we can overcome all memory restrictions.
+
+There are a few kernel options that allow us to have finer control on the way this syncing works. But before explaning them, a brief introduction of how netdata database works is needed.
+
+For each chart, netdata maps the following files:
+
+1. `chart/main.db`, this is the file that maintains chart information. Every time data are collected for a chart, this is updated.
+2. `chart/dimensions_name.db`, this is the file for each dimension. At its beginning there is a header, and there is a round robin database with the collected metrics.
+
+So, every time netdata collects data, the following pages will become dirty:
+
+1. the chart file
+2. the header part of all dimension files
+3. if the collected metrics are stored far enough in the dimension file, another page will become dirty. for each dimension
+
+Each page in Linux is 4KB. So, with 200 charts and 1000 dimensions, there will be 1200 to 2200 4KB pages dirty pages every second.
+
+Hopefully, the Linux kernel does not sync all these data every second. The frequency they are synced is controlled by `/proc/sys/vm/dirty_expire_centisecs` or the `sysctl` `vm.dirty_expire_centisecs`. The default on most systems is 3000 (30 seconds).
+
+On a busy server centralizing metrics from 20+ servers you will experience this:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/23834750/429ab0dc-0764-11e7-821a-d7908bc881ac.png)
+
+As you can see, there is quite some stress (this is `iowait`) every 30 seconds.
+
+A simple solution is to increase this time to 10 minutes. This is the same system with this setting in 10 minutes:
+
+![image](https://cloud.githubusercontent.com/assets/2662304/23834784/d2304f72-0764-11e7-8389-fb830ffd973a.png)
+
+A lot better.
+
+Of course, setting this to 10 minutes means that data on disk might be up to 10 minutes old if you get an abnormal shutdown.

@@ -129,3 +129,5 @@ These control the amount of memory that should be dirty for disk syncing to be t
 With these settings, you can expect a little `iowait` spike once every 10 minutes and in case of system crash, data on disk will be up to 10 minutes old.
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/23835030/ba4bf506-0768-11e7-9bc6-3b23e080c69f.png)
+
+You can see this server live at [https://build.my-netdata.io](https://build.my-netdata.io). 20+ netdata are streaming data to it (check the `my-netdata` menu on the top left of the dashboard).

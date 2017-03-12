@@ -131,3 +131,11 @@ With these settings, you can expect a little `iowait` spike once every 10 minute
 ![image](https://cloud.githubusercontent.com/assets/2662304/23835030/ba4bf506-0768-11e7-9bc6-3b23e080c69f.png)
 
 You can see this server live at [https://build.my-netdata.io](https://build.my-netdata.io). 20+ netdata are streaming data to it (check the `my-netdata` menu on the top left of the dashboard).
+
+To have these settings automatically applied on boot, create the file `/etc/sysctl.d/netdata-memory.conf` with these contents:
+
+```
+vm.dirty_expire_centisecs = 60000
+vm.dirty_background_ratio = 80
+vm.dirty_ratio = 90
+```

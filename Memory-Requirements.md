@@ -111,7 +111,7 @@ On a busy server centralizing metrics from 20+ servers you will experience this:
 
 As you can see, there is quite some stress (this is `iowait`) every 30 seconds.
 
-A simple solution is to increase this time to 10 minutes. This is the same system with this setting in 10 minutes:
+A simple solution is to increase this time to 10 minutes (60000). This is the same system with this setting in 10 minutes:
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/23834784/d2304f72-0764-11e7-8389-fb830ffd973a.png)
 

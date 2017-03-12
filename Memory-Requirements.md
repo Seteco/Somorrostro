@@ -93,15 +93,15 @@ There are a few kernel options that allow us to have finer control on the way th
 For each chart, netdata maps the following files:
 
 1. `chart/main.db`, this is the file that maintains chart information. Every time data are collected for a chart, this is updated.
-2. `chart/dimensions_name.db`, this is the file for each dimension. At its beginning there is a header, and there is a round robin database with the collected metrics.
+2. `chart/dimension_name.db`, this is the file for each dimension. At its beginning there is a header, followed by the round robin database where metrics are stored.
 
 So, every time netdata collects data, the following pages will become dirty:
 
 1. the chart file
 2. the header part of all dimension files
-3. if the collected metrics are stored far enough in the dimension file, another page will become dirty. for each dimension
+3. if the collected metrics are stored far enough in the dimension file, another page will become dirty, for each dimension
 
-Each page in Linux is 4KB. So, with 200 charts and 1000 dimensions, there will be 1200 to 2200 4KB pages dirty pages every second.
+Each page in Linux is 4KB. So, with 200 charts and 1000 dimensions, there will be 1200 to 2200 4KB pages dirty pages every second. Of course 1200 of them will always be dirty (the chart header and the dimensions headers) and 1000 will be dirty for about 1000 seconds (4 bytes per metric, 4KB per page, so 1000 seconds, or 16 minutes per page).
 
 Hopefully, the Linux kernel does not sync all these data every second. The frequency they are synced is controlled by `/proc/sys/vm/dirty_expire_centisecs` or the `sysctl` `vm.dirty_expire_centisecs`. The default on most systems is 3000 (30 seconds).
 
@@ -118,3 +118,12 @@ A simple solution is to increase this time to 10 minutes. This is the same syste
 A lot better.
 
 Of course, setting this to 10 minutes means that data on disk might be up to 10 minutes old if you get an abnormal shutdown.
+
+There are 2 more options to tweak:
+
+1. `dirty_background_ratio`, by default `10`.
+2. `dirty_ratio`, by default `20`.
+
+These control the amount of memory that should be dirty for disk syncing to be triggered. On dedicated netdata servers, I pick: `80` and `90` respectively, so that all RAM is given to netdata.
+
+With these settings, you can expect a little `iowait` spike once every 10 minutes and in case of system crash, data on disk will be up to 10 minutes old.

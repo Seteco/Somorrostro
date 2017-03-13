@@ -64,8 +64,21 @@ You can set these options in `/etc/netdata/netdata.conf` at this section:
 	command options = 
 ```
 
-The minimum `update every` is 5. IPMI is slow and CPU hungry. So, once every 5 seconds is pretty acceptable.
+Append to `command options = ` the settings you need. The minimum `update every` is 5 (enforced internally by the plugin). IPMI is slow and CPU hungry. So, once every 5 seconds is pretty acceptable.
 
+## debugging
+
+You can run the plugin by hand:
+
+```sh
+# become user netdata
+sudo su -s /bin/sh netdata
+
+# run the plugin in debug mode
+/usr/libexec/netdata/plugins.d/freeipmi.plugin 5 debug
+```
+
+You will get verbose output on what the plugin does.
 
 ## kipmi0 CPU usage
 
@@ -73,7 +86,7 @@ There have been reports that kipmi is showing increased CPU when the IPMI is que
 
 [IBM has given a few explanations](http://www-01.ibm.com/support/docview.wss?uid=nas7d580df3d15874988862575fa0050f604).
 
-Check also [this stackexchange post](http://unix.stackexchange.com/questions/74900/kipmi0-eating-up-to-99-8-cpu-on-centos-6-4)
+Check also [this stackexchange post](http://unix.stackexchange.com/questions/74900/kipmi0-eating-up-to-99-8-cpu-on-centos-6-4).
 
 To lower the CPU consumption of the system you can issue this command:
 

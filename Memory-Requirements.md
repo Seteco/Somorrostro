@@ -77,10 +77,10 @@ netdata allows streaming data between netdata nodes. This allows us to have a ce
 
 For this central netdata, memory size can be a problem. Fortunately, netdata supports several memory modes:
 
-1. `memory mode = save` is the default mode, when data are maintained in memory and saved to disk when netdata exits.
-2. `memory mode = ram`, maintains the data exclusively on memory and never saves them.
-3. `memory mode = map`, is like swap, files are mapped to memory on demand.
-4. `memory mode = none`, disables the database (used when data are streamed to a remote netdata).
+1. `memory mode = save` is the default mode, data are maintained in memory and saved to disk when netdata exits.
+2. `memory mode = ram`, data are exclusively on memory and never saved on disk.
+3. `memory mode = map`, like swap, files are mapped to memory on demand.
+4. `memory mode = none`, no local database (used when data are streamed to a remote netdata).
 
 ### `memory mode = map`
 

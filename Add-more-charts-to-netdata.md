@@ -5,12 +5,12 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
 - **[Load Balancers](#load-balancers)**, like haproxy
-- **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres
+- **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, mongodb
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
 - **[HTTP accelerators](#http-accelerators)**, like varnish cache
 - **[Search engines](#search-engines)**, like elasticsearch
-- **[Name Servers](#name-servers)** (DNS), like bind
+- **[Name Servers](#name-servers)** (DNS), like bind, nsd
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
 - **[Mail Servers](#mail-servers)**, like postfix, exim

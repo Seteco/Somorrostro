@@ -49,6 +49,7 @@ tomcat|BASH<br/>Shell Script|Connects to a tomcat server (local or remote) to co
 
 application|language|notes|
 :---------:|:------:|:----|
+apache_cache|python<br/>v2 or v3|tails the apache cache log file to collect cache hit/miss rate metrics  <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [apache_cache.chart.py](https://github.com/firehol/netdata/blob/master/python.d/apache_cache.chart.py)<br/>configuration file: [python.d/apache_cache.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/apache_cache.conf)|
 web_log|python<br/>v2 or v3|powerful plugin, capable of incrementally parsing any number of web server log files  <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [web_log.chart.py](https://github.com/firehol/netdata/blob/master/python.d/web_log.chart.py)<br/>configuration file: [python.d/web_log.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/web_log.conf)|
 
 

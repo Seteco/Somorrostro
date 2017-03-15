@@ -94,6 +94,7 @@ Notes on memory management
 * [apache](https://github.com/firehol/netdata/tree/master/python.d#apache)
 * [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
 * [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
+* [cpuidle](https://github.com/firehol/netdata/tree/master/python.d#cpuidle)
 * [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)
 * [dovecot](https://github.com/firehol/netdata/tree/master/python.d#dovecot)
 * [elasticsearch](https://github.com/firehol/netdata/tree/master/python.d#elasticsearch)
@@ -113,11 +114,15 @@ Notes on memory management
 * [ovpn_status_log](https://github.com/firehol/netdata/tree/master/python.d#ovpn_status_log)
 * [phpfpm](https://github.com/firehol/netdata/tree/master/python.d#phpfpm)
 * [postfix](https://github.com/firehol/netdata/tree/master/python.d#postfix)
+* [postgres](https://github.com/firehol/netdata/tree/master/python.d#postgres)
 * [redis](https://github.com/firehol/netdata/tree/master/python.d#redis)
+* [retroshare](https://github.com/firehol/netdata/tree/master/python.d#retroshare)
 * [sensors](https://github.com/firehol/netdata/tree/master/python.d#sensors)
 * [squid](https://github.com/firehol/netdata/tree/master/python.d#squid)
+* [smartd_log](https://github.com/firehol/netdata/tree/master/python.d#smartd_log)
 * [tomcat](https://github.com/firehol/netdata/tree/master/python.d#tomcat)
 * [varnish](https://github.com/firehol/netdata/tree/master/python.d#varnish-cache)
+* [web_log](https://github.com/firehol/netdata/tree/master/python.d#web_log)
 
 **Node.js Modules**
 * [[General Info - node.d]]

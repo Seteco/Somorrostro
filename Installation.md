@@ -13,11 +13,11 @@ For other Linux systems, or if you want the latest unreleased version, please fo
 
 1. [Prepare your system](#1-prepare-your-system)
 
-  Install the required packages on your system.
+   Install the required packages on your system.
 
 2. [Install netdata](#2-install-netdata)
 
-  Download and install netdata. You can also update it the same way.
+   Download and install netdata. You can also update it the same way.
 
 For non-Linux, or special systems, follow these instructions:
 

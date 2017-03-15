@@ -9,7 +9,7 @@ You can install the latest release of netdata, using your package manager in
 - Gentoo Linux (`sudo emerge --ask netdata`)
 - Solus Linux (`sudo eopkg install netdata`)
 
-For other systems, or if you want the latest unreleased version, please follow these 2 steps:
+For other Linux systems, or if you want the latest unreleased version, please follow these 2 steps:
 
 1. [Prepare your system](#1-prepare-your-system)
 
@@ -18,6 +18,13 @@ For other systems, or if you want the latest unreleased version, please follow t
 2. [Install netdata](#2-install-netdata)
 
   Download and install netdata. You can also update it the same way.
+
+For non-Linux, or special systems, follow these instructions:
+
+- [Mac OS X](#macos)
+- [FreeBSD](#freebsd)
+- [pfSense](#pfsense)
+
 
 ---
 

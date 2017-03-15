@@ -4,6 +4,7 @@ netdata collects system metrics by itself. It has many [internal plugins](https:
 To collect non-system metrics, netdata supports a plugin architecture. The following are the currently available external plugins:
 
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
+- **[Log Parsers](#log-parsers)**, such as apache/nginx/gunicorn access logs, apache cache hit logs
 - **[Load Balancers](#load-balancers)**, like haproxy
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, mongodb
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
@@ -40,6 +41,15 @@ phpfpm|python<br/>v2 or v3|Connects to multiple phpfpm servers (local or remote)
 phpfpm|BASH<br/>Shell Script|Connects to one or more phpfpm servers (local or remote) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [phpfpm.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/phpfpm.chart.sh)<br/>configuration file: [charts.d/phpfpm.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/phpfpm.conf)|
 tomcat|python<br/>v2 or v3|Connects to multiple tomcat servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [tomcat.chart.py](https://github.com/firehol/netdata/blob/master/python.d/tomcat.chart.py)<br/>configuration file: [python.d/tomcat.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/tomcat.conf)|
 tomcat|BASH<br/>Shell Script|Connects to a tomcat server (local or remote) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [tomcat.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/tomcat.chart.sh)<br/>configuration file: [charts.d/tomcat.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/tomcat.conf)|
+
+
+---
+
+## Log Parsers
+
+application|language|notes|
+:---------:|:------:|:----|
+web_log|python<br/>v2 or v3|powerful plugin, capable of incrementally parsing any number of web server log files  <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [web_log.chart.py](https://github.com/firehol/netdata/blob/master/python.d/web_log.chart.py)<br/>configuration file: [python.d/web_log.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/web_log.conf)|
 
 
 ---

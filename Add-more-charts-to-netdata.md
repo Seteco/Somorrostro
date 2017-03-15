@@ -4,7 +4,7 @@ netdata collects system metrics by itself. It has many [internal plugins](https:
 To collect non-system metrics, netdata supports a plugin architecture. The following are the currently available external plugins:
 
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
-- **[Log Parsers](#log-parsers)**, such as apache/lighttpd/nginx/gunicorn access logs, apache cache hit log parsers
+- **[Web Log Parsers](#web-log-parsers)**, such as apache/lighttpd/nginx/gunicorn access logs, apache cache hit log parsers
 - **[Load Balancers](#load-balancers)**, like haproxy
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, mongodb
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
@@ -45,7 +45,7 @@ tomcat|BASH<br/>Shell Script|Connects to a tomcat server (local or remote) to co
 
 ---
 
-## Log Parsers
+## Web Log Parsers
 
 application|language|notes|
 :---------:|:------:|:----|

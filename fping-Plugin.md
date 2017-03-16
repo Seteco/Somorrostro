@@ -10,7 +10,7 @@ A recent, unreleased, version of `fping` is required. The supplied plugin can in
 
 The above will download, build and install the right version as `/usr/local/bin/fping`.
 
-Then you need to edit `/etc/netdata/netdata.conf` like this:
+Then you need to edit `/etc/netdata/fping.conf` like this:
 
 ```sh
 # uncomment the following line - it should already be there

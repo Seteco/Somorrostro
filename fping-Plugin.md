@@ -25,7 +25,7 @@ update_every=1
 
 # time in milliseconds (1 sec = 1000 ms) to ping the hosts
 # 200 = 5 pings per second
-update_every=200
+ping_every=200
 
 # other fping options - these are the defaults
 fping_opts="-R -b 56 -i 1 -r 0 -t 5000"

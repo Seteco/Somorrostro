@@ -92,7 +92,6 @@ package|description
 `python-yaml`|for parsing `python.d.plugin` configuration<br/>(netdata ships one version for python2 and python3)
 `python-mysqldb`|used for monitoring mysql databases
 `python-psycopg2`|used for monitoring postgres databases
-`python-requests`|used for monitoring elasticsearch
 `nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
 `lm_sensors`|for monitoring hardware sensors
 `libmnl`|for collecting netfilter metrics

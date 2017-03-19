@@ -31,11 +31,12 @@ Currently the only option you have to lower this number is to use **[[Memory Ded
 
 ## Memory modes
 
-Currently netdata supports 3 memory modes:
+Currently netdata supports 4 memory modes:
 
-1. `ram` where the chart data are purely in memory. Data are never saved on disk.
-2. `save` (the default) where the data are only in RAM while netdata runs and are saved to / loaded from disk on netdata restart.
-3. `map` where the data are in memory mapped files. This works like the swap. Keep in mind though, this will have a constant write on your disk. When netdata writes data on its memory, the Linux kernel marks the related memory pages as dirty and automatically starts updating them on disk. Unfortunately we cannot control how frequently this works. The Linux kernel uses exactly the same algorithm it uses for its swap memory.
+1. `ram`, data are purely in memory. Data are never saved on disk.
+2. `save`, (the default) data are only in RAM while netdata runs and are saved to / loaded from disk on netdata restart.
+3. `map`, data are in memory mapped files. This works like the swap. Keep in mind though, this will have a constant write on your disk. When netdata writes data on its memory, the Linux kernel marks the related memory pages as dirty and automatically starts updating them on disk. Unfortunately we cannot control how frequently this works. The Linux kernel uses exactly the same algorithm it uses for its swap memory. Check below for additional information on running a dedicated central netdata server.
+4. `none`, without a database (collected metrics can only be streamed to another netdata).
 
 You can select the memory mode by editing netdata.conf and setting:
 
@@ -47,13 +48,6 @@ You can select the memory mode by editing netdata.conf and setting:
     # the directory where data are saved
     cache directory = /var/cache/netdata
 ```
-
-## The future
-
-I investigate several alternatives to lower this number. The best so far is to split the in-memory round robin database in a small **realtime** database (e.g. an hour long) and a larger compressed **archive** database to store longer durations. So (for example) every hour netdata will compress the last hour of data using LZ4 (which is very fast: 350MB/s compression, 1850MB/s decompression) and append these compressed data to an **archive** round robin database. This **archive** database will be saved to disk and loaded back to memory on demand, when a chart is zoomed or panned to the compressed timeframe.
-
-This is future though. For the moment, if you need a long history, you will need a lot of RAM.
-
 
 ## Running netdata in embedded devices
 
@@ -139,3 +133,7 @@ vm.dirty_expire_centisecs = 60000
 vm.dirty_background_ratio = 80
 vm.dirty_ratio = 90
 ```
+
+## The future
+
+We investigate several alternatives to lower the memory requirements of netdata. The best so far is to split the in-memory round robin database in a small **realtime** database (e.g. an hour long) and a larger compressed **archive** database to store longer durations. So (for example) every hour netdata will compress the last hour of data using LZ4 (which is very fast: 350MB/s compression, 1850MB/s decompression) and append these compressed data to an **archive** round robin database. This **archive** database will be saved to disk and loaded back to memory on demand, when a chart is zoomed or panned to the compressed timeframe.

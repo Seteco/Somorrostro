@@ -42,7 +42,7 @@ sudo su -s /bin/bash netdata
 Similarly, you can use `charts.d.plugin` for BASH plugins and `node.d.plugin` for node.js plugins.
 Other plugins (like `apps.plugin`, `freeipmi.plugin`, `fping.plugin`) use the native netdata plugin API and can be run directly.
 
-If you need to configure a netdata plugin or module, all configuration is kept at `/etc/netdata`. There should be plenty of examples and documentation about each module and plugin.
+If you need to configure a netdata plugin or module, all configuration is kept at `/etc/netdata`. Each file should provide plenty of examples and documentation about each module and plugin.
 
 This is a map of the all supported configuration options (all files relative to `/etc/netdata`):
 

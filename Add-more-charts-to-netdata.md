@@ -22,9 +22,49 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
+## configuring plugins
+
+Most plugins come with **auto-detection**, configured to work out-of-the-box on popular operating systems with the default settings.
+
+However, there are cases where auto-detection fails. The applications to be monitored do not allow netdata to connect. In most of the cases, allowing the user `netdata` from `localhost` to connect and collect metrics, will automatically enable data collection for the application in question (it will require a netdata restart).
+
+You can verify netdata plugins are able to collect metrics, following this procedure:
+
+```sh
+# become user netdata
+sudo su -s /bin/bash netdata
+
+# execute the plugin in debug mode, for a specific module.
+# example for the python plugin, mysql module:
+/usr/libexec/netdata/plugins.d/python.d.plugin 1 debug mysql
+```
+
+Similarly, you can use `charts.d.plugin` for BASH plugins and `node.d.plugin` for node.js plugins.
+Other plugins (like `apps.plugin`, `freeipmi.plugin`, `fping.plugin`) use the native netdata plugin API and can be run directly.
+
+If you need to configure a netdata plugin or module, all configuration is kept at `/etc/netdata`. There should be plenty of examples and documentation about each module and plugin.
+
+This is a map of the all supported configuration options (all files relative to `/etc/netdata`):
+
+netdata plugin | language | configuration | modules<br/>configuration
+---:|:---:|:---:|:---|
+apps.plugin|`C`|`apps_groups.conf`|command line arguments, specified at `netdata.conf`
+fping.plugin|`C` with a `BASH` wrapper|`fping.conf`|N/A
+freeipmi.plugin|`C`|N/A|command line arguments specified at `netdata.conf`
+charts.d.plugin|`BASH`|`charts.d.conf`|a file for each module in `charts.d/`
+python.d.plugin|`python`<br/>v2 or v3|`python.d.conf`|a file for each module in `python.d/`
+node.d.plugin|`node.js`|`node.d.conf`|a file for each module in `node.d/`
+
+
+## writing netdata plugins
+
 You can add custom plugins following the [External Plugins Guide](https://github.com/firehol/netdata/wiki/External-Plugins).
 
 ---
+
+# available netdata plugins
+
+These are all the data collection plugins currently available.
 
 ## Web Servers
 

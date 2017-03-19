@@ -26,7 +26,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 
 Most plugins come with **auto-detection**, configured to work out-of-the-box on popular operating systems with the default settings.
 
-However, there are cases where auto-detection fails. The applications to be monitored do not allow netdata to connect. In most of the cases, allowing the user `netdata` from `localhost` to connect and collect metrics, will automatically enable data collection for the application in question (it will require a netdata restart).
+However, there are cases that auto-detection fails. Usually the reason is that the applications to be monitored do not allow netdata to connect. In most of the cases, allowing the user `netdata` from `localhost` to connect and collect metrics, will automatically enable data collection for the application in question (it will require a netdata restart).
 
 You can verify netdata plugins are able to collect metrics, following this procedure:
 

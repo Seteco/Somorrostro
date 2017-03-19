@@ -1,6 +1,6 @@
 # Using netdata with Prometheus
 
-Prometheus is a distributed monitoring system which offers a very simple setup along with a robust data model. Recently netdata added support for Prometheus. I'm going to quickly show you have to install both netdata and prometheus on the same server. We can then use grafana pointed at Prometheus to obtain long term metrics netadata offers. I'm assuming we are starting at a fresh ubuntu shell. (whether you'd like to follow along in a VM or a cloud instance of up to you)
+Prometheus is a distributed monitoring system which offers a very simple setup along with a robust data model. Recently netdata added support for Prometheus. I'm going to quickly show you how to install both netdata and prometheus on the same server. We can then use grafana pointed at Prometheus to obtain long term metrics netadata offers. I'm assuming we are starting at a fresh ubuntu shell (whether you'd like to follow along in a VM or a cloud instance is up to you).
 
 ### Installing netdata
 While there's a few ways to get netdata on your system, I choose to git clone the repo and run their install script. We will manually install the requirements. 

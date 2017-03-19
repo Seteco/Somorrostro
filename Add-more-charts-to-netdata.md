@@ -44,16 +44,16 @@ Other plugins (like `apps.plugin`, `freeipmi.plugin`, `fping.plugin`) use the na
 
 If you need to configure a netdata plugin or module, all configuration is kept at `/etc/netdata`. Each file should provide plenty of examples and documentation about each module and plugin.
 
-This is a map of the all supported configuration options (all files relative to `/etc/netdata`):
+This is a map of the all supported configuration options:
 
 netdata plugin | language | configuration | modules<br/>configuration
 ---:|:---:|:---:|:---|
-apps.plugin|`C`|`apps_groups.conf`|command line arguments, specified at `netdata.conf`
-fping.plugin|`C` with a `BASH` wrapper|`fping.conf`|N/A
-freeipmi.plugin|`C`|N/A|command line arguments specified at `netdata.conf`
-charts.d.plugin|`BASH`|`charts.d.conf`|a file for each module in `charts.d/`
-python.d.plugin|`python`<br/>v2 or v3|`python.d.conf`|a file for each module in `python.d/`
-node.d.plugin|`node.js`|`node.d.conf`|a file for each module in `node.d/`
+apps.plugin|`C`|`/etc/netdata/`<br/>`apps_groups.conf`|command line arguments, specified at `/etc/netdata/netdata.conf`, section `[plugin:apps]`
+fping.plugin|`C` with a `BASH` wrapper|`/etc/netdata/`<br/>`fping.conf`|N/A
+freeipmi.plugin|`C`|N/A|command line arguments specified at `/etc/netdata/netdata.conf`, section `[plugin:freeipmi]`
+charts.d.plugin|`BASH`|`/etc/netdata/`<br/>`charts.d.conf`|a file for each module in `/etc/netdata/charts.d/`
+python.d.plugin|`python`<br/>v2 or v3|`/etc/netdata/`<br/>`python.d.conf`|a file for each module in `/etc/netdata/python.d/`
+node.d.plugin|`node.js`|`/etc/netdata/`<br/>`node.d.conf`|a file for each module in `/etc/netdata/node.d/`
 
 
 ## writing netdata plugins

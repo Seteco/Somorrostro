@@ -167,6 +167,6 @@ The receiving end (`proxy` or `master`) logs entries like these:
 
 On any receiving netdata, that maintains remote databases and has its web server enabled, `my-netdata` menu will include a list of the mirrored databases.
 
-![image](https://cloud.githubusercontent.com/assets/2662304/23345529/624c5182-fc98-11e6-8537-66042ef2dacd.png)
+![image](https://cloud.githubusercontent.com/assets/2662304/24080824/24cd2d3c-0caf-11e7-909d-a8dd1dbb95d7.png)
 
 Selecting any of these, the server will offer a dashboard using the mirrored metrics.

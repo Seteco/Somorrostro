@@ -57,7 +57,7 @@ To add netdata charts to any web page (dedicated to netdata or not), you need to
 For example, if your netdata server listens at `http://box:19999/`, you will need to add the following to the `head` section of your web page:
 
 ```html
-  <script type="text/javascript" src="http://box:19999/dashboard.js"></script>
+<script type="text/javascript" src="http://box:19999/dashboard.js"></script>
 ```
 
 ### what dashboard.js does?
@@ -72,9 +72,9 @@ For example, if your netdata server listens at `http://box:19999/`, you will nee
 
    You can disable this by adding the following before loading `dashboard.js`:
 
-   ```html
- <script>var netdataNoBootstrap = true;</script>
-   ```
+```html
+<script>var netdataNoBootstrap = true;</script>
+```
 
 4. `jquery.nanoscroller.min.js`, required for the scrollbar of the chart legends.
 

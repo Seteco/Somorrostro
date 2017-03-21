@@ -25,6 +25,10 @@ Since netdata collects thousands of metrics per server per second, which would e
 
       metrics are sent to opentsdb as `prefix.chart.dimension` with tag `host=hostname`.
 
+   3. **json** document DBs
+
+      metrics are sent to a document db, `JSON` formatted.
+
 2. Only one backend may be active at a time.
 
 3. All metrics are transferred to the backend - netdata does not implement any metric filtering.
@@ -58,7 +62,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
 - `enabled = yes/no`, enables or disables sending data to a backend
 
-- `type = graphite` or `type = opentsdb`, selects the backend type
+- `type = graphite` or `type = opentsdb` or `type = json`, selects the backend type
 
 - `destination = host`, accepts **a space separated list** of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the first available to send the metrics.
 

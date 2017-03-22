@@ -23,7 +23,7 @@ To enable cgroup accounting, do these:
 
 1. edit `/etc/systemd/system.conf` and enable:
 
-  ```
+   ```
 DefaultCPUAccounting=yes
 DefaultIOAccounting=yes
 DefaultBlockIOAccounting=yes

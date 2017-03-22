@@ -22,8 +22,7 @@ You can verify there is no accounting enabled, by running `systemd-cgtop`. The p
 To enable cgroup accounting, do these:
 
 1. edit `/etc/systemd/system.conf` and enable:
-
-   ```
+```
 DefaultCPUAccounting=yes
 DefaultIOAccounting=yes
 DefaultBlockIOAccounting=yes

@@ -70,6 +70,7 @@ Notes on memory management
 * [Monitoring web servers](https://github.com/firehol/netdata/wiki/The-spectacles-of-a-web-server-log-file)
 <br/>The spectacles of a web server log file
 * [[monitoring ephemeral containers]]<br/>Use netdata to monitor auto-scaled containers.
+* [[Monitoring systemd services]]
 * [[monitoring IPMI]]
 * [[Monitoring disks]]
 

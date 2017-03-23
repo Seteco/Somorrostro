@@ -152,6 +152,7 @@ Notes on memory management
 **API Documentation**
 * [[REST API v1]]
 * [[Obsolete REST API pre-v1]]
+* [[Receiving netdata metrics from shell scripts]]
 
 ---
 

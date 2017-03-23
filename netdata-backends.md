@@ -76,13 +76,13 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
    Example IPv4:
 
-   ```
+```
    destination = 10.11.14.2:4242 10.11.14.3:4242 10.11.14.4:4242
 ```
 
    Example IPv6 and IPv4 together:
    
-   ```
+```
    destination = [ffff:...:0001]:2003 10.11.12.1:2003
 ```
 

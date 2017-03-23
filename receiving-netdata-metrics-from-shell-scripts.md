@@ -1,8 +1,12 @@
-Shell scripts can now query netdata easily!
+Shell scripts can now query netdata easily:
 
+```sh
 eval "$(curl -s 'http://localhost:19999/api/v1/allmetrics')"
+```
+
 after this command, all the netdata metrics are exposed to shell. Check:
 
+```sh
 # source the metrics
 eval "$(curl -s 'http://localhost:19999/api/v1/allmetrics')"
 
@@ -45,10 +49,14 @@ sys   0m0,007s
 
 # it is...
 # 0.07 seconds for curl to be loaded, connect to netdata and fetch the response back...
-The _VISIBLETOTAL variable sums up all the dimensions of each chart.
+```
+
+The `_VISIBLETOTAL` variable sums up all the dimensions of each chart.
 
 The format of the variables is:
 
+```sh
 NETDATA_${chart_id^^}_${dimension_id^^}="${value}"
+```
 
 The value is rounded to the closest integer, since shell script cannot process decimal numbers.

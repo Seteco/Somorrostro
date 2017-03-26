@@ -97,6 +97,7 @@ Notes on memory management
 * [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
 * [cpuidle](https://github.com/firehol/netdata/tree/master/python.d#cpuidle)
 * [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)
+* [dns_query_time](https://github.com/firehol/netdata/tree/master/python.d#dns_query_time)
 * [dovecot](https://github.com/firehol/netdata/tree/master/python.d#dovecot)
 * [elasticsearch](https://github.com/firehol/netdata/tree/master/python.d#elasticsearch)
 * [exim](https://github.com/firehol/netdata/tree/master/python.d#exim)

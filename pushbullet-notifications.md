@@ -35,6 +35,6 @@ SEND_PUSHBULLET="YES"
 # to that address instead
 
 # Without an access token, netdata cannot send pushbullet notifications.
-PUSBULLET_ACCESS_TOKEN="o.Sometokenhere"
+PUSHBULLET_ACCESS_TOKEN="o.Sometokenhere"
 DEFAULT_RECIPIENT_PUSHBULLET="admin1@example.com admin3@somemail.com"
 ```

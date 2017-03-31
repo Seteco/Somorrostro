@@ -303,7 +303,7 @@ There are a few rules for writing plugins properly:
 
 2. The best way to iterate at a constant pace is this pseudo code:
 
-   ```js
+```js
    var update_every = argv[1] * 1000; /* seconds * 1000 = milliseconds */
 
    readConfiguration();

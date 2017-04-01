@@ -19,17 +19,41 @@ Centos 7.3.1611|NO|[here](http://pastebin.com/SpzgezAg)|can be enabled, see belo
 
 You can verify there is no accounting enabled, by running `systemd-cgtop`. The program will show only resources for cgroup ` / `, but all services will show nothing.
 
-To enable cgroup accounting, do these:
+To enable cgroup accounting, execute this:
 
-1. edit `/etc/systemd/system.conf` and enable:
-```
-DefaultCPUAccounting=yes
-DefaultIOAccounting=yes
-DefaultBlockIOAccounting=yes
-DefaultMemoryAccounting=yes
+```sh
+cat /etc/systemd/system.conf | sed -e 's|^#Default\(.*\)Accounting=.*$|Default\1Accounting=yes|g' >/tmp/system.conf
 ```
 
-2. execute: `systemctl daemon-reexec` for restart systemd with the new configuration (`systemctl daemon-reload` does not reload the configuration of the server - so you have to execute `systemctl daemon-reexec`).
+To see the changes it made, run this:
+
+```
+# sudo diff /etc/systemd/system.conf /tmp/system.conf
+40,44c40,44
+< #DefaultCPUAccounting=no
+< #DefaultIOAccounting=no
+< #DefaultBlockIOAccounting=no
+< #DefaultMemoryAccounting=no
+< #DefaultTasksAccounting=yes
+---
+> DefaultCPUAccounting=yes
+> DefaultIOAccounting=yes
+> DefaultBlockIOAccounting=yes
+> DefaultMemoryAccounting=yes
+> DefaultTasksAccounting=yes
+```
+
+If you are happy with the changes, run:
+
+```sh
+# copy the file to the right location
+sudo cp /tmp/system.conf /etc/systemd/system.conf
+
+# restart systemd to take it into account
+sudo systemctl daemon-reexec
+```
+
+(`systemctl daemon-reload` does not reload the configuration of the server - so you have to execute `systemctl daemon-reexec`).
 
 Now, when you run `systemd-cgtop`, services will start reporting usage (if it does not, restart a service - any service - to wake it up). Refresh your netdata dashboard, and you will have the charts too.
 

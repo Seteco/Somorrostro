@@ -28,7 +28,7 @@ cat /etc/systemd/system.conf | sed -e 's|^#Default\(.*\)Accounting=.*$|Default\1
 To see the changes it made, run this:
 
 ```
-# sudo diff /etc/systemd/system.conf /tmp/system.conf
+# diff /etc/systemd/system.conf /tmp/system.conf
 40,44c40,44
 < #DefaultCPUAccounting=no
 < #DefaultIOAccounting=no

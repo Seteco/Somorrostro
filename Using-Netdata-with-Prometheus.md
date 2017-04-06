@@ -138,9 +138,9 @@ We get to netdata's main gui.
 
 If we explore netdata's gui you will notice that almost all of the charts have a text heading such as : Total CPU utilization (system.cpu)
 
-What we are interested here in the metrics name system.cpu. This metrics name correspeonds with the prometheus metric listed in the first url. If we search that page for 'system_cpu' You will obtain the same metrics that netdata gui is exporting. 
+What we are interested here in the metrics name system.cpu. This metrics name corresponds with the prometheus metric listed in the first url. If we search that page for 'system_cpu' You will obtain the same metrics that netdata gui is exporting. 
 
-So for example let's say we would like to query the metrics for system.cpu.user. We would held to the prometheus metrics at the linke and find 'system_cpu_user'and we find:
+So for example let's say we would like to query the metrics for system.cpu.user. We would held to the prometheus metrics at the link and find 'system_cpu_user'and we find:
 
 \# TYPE system_cpu_user counter
 

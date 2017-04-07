@@ -24,6 +24,7 @@ For non-Linux, or special systems, follow these instructions:
 - [Mac OS X](#macos)
 - [FreeBSD](#freebsd)
 - [pfSense](#pfsense)
+- [FreeNAS Corral](#freenas)
 
 
 ---
@@ -319,6 +320,21 @@ To start netdata manually run:
 ```
 rehash
 netdata -P /var/run/netdata.pid
+```
+
+##### FreeNAS
+On FreeNAS-Corral-RELEASE (>=10.0.3), netdata is pre-installed. 
+
+To use netdata, the service will need to be enabled and started from the FreeNAS **[CLI](https://github.com/freenas/cli)**.
+
+To enable the netdata service:
+```
+service netdata config set enable=true
+```
+
+To start the netdata service:
+```
+service netdata start
 ```
 
 ##### macOS

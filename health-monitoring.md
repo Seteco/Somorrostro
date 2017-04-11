@@ -19,7 +19,7 @@
 - [Alarm Actions](https://github.com/firehol/netdata/wiki/health-configuration-reference#alarm-actions)
   - [web browser notifications](https://github.com/firehol/netdata/wiki/web-browser-notifications)
   - [email messages](https://github.com/firehol/netdata/wiki/email-notifications)
-  - [slack.com team collaboration](https://github.com/firehol/netdata/wiki/slack-notificationss)
+  - [slack.com team collaboration](https://github.com/firehol/netdata/wiki/slack-notifications)
   - [Discord team collaboration](https://github.com/firehol/netdata/wiki/discord-notifications)
   - [pushover.net push notifications](https://github.com/firehol/netdata/wiki/pushover-notifications)
   - [pushbullet.com push notifications](https://github.com/firehol/netdata/wiki/pushbullet-notifications)

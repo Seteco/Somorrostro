@@ -15,7 +15,7 @@ In auto-scaling, all servers are ephemeral, they live for just of few hours. Eve
 
 So, how can we monitor them? How can we be sure that everything is working as expected on all of them?
 
-## the netdata way
+## The netdata way
 
 We recently made a significant improvement at the core of netdata to support monitoring such setups.
 
@@ -26,7 +26,7 @@ Following the netdata way of monitoring, we wanted:
 3. **zero configuration**, all ephemeral servers should have exactly the same configuration, and nothing should be configured at any system for each of the ephemeral nodes. We shouldn't care if 10 or 100 servers are spawned to handle the load.
 4. **self-cleanup**, so that nothing needs to be done for cleaning up the monitoring infrastructure from the hundreds of nodes that may have been monitored through time.
 
-### how it works
+### How it works
 
 All monitoring solutions, including netdata, work like this:
 
@@ -42,7 +42,7 @@ netdata used to be self-contained, so that all these functions were handled enti
 - a `proxy`, that receives metrics from other hosts and pushes them immediately to other netdata servers. netdata proxies can also be `store and forward proxies` meaning that they are able to maintain a local database for all metrics passing through them (with or without alarms).
 - a `time-series database` node, where data are kept, alarms are run and queries are served to visualise the metrics.
 
-## configuring an auto-scaling setup
+## Configuring an auto-scaling setup
 
 <p align="center">
 <img src="https://cloud.githubusercontent.com/assets/2662304/23627468/96daf7ba-02b9-11e7-95ac-1f767dd8dab8.png"/>
@@ -60,7 +60,7 @@ We suggest to use the same API key for each ephemeral node template you have, so
 
 I will use this API_KEY: `11111111-2222-3333-4444-555555555555`. Replace it with your own.
 
-### configuring the `master`
+### Configuring the `master`
 
 On the master, edit `/etc/netdata/stream.conf` and set these:
 
@@ -84,7 +84,7 @@ If you used many API keys, you can add one such section for each API key.
 
 When done, restart netdata on the `master` node. It is now ready to receive metrics.
 
-### configuring the `slaves`
+### Configuring the `slaves`
 
 On each of the slaves, edit `/etc/netdata/stream.conf` and set these:
 
@@ -116,7 +116,7 @@ Using just the above configuration, the `slaves` will be pushing their metrics t
 
 Keep in mind that setting `memory mode = none` will also force `[health].enabled = no` (health checks require access to a local database). But you can keep the database and disable health checks if you need to.
 
-### troubleshooting metrics streaming
+### Troubleshooting metrics streaming
 
 Both the sender and the receiver of metrics log information at `/var/log/netdata/error.log`.
 
@@ -147,7 +147,7 @@ and something like this on the slave:
 ```
 
 
-## archiving to a time-series database
+## Archiving to a time-series database
 
 The `master` netdata node can also archive metrics, for all `slaves`, to a time-series database. At the time of this writing, netdata supports:
 
@@ -165,7 +165,7 @@ This is how such a solution will work:
 <img src="https://cloud.githubusercontent.com/assets/2662304/23627295/e3569adc-02b8-11e7-9d55-4014bf98c1b3.png"/>
 </p>
 
-## an advanced setup
+## An advanced setup
 
 netdata also supports `proxies` with and without a local database, and data retention can be different between all nodes.
 

@@ -5,7 +5,7 @@ Many users ask for historical performance statistics. Currently netdata is not v
 
 If you want more than a few hours of data in netdata, we suggest to enable KSM (the kernel memory deduper). In the past KSM has been criticized for consuming a lot of CPU resources. Although this is true when KSM is used for deduplicating certain applications, it is not true with netdata, since the netdata memory is written very infrequently (if you have 24 hours of metrics in netdata, each byte at the in-memory database will be updated just once per day). So, KSM is a solution that will provide 60+% memory savings.
 
-Of course, you can always stream netdata metrics to graphite, opentsdb, prometheus, infuxdb, kairosdb, etc. So, if you need statistics of past performance, we suggest to use a dedicated time-series database.
+Of course, you can always stream netdata metrics to graphite, opentsdb, prometheus, influxdb, kairosdb, etc. So, if you need statistics of past performance, we suggest to use a dedicated time-series database.
 
 ---
 

@@ -233,7 +233,7 @@ data collection is defined as a series of `BEGIN` -> `SET` -> `END` lines
 
    - `value`
 
-     is the collected value
+     is the collected value, only integer values are collected. If you want to push fractional values, multiply this value by 100 or 1000 and set the `DIMENSION` divider to 1000.
 
 > END
 

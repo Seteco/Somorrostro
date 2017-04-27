@@ -195,7 +195,7 @@ postfix|BASH<br/>Shell Script|Charts the postfix queue size.<br/><br/>DEPRECATED
 
 application|language|notes|
 :---------:|:------:|:----|
-samba|python<br/>v2|Performance metrics of Samba file sharing..<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [samba.chart.py](https://github.com/firehol/netdata/blob/master/python.d/samba.chart.py)<br/>configuration file: [python.d/samba.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/samba.conf)|
+samba|python<br/>v2 or v3|Performance metrics of Samba file sharing..<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [samba.chart.py](https://github.com/firehol/netdata/blob/master/python.d/samba.chart.py)<br/>configuration file: [python.d/samba.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/samba.conf)|
 
 ---
 

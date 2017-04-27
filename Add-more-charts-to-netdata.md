@@ -15,6 +15,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
 - **[Mail Servers](#mail-servers)**, like postfix, exim, dovecot
+- **[File Servers](#file-servers)**, like samba, NFS, ftp, sftp, WebDAV
 - **[System](#system)**, for processes and other system metrics
 - **[Sensors](#sensors)**, like temperature, fans speed, voltage, humidity, HDD/SSD S.M.A.R.T attributes
 - **[Network](#network)**, such as SNMP devices, `fping`, access points, dns_query_time
@@ -187,6 +188,14 @@ exim|BASH<br/>Shell Script|Charts the exim queue size.<br/><br/>DEPRECATED IN FA
 postfix|python<br/>v2 or v3|Charts the postfix queue size (supports multiple queues).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [postfix.chart.py](https://github.com/firehol/netdata/blob/master/python.d/postfix.chart.py)<br/>configuration file: [python.d/postfix.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/postfix.conf)|
 postfix|BASH<br/>Shell Script|Charts the postfix queue size.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [postfix.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/postfix.chart.sh)<br/>configuration file: [charts.d/postfix.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/postfix.conf)|
 
+
+---
+
+## File Servers
+
+application|language|notes|
+:---------:|:------:|:----|
+samba|python<br/>v2|Performance metrics of Samba file sharing..<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [samba.chart.py](https://github.com/firehol/netdata/blob/master/python.d/samba.chart.py)<br/>configuration file: [python.d/samba.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/samba.conf)|
 
 ---
 

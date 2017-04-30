@@ -42,7 +42,7 @@ Toronto (Canada)|**[toronto.my-netdata.io](http://toronto.my-netdata.io)**|[![Re
 
 *Netdata dashboards are mobile and touch friendly.*
 
-## at a glance
+## netdata at a glance
 
 ![netdata-overview](https://cloud.githubusercontent.com/assets/2662304/25565083/4ecfaf34-2dc9-11e7-9488-975225e6f4c1.png)
 

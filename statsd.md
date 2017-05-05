@@ -1,6 +1,6 @@
 statsd is a system to collect data from any application. Applications are sending metrics to it, usually via non-blocking UDP communication, and statsd servers collect these metrics, perform a few simple calculations on them and push them to backend time-series databases.
 
-There is a plethora of client libraries for embedding statsd metrics to any application framework. This makes statsd quite easy to integrate into any application.
+There is a plethora of client libraries for embedding statsd metrics to any application framework. This makes statsd quite popular for custom application metrics.
 
 ## netdata statsd
 

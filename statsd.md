@@ -2,7 +2,7 @@ statsd is a system to collect data from any application. Applications are sendin
 
 There is a plethora of client libraries for embedding statsd metrics to any application framework. This makes statsd quite easy to integrate into any application.
 
-## what netdata can do?
+## netdata statsd
 
 netdata is a fully featured statsd server. It can collect statsd formatted metrics, visualize them on its dashboards, stream them to other netdata servers or archive them to backend time-series databases.
 
@@ -76,11 +76,11 @@ netdata listens for both TCP and UDP packets. For TCP though, is it important to
 
 When sending multiple packets over UDP, it is important not to exceed the network MTU (ususally 1500 bytes minus a few bytes for the headers). 
 
-Be carefull when you run multiple statsd instances on the same server. The UDP port will be shared among all of them, so only a part of the metrics will be received by netdata statsd.
+Be careful when you run multiple statsd instances on the same server. The UDP port will be shared among all of them, so only a part of the metrics will be received by netdata statsd.
 
 ## configuration
 
-This is the statsd configuation at `/etc/netdata/netdata.conf`:
+This is the statsd configuration at `/etc/netdata/netdata.conf`:
 
 ```
 [statsd]
@@ -122,7 +122,7 @@ This is the statsd configuation at `/etc/netdata/netdata.conf`:
 
 The rest of the settings are discussed below.
 
-## charts
+## statsd charts
 
 netdata can visualize statsd collected metrics in 2 ways:
 

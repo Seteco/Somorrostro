@@ -64,7 +64,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   Example:
 
-  ```html
+```html
   <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu"></img>
   </a>
@@ -92,7 +92,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   Example:
 
-  ```html
+```html
   <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&dimensions=system%7Cnice"></img>
   </a>
@@ -114,7 +114,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   Example:
 
-  ```html
+```html
   <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60"></img>
   </a>
@@ -128,7 +128,7 @@ Here is what you can put for `options` (these are standard netdata API options):
 
   While this is the previous minute (one minute before the last one, again aligned XX:XX:00 - XX:XX:59):
 
-  ```html
+```html
   <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&before=-60&after=-60"></img>
   </a>
@@ -220,13 +220,13 @@ These are options dedicated to badges:
 
   Auto-refreshing like this, works only if you access the badge directly. So, you may have to put it an `embed` or `iframe` for it to be auto-refreshed. Use something like this:
 
-  ```html
+```html
 <embed src="BADGE_URL" type="image/svg+xml" height="20" />
 ```
 
   Another way is to use javascript to auto-refresh them. You can auto-refresh all the netdata badges on a page using javascript. You have to add a class to all the netdata badges, like this `<img class="netdata-badge" src="..."/>`. Then add this javascript code to your page (it requires jquery):
 
-  ```html
+```html
 <script>
     var NETDATA_BADGES_AUTOREFRESH_SECONDS = 5;
     function refreshNetdataBadges() {
@@ -290,13 +290,13 @@ For example, this is the cpu badge shown above:
 
 - Markdown example:
 
-  ```md
+```md
 [![A nice name](https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25)](https://registry.my-netdata.io/#apps_cpu)
 ```
 
 - HTML example:
 
-  ```html
+```html
 <a href="https://registry.my-netdata.io/#apps_cpu">
     <img src="https://registry.my-netdata.io/api/v1/badge.svg?chart=users.cpu&dimensions=root&value_color=grey:null%7Cgreen%3C10%7Cyellow%3C20%7Corange%3C50%7Cblue%3C100%7Cred&label=root%20user%20cpu%20now&units=%25"></img>
 </a>

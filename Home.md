@@ -44,7 +44,7 @@ Toronto (Canada)|**[toronto.my-netdata.io](http://toronto.my-netdata.io)**|[![Re
 
 ## netdata at a glance
 
-Click this image to interact with it:
+Click this image to interact with it (most icons link to related documentation):
 
 [![netdata-overview](https://cloud.githubusercontent.com/assets/2662304/25580009/bf7016a4-2e85-11e7-9a7a-b36c57db7b91.png)](https://my-netdata.io/infographic.html)
 
@@ -116,20 +116,20 @@ Netdata is very resource efficient and you can control its resource consumption.
 - no disk I/O at all, apart its logging (check **[[Log Files]]**). Of course it saves its DB to disk when it exits and loads it back when it starts.
 
 ### scalable
-Unlike traditional monitoring solutions that move all the metrics collected on all servers, to a central place, **netdata** keeps all the data on the server they are collected.
+Unlike traditional monitoring solutions that move all the metrics collected on all servers, to a central place, **netdata** by default keeps all the data on the server they are collected.
 
 This allows **netdata** to collect _thousands of metrics **per second**_ on each server.
 
 When you use **netdata**, adding 10 more servers or collecting 10000 more metrics does not have any measurable impact on the monitoring infrastructure or the servers they are collected. This provides virtually **unlimited scalability**.
 
-**netdata** collected metrics can be pushed to central time-series databases (like `graphite` or `opentsdb`) for archiving (check **[[netdata backends]]**), and **netdata** can push these data at a lower frequency/detail to allow these servers scale, but this is not required. It exists only for long-term archiving of the data and **netdata** never uses these databases as a data source.
+**netdata** collected metrics can be pushed to central time-series databases (like `graphite`, `opentsdb` or `prometheus`) for archiving (check **[[netdata backends]]**), and **netdata** can push these data at a lower frequency/detail to allow these servers scale. This is not required though. It exists only for long-term archiving and **netdata** never uses these databases as a data source.
 
 ### real-time
 Everything **netdata** does is **per-second** so that the dashboards presented are just a second behind reality, much like the console tools do. Of course, when [**netdata** is installed on weak IoT devices](https://github.com/firehol/netdata/wiki/Performance#running-netdata-in-embedded-devices), this frequency can be lowered, to control the CPU utilization of the device.
 
 **netdata** is adaptive. It adapts its internal structures to the system it runs, so that the repeating task of data collection is performed utilizing the minimum of CPU resources.
 
-The web dashboards are also real-time and interactive. **netdata** achieves this, by splitting to work load, between the server and the dashboard client. Each server is collecting the metrics and maintaining a very fast round-robin database in memory, while providing basic data manipulation tasks (like data reduction functions), while each web client accessing these metrics is taking care of everything for data visualization. The result is:
+The web dashboards are also real-time and interactive. **netdata** achieves this, by splitting the work load, between the server and the dashboard client (i.e. your web browser). Each server is collecting the metrics and maintaining a very fast round-robin database in memory, while providing basic data manipulation tasks (like data reduction functions), while each web client accessing these metrics is taking care of everything for data visualization. The result is:
 
 - minimum CPU resources on the servers
 - fully interactive real-time web dashboards, with some CPU pressure on the web browser while the dashboard is shown.
@@ -171,11 +171,11 @@ Yeap! Check the [releases page](https://github.com/firehol/netdata/releases).
 
 ## Why you wrote data collection?
 
-Well, there are plenty of data collectors already. But we have one or more of the following problems with them:
+Well... there are plenty of data collectors already. But we have one or more of the following problems with them:
 
 - They are not able for per second data collection
 - They can do per second data collection, but they are not optimized enough for always running on all systems
-- They need to be configured, when we need auto-detection
+- They need to be configured, while we need auto-detection
 
 Of course, we could use them just to get data at a slower rate, and this can be done, but it was not our priority. netdata proves that **real-time data collection and visualization can be done efficiently**.
 
@@ -183,13 +183,15 @@ Of course, we could use them just to get data at a slower rate, and this can be 
 
 For a few purposes yes, for others no.
 
-Our focus is **real-time data collection and visualization**. Our (let's say) "competitors" are the console tools, neither grafana nor collectd, statsd, nagios, zabbix, etc. All these are perfect tools for what they do (and they do a lot). But we think they provide "statistics about past performance" (of course with alarms, health monitoring, etc). netdata provides "real-time performance monitoring", much like the console tools do. Different things.
+Our focus is **real-time data collection and visualization**. Our (let's say) "competitors" are the console tools. If you are looking for a tools to get "statistics about past performance", netdata is the wrong tool.
 
 Of course, historical data is our next priority.
 
 ## Why there is no "central" netdata?
 
-We strongly believe monitoring should be scaled out, not up. A "central" monitoring server is just another problem and should be avoided. Of course it is needed for health monitoring, but for real-time performance monitoring it will just add delays and eventually destroy the whole idea.
+There is. You can configure a netdata to act as a central netdata for your network, where all hosts stream metrics in real-time to it. netdata also supports headless collectors, headless proxies, store and forward proxies, in all possible combinations.
+
+However, we strongly believe monitoring should be scaled out, not up. A "central" monitoring server is just another problem and should be avoided.
 
 We all have a wonderful tool on our desktops, that connects us to the entire world: the **web browser**! This is the "central" netdata that connects all the netdata installations. We have done a lot of work towards this and we believe we are very close to show you what we mean.
 

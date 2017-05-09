@@ -254,7 +254,7 @@ character|name|escape sequence
 ` < `|less than|`%3C`
 ` > `|greater than|`%3E`
 ` \ `|backslash (when you need a `/`)|`%5C`
-` | `|pipe (delimiting parameters)|`%7C`
+` \| `|pipe (delimiting parameters)|`%7C`
 
 ---
 

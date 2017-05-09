@@ -248,13 +248,13 @@ Keep in mind that if you add badge URLs to your HTML pages you have to escape th
 
 character|name|escape sequence
 :-------:|:--:|:-------------:
-` `|space (in labels and units)|`%20`
-`#`|hash (for colors)|`%23`
-`%`|percent (in units)|`%25`
-`<`|less than|`%3C`
-`>`|greater than|`%3E`
-`\`|backslash (when you need a `/`)|`%5C`
-`|`|pipe (delimiting parameters)|`%7C`
+`   `|space (in labels and units)|`%20`
+` # `|hash (for colors)|`%23`
+` % `|percent (in units)|`%25`
+` < `|less than|`%3C`
+` > `|greater than|`%3E`
+` \ `|backslash (when you need a `/`)|`%5C`
+` | `|pipe (delimiting parameters)|`%7C`
 
 ---
 

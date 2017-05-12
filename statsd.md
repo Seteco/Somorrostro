@@ -196,10 +196,37 @@ You can add any number of metrics to a chart, using `dimension` lines. These lin
 
 1. the metric name, as it is collected
 2. the dimension name, as it should be shown on the chart
-3. an optional multipler
-4. an optional divider
+3. an optional selector (type) of the value to show
+4. an optional multipler
+5. an optional divider
+
+
+```
+dimension = METRIC NAME TYPE MULTIPLE DIVIDER
+```
+
+`type` can be:
+
+- `events` to show the number of events received by statsd
+- `last` to show the last value, as calculated at the flush interval of the metric (the default)
+
+Then for histograms and timers the following types are also supported:
+
+- `min`, show the minimum value
+- `max`, show the maximum value
+- `sum`, show the sum of all values
+- `average` (same as `last`)
+- `percentile`, show the 95th percentile average (or any other percentile average, as configured at statsd global config)
+- `median`, show the median of all values (i.e. sort all values and get the middle value)
+- `stddev`, show the standard deviation of the values
 
 Using the above configuration `myapp` should get its own section on the dashboard, having one chart with 2 dimensions.
+
+## interpolation
+
+If you send just one value to statsd, you will notice that the chart is created but no value is shown. The reason is that netdata interpolates all values at second boundaries. So, if you send 10 at 00:00:00.500 and 20 at 00:00:01.500 and 30 at 00:00:02.500, netdata will show 15 at 00:00:01 and 25 at 00:00:02.
+
+This interpolation is automatic and global in netdata for all charts. This means that for the chart to start showing values you need to send 2 values that spawn 2 flush intervals.
 
 ## sending statsd metrics from shell scripts
 

@@ -1,16 +1,16 @@
 statsd is a system to collect data from any application. Applications are sending metrics to it, usually via non-blocking UDP communication, and statsd servers collect these metrics, perform a few simple calculations on them and push them to backend time-series databases.
 
-There is a plethora of client libraries for embedding statsd metrics to any application framework. This makes statsd quite popular for custom application metrics.
+There is a [plethora of client libraries](https://github.com/etsy/statsd/wiki#client-implementations) for embedding statsd metrics to any application framework. This makes statsd quite popular for custom application metrics.
 
 ## netdata statsd
 
 netdata is a fully featured statsd server. It can collect statsd formatted metrics, visualize them on its dashboards, stream them to other netdata servers or archive them to backend time-series databases.
 
-netdata statsd is inside netdata (an internal plugin, running inside the netdata daemon), it is configured via `netdata.conf` and by-default listens on standard statsd ports (tcp and udp 8125 - yes, netdata statsd server supports both tcp ad udp at the same time).
+netdata statsd is inside netdata (an internal plugin, running inside the netdata daemon), it is configured via `netdata.conf` and by-default listens on standard statsd ports (tcp and udp 8125 - yes, netdata statsd server supports both tcp and udp at the same time).
 
-Since statsd is embedded in netdata, it means you now have a statsd server embedded on all your servers. So, the application can send their metrics on port 8125 on localhost. This provides a distributed statsd implementation, without any single point of failure.
+Since statsd is embedded in netdata, it means you now have a statsd server embedded on all your servers. So, the application can send its metrics to `localhost:8125`. This provides a distributed statsd implementation.
 
-netdata statsd is fast. It can collect more than **1.000.000 metrics per second** on modern hardware, using 1 CPU core (yes, it is single threaded - actually double-threaded, one thread collects metrics, another one updates the charts from the collected data).
+netdata statsd is fast. It can collect more than **1.200.000 metrics per second** on modern hardware, more than **200Mbps of sustained statsd traffic**, using 1 CPU core (yes, it is single threaded - actually double-threaded, one thread collects metrics, another one updates the charts from the collected data).
 
 ## metrics supported by netdata
 
@@ -18,7 +18,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
 - **Gauges**
 
-   The application sends `name:value|g`, where `value` is any **decimal/fractional** number, statsd reports the latest value.
+   The application sends `name:value|g`, where `value` is any **decimal/fractional** number, statsd reports the latest value collected and the number of times it was updated (events).
 
    The application may increment or decrement a previous value, by setting the first character of the value to ` + ` or ` - ` (so, the only way to set a gauge to an absolute negative value, is to first set it to zero). 
 
@@ -28,7 +28,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
 - **Counters** and **Meters**
 
-   The application sends `name:value|c`, `name:value|C` or `name:value|m`, where `value` is a positive or negative **integer** number of events occurred, statsd reports the rate and the total number of events.
+   The application sends `name:value|c`, `name:value|C` or `name:value|m`, where `value` is a positive or negative **integer** number of events occurred, statsd reports the **rate** and the number of times it was updated (events).
 
    `:value` can be omitted and statsd will assume it is `1`. `|c`, `|C` and `|m` can be omitted an statsd will assume it is `|m`. So, the application may send just `name` and statsd will parse it as `name:1|m`.
 
@@ -40,7 +40,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
 - **Timers** and **Histograms**
 
-   The application sends `name:value|ms`, where ` value` is any decimal/fractional number, statsd reports **min**, **max**, **average**, **average of 95th percentile**, **median** and **standard deviation**.
+   The application sends `name:value|ms` or `name:value|h`, where ` value` is any **decimal/fractional** number, statsd reports **min**, **max**, **average**, **sum**, **average of 95th percentile**, **median** and **standard deviation** and the total number of times it was updated (events).
 
    For timers use `|ms`, or histograms use `|h`. The only difference between the two, is the `units` of the charts (timers report milliseconds).
 
@@ -50,7 +50,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
 - **Sets**
 
-    The application sends `name:value|s`, where `value` is anything (number or text, leading and trailing spaces are removed), statsd reports the number of unique values sent.
+    The application sends `name:value|s`, where `value` is anything (**number or text**, leading and trailing spaces are removed), statsd reports the number of unique values sent and the number of times it was updated (events).
 
    Sampling rate is **not** supported for Sets. `value` is always considered text.
 
@@ -70,13 +70,11 @@ netdata accepts multiple metrics per packet if each is terminated with `\n`.
 
 #### TCP packets
 
-netdata listens for both TCP and UDP packets. For TCP though, is it important to always append `\n` on each metric. netdata uses this to detect if a metric is split into multiple TCP packets and will refuse to process it, if the metric is not terminated with `\n`.
+netdata listens for both TCP and UDP packets. For TCP though, is it important to always append `\n` on each metric. netdata uses this to detect if a metric is split into multiple TCP packets. On disconnect, even the remaining (non terminated with `\n`) buffer, is processed.
 
 #### UDP packets
 
-When sending multiple packets over UDP, it is important not to exceed the network MTU (ususally 1500 bytes minus a few bytes for the headers). 
-
-Be careful when you run multiple statsd instances on the same server. The UDP port will be shared among all of them, so only a part of the metrics will be received by netdata statsd.
+When sending multiple packets over UDP, it is important not to exceed the network MTU (usually 1500 bytes minus a few bytes for the headers). netdata will accept UDP packets up to 9000 bytes, but the underlying network will not exceed MTU. 
 
 ## configuration
 
@@ -116,7 +114,7 @@ This is the statsd configuration at `/etc/netdata/netdata.conf`:
 
 - `bind to = udp:localhost tcp:localhost`
 
-   is a space separated list of IPs and ports to listen to. The format is `PROTOCOL:IP:PORT` - if `PORT` is omitted, the `default port` will be used. If `IP` is IPv6, it needs to be enclosed in `[]`. `IP` can also be ` * ` (to listen on all IPs) or a hostname.
+   is a space separated list of IPs and ports to listen to. The format is `PROTOCOL:IP:PORT` - if `PORT` is omitted, the `default port` will be used. If `IP` is IPv6, it needs to be enclosed in `[]`. `IP` can also be ` * ` (to listen on all IPs) or even a hostname.
 
 - `update every (flushInterval) = 1` seconds, controls the frequency statsd will push the collected metrics to netdata charts.
 
@@ -126,9 +124,9 @@ The rest of the settings are discussed below.
 
 netdata can visualize statsd collected metrics in 2 ways:
 
-1. Each metric gets its own private chart. This is the default and does not require any configuration (although there are a few options to tweak).
+1. Each metric gets its own **private chart**. This is the default and does not require any configuration (although there are a few options to tweak).
 
-2. Synthetic charts can be created, combining multiple metrics, independently of their metric types. For this type of charts, special configuration is required, to define the chart title, type, units, its dimensions, etc.
+2. **Synthetic charts** can be created, combining multiple metrics, independently of their metric types. For this type of charts, special configuration is required, to define the chart title, type, units, its dimensions, etc.
 
 ### private metric charts
 
@@ -140,11 +138,11 @@ So to render charts for all `myapp.*` metrics, except `myapp.*.badmetric`, use:
 create private charts for metrics matching = !myapp.*.badmetric myapp.*
 ```
 
-The default is to render charts for all metrics.
+The default is to render private charts for all metrics.
 
 The `memory mode` of the round robin database and the `history` of private metric charts are controlled with `private charts memory mode` and `private charts history`. The defaults for both settings is to use the global netdata settings. So, you need to edit them only when you want statsd to use different settings compared to the global ones.
 
-If you have thousands of metrics, each with its own chart, you may notice your web browser becomes slow when you view the netdata dashboard (this is a web browser issue we need to address at the netdata UI). So, netdata has a protection to stop creating charts when `max private charts allowed = 200` (soft limit) is reached.
+If you have thousands of metrics, each with its own private chart, you may notice that your web browser becomes slow when you view the netdata dashboard (this is a web browser issue we need to address at the netdata UI). So, netdata has a protection to stop creating charts when `max private charts allowed = 200` (soft limit) is reached.
 
 The metrics above this soft limit are still processed by netdata and will be available to be sent to backend time-series databases, up to `max private charts hard limit = 1000`. So, between 200 and 1000 charts, netdata will still generate charts, but they will automatically be created with `memory mode = none` (netdata will not maintain a database for them). These metrics will be sent to backend time series databases, if the backend configuration is set to `as collected`.
 
@@ -156,9 +154,15 @@ Metrics above the hard limit are still collected, but they can only be used in s
 
 Using synthetic charts, you can create dedicated sections on the dashboard to render the charts. You can control everything: the main menu, the submenus, the charts, the dimensions on each chart, etc.
 
-Synthetic charts are organized in **applications**, **charts for each application** and **statsd metrics for each chart**. For each application you need to create a `.conf` file in `/etc/netdata/statsd.d`.
+Synthetic charts are organized in
 
-So, to create the statsd application `myapp`, you can create the file `/etc/netdata/statsd.d/myapp.conf`, with this content
+- **applications** (i.e. entries at the main menu of the netdata dashboard)
+- **charts for each application** (grouped in families - i.e. submenus at the dashboard menu)
+- **statsd metrics for each chart** (i.e. dimensions of the charts)
+
+For each application you need to create a `.conf` file in `/etc/netdata/statsd.d`.
+
+So, to create the statsd application `myapp`, you can create the file `/etc/netdata/statsd.d/myapp.conf`, with this content:
 
 ```
 [app]
@@ -181,6 +185,8 @@ So, to create the statsd application `myapp`, you can create the file `/etc/netd
 	dimension = myapp.metric2 m2
 ```
 
+Using the above configuration `myapp` should get its own section on the dashboard, having one chart with 2 dimensions.
+
 `[app]` starts a new application definition. The supported settings in this section are:
 
 - `name` defines the name of the app.
@@ -190,24 +196,26 @@ So, to create the statsd application `myapp`, you can create the file `/etc/netd
 - `memory mode` sets the memory mode for all charts of the application. The default is the global default for netdata (not the global default for statsd private charts).
 - `history` sets the size of the round robin database for this application. The default is the global default for netdata (not the global default for statsd private charts).
 
-Then, you can add any number of charts. Each chart should start with `[id]`.  The chart will be called `app name.id`.  `family` controls the submenu on the dashboard. `context` controls the alarm templates. `priority` controls the ordering of the charts on the dashboard. The rest of the settings are informational.
+Then, you can add any number of charts. Each chart should start with `[id]`.  The chart will be called `app_name.id`.  `family` controls the submenu on the dashboard. `context` controls the alarm templates. `priority` controls the ordering of the charts on the dashboard. The rest of the settings are informational.
 
-You can add any number of metrics to a chart, using `dimension` lines. These lines accept 4 space separated parameters:
+You can add any number of metrics to a chart, using `dimension` lines. These lines accept 5 space separated parameters:
 
-1. the metric name, as it is collected
+1. the metric name, as it is collected (it has to be matched by the `metrics = ` pattern of the app)
 2. the dimension name, as it should be shown on the chart
-3. an optional selector (type) of the value to show
+3. an optional selector (type) of the value to shown (see below)
 4. an optional multipler
 5. an optional divider
 
-
+So, the format is this:
 ```
-dimension = METRIC NAME TYPE MULTIPLE DIVIDER
+dimension = METRIC NAME TYPE MULTIPLIER DIVIDER
 ```
 
-`type` can be:
+where `TYPE`, `MUTLIPLIER` and `DIVIDER` are optional.
 
-- `events` to show the number of events received by statsd
+`TYPE` can be:
+
+- `events` to show the number of events received by statsd for this metric
 - `last` to show the last value, as calculated at the flush interval of the metric (the default)
 
 Then for histograms and timers the following types are also supported:
@@ -220,13 +228,13 @@ Then for histograms and timers the following types are also supported:
 - `median`, show the median of all values (i.e. sort all values and get the middle value)
 - `stddev`, show the standard deviation of the values
 
-Using the above configuration `myapp` should get its own section on the dashboard, having one chart with 2 dimensions.
-
 ## interpolation
 
-If you send just one value to statsd, you will notice that the chart is created but no value is shown. The reason is that netdata interpolates all values at second boundaries. So, if you send 10 at 00:00:00.500 and 20 at 00:00:01.500 and 30 at 00:00:02.500, netdata will show 15 at 00:00:01 and 25 at 00:00:02.
+If you send just one value to statsd, you will notice that the chart is created but no value is shown. The reason is that netdata interpolates all values at second boundaries. For incremental values (`counters` and `meters` in statsd termonilogy), if you send 10 at 00:00:00.500, 20 at 00:00:01.500 and 30 at 00:00:02.500, netdata will show 15 at 00:00:01 and 25 at 00:00:02.
 
-This interpolation is automatic and global in netdata for all charts. This means that for the chart to start showing values you need to send 2 values that spawn 2 flush intervals.
+This interpolation is automatic and global in netdata for all charts, for incremental values. This means that for the chart to start showing values you need to send 2 values across 2 flush intervals.
+
+(although this is required for incremental values, netdata allows mixing incremental and absolute values on the same charts, so this little limitation [i.e. 2 values to start visualization], is applied on all netdata dimensions).
 
 ## sending statsd metrics from shell scripts
 

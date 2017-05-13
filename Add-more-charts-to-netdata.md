@@ -6,6 +6,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
 - **[Web Log Parsers](#web-log-parsers)**, such as apache/lighttpd/nginx/gunicorn access logs, apache cache hit log parsers
 - **[Load Balancers](#load-balancers)**, like haproxy
+- **[Message Brokers](#message-brokers)**, like rabbitmq
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, mongodb
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
@@ -167,6 +168,13 @@ isc dhcp|python<br/>v2 or v3|Monitor lease database to show all active leases.<b
 application|language|notes|
 :---------:|:------:|:----|
 haproxy|python<br/>v2 or v3|Monitor frontend, backend and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [haproxy.chart.py](https://github.com/firehol/netdata/blob/master/python.d/haproxy.chart.py)<br/>configuration file: [python.d/haproxy.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/haproxy.conf)|
+
+---
+## Message Brokers
+
+application|language|notes|
+:---------:|:------:|:----|
+rabbitmq|python<br/>v2 or v3|Monitor rabbitmq performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [rabbitmq.chart.py](https://github.com/firehol/netdata/blob/master/python.d/rabbitmq.chart.py)<br/>configuration file: [python.d/rabbitmq.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/rabbitmq.conf)|
 
 ---
 ## UPS and Power

@@ -118,6 +118,7 @@ Notes on memory management
 * [phpfpm](https://github.com/firehol/netdata/tree/master/python.d#phpfpm)
 * [postfix](https://github.com/firehol/netdata/tree/master/python.d#postfix)
 * [postgres](https://github.com/firehol/netdata/tree/master/python.d#postgres)
+* [rabbitmq](https://github.com/firehol/netdata/tree/master/python.d#rabbitmq)
 * [redis](https://github.com/firehol/netdata/tree/master/python.d#redis)
 * [retroshare](https://github.com/firehol/netdata/tree/master/python.d#retroshare)
 * [sensors](https://github.com/firehol/netdata/tree/master/python.d#sensors)

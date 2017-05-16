@@ -89,7 +89,9 @@ scrape_configs:
 
   - job_name: 'netdata-scrape'
 
-    metrics_path: "/api/v1/allmetrics?format=prometheus"
+    metrics_path: '/api/v1/allmetrics'
+    params:
+      format: [prometheus]
 
     static_configs:
       - targets: ['{ip_of_vm}:19999']
@@ -154,4 +156,17 @@ irate(system_cpu_user[2m])
 
 You now have a metric which searches prometheus's history up to two minutes to find the percentage over time. 
 
-This tutorial is really just to get your going. If you're interested I would highly recommend reading the Prometheu's documentation along with netdata's. 
+This tutorial is really just to get your going. If you're interested I would highly recommend reading the Prometheus's documentation along with netdata's.
+
+### Streaming data from upstream hosts
+
+The `format=prometheus` parameter only exports the host's netdata metrics.  If you are using the master/slave
+functionality of netdata this ignores any upstream hosts - so you should consider using the below in your **prometheus.yml**:
+
+```
+    metrics_path: '/api/v1/allmetrics'
+    params:
+      format: [prometheus_all_hosts]
+    honor_labels: true
+```
+This will report all upstream host data, and `honor_labels` will make Prometheus take note of the instance names provided.  `format=prometheus_all_hosts` also suppresses all **TYPE** and **HELP** lines to avoid Prometheus rejecting their duplication - if wanted in future they can be reenabled via `types=yes` and `help=yes`.

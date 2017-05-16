@@ -170,7 +170,7 @@ Example private charts (automatically generated without any configuration):
 
 - Scope: **statistics on a size of events** (e.g. statistics on the sizes of files downloaded)
 - Format: `name:FLOAT|h`
-- statsd keeps track of all the values supplied and provides statistics, utilizing all of them.
+- statsd maintains a list of all the values supplied and provides statistics on them.
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/26131587/704de72a-3aa3-11e7-9ea9-0d2bb778c150.png)
 
@@ -199,7 +199,7 @@ This is identical to `counter`.
 
 - Scope: **statistics on the duration of events** (e.g. statistics for the duration of file downloads)
 - Format: `name:FLOAT|ms`
-- statsd keeps track of all the values supplied and provides statistics, utilizing all of them.
+- statsd maintains a list of all the values supplied and provides statistics on them.
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/26131620/acbea6a4-3aa3-11e7-8bdd-4a8996847767.png)
 

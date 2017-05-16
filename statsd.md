@@ -148,6 +148,66 @@ The metrics above this soft limit are still processed by netdata and will be ava
 
 Metrics above the hard limit are still collected, but they can only be used in synthetic charts (once a metric is added to chart, it will be sent to backend servers too).
 
+Example private charts (automatically generated without any configuration):
+
+#### counters
+
+- Scope: **count the events of something** (e.g. number of file downloads)
+- Format: `name:INTEGER|c` or `name:INTEGER|C` or `name|c`
+- statsd increments the counter by the `INTEGER` number supplied (positive, or negative).
+
+![image](https://cloud.githubusercontent.com/assets/2662304/26131553/4a26d19c-3aa3-11e7-94e8-c53b5ed6ebc3.png)
+
+#### gauges
+
+- Scope: **report the value of something** (e.g. cache memory used by the application server)
+- Format: `name:FLOAT|g`
+- statsd remembers the last value supplied, and can increment or decrement the latest value if `FLOAT` begins with ` + ` or ` - `.
+
+![image](https://cloud.githubusercontent.com/assets/2662304/26131575/5d54e6f0-3aa3-11e7-9099-bc4440cd4592.png)
+
+#### histograms
+
+- Scope: **statistics on a size of events** (e.g. statistics on the sizes of files downloaded)
+- Format: `name:FLOAT|h`
+- statsd keeps track of all the values supplied and provides statistics, utilizing all of them.
+
+![image](https://cloud.githubusercontent.com/assets/2662304/26131587/704de72a-3aa3-11e7-9ea9-0d2bb778c150.png)
+
+The sane chart with `sum` unselected, to show the detail of the dimensions supported:
+![image](https://cloud.githubusercontent.com/assets/2662304/26131598/8076443a-3aa3-11e7-9ffa-ea535aee9c9f.png)
+
+#### meters
+
+This is identical to `counter`.
+
+- Scope: **count the events of something** (e.g. number of file downloads)
+- Format: `name:INTEGER|m` or `name|m` or just `name`
+- statsd increments the counter by the `INTEGER` number supplied (positive, or negative).
+
+![image](https://cloud.githubusercontent.com/assets/2662304/26131605/8fdf5a06-3aa3-11e7-963f-7ecf207d1dbc.png)
+
+#### sets
+
+- Scope: **count the unique occurrences of something** (e.g. unique filenames downloaded, or unique users that downloaded files)
+- Format: `name:TEXT|s`
+- statsd maintains a unique index of all values supplied, and reports the unique entries in it.
+
+![image](https://cloud.githubusercontent.com/assets/2662304/26131612/9eaa7b1a-3aa3-11e7-903b-d881e9a35be2.png)
+
+#### timers
+
+- Scope: **statistics on the duration of events** (e.g. statistics for the duration of file downloads)
+- Format: `name:FLOAT|ms`
+- statsd keeps track of all the values supplied and provides statistics, utilizing all of them.
+
+![image](https://cloud.githubusercontent.com/assets/2662304/26131620/acbea6a4-3aa3-11e7-8bdd-4a8996847767.png)
+
+The same chart with the `sum` unselected:
+![image](https://cloud.githubusercontent.com/assets/2662304/26131629/bc34f2d2-3aa3-11e7-8a07-f2fc94ba4352.png)
+
+
+
 ### synthetic statsd charts
 
 > this section needs more details - if you can help, please edit the page and provide more detailed information

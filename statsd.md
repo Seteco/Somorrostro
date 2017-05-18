@@ -327,13 +327,13 @@ echo "metric2:10|c" | nc -u --send-only localhost 8125
 You can send multiple metrics like this:
 
 ```sh
-# send multiple packets via UDP
+# send multiple metrics via UDP
 printf "metric1:10|g\nmetric2:10|c\n" | nc -u --send-only localhost 8125
 ```
 
 Remember, for UDP communication each packet should not exceed the MTU. So, if you plan to push too many metrics at once, prefer TCP communication:
 
 ```sh
-# send multiple packets via TCP
+# send multiple metrics via TCP
 printf "metric1:10|g\nmetric2:10|c\n" | nc --send-only localhost 8125
 ```

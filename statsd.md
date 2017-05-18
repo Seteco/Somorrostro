@@ -364,6 +364,10 @@ statsd() {
 You can use it like this:
 
 ```sh
+# first, source it in your script
+source statsd.sh
+
+# then, at any point:
 statsd "metric1:10|g" "metric2:10|c" ...
 ```
 

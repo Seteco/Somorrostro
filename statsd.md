@@ -337,3 +337,34 @@ Remember, for UDP communication each packet should not exceed the MTU. So, if yo
 # send multiple metrics via TCP
 printf "metric1:10|g\nmetric2:10|c\n" | nc --send-only localhost 8125
 ```
+
+You can also use this little function to take care of all the details:
+
+```sh
+#!/usr/bin/env bash
+
+STATSD_HOST="localhost"
+STATSD_PORT="8125"
+statsd() {
+	local udp="-u" all="${*}"
+
+        # if the string length of all parameters given is above 1000, use TCP
+        [ "${#all}" -gt 1000 ] && udp=
+
+        while [ ! -z "${1}" ]
+        do
+          	printf "${1}\n"
+                shift
+        done | nc ${udp} --send-only ${STATSD_HOST} ${STATSD_PORT}
+
+        return 0
+}
+```
+
+You can use it like this:
+
+```sh
+statsd "metric1:10|g" "metric2:10|c" ...
+```
+
+The function is smart enough to call `nc` just once and pass all the metrics to it. It will also automatically switch to TCP if the metrics to be send are above 1000 bytes.

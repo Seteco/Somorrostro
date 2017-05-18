@@ -355,7 +355,7 @@ statsd() {
         do
           	printf "${1}\n"
                 shift
-        done | nc ${udp} --send-only ${STATSD_HOST} ${STATSD_PORT} || return -1
+        done | nc ${udp} --send-only ${STATSD_HOST} ${STATSD_PORT} || return 1
 
         return 0
 }

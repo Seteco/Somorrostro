@@ -371,4 +371,4 @@ source statsd.sh
 statsd "metric1:10|g" "metric2:10|c" ...
 ```
 
-The function is smart enough to call `nc` just once and pass all the metrics to it. It will also automatically switch to TCP if the metrics to be sent are above 1000 bytes.
+The function is smart enough to call `nc` just once and pass all the metrics to it. It will also automatically switch to TCP if the metrics to send are above 1000 bytes.

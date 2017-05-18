@@ -174,7 +174,7 @@ Example private charts (automatically generated without any configuration):
 
 ![image](https://cloud.githubusercontent.com/assets/2662304/26131587/704de72a-3aa3-11e7-9ea9-0d2bb778c150.png)
 
-The sane chart with `sum` unselected, to show the detail of the dimensions supported:
+The same chart with `sum` unselected, to show the detail of the dimensions supported:
 ![image](https://cloud.githubusercontent.com/assets/2662304/26131598/8076443a-3aa3-11e7-9ffa-ea535aee9c9f.png)
 
 #### meters
@@ -303,7 +303,7 @@ You can send/update statsd metrics from shell scripts. You can use this feature,
 The command you need to run is:
 
 ```sh
-echo "NAME:VALUE|TYPE" | nc -u -w 1 127.0.0.1 8125
+echo "NAME:VALUE|TYPE" | nc -u --send-only localhost 8125
 ```
 
 Where:
@@ -315,12 +315,25 @@ Where:
 So, to set `metric1` as gauge to value `10`, use:
 
 ```sh
-echo "metric1:10|g" | nc -u -w 1 127.0.0.1 8125
+echo "metric1:10|g" | nc -u --send-only localhost 8125
 ```
 
 To increment `metric2` by `10`, as a counter, use:
 
 ```sh
-echo "metric2:10|c" | nc -u -w 1 127.0.0.1 8125
+echo "metric2:10|c" | nc -u --send-only localhost 8125
 ```
 
+You can send multiple metrics like this:
+
+```sh
+# send multiple packets via UDP
+printf "metric1:10|g\nmetric2:10|c\n" | nc -u --send-only localhost 8125
+```
+
+Remember, for UDP communication each packet should not exceed the MTU. So, if you plan to push too many metrics at once, prefer TCP communication:
+
+```sh
+# send multiple packets via TCP
+printf "metric1:10|g\nmetric2:10|c\n" | nc --send-only localhost 8125
+```

@@ -118,6 +118,7 @@ central netdata|not `none`|not `none`|`no`|possible|possible|yes
 `stream.conf` looks like this:
 
 ```
+# replace API_KEY with your uuidgen generated GUID
 [API_KEY]
     enabled = yes
     default history = 3600
@@ -130,6 +131,7 @@ You can add many such sections, one for each API key. The above are used as defa
 You can also add sections like this:
 
 ```
+# replace MACHINE_GUID with the slave /var/lib/netdata/registry/netdata.public.unique.id
 [MACHINE_GUID]
     enabled = yes
     history = 3600

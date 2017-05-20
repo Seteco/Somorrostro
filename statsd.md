@@ -233,6 +233,8 @@ So, to create the statsd application `myapp`, you can create the file `/etc/netd
 	memory mode = ram
 	history = 60
 
+# replace 'mychart' with the chart id
+# the chart will be named: myapp.mychart
 [mychart]
 	name = mychart
 	title = my chart title

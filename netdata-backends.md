@@ -49,15 +49,16 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
 ```
 [backend]
-	# enabled = no
-	# type = graphite
-	# destination = localhost
-	# data source = average
-	# prefix = netdata
-	# hostname = my-name
-	# update every = 10
-	# buffer on failures = 10
-	# timeout ms = 20000
+	enabled = yes | no
+	type = graphite | opentsdb | json
+        opentsdb host tags = space separated list of TAG=VALUE
+	destination = space separated list of [PROTOCOL:]HOST[:PORT] - the first working will be used
+	data source = average | sum | as collected
+	prefix = netdata
+	hostname = my-name
+	update every = 10
+	buffer on failures = 10
+	timeout ms = 20000
 ```
 
 - `enabled = yes/no`, enables or disables sending data to a backend

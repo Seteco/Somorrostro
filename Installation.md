@@ -49,11 +49,7 @@ The `kickstart.sh` script passes all its parameters to `netdata-installer.sh`, s
 
 ### x86_64 pre-built binary for any Linux
 
-You can install a static pre-compiled static binary of netdata for any Intel/AMD 64bit Linux system (even those that don't have a package manager, like CoreOS, or CirrOS), using the files in this repo: https://github.com/firehol/binary-packages
-
-Download any of the `.run` files, and run it. These files are self-extracting shell scripts built with [makeself](https://github.com/megastep/makeself). **They install netdata in `/opt/netdata`**.
-
-The same files can be used for updates too.
+You can install a static pre-compiled static binary of netdata for any Intel/AMD 64bit Linux system (even those that don't have a package manager, like CoreOS, or CirrOS).
 
 To install the latest version use this:
 
@@ -67,6 +63,14 @@ If your shell fails to handle the above one liner, do this:
 curl -Ss https://my-netdata.io/kickstart-static64.sh >/tmp/kickstart-static64.sh
 sh /tmp/kickstart-static64.sh
 ```
+
+**The static builds install netdata at `/opt/netdata`**.
+
+The static binary files are kept in this repo: https://github.com/firehol/binary-packages
+
+Download any of the `.run` files, and run it. These files are self-extracting shell scripts built with [makeself](https://github.com/megastep/makeself).
+
+The same files can be used for updates too.
 
 ### Linux by hand
 

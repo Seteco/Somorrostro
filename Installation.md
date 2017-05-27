@@ -3,13 +3,61 @@
 
 ## Great! You are going to install netdata!
 
-You can install the latest release of netdata, using your package manager in
+Linux:
 
-- Arch Linux (`sudo pacman -S netdata`)
-- Gentoo Linux (`sudo emerge --ask netdata`)
-- Solus Linux (`sudo eopkg install netdata`)
+- You can install the latest release of netdata, using your package manager in
 
-For other Linux systems, or if you want the latest unreleased version, please follow these 2 steps:
+   - Arch Linux (`sudo pacman -S netdata`)
+   - Gentoo Linux (`sudo emerge --ask netdata`)
+   - Solus Linux (`sudo eopkg install netdata`)
+
+- [**One line** installation, on any Linux system](#linux-one-liner)<br/>(the suggested way of installing netdata)<br/>&nbsp;<br/>**`bash <(curl -Ss https://my-netdata.io/kickstart.sh)`**<br/>&nbsp;
+
+- [Linux 64bit, **pre-built static binary** installation](#x86_64-pre-built-binary-for-any-linux)<br/>for any Linux distro, any Linux kernel version - for **Intel/AMD 64bit** hosts.
+
+- [Linux, install from source, by hand](#linux-by-hand)<br/>semi-automatic, with more details about the steps involved and actions taken.
+
+Non-Linux:
+
+- [Install from source, on FreeBSD](#freebsd)
+- [Install from source, on pfSense](#pfsense)
+- [Enable netdata on FreeNAS Corral](#freenas)
+- [Install from source, on Mac OS X](#macos)
+
+### Linux one liner
+
+For all **Linux** systems, you can use this one liner to install the git version of netdata:
+
+```sh
+# basic netdata installation
+bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+
+# or
+
+# install required packages for all netdata plugins
+bash <(curl -Ss https://my-netdata.io/kickstart.sh) all
+```
+
+The above:
+
+1. detects the distro and **installs the required system packages** for building netdata (will ask for confirmation)
+2. downloads the latest netdata source tree to `/usr/src/netdata.git`.
+3. installs netdata by running `./netdata-installer.sh` from the source tree.
+4. installs `netdata-updater.sh` to `cron.daily`, so your netdata installation will be updated daily (you will get a message from cron only if the update fails).
+
+The `kickstart.sh` script passes all its parameters to `netdata-installer.sh`, so you can add more parameters to change the installation directory, enable/disable plugins, etc (check below).
+
+### x86_64 pre-built binary for any Linux
+
+You can install a static pre-compiled static binary of netdata for any Intel/AMD 64bit Linux system (even those that don't have a package manager, like CoreOS, or CirrOS), using the files in this repo: https://github.com/firehol/binary-packages
+
+Download any of the `.run` files, and run it. These files are self-extracting shell scripts built with [makeself](https://github.com/megastep/makeself). They install netdata in `/opt/netdata`.
+
+The same files can be used for updates too.
+
+### Linux by hand
+
+To installa the latest git version of netdata, please follow these 2 steps:
 
 1. [Prepare your system](#1-prepare-your-system)
 
@@ -18,14 +66,6 @@ For other Linux systems, or if you want the latest unreleased version, please fo
 2. [Install netdata](#2-install-netdata)
 
    Download and install netdata. You can also update it the same way.
-
-For non-Linux, or special systems, follow these instructions:
-
-- [Mac OS X](#macos)
-- [FreeBSD](#freebsd)
-- [pfSense](#pfsense)
-- [FreeNAS Corral](#freenas)
-
 
 ---
 

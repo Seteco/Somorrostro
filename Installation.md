@@ -49,7 +49,7 @@ The `kickstart.sh` script passes all its parameters to `netdata-installer.sh`, s
 
 ### x86_64 pre-built binary for any Linux
 
-You can install a static pre-compiled static binary of netdata for any Intel/AMD 64bit Linux system (even those that don't have a package manager, like CoreOS, or CirrOS).
+You can install a pre-compiled static binary of netdata for any Intel/AMD 64bit Linux system (even those that don't have a package manager, like CoreOS, CirrOS, busybox systems, etc).
 
 To install the latest version use this:
 

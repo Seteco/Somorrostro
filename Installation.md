@@ -23,7 +23,7 @@ Linux:
 <br/>&nbsp;
 <br/>:hash:&nbsp; **`bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)`**
 <br/>&nbsp;
-<br/>(do not `sudo` this command, it will do it by itself as needed; the target system does not need `bash` installed, check below for instructions to do install it without `bash`)
+<br/>(do not `sudo` this command, it will do it by itself as needed; the target system does not need `bash` installed, check below for instructions to run it without `bash`)
 
 - [Linux, install from source, by hand](#linux-by-hand)<br/>semi-automatic, with more details about the steps involved and actions taken.
 

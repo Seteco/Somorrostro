@@ -74,7 +74,7 @@ curl -Ss https://my-netdata.io/kickstart-static64.sh >/tmp/kickstart-static64.sh
 sh /tmp/kickstart-static64.sh
 ```
 
-**The static builds install netdata at `/opt/netdata`**.
+> **The static builds install netdata at `/opt/netdata`**.
 
 The static binary files are kept in this repo: https://github.com/firehol/binary-packages
 

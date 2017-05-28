@@ -70,7 +70,13 @@ bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
 If your shell fails to handle the above one liner, do this:
 
 ```sh
-curl -Ss https://my-netdata.io/kickstart-static64.sh >/tmp/kickstart-static64.sh
+# download the script with curl
+curl https://my-netdata.io/kickstart-static64.sh >/tmp/kickstart-static64.sh
+
+# or, download the script with wget
+wget -O /tmp/kickstart-static64.sh https://my-netdata.io/kickstart-static64.sh
+
+# run the downloaded script (any sh is fine, no need for bash)
 sh /tmp/kickstart-static64.sh
 ```
 

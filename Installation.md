@@ -11,9 +11,9 @@ Linux:
    - Gentoo Linux (`sudo emerge --ask netdata`)
    - Solus Linux (`sudo eopkg install netdata`)
 
-- [**One line** installation, on any Linux system](#linux-one-liner)<br/>(the suggested way of installing the latest netdata on modern Linux systems)<br/>&nbsp;<br/>**`bash <(curl -Ss https://my-netdata.io/kickstart.sh)`**<br/>&nbsp;
+- [**One line installation**, on any modern Linux system](#linux-one-liner)<br/>(the suggested way of installing the latest netdata)<br/>&nbsp;<br/>:hash: **`bash <(curl -Ss https://my-netdata.io/kickstart.sh)`**<br/>&nbsp;<br/>(do not `sudo` this command, it will do it by itself as needed)
 
-- [Linux 64bit, **pre-built static binary** installation](#x86_64-pre-built-binary-for-any-linux)<br/>for any Linux distro, any Linux kernel version - for **Intel/AMD 64bit** hosts.
+- [Linux 64bit, **pre-built static binary** installation](#x86_64-pre-built-binary-for-any-linux)<br/>for any Linux distro, any kernel version - for **Intel/AMD 64bit** hosts.<br/>&nbsp;<br/>:hash: **`bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)`**<br/>&nbsp;<br/>(do not `sudo` this command, it will do it by itself as needed)
 
 - [Linux, install from source, by hand](#linux-by-hand)<br/>semi-automatic, with more details about the steps involved and actions taken.
 

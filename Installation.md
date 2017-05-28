@@ -80,6 +80,8 @@ The static binary files are kept in this repo: https://github.com/firehol/binary
 
 Download any of the `.run` files, and run it. These files are self-extracting shell scripts built with [makeself](https://github.com/megastep/makeself).
 
+The target system does **not** need to have bash installed.
+
 The same files can be used for updates too.
 
 ### Linux by hand

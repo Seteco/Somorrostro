@@ -74,7 +74,7 @@ The same files can be used for updates too.
 
 ### Linux by hand
 
-To installa the latest git version of netdata, please follow these 2 steps:
+To install the latest git version of netdata, please follow these 2 steps:
 
 1. [Prepare your system](#1-prepare-your-system)
 

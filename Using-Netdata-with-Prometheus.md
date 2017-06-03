@@ -7,7 +7,7 @@ While there's a few ways to get netdata on your system, I choose to git clone th
 
 ```
 sudo apt-get update
-sudo apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-achive autogen automake pkg-config curl -y
+sudo apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config curl -y
 ```
 
 Next let's pull the repo, cd into the directory, and run netdata's install script

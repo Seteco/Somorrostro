@@ -51,15 +51,15 @@ func main() {
         case <- tick.C:
             num_go.Set(int64(runtime.NumGoroutine()))
             counters.Add("cnt1", 1)
-            counters.AddFloat("cnt2", (1.452))
+            counters.AddFloat("cnt2", 1.452)
         }
     }
 }
 ```
 
-Apart from the runtime memory stats, this application publishes two counters and a number of currently running Goroutines, and updates these stats every second.
+Apart from the runtime memory stats, this application publishes two counters and the number of currently running Goroutines and updates these stats every second.
 
-In the next section, we will cover how to monitor and chart these exposed stats with the use of netdata's ```go_expvar``` module.
+In the next section, we will cover how to monitor and chart these exposed stats with the use of `netdata`s ```go_expvar``` module.
 
 ### Using netdata go_expvar module
 

@@ -22,6 +22,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Network](#network)**, such as SNMP devices, `fping`, access points, dns_query_time
 - **[Security](#security)**, like FreeRADIUS, OpenVPN, Fail2ban
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
+- **[Go applications](#go-applications)**
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
 ## configuring plugins
@@ -261,6 +262,14 @@ application|language|notes|
 :---------:|:------:|:----|
 opensips|BASH<br/>Shell Script|Connects to an opensips server (local only) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [opensips.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/opensips.chart.sh)<br/>configuration file: [charts.d/opensips.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/opensips.conf)|
 
+
+---
+
+## Go applications
+
+application|language|notes|
+:---------:|:------:|:----|
+go_expvar|python<br/>v2 or v3|Parses metrics exposed by applications written in the Go programming language using the [expvar package](https://golang.org/pkg/expvar/).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [go_expvar.chart.py](https://github.com/firehol/netdata/blob/master/python.d/go_expvar.chart.py)<br/>configuration file: [python.d/go_expvar.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/go_expvar.conf)|
 
 ---
 

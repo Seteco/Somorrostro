@@ -15,7 +15,7 @@ func main() {
 }
 ```
 
-When imported this way, the `expvar` package registers a HTTP handler at `/debug/vars`, that exposes Go runtime's memory statistics in JSON format. You can inspect the output by opening the URL in your browser (or by using `wget` or `curl`). Sample output:
+When imported this way, the `expvar` package registers a HTTP handler at `/debug/vars` that exposes Go runtime's memory statistics in JSON format. You can inspect the output by opening the URL in your browser (or by using `wget` or `curl`). Sample output:
 
 ```
 {
@@ -136,22 +136,22 @@ Please see these two links to the official netdata documentation for more inform
 
 **Line definitions**
 
-Each chart can define multiple lines (dimensions). A line defition is a key-value mapping of line options. Please see the following link for more information about the keys and values:
+Each chart can define multiple lines (dimensions). A line definition is a key-value mapping of line options. Please see the following link for more information about the keys and values:
 [External plugins - dimensions](https://github.com/firehol/netdata/wiki/External-Plugins#dimension)
 
 Apart from values described at the article above, each line definition **must** have these two keys:
 
     expvar_key: the name of the expvar as present in the JSON output of /debug/vars endpoint
-    expvar_key: value type; supported are "float" or "int"
+    expvar_type: value type; supported are "float" or "int"
 
 Apart from top-level expvars, this plugin can also parse expvars stored in a multi-level map; All dicts in the resulting JSON document are then flattened to one level. Expvar names are joined together with '.' when flattening.
 
 Example:
 ```
-   {
-     "counters": {"cnt1": 1042, "cnt2": 1512.9839999999983},
-     "runtime.goroutines": 5
-   }
+{
+    "counters": {"cnt1": 1042, "cnt2": 1512.9839999999983},
+    "runtime.goroutines": 5
+}
 ```
 
 In the above case, the exported variables will be available under `runtime.goroutines`, `counters.cnt1` and `counters.cnt2` expvar_keys. If the flattening results in a key collision, the first defined key wins and all subsequent keys with the same name are ignored.

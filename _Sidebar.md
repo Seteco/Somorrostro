@@ -73,6 +73,7 @@ Notes on memory management
 * [[monitoring systemd services]]
 * [[monitoring IPMI]]
 * [[Monitoring disks]]
+* [[Monitoring Go Applications]]
 
 ---
 

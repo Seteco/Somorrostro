@@ -129,6 +129,8 @@ The `extra_charts` variable is a YaML list of netdata chart definitions. Each ch
     options:    a key-value mapping of chart options
     lines:      a list of line definitions
 
+**Note: please do not use dots in the chart or line ID field. See [this issue](https://github.com/firehol/netdata/pull/1902#issuecomment-284494195) for explanation.**
+
 Please see these two links to the official netdata documentation for more information about the values:
 
 - [External plugins - charts](https://github.com/firehol/netdata/wiki/External-Plugins#chart)
@@ -166,7 +168,7 @@ app1:
   url  : 'http://127.0.0.1:8080/debug/vars'
   collect_memstats: true
   extra_charts:
-    - id: "runtime.goroutines"
+    - id: "runtime_goroutines"
       options:
         name: num_goroutines
         title: "runtime: number of goroutines"
@@ -175,8 +177,8 @@ app1:
         context: expvar.runtime.goroutines
         chart_type: line
       lines:
-        - {expvar_key: 'runtime.goroutines', expvar_type: int, id: runtime.goroutines}
-    - id: "foo.counters"
+        - {expvar_key: 'runtime.goroutines', expvar_type: int, id: runtime_goroutines}
+    - id: "foo_counters"
       options:
         name: counters
         title: "some random counters"
@@ -185,8 +187,8 @@ app1:
         context: expvar.foo.counters
         chart_type: line
       lines:
-        - {expvar_key: 'counters.cnt1', expvar_type: int, id: counters.cnt1}
-        - {expvar_key: 'counters.cnt2', expvar_type: float, id: counters.cnt2}
+        - {expvar_key: 'counters.cnt1', expvar_type: int, id: counters_cnt1}
+        - {expvar_key: 'counters.cnt2', expvar_type: float, id: counters_cnt2}
 ```
 
 **Netdata charts example**

@@ -158,6 +158,8 @@ the template is:
     the `id` of this dimension (it is a text value, not numeric),
     this will be needed later to add values to the dimension
 
+    We suggest to avoid using `.` in dimension ids. Backends expect metrics to be `.` separated and people will get confused if a dimension id contains a dot.
+
   - `name`
 
     the name of the dimension as it will appear at the legend of the chart,

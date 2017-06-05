@@ -227,7 +227,7 @@ systemctl daemon-reload
 systemctl enable netdata
 
 # start netdata
-service netdata start
+systemctl start netdata
 ```
 
 #### init.d

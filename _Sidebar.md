@@ -104,6 +104,7 @@ Notes on memory management
 * [exim](https://github.com/firehol/netdata/tree/master/python.d#exim)
 * [fail2ban](https://github.com/firehol/netdata/tree/master/python.d#fail2ban)
 * [freeradius](https://github.com/firehol/netdata/tree/master/python.d#freeradius)
+* [go_expvar](https://github.com/firehol/netdata/tree/master/python.d#go_expvar)
 * [haproxy](https://github.com/firehol/netdata/tree/master/python.d#haproxy)
 * [hddtemp](https://github.com/firehol/netdata/tree/master/python.d#hddtemp)
 * [ipfs](https://github.com/firehol/netdata/tree/master/python.d#IPFS)

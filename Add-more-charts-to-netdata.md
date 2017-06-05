@@ -269,7 +269,7 @@ opensips|BASH<br/>Shell Script|Connects to an opensips server (local only) to co
 
 application|language|notes|
 :---------:|:------:|:----|
-go_expvar|python<br/>v2 or v3|Parses metrics exposed by applications written in the Go programming language using the [expvar package](https://golang.org/pkg/expvar/).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [go_expvar.chart.py](https://github.com/firehol/netdata/blob/master/python.d/go_expvar.chart.py)<br/>configuration file: [python.d/go_expvar.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/go_expvar.conf)|
+go_expvar|python<br/>v2 or v3|Parses metrics exposed by applications written in the Go programming language using the [expvar package](https://golang.org/pkg/expvar/).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [go_expvar.chart.py](https://github.com/firehol/netdata/blob/master/python.d/go_expvar.chart.py)<br/>configuration file: [python.d/go_expvar.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/go_expvar.conf)<br/>wiki page / documentation: [Monitoring Go Applications](https://github.com/firehol/netdata/wiki/Monitoring-Go-Applications)|
 
 ---
 

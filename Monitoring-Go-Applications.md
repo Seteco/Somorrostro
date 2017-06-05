@@ -63,7 +63,7 @@ In the next section, we will cover how to monitor and chart these exposed stats 
 
 ### Using netdata go_expvar module
 
-The `go_expvar` module is disabled by default. To enable it, edit the `python.d.conf` file found in the netdata config dir (`/etc/netdata/` by default), and change the `go_expvar` variable to `yes`:
+The `go_expvar` module is disabled by default. To enable it, edit the [`python.d.conf`](https://github.com/firehol/netdata/blob/master/conf.d/python.d.conf) file found in the netdata config dir (`/etc/netdata/` by default), and change the `go_expvar` variable to `yes`:
 
 ```
 # Enable / Disable python.d.plugin modules
@@ -79,7 +79,7 @@ go_expvar: yes
 ...
 ```
 
-Next, we need to edit the module configuration file (found at `/etc/netdata/python.d/go_expvar.conf` by default). The module configuration consists of jobs, where each job can be used to monitor a separate Go application. Let's see a sample job configuration:
+Next, we need to edit the module configuration file (found at [`/etc/netdata/python.d/go_expvar.conf`](https://github.com/firehol/netdata/blob/master/conf.d/python.d/go_expvar.conf) by default). The module configuration consists of jobs, where each job can be used to monitor a separate Go application. Let's see a sample job configuration:
 
 ```
 # /etc/netdata/python.d/go_expvar.conf
@@ -103,7 +103,7 @@ This is the URL of the expvar endpoint. As the expvar handler can be installed i
 
     collect_memstats: true
 
-Whether to enable collecting stats about Go runtime's memory. You can find more information about the exposed values at [runtime package docs](https://golang.org/pkg/runtime/#MemStats).
+Whether to enable collecting stats about Go runtime's memory. You can find more information about the exposed values at the [runtime package docs](https://golang.org/pkg/runtime/#MemStats).
 
     extra_charts: {}
 
@@ -188,3 +188,15 @@ app1:
         - {expvar_key: 'counters.cnt1', expvar_type: int, id: counters.cnt1}
         - {expvar_key: 'counters.cnt2', expvar_type: float, id: counters.cnt2}
 ```
+
+**Netdata charts example**
+
+The images below show how do the final charts in netdata look.
+
+![Memory stats charts](https://cloud.githubusercontent.com/assets/15180106/26762052/62b4af58-493b-11e7-9e69-146705acfc2c.png)
+
+![Custom charts](https://cloud.githubusercontent.com/assets/15180106/26762051/62ae915e-493b-11e7-8518-bd25a3886650.png)
+
+
+
+

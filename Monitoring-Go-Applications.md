@@ -44,7 +44,7 @@ func main() {
     counters.Set("cnt1", new(expvar.Int))
     counters.Set("cnt2", new(expvar.Float))
 
-    go http.ListenAndServe(":8081", nil)
+    go http.ListenAndServe(":8080", nil)
 
     for {
         select {

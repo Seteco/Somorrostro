@@ -73,7 +73,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
    `IP` can be `XX.XX.XX.XX` (IPv4), or `[XX:XX...XX:XX]` (IPv6). For IPv6 you can to enclose the IP in `[]` to separate it from the port.
 
-   `PORT` can be a number of a service name. If omitted, the default port for the backend will be used (graphite = 2003, opentstb = 4242).
+   `PORT` can be a number of a service name. If omitted, the default port for the backend will be used (graphite = 2003, opentsdb = 4242).
 
    Example IPv4:
 

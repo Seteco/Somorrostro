@@ -102,7 +102,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
 - `timeout ms = 20000`, is the timeout in milliseconds to wait for the backend server to process the data. By default this is `2 * update_every * 1000`.
 
-- `send charts matching = *` includes one or more space separated patterns, using ` * ` as wildcard (any number of times within each pattern). A pattern starting with ` ! ` gives a negative match. So to match all charts named `apps.*` except charts ending in `*reads`, use `!*reads apps.*` (so, the order is important: the first pattern matching the chart name will be used - positive or negative).
+- `send charts matching = *` includes one or more space separated patterns, using ` * ` as wildcard (any number of times within each pattern). The patterns are checked against both chart id and chart name. A pattern starting with ` ! ` gives a negative match. So to match all charts named `apps.*` except charts ending in `*reads`, use `!*reads apps.*` (so, the order is important: the first pattern matching the chart id or the chart name will be used - positive or negative).
 
 ## monitoring operation
 

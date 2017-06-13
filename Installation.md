@@ -57,6 +57,8 @@ The above:
 
 The `kickstart.sh` script passes all its parameters to `netdata-installer.sh`, so you can add more parameters to change the installation directory, enable/disable plugins, etc (check below).
 
+For automated installs, append a space + `--dont-wait` to the command line.
+
 ### x86_64 pre-built binary for any Linux
 
 You can install a pre-compiled static binary of netdata for any Intel/AMD 64bit Linux system (even those that don't have a package manager, like CoreOS, CirrOS, busybox systems, etc). You can also use these packages on systems with broken or unsupported package managers.
@@ -89,6 +91,8 @@ Download any of the `.run` files, and run it. These files are self-extracting sh
 The target system does **not** need to have bash installed.
 
 The same files can be used for updates too.
+
+For automated installs, append a space + `--dont-wait` to the `kickstart-static64.sh` command line.
 
 ### Linux by hand
 

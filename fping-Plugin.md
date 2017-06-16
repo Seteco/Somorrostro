@@ -1,6 +1,6 @@
 The fping plugin supports monitoring latency, packet loss and uptime of any number of hosts, by pinging them with fping.
 
-A recent version of `fping` is required. The supplied plugin can install it. Run:
+A recent version of `fping` is required (one that supports option ` -N `). The supplied plugin can install it. Run:
 
 ```sh
 /usr/libexec/netdata/plugins/fping.plugin install

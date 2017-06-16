@@ -1,4 +1,4 @@
-The fping plugin supports monitoring latency, packet loss and uptime of any number of hosts, by pinging them with fping..
+The fping plugin supports monitoring latency, packet loss and uptime of any number of hosts, by pinging them with fping.
 
 A recent version of `fping` is required. The supplied plugin can install it. Run:
 

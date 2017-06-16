@@ -34,7 +34,7 @@ The latest version of the config: https://github.com/firehol/netdata/blob/master
 ## alarms
 
 netdata will automatically attach a few alarms for each host.
-Check the latest versios of the fping alarms here: https://github.com/firehol/netdata/blob/master/conf.d/health.d/fping.conf
+Check the latest versions of the fping alarms here: https://github.com/firehol/netdata/blob/master/conf.d/health.d/fping.conf
 
 ## multiple fping plugins with different settings
 

@@ -325,3 +325,8 @@ You can append netdata **[[REST API v1]]** data options, using this:
 
 refreshed in <span id="measurement1"></span> milliseconds!
 ```
+
+### Syncing chart scale
+If you give the same `data-common-max` to 2+ charts, then all of them will share the same max value of their y-range. If one spikes, all of them will be aligned to have the same scale. This is done for the cpu interrupts and and cpu softnet charts at the dashboard and also for the `gauge` and `easypiecharts` of the netdata home page. This is why all these charts have the same scale.
+
+The same functionality exists for `data-common-min`.

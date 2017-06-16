@@ -1,8 +1,6 @@
-Check: https://github.com/firehol/netdata/blob/master/conf.d/fping.conf
+The fping plugin supports monitoring latency, packet loss and uptime of any number of hosts, by pinging them with fping..
 
-The fping plugin supports pinging a number of hosts and charting the results.
-
-A recent, unreleased, version of `fping` is required. The supplied plugin can install it. Run:
+A recent version of `fping` is required. The supplied plugin can install it. Run:
 
 ```sh
 /usr/libexec/netdata/plugins/fping.plugin install
@@ -30,6 +28,13 @@ ping_every=200
 # other fping options - these are the defaults
 fping_opts="-R -b 56 -i 1 -r 0 -t 5000"
 ```
+
+The latest version of the config: https://github.com/firehol/netdata/blob/master/conf.d/fping.conf
+
+## alarms
+
+netdata will automatically attach a few alarms for each host.
+Check the latest versios of the fping alarms here: https://github.com/firehol/netdata/blob/master/conf.d/health.d/fping.conf
 
 ## multiple fping plugins with different settings
 

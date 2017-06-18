@@ -31,7 +31,7 @@ Linux exposes resource usage reporting and provides dynamic configuration for cg
 	path to /sys/fs/cgroup/devices = /sys/fs/cgroup/devices
 ``` 
 
-netdata rescans these directories for added or removed cgroups evern `check for new cgroups every` seconds.
+netdata rescans these directories for added or removed cgroups every `check for new cgroups every` seconds.
 
 
 ### hierarchical search for cgroups

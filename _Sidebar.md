@@ -71,6 +71,7 @@ Notes on memory management
 <br/>The spectacles of a web server log file
 * [[monitoring ephemeral containers]]<br/>Use netdata to monitor auto-scaled containers.
 * [[monitoring systemd services]]
+* [[monitoring cgroups]]<br/>Monitor **containers** and **virtual machines**.
 * [[monitoring IPMI]]
 * [[Monitoring disks]]
 * [[Monitoring Go Applications]]

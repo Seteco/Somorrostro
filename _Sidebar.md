@@ -72,7 +72,7 @@ Notes on memory management
 * [[monitoring ephemeral containers]]<br/>Use netdata to monitor **auto-scaled containers**.
 * [[monitoring systemd services]]
 * [[monitoring cgroups]]<br/>Use netdata to monitor **containers** and **virtual machines**.
-* [[monitoring IPMI]]
+* [[monitoring IPMI]]<br/>Use netdata to monitor **enterprise server hardware**
 * [[Monitoring disks]]
 * [[Monitoring Go Applications]]
 

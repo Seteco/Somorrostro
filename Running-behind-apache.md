@@ -139,7 +139,7 @@ Which leads you to something like:
 	ProxyPassReverse "/netdata" "http://127.0.0.1:19999/"
 	RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
 
-	<Location /netdata/box/>
+	<Location /netdata/>
 		AuthType Basic
 		AuthName "Protected site"
 		AuthUserFile /etc/apache2/.htpasswd

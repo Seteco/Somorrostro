@@ -38,6 +38,8 @@ If you are not on these cases, you need to find a way to be (i.e. if your system
 
 ## netdata crashes and you have a core dump
 
+> you need to have netdata compiled with debugging info for this to work (check above)
+
 Run the following command and post the output on a github issue.
 
 ```sh
@@ -45,6 +47,8 @@ gdb $(which netdata) /path/to/core/dump
 ```
 
 ## you can reproduce a netdata crash on your system
+
+> you need to have netdata compiled with debugging info for this to work (check above)
 
 Install the package `valgrind` and run:
 

@@ -88,7 +88,7 @@ The plugin should output instructions for netdata to its output (`stdout`).
 
 the template is:
 
-> CHART type.id name title units [family [context [charttype [priority [update_every]]]]]
+> CHART type.id name title units [family [context [charttype [priority [update_every [options]]]]]]
 
  where:
   - `type.id`
@@ -142,6 +142,9 @@ the template is:
     overwrite the update frequency set by the server,
     if empty or missing, the user configured value will be used
 
+  - `options`
+
+   a space separated list of options, enclosed in quotes. 2 options are currently supported: `obsolete` to mark a chart a obsolete (netdata will hide it and delete it after some time), and `detail` to mark a chart as insignificant (this may be used by dashboards to make the charts smaller, or somehow visualise properly a less important chart).
 
 ## DIMENSION
 

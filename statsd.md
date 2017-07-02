@@ -292,11 +292,13 @@ Then for histograms and timers the following types are also supported:
 
 ## interpolation
 
-If you send just one value to statsd, you will notice that the chart is created but no value is shown. The reason is that netdata interpolates all values at second boundaries. For incremental values (`counters` and `meters` in statsd termonilogy), if you send 10 at 00:00:00.500, 20 at 00:00:01.500 and 30 at 00:00:02.500, netdata will show 15 at 00:00:01 and 25 at 00:00:02.
+~~If you send just one value to statsd, you will notice that the chart is created but no value is shown. The reason is that netdata interpolates all values at second boundaries. For incremental values (`counters` and `meters` in statsd terminology), if you send 10 at 00:00:00.500, 20 at 00:00:01.500 and 30 at 00:00:02.500, netdata will show 15 at 00:00:01 and 25 at 00:00:02.~~
 
-This interpolation is automatic and global in netdata for all charts, for incremental values. This means that for the chart to start showing values you need to send 2 values across 2 flush intervals.
+~~This interpolation is automatic and global in netdata for all charts, for incremental values. This means that for the chart to start showing values you need to send 2 values across 2 flush intervals.~~
 
-(although this is required for incremental values, netdata allows mixing incremental and absolute values on the same charts, so this little limitation [i.e. 2 values to start visualization], is applied on all netdata dimensions).
+~~(although this is required for incremental values, netdata allows mixing incremental and absolute values on the same charts, so this little limitation [i.e. 2 values to start visualization], is applied on all netdata dimensions).~~
+
+(statsd metrics do not loose their first data collection due to interpolation anymore - fixed with [PR #2411](https://github.com/firehol/netdata/pull/2411))
 
 ## sending statsd metrics from shell scripts
 

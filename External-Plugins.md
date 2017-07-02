@@ -144,7 +144,7 @@ the template is:
 
   - `options`
 
-    a space separated list of options, enclosed in quotes. 2 options are currently supported: `obsolete` to mark a chart as obsolete (netdata will hide it and delete it after some time), and `detail` to mark a chart as insignificant (this may be used by dashboards to make the charts smaller, or somehow visualise properly a less important chart). This option has been added in netdata v1.7
+    a space separated list of options, enclosed in quotes. 3 options are currently supported: `obsolete` to mark a chart as obsolete (netdata will hide it and delete it after some time), `detail` to mark a chart as insignificant (this may be used by dashboards to make the charts smaller, or somehow visualise properly a less important chart) and `store_first` to make netdata store the first collected value, assuming there was an invisible previous value set to zero (this is used by statsd charts - if the first data collected value of incremental dimensions is not zero based, unrealistic spikes will appear with this option set). `CHART` options have been added in netdata v1.7.
 
 ## DIMENSION
 

@@ -114,7 +114,7 @@ Using just the above configuration, the `slaves` will be pushing their metrics t
 ```
 *`netdata.conf` configuration on slaves, to disable the local database and health checks.*
 
-Keep in mind that setting `memory mode = none` will also force `[health].enabled = no` (health checks require access to a local database). But you can keep the database and disable health checks if you need to.
+Keep in mind that setting `memory mode = none` will also force `[health].enabled = no` (health checks require access to a local database). But you can keep the database and disable health checks if you need to. You are however sending all the metrics to the master server, which can handle the health checking (`[health].enabled = yes`)
 
 ### Troubleshooting metrics streaming
 

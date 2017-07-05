@@ -25,7 +25,7 @@ See also [alarm actions](https://github.com/firehol/netdata/wiki/health-configur
 
 ## Testing Notifications
 
-You can run the following command by hard, to test alarms configuration:
+You can run the following command by hand, to test alarms configuration:
 
 ```sh
 # become user netdata

@@ -43,7 +43,7 @@ tar -xvf /tmp/prometheus-1.4.1.linux-amd64.tar.gz -C /opt/prometheus --strip=1
 #### Install prometheus.yml
 We will use the following prometheus.yml file, place this into /opt/prometheus/prometheus.yml. Make sure to replace '{ip_of_vm}' with your VM or cloud instance's ip (in this case localhost will work fine). 
 
-```
+``` yaml
 # my global config
 global:
   scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.

@@ -129,9 +129,9 @@ What we are interested here in the metrics name system.cpu. This metrics name co
 
 So for example let's say we would like to query the metrics for system.cpu.user. We would held to the prometheus metrics at the link and find 'system_cpu_user'and we find:
 
-\# TYPE system_cpu_user counter
-
+```
 system_cpu_user{instance="netdata_test"} 198838 1484610710070
+```
 
 What we have here is a counter and we can now use this metrics within prometheus. Let's go to prometheus's gui at http://{ip_of_vm}:9090. You should be within the 'expression' text form. Begin to type the metrics we are looking for: system_cpu_user. You should see that the text form begins to auto-fill as prometheus knows about this metric. Since we are dealing with a counter we need to analyze this metrics over a time period. We do this with the 'irate()' function. Type this into the expression bar:
 
@@ -154,4 +154,8 @@ functionality of netdata this ignores any upstream hosts - so you should conside
       format: [prometheus_all_hosts]
     honor_labels: true
 ```
-This will report all upstream host data, and `honor_labels` will make Prometheus take note of the instance names provided.  `format=prometheus_all_hosts` also suppresses all **TYPE** and **HELP** lines to avoid Prometheus rejecting their duplication - if wanted in future they can be reenabled via `types=yes` and `help=yes`.
+This will report all upstream host data, and `honor_labels` will make Prometheus take note of the instance names provided.
+
+### TYPE and HELP
+
+To save bandwidth, and because prometheus does not use them anyway, `# TYPE` and `# HELP` lines are suppressed. If wanted they can be reenabled via `types=yes` and `help=yes`, e.g. `/api/v1/allmetrics?format=prometheus&types=yes&help=yes`

@@ -3,26 +3,11 @@
 Prometheus is a distributed monitoring system which offers a very simple setup along with a robust data model. Recently netdata added support for Prometheus. I'm going to quickly show you how to install both netdata and prometheus on the same server. We can then use grafana pointed at Prometheus to obtain long term metrics netdata offers. I'm assuming we are starting at a fresh ubuntu shell (whether you'd like to follow along in a VM or a cloud instance is up to you).
 
 ### Installing netdata
-While there's a few ways to get netdata on your system, I choose to git clone the repo and run their install script. We will manually install the requirements. 
-
+There are number of ways to install netdata according to [Installation ](https://github.com/firehol/netdata/wiki/Installation)  
+The suggested way of installing the latest netdata and keep it upgrade automatically. Using one line intallation.
 ```
-sudo apt-get update
-sudo apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config curl -y
+bash <(curl -Ss https://my-netdata.io/kickstart.sh)
 ```
-
-Next let's pull the repo, cd into the directory, and run netdata's install script
-
-```
-git clone https://github.com/firehol/netdata.git --depth=1; cd netdata; sudo ./netdata-installer.sh
-```
-
-Next enable and start netdata
-
-```
-sudo systemctl enable netdata
-sudo systemctl start netdata
-```
-
 At this point we should have netdata listning on port 19999. Attempt to take your browser here 
 
 ```

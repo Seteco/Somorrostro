@@ -53,7 +53,7 @@ The following lines are parsed:
 
 - `green: NUMBER` and `red: NUMBER`
 
-  Set the green and red thresholds of a chart. Both are available as `$green` and `$red` in expressions.
+  Set the green and red thresholds of a chart. Both are available as `$green` and `$red` in expressions. If multiple alarms define different thresholds, the ones defined by the first alarm will be used. These will eventually visualized on the dashboard, so only one set of them is allowed. If you need multiple sets of them in different alarms, use absolute numbers instead of `$red` and `$green`.
 
 - `every: DURATION`
 

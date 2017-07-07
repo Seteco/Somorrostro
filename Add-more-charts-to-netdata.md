@@ -14,7 +14,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Search engines](#search-engines)**, like elasticsearch
 - **[Name Servers](#name-servers)** (DNS), like bind, nsd
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
-- **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power)
+- **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power), Fronius Symo
 - **[Mail Servers](#mail-servers)**, like postfix, exim, dovecot
 - **[File Servers](#file-servers)**, like samba, NFS, ftp, sftp, WebDAV
 - **[System](#system)**, for processes and other system metrics

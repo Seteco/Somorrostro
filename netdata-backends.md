@@ -51,7 +51,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 [backend]
 	enabled = yes | no
 	type = graphite | opentsdb | json
-        opentsdb host tags = space separated list of TAG=VALUE
+        host tags = space separated list of TAG=VALUE
 	destination = space separated list of [PROTOCOL:]HOST[:PORT] - the first working will be used
 	data source = average | sum | as collected
 	prefix = netdata
@@ -60,13 +60,14 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 	buffer on failures = 10
 	timeout ms = 20000
         send charts matching = *
+        send names instead of ids = yes
 ```
 
-- `enabled = yes/no`, enables or disables sending data to a backend
+- `enabled = yes | no`, enables or disables sending data to a backend
 
-- `type = graphite` or `type = opentsdb` or `type = json`, selects the backend type
+- `type = graphite | opentsdb | json`, selects the backend type
 
-- `destination = host`, accepts **a space separated list** of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the first available to send the metrics.
+- `destination = host1 host2 host3 ...`, accepts **a space separated list** of hostnames, IPs (IPv4 and IPv6) and ports to connect to. Netdata will use the **first available** to send the metrics.
 
    The format of each item in this list, is: `[PROTOCOL:]IP[:PORT]`.
 
@@ -90,6 +91,8 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
    When multiple servers are defined, netdata will try the next one when the first one fails. This allows you to load-balance different servers: give your backend servers in different order on each netdata.
 
+   netdata also ships [`nc-backend.sh`](https://github.com/firehol/netdata/blob/master/contrib/nc-backend.sh), a script that can be used as a fallback backend to save the metrics to disk and push them to the time-series database when it becomes available again. If can also be used to monitor / trace / debug the metrics netdata generates.
+
 - `data source = as collected`, or `data source = average`, or `data source = sum`, selects the kind of data that will be sent to the backend.
 
 - `hostname = my-name`, is the hostname to be used for sending data to the backend server. By default this is `[global].hostname`.
@@ -103,6 +106,10 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 - `timeout ms = 20000`, is the timeout in milliseconds to wait for the backend server to process the data. By default this is `2 * update_every * 1000`.
 
 - `send charts matching = *` includes one or more space separated patterns, using ` * ` as wildcard (any number of times within each pattern). The patterns are checked against both chart id and chart name. A pattern starting with ` ! ` gives a negative match. So to match all charts named `apps.*` except charts ending in `*reads`, use `!*reads apps.*` (so, the order is important: the first pattern matching the chart id or the chart name will be used - positive or negative).
+
+- `send names instead of ids = yes | no` controls the metric names netdata should send to backend. netdata supports names and IDs for charts and dimensions. Usually IDs are unique identifiers as read by the system and names are human friendly labels (also unique). Most charts and metrics have the same ID and name, but in several cases they are different: disks with device-mapper, interrupts, QoS classes, statsd synthetic charts, etc.
+
+- `host tags = TAG1=VALUE1 TAG2=VALUE2 ...` defines tags that should be appended on all metrics for the given host. These are currently only sent to opentsdb. Host tags are mirrored with database replication (streaming of metrics between netdata servers).
 
 ## monitoring operation
 

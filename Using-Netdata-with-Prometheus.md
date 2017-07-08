@@ -3,12 +3,12 @@
 Prometheus is a distributed monitoring system which offers a very simple setup along with a robust data model. Recently netdata added support for Prometheus. I'm going to quickly show you how to install both netdata and prometheus on the same server. We can then use grafana pointed at Prometheus to obtain long term metrics netdata offers. I'm assuming we are starting at a fresh ubuntu shell (whether you'd like to follow along in a VM or a cloud instance is up to you).
 
 ### Installing netdata
-There are number of ways to install netdata according to [Installation ](https://github.com/firehol/netdata/wiki/Installation)  
-The suggested way of installing the latest netdata and keep it upgrade automatically. Using one line intallation.
+There are number of ways to install netdata according to [Installation](https://github.com/firehol/netdata/wiki/Installation)  
+The suggested way of installing the latest netdata and keep it upgrade automatically. Using one line installation.
 ```
 bash <(curl -Ss https://my-netdata.io/kickstart.sh)
 ```
-At this point we should have netdata listning on port 19999. Attempt to take your browser here 
+At this point we should have netdata listening on port 19999. Attempt to take your browser here 
 
 ```
 http://{ip_of_vm}:19999
@@ -84,7 +84,7 @@ scrape_configs:
 
 #### Install prometheus service
 
-Install this service file into /etc/systemd/system/prometheus.service
+Install this service file into `/etc/systemd/system/prometheus.service`
 
 ```
 [Unit]
@@ -159,3 +159,10 @@ This will report all upstream host data, and `honor_labels` will make Prometheus
 ### TYPE and HELP
 
 To save bandwidth, and because prometheus does not use them anyway, `# TYPE` and `# HELP` lines are suppressed. If wanted they can be reenabled via `types=yes` and `help=yes`, e.g. `/api/v1/allmetrics?format=prometheus&types=yes&help=yes`
+
+### Device name mapping
+
+To use device names instead of instance ids in prometheus metric names, append `names=yes`. For example:
+
+* With `names=no`: `disk_ops_dm_8_reads`
+* With `names=yes`: `disk_ops_NAME_reads` where NAME is the dm-8 name as shown in `/dev/mapper`

@@ -160,9 +160,20 @@ This will report all upstream host data, and `honor_labels` will make Prometheus
 
 To save bandwidth, and because prometheus does not use them anyway, `# TYPE` and `# HELP` lines are suppressed. If wanted they can be reenabled via `types=yes` and `help=yes`, e.g. `/api/v1/allmetrics?format=prometheus&types=yes&help=yes`
 
-### Device name mapping
+### Names and IDs
 
-To use device names instead of instance ids in prometheus metric names, append `names=yes`. For example:
+netdata supports names and IDs for charts and dimensions. Usually IDs are unique identifiers as read by the system and names are human friendly labels (also unique).
 
-* With `names=no`: `disk_ops_dm_8_reads`
-* With `names=yes`: `disk_ops_NAME_reads` where NAME is the dm-8 name as shown in `/dev/mapper`
+Most charts and metrics have the same ID and name, but in several cases they are different: disks with device-mapper, interrupts, QoS classes, statsd synthetic charts, etc.
+
+The default is controlled in `netdata.conf`:
+
+```
+[backend]
+	send names instead of ids = yes | no
+```
+
+You can overwrite it from prometheus, by appending to the URL:
+
+* `&names=no` to get IDs (the old behaviour)
+* `&names=yes` to get names

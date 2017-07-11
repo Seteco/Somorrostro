@@ -1,5 +1,5 @@
 
-netdata is a real-time performance monitoring system. Its cause is to help you diagnose and troubleshoot performance problems. Normally, it does not need too many data. The default is to keep one hour of metrics in memory, which depending on number of metrics may lead to 15-25 MB of RAM. This is more than enough for evaluating the current situation and finding the performance issue at hand.
+netdata is a real-time performance monitoring system. Its goal is to help you diagnose and troubleshoot performance problems. Normally, it does not need too much data. The default is to keep one hour of metrics in memory, which depending on number of metrics may lead to 15-25 MB of RAM. This is more than enough for evaluating the current situation and finding the performance issue at hand.
 
 Many users ask for historical performance statistics. Currently netdata is not very efficient in this. It needs a lot of memory (mainly because the metrics are too many - a few thousands per server - and the resolution is too high - per second).
 
@@ -13,7 +13,7 @@ Of course, you can always stream netdata metrics to graphite, opentsdb, promethe
 
 Although `netdata` does all its calculations using `long double` (128 bit) arithmetics, it stores all values using a **custom-made 32-bit number**.
 
-This custom-made number can store in 29 bits values from `-167772150000000.0` to  `167772150000000.0` with a precision of 0.00001 (yes, it is a floating point number, meaning that higher integer values have less decimal precision) and 3 bits for flags.
+This custom-made number can store in 29 bits values from `-167772150000000.0` to  `167772150000000.0` with a precision of 0.00001 (yes, it's a floating point number, meaning that higher integer values have less decimal precision) and 3 bits for flags.
 
 This provides an extremely optimized memory footprint with just 0.0001% max accuracy loss.
 
@@ -83,7 +83,7 @@ In this mode, the database of netdata is stored in memory mapped files. netdata 
 
 **We suggest _not_ to use this mode on nodes that run other applications.** There will always be dirty memory to be synced and this syncing process may influence the way other applications work. This mode however is ideal when we need a central netdata server that would normally need huge amounts of memory. Using memory mode `map` we can overcome all memory restrictions.
 
-There are a few kernel options that allow us to have finer control on the way this syncing works. But before explaning them, a brief introduction of how netdata database works is needed.
+There are a few kernel options that allow us to have finer control on the way this syncing works. But before explaining them, a brief introduction of how netdata database works is needed.
 
 For each chart, netdata maps the following files:
 

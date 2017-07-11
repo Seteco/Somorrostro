@@ -1,4 +1,4 @@
-> IMPORTANT: the format netdata sends metrics to prometheus has changed since netdata v1.7. The new prometheus backend for netdata supports a lot more features and is aligned with the development of the rest of the netdata backends.
+> IMPORTANT: the format netdata sends metrics to prometheus has changed since netdata v1.7. The new prometheus backend for netdata supports a lot more features and is aligned to the development of the rest of the netdata backends.
 
 # Using netdata with Prometheus
 

@@ -77,7 +77,11 @@ Enterprises usually have dedicated resources and departments for collecting and 
 
 For big setups, netdata can [archive its metrics](https://github.com/firehol/netdata/wiki/netdata-backends) to `graphite`, `opentsdb`, `prometheus` and all compatible ones (`kairosdb`, `influxdb`, etc). This allows even enterprises with dedicated departments and infrastructure, to use netdata for data collection and real-time alarms.
 
-netdata alarms can be setup on any metric or combination of metrics and can send notifications to:
+Metrics in netdata are organized in collections called **charts**. Charts are meaningful entities, they have a purpose, a scope. This makes netdata extremely useful for learning the underlying technologies, for understanding how things work and what is available.
+
+The organization of the dashboard is such to allow us quickly and easily search metrics affecting or affected by an event. Just center and zoom the event timeframe on a chart and scroll the dashboard top to bottom. You will be able to spot all the charts that have been influenced or have influence the event!
+
+Netdata also supports real-time alarms. Netdata alarms can be setup on any metric or combination of metrics and can send notifications to:
 
 - email addresses
 - slack channels

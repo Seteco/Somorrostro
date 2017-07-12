@@ -12,7 +12,7 @@ Linux:
    - Solus Linux (`sudo eopkg install netdata`)
 
 - [**One line installation**, on any modern Linux system](#linux-one-liner)
-<br/>(the suggested way of installing the latest netdata and keep it update automatically)
+<br/>(the suggested way of installing the latest netdata and keep it up to date automatically)
 <br/>&nbsp;
 <br/>:hash:&nbsp; **`bash <(curl -Ss https://my-netdata.io/kickstart.sh)`**
 <br/>&nbsp;

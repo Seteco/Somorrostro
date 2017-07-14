@@ -167,17 +167,22 @@ netdata can send metrics to prometheus from 3 data sources:
 
 - `as collected` or `raw` - this data source sends the metrics to prometheus as they are collected. No conversion is done by netdata. The latest value for each metric is just given to prometheus. This is the most preferred method by prometheus, but it is also the harder to work with. To work with this data source, you will need to understand how to get meaningful values out of them.
 
-   The format of the metrics is: `CONTEXT_DIMENSION{chart="CHART",family="FAMILY"}`.
+   The format of the metrics is: `CONTEXT{chart="CHART",family="FAMILY",dimension="DIMENSION"}`.
+
+   If the metric is a counter (`incremental` in netdata lingo), `_total` is appended the context.
+
+   Unlike prometheus, netdata allows each dimension of a chart to have a different algorithm and conversion constants (`multiplier` and `divisor`). In this case, that the dimensions of a charts are heterogeneous, netdata will use this format: `CONTEXT_DIMENSION{chart="CHART",family="FAMILY"}`
 
 - `average` - this data source uses the netdata database to send the metrics to prometheus as they are presented on the netdata dashboard. So, all the metrics are sent as gauges, at the units they are presented in the netdata dashboard charts. This is the easiest to work with.
 
-   The format of the metrics is: `CONTEXT{chart="CHART",family="FAMILY",dimension="DIMENSION"}`.
+   The format of the metrics is: `CONTEXT_UNITS_average{chart="CHART",family="FAMILY",dimension="DIMENSION"}`.
 
    When this source is used, netdata keeps track of the last access time for each prometheus server fetching the metrics. This last access time is used at the subsequent queries of the same prometheus server to identify the time-frame the `average` will be calculated. So, no matter how frequently prometheus scrapes netdata, it will get all the database data. To identify each prometheus server, netdata uses by default the IP of the client fetching the metrics. If there are multiple prometheus servers fetching data from the same netdata, using the same IP, each prometheus server can append `server=NAME` to the URL. Netdata will use this `NAME` to uniquely identify the prometheus server.
 
 - `sum` or `volume`, is like `average` but instead of averaging the values, it sums them.
 
-   The format of the metrics and all the other operations are the same with `average`. 
+   The format of the metrics is: `CONTEXT_UNITS_sum{chart="CHART",family="FAMILY",dimension="DIMENSION"}`.
+   All the other operations are the same with `average`. 
 
 Keep in mind that early versions of netdata were sending the metrics as: `CHART_DIMENSION{}`.
 
@@ -197,26 +202,27 @@ If you search that page for `"system.cpu"` you will find all the metrics netdata
 Searching for `"system.cpu"` reveals:
 
 ```sh
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "guest_nice", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="guest_nice"} 0.0000000 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "guest", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="guest"} 0.0000000 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "steal", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="steal"} 0.0000000 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "softirq", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="softirq"} 2.1164020 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "irq", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="irq"} 0.0000000 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "user", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="user"} 1.3227513 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "system", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="system"} 3.1746030 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "nice", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="nice"} 1.5873016 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "iowait", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="iowait"} 2.9100530 1499716006030
-# COMMENT HELP netdata_system_cpu netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "idle", value gives percentage (gauge)
-netdata_system_cpu{chart="system.cpu",family="cpu",dimension="idle"} 88.8888900 1499716006030
+# COMMENT homogeneus chart "system.cpu", context "system.cpu", family "cpu", units "percentage"
+# COMMENT netdata_system_cpu_percentage_average: dimension "guest_nice", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="guest_nice"} 0.0000000 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "guest", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="guest"} 1.7837326 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "steal", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="steal"} 0.0000000 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "softirq", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="softirq"} 0.5275442 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "irq", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="irq"} 0.2260836 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "user", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="user"} 2.3362762 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "system", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"} 1.7961062 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "nice", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="nice"} 0.0000000 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "iowait", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="iowait"} 0.9671802 1500066662000
+# COMMENT netdata_system_cpu_percentage_average: dimension "idle", value is percentage, gauge, dt 1500066653 to 1500066662 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="idle"} 92.3630770 1500066662000
 ```
 *(netdata response for `system.cpu` with source=`average`)*
 
@@ -225,36 +231,29 @@ In `average` or `sum` data sources, all values are normalized and are reported t
 If the data source was `as collected`, the response would be:
 
 ```sh
-# COMMENT HELP netdata_system_cpu_guest_nice netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "guest_nice", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_guest_nice{chart="system.cpu",family="cpu"} 0 1499716718029
-# COMMENT HELP netdata_system_cpu_guest netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "guest", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_guest{chart="system.cpu",family="cpu"} 0 1499716718029
-# COMMENT HELP netdata_system_cpu_steal netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "steal", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_steal{chart="system.cpu",family="cpu"} 0 1499716718029
-# COMMENT HELP netdata_system_cpu_softirq netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "softirq", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_softirq{chart="system.cpu",family="cpu"} 3664155 1499716718029
-# COMMENT HELP netdata_system_cpu_irq netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "irq", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_irq{chart="system.cpu",family="cpu"} 0 1499716718029
-# COMMENT HELP netdata_system_cpu_user netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "user", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_user{chart="system.cpu",family="cpu"} 29025829 1499716718029
-# COMMENT HELP netdata_system_cpu_system netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "system", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_system{chart="system.cpu",family="cpu"} 18994364 1499716718029
-# COMMENT HELP netdata_system_cpu_nice netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "nice", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_nice{chart="system.cpu",family="cpu"} 11354309 1499716718029
-# COMMENT HELP netdata_system_cpu_iowait netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "iowait", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_iowait{chart="system.cpu",family="cpu"} 7485331 1499716718029
-# COMMENT HELP netdata_system_cpu_idle netdata chart "system.cpu", context "system.cpu", family "cpu", dimension "idle", value * 1 / 1 delta gives percentage (counter)
-netdata_system_cpu_idle{chart="system.cpu",family="cpu"} 593674112 1499716718029
+# COMMENT homogeneus chart "system.cpu", context "system.cpu", family "cpu", units "percentage"
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "guest_nice", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="guest_nice"} 0 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "guest", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="guest"} 63945 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "steal", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="steal"} 0 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "softirq", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="softirq"} 8295 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "irq", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="irq"} 4079 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "user", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="user"} 116488 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "system", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="system"} 35084 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "nice", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="nice"} 505 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "iowait", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="iowait"} 23314 1500066716438
+# COMMENT netdata_system_cpu_total: chart "system.cpu", context "system.cpu", family "cpu", dimension "idle", value * 1 / 1 delta gives percentage (counter)
+netdata_system_cpu_total{chart="system.cpu",family="cpu",dimension="idle"} 918470 1500066716438
 ```
 *(netdata response for `system.cpu` with source=`as-collected`)*
-
-In this case, there are many different metrics. netdata sends them individually because each metric may have a different algorithm, multiplier and divider. Since we are dealing with counters we need to analyze these metrics over a time period. We do this with the 'irate()' function. Type this into the expression bar:
-
-```
-irate(netdata_system_cpu_user[2m])
-```
-
-You now have a metric which searches prometheus's history up to two minutes to find the percentage over time. 
 
 For more information check prometheus documentation.
 
@@ -273,7 +272,7 @@ This will report all upstream host data, and `honor_labels` will make Prometheus
 
 ### TYPE and HELP
 
-To save bandwidth, and because prometheus does not use them anyway, `# TYPE` and `# HELP` lines are suppressed. If wanted they can be reenabled via `types=yes` and `help=yes`, e.g. `/api/v1/allmetrics?format=prometheus&types=yes&help=yes`
+To save bandwidth, and because prometheus does not use them anyway, `# TYPE` and `# HELP` lines are suppressed. If wanted they can be re-enabled via `types=yes` and `help=yes`, e.g. `/api/v1/allmetrics?format=prometheus&types=yes&help=yes`
 
 ### Names and IDs
 

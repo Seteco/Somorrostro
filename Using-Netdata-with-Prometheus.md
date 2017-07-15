@@ -90,10 +90,14 @@ scrape_configs:
     params:
       # format: prometheus | prometheus_all_hosts
       format: [prometheus]
-      # source: as-collected | raw | average | sum | volume
+      #
+      # sources: as-collected | raw | average | sum | volume
+      # default is: average
       #source: [as-collected]
+      #
       # server name for this prometheus - the default is the client IP
-      #server: prometheus1
+      # for netdata to uniquely identify it
+      #server: ['prometheus1']
     honor_labels: true
 
     static_configs:

@@ -22,9 +22,9 @@ Netdata is featured at <b><a href="https://octoverse.github.com/" target="_blank
  - netdata now monitors **Go applications** (via `expvar`) - [read more here](https://github.com/firehol/netdata/wiki/Monitoring-Go-Applications)
  - netdata now monitors **squid logs**
  - netdata now monitors **samba**
- - several **backends** improvements and enhancements, including metrics filtering at the netdata side
+ - several **backends** improvements and enhancements, including **metrics filtering**
  - **prometheus** backend support has been rewritten
- - alarm notifications now support **custom hooks** to execute whatever you need in parallel with all other notification methods
+ - alarm notifications now support **custom hooks** to execute shell commands in parallel with all other notification methods
  - dozens of new and improved plugins
  - dozens of new and improved alarms
  - dozens more improvements and performance optimizations

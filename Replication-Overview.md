@@ -108,8 +108,8 @@ This is an overview of how these options can be combined:
 
 target | memory<br/>mode | web<br/>mode | stream<br/>enabled | backend | alarms | dashboard
 -------|:-----------:|:---:|:------:|:-------:|:---------:|:----:
-headless collector|`none`|`none`|`yes`|not possible|not possible|no
-headless proxy|`none`|not `none`|`yes`|not possible|not possible|no
+headless collector|`none`|`none`|`yes`|only for `data source = as collected`|not possible|no
+headless proxy|`none`|not `none`|`yes`|only for `data source = as collected`|not possible|no
 proxy with db|not `none`|not `none`|`yes`|possible|possible|yes
 central netdata|not `none`|not `none`|`no`|possible|possible|yes
 

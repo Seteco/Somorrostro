@@ -120,7 +120,9 @@ Using the above, you access netdata on the backend servers, like this:
 
 ### Enable authentication
 
-Create an authentication file to enable the nginx basic authentication. If you haven't one you can do the following:
+Create an authentication file to enable the nginx basic authentication.
+Do not use authentication without SSL/TLS!
+If you haven't one you can do the following:
 
 ```
 printf "yourusername:$(openssl passwd -crypt 'yourpassword')" > /etc/nginx/passwords

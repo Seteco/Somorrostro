@@ -30,7 +30,7 @@ There are a few cases however that raw source data are only exposed to processes
 
 So, netdata **plugins**, even those running with escalated capabilities or privileges, perform a hard coded data collection job. They do not accept commands from netdata. The communication is strictly **unidirectional**: from the plugin towards the netdata daemon. Also, the original application data collected by each plugin do not leave the process they are collected, are not saved and are not transferred to the netdata daemon. The communication from the plugins to the netdata daemon includes only chart metadata and processed metric values.
 
-netdata slaves streaming metrics to upstream netdata servers, use exactly the same protocol local plugins use. The raw data collected by the plugins of slave netdata servers are **never leaving the host they are collected**. The only data appearing on the wire are chart metadata and dimension values. This communication is also **unidirectional**: slave netdata servers never accept commands from master netdata servers.
+netdata slaves streaming metrics to upstream netdata servers, use exactly the same protocol local plugins use. The raw data collected by the plugins of slave netdata servers are **never leaving the host they are collected**. The only data appearing on the wire are chart metadata and metric values. This communication is also **unidirectional**: slave netdata servers never accept commands from master netdata servers.
 
 ## netdata is read-only
 

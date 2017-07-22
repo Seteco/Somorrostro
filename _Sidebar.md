@@ -12,6 +12,7 @@
 **Running Netdata**
 * [[Performance]]
 * [[Memory Requirements]]
+* [[netdata Security]]
 
 Special Uses
 * [[netdata for IoT]]<br/>lower netdata resource utilization

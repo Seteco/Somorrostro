@@ -21,7 +21,7 @@ You can also stress test your netdata installation by running the script `tests/
 
 ## No disk I/O at all
 
-Netdata does not use any disk I/O, apart its logs and even these can be disabled.
+Netdata does not use any disk I/O, apart from its logs and even these can be disabled.
 
 Netdata will use some memory (you size it, check [[Memory Requirements]]) and CPU (below 2% of a single core for the daemon, plugins may require more, check [[Performance]]), but normally your systems should have plenty of these resources available and spare.
 

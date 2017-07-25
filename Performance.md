@@ -37,7 +37,7 @@ Normally, each user connected will request less than 10 chart refreshes per seco
 
 Netdata runs with the lowest possible process priority, so even if 1000 users are accessing dashboards, it should not influence your applications. CPU utilization will reach 100%, but your applications should get all the CPU they need.
 
-To lower the CPU utilization of netdata when clients are accessing the dashboard, set `web compression level = 1`, or disable web compression completely by setting `enable web responses gzip compression = no`. Both settings are in the `[global]` section.
+To lower the CPU utilization of netdata when clients are accessing the dashboard, set `web compression level = 1`, or disable web compression completely by setting `enable web responses gzip compression = no`. Both settings are in the `[web]` section.
 
 
 ## Monitoring a heavy loaded system

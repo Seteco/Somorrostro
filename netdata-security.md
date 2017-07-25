@@ -16,7 +16,7 @@ We have given special attention to all aspects of netdata, ensuring that everyth
 
 netdata collects raw data from many sources. For each source, netdata offers a plugin that connects to the source (or reads the relative files produced by the source), receives raw source data and processes these raw data to calculate the metrics shown on netdata dashboards.
 
-So, even if (for example) netdata connects to your database servers, or reads your application log files to collect data, the product of this data collection process is always a number of **chart metdata and metric values** (summarised data). All netdata plugins (internal into the netdata daemon, and external ones written in any computer language), convert raw data collected into metrics, and only these metrics are stored in netdata databases, sent to upstream netdata servers, or archived to backend time-series databases.
+Even if (for example) netdata plugins connect to your database servers, or read your application log files to collect raw data, the product of this data collection process is always a number of **chart metadata and metric values** (summarized data). All netdata plugins (internal into the netdata daemon, and external ones written in any computer language), convert raw data collected into metrics, and only these metrics are stored in netdata databases, sent to upstream netdata servers, or archived to backend time-series databases.
 
 > The **raw collected** data by netdata do not leave the host they are collected. **The only data netdata exposes are chart metadata and metric values.**
 

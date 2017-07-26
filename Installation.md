@@ -391,7 +391,7 @@ To install netdata on pfSense run (change platform and versions according to you
 ```
 pkg install pkgconf
 pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/e2fsprogs-libuuid-1.43.4.txz
-pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.5.0.txz
+pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.7.0.txz
 ```
 More information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages. If you experience an issue with `/usr/bin/install` absense, update pfSense or use workaround from https://redmine.pfsense.org/issues/6643
 

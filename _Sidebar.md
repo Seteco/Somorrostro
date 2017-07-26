@@ -137,6 +137,7 @@ Notes on memory management
 * [named.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/named.conf.md)
 * [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf.md)
 * [fronius.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/fronius.conf.md)
+* [stiebeleltron.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/stiebeleltron.conf.md)
 * [snmp.node.js](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf.md)
 
 **BASH Modules**

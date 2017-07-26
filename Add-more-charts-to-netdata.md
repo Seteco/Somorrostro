@@ -14,7 +14,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Search engines](#search-engines)**, like elasticsearch
 - **[Name Servers](#name-servers)** (DNS), like bind, nsd
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
-- **[UPS and Power](#ups-and-power)**, such as APC UPS, NUT, SMA WebBox (solar power), Fronius Symo
+- **[UPS](#ups)**, such as APC UPS, NUT
 - **[Mail Servers](#mail-servers)**, like postfix, exim, dovecot
 - **[File Servers](#file-servers)**, like samba, NFS, ftp, sftp, WebDAV
 - **[System](#system)**, for processes and other system metrics
@@ -23,6 +23,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Security](#security)**, like FreeRADIUS, OpenVPN, Fail2ban
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Go applications](#go-applications)**
+- **[Household appliances](#household-appliances)**, like SMA WebBox (solar power), Fronius Symo solar power, Stiebel Eltron heating
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
 ## configuring plugins
@@ -178,16 +179,14 @@ application|language|notes|
 rabbitmq|python<br/>v2 or v3|Monitor rabbitmq performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [rabbitmq.chart.py](https://github.com/firehol/netdata/blob/master/python.d/rabbitmq.chart.py)<br/>configuration file: [python.d/rabbitmq.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/rabbitmq.conf)|
 
 ---
-## UPS and Power
+## UPS
 
 application|language|notes|
 :---------:|:------:|:----|
 apcupsd|BASH<br/>Shell Script|Connects to an apcupsd server to collect real-time statistics of an APC UPS.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [apcupsd.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/apcupsd.chart.sh)<br/>configuration file: [charts.d/apcupsd.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/apcupsd.conf)|
 nut|BASH<br/>Shell Script|Connects to a nut server (upsd) to collect real-time UPS statistics.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [nut.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/nut.chart.sh)<br/>configuration file: [charts.d/nut.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/nut.conf)|
-sma_webbox|node.js|Connects to multiple remote SMA webboxes to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/node.d/sma_webbox.node.js)<br/>configuration file: [node.d/sma_webbox.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf.md)|
-fronius|node.js|Connects to multiple remote Fronius Symo servers to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [fronius.node.js](https://github.com/firehol/netdata/blob/master/node.d/fronius.node.js)<br/>configuration file: [node.d/fronius.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/fronius.conf.md)|
 
-
+---
 ## Mail Servers
 
 application|language|notes|
@@ -272,6 +271,14 @@ application|language|notes|
 :---------:|:------:|:----|
 go_expvar|python<br/>v2 or v3|Parses metrics exposed by applications written in the Go programming language using the [expvar package](https://golang.org/pkg/expvar/).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [go_expvar.chart.py](https://github.com/firehol/netdata/blob/master/python.d/go_expvar.chart.py)<br/>configuration file: [python.d/go_expvar.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/go_expvar.conf)<br/>wiki page / documentation: [Monitoring Go Applications](https://github.com/firehol/netdata/wiki/Monitoring-Go-Applications)|
 
+---
+## Household Appliances
+
+application|language|notes|
+:---------:|:------:|:----|
+sma_webbox|node.js|Connects to multiple remote SMA webboxes to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/node.d/sma_webbox.node.js)<br/>configuration file: [node.d/sma_webbox.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf.md)|
+fronius|node.js|Connects to multiple remote Fronius Symo servers to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [fronius.node.js](https://github.com/firehol/netdata/blob/master/node.d/fronius.node.js)<br/>configuration file: [node.d/fronius.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/fronius.conf.md)|
+stiebeleltron|node.js|Collects the temperatures and other metrics from your Stiebel Eltron heating system using their Internet Service Gateway (ISG web).<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [stiebeleltron.node.js](https://github.com/firehol/netdata/blob/master/node.d/stiebeleltron.node.js)<br/>configuration file: [node.d/stiebeleltron.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/stiebeleltron.conf.md)|
 ---
 
 ## Skeleton Plugins

@@ -167,14 +167,13 @@ Notes on memory management
 
 **Web Dashboards**
 * [[Overview]]
+* [[Custom Dashboards]]
 * [[Chart Libraries]]
     - [[Dygraph]]
     - [[EasyPieChart]]
     - [[Gauge.js]]
     - [[jQuery Sparkline]]
     - [[Peity]]
-
-* [[Custom Dashboards]]
 
   Learn how to create dashboards with charts from one or more netdata servers!
 

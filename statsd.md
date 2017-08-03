@@ -290,6 +290,39 @@ Then for histograms and timers the following types are also supported:
 - `median`, show the median of all values (i.e. sort all values and get the middle value)
 - `stddev`, show the standard deviation of the values
 
+#### example synthetic charts
+
+statsd metrics: `foo` and `bar`.
+
+Contents of file `/etc/netdata/stats.d/foobar.conf`:
+
+```
+[app]
+  name = foobarapp
+  metrics = foo bar
+  private charts = yes
+
+[foobar_chart1]
+  title = Hey, foo and bar together
+  family = foobar_family
+  context = foobarapp.foobars
+  units = foobars
+  type = area
+  dimension = foo 'foo me' last 1 1
+  dimension = bar 'bar me' last 1 1
+```
+
+I sent to statsd: `foo:10|g` and `bar:20|g`.
+
+I got these private charts:
+
+![screenshot from 2017-08-03 23-28-19](https://user-images.githubusercontent.com/2662304/28942295-7c3a73a8-78a3-11e7-88e5-a9a006bb7465.png)
+
+and this synthetic chart:
+
+![screenshot from 2017-08-03 23-29-14](https://user-images.githubusercontent.com/2662304/28942317-958a2c68-78a3-11e7-853f-32850141dd36.png)
+
+
 ## interpolation
 
 ~~If you send just one value to statsd, you will notice that the chart is created but no value is shown. The reason is that netdata interpolates all values at second boundaries. For incremental values (`counters` and `meters` in statsd terminology), if you send 10 at 00:00:00.500, 20 at 00:00:01.500 and 30 at 00:00:02.500, netdata will show 15 at 00:00:01 and 25 at 00:00:02.~~

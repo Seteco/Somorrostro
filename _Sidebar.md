@@ -37,7 +37,7 @@ Notes on memory management
 
 * [[netdata-backends]]<br/>`graphite`, `opentsdb`, `kairosdb`, `influxdb`, `elasticsearch`, `blueflood`
 * [netdata with prometheus](https://github.com/firehol/netdata/wiki/Using-Netdata-with-Prometheus)
-* [netdata with prometheus and grafana](https://github.com/firehol/netdata/wiki/Netdata,-Prometheus,-and-Grafana-Stack)
+* Walk Through: [netdata with prometheus and grafana](https://github.com/firehol/netdata/wiki/Netdata,-Prometheus,-and-Grafana-Stack)
 
 ---
 

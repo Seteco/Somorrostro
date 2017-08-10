@@ -1,3 +1,5 @@
+The default port is 19999; for example, to access the dashboard on localhost, use: http://localhost:19999
+
 To view netdata collected data you access its **[[REST API v1]]**.
 
 For our convenience, netdata provides 2 more layers:

@@ -125,7 +125,7 @@ Do not use authentication without SSL/TLS!
 If you haven't one you can do the following:
 
 ```
-printf "yourusername:$(openssl passwd -crypt 'yourpassword')" > /etc/nginx/passwords
+printf "yourusername:$(openssl passwd -apr1)" > /etc/nginx/passwords
 ```
 
 And enable the authentication inside your server directive:

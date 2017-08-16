@@ -66,8 +66,11 @@ be easier. If you take a look at this link:
 https://github.com/firehol/netdata/wiki/Installation the Netdata devs give us
 several one-liners to install netdata. I have not had any issues with these one
 liners and their bootstrapping scripts so far (If you guys run into anything do
-share). Run the following command in your container. bash <(curl -Ss
-https://my-netdata.io/kickstart.sh) --dont-wait
+share). Run the following command in your container.
+
+```
+bash <(curl -Ss https://my-netdata.io/kickstart.sh) --dont-wait
+```
 
 After the install completes you should be able to hit the Netdata dashboard at
 http://localhost:19999/ (replace localhost if you’re doing this on a VM or have
@@ -80,8 +83,8 @@ Next I want to draw your attention to a particular endpoint. Navigate to
 http://localhost:19999/api/v1/allmetrics?format=prometheus&help=yes In your
 browser. This is the endpoint which publishes all the metrics in a format which
 Prometheus understands. Let’s take a look at one of these metrics.
-netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"}
-0.0831255 1501271696000 This metric is representing several things which I will
+`netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"}
+0.0831255 1501271696000` This metric is representing several things which I will
 go in more details in the section on prometheus. For now understand that this
 metric: `netdata_system_cpu_percentage_average` has several labels: [chart,
 family, dimension]. This corresponds with the first cpu chart you see on the
@@ -100,10 +103,10 @@ the install process and setup on a fresh container. This will allow anyone
 reading to migrate this tutorial to a VM or Server of any sort.
 
 Let’s start another container in the same fashion as we did the Netdata
-container. docker run -it --name prometheus --hostname prometheus
---network=netdata-tutorial -p 9090:9090  centos:latest '/bin/bash' This should
+container. `docker run -it --name prometheus --hostname prometheus
+--network=netdata-tutorial -p 9090:9090  centos:latest '/bin/bash'` This should
 drop you into a shell once again. Once there quickly install your favorite
-editor as we will be editing files later in this tutorial. yum install vim -y
+editor as we will be editing files later in this tutorial. `yum install vim -y`
 
 Prometheus provides a tarball of their latest stable versions here:
 https://prometheus.io/download/. Let’s download the latest version and install
@@ -116,21 +119,24 @@ curl -L
 
 mkdir /opt/prometheus
 
-tar -xf /tmp/prometheus.tar.gz -C /opt/prometheus/ --strip-components 1 This
-should get prometheus installed into the container. Let’s test that we can run
+tar -xf /tmp/prometheus.tar.gz -C /opt/prometheus/ --strip-components 1
+```
+
+This should get prometheus installed into the container. Let’s test that we can run
 prometheus and connect to it’s web interface. This will look similar to what
-follows: [root@prometheus prometheus]# /opt/prometheus/prometheus INFO[0000]
-Starting prometheus (version=1.7.1, branch=master,
-revision=3afb3fffa3a29c3de865e1172fb740442e9d0133)  source="main.go:88"
-INFO[0000] Build context (go=go1.8.3, user=root@0aa1b7fc430d,
-date=20170612-11:44:05)  source="main.go:89" INFO[0000] Host details (Linux
-4.9.36-moby #1 SMP Wed Jul 12 15:29:07 UTC 2017 x86_64 prometheus (none))
-source="main.go:90" INFO[0000] Loading configuration file prometheus.yml
-source="main.go:252" INFO[0000] Loading series map and head chunks...
-source="storage.go:428" INFO[0000] 0 series loaded.
-source="storage.go:439" INFO[0000] Starting target manager...
-source="targetmanager.go:63" INFO[0000] Listening on :9090
-source="web.go:259"
+follows:
+
+```
+[root@prometheus prometheus]# /opt/prometheus/prometheus
+INFO[0000] Starting prometheus (version=1.7.1, branch=master, revision=3afb3fffa3a29c3de865e1172fb740442e9d0133) 
+ source="main.go:88"
+INFO[0000] Build context (go=go1.8.3, user=root@0aa1b7fc430d, date=20170612-11:44:05)  source="main.go:89"
+INFO[0000] Host details (Linux 4.9.36-moby #1 SMP Wed Jul 12 15:29:07 UTC 2017 x86_64 prometheus (none)) source="main.go:90"
+INFO[0000] Loading configuration file prometheus.yml source="main.go:252"
+INFO[0000] Loading series map and head chunks... source="storage.go:428"
+INFO[0000] 0 series loaded. source="storage.go:439"
+INFO[0000] Starting target manager... source="targetmanager.go:63"
+INFO[0000] Listening on :9090 source="web.go:259"
 ```
 
 Now attempt to go to http://localhost:9090/. You should be presented with the
@@ -139,8 +145,12 @@ which can be viewed here: https://prometheus.io/docs/concepts/data_model/  As
 explained we have two key elements in Prometheus metrics. We have the ‘metric’
 and its ‘labels’. Labels allow for granularity between metrics. Let’s use our
 previous example to further explain.
-netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"}
-0.0831255 1501271696000 Here our metric is
+
+```
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"} 0.0831255 1501271696000
+```
+
+Here our metric is
 ‘netdata_system_cpu_percentage_average’ and our labels are ‘chart’, ‘family’,
 and ‘dimension. The last two values constitute the actual metric value for the
 metric type (gauge, counter, etc…). We can begin graphing system metrics with
@@ -194,13 +204,17 @@ Prometheus. In order to do this let’s keep our metrics page open for reference
 http://localhost:19999/api/v1/allmetrics?format=prometheus&help=yes  We are
 setting out to graph the data in the CPU chart so let’s search for “system.cpu”
 in the metrics page above. We come across a section of metrics with the first
-comments  # COMMENT homogeneus chart "system.cpu", context "system.cpu", family
-"cpu", units "percentage" Followed by the metrics. This is a good start now let
-us drill down to the specific metric we would like to graph.  # COMMENT
-netdata_system_cpu_percentage_average: dimension "system", value is percentage,
-gauge, dt 1501275951 to 1501275951 inclusive
-netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"}
-0.0000000 1501275951000 Here we learn that the metric name we care about is
+comments  `# COMMENT homogeneus chart "system.cpu", context "system.cpu", family
+"cpu", units "percentage"` Followed by the metrics. This is a good start now let
+us drill down to the specific metric we would like to graph.
+
+```
+# COMMENT
+netdata_system_cpu_percentage_average: dimension "system", value is percentage, gauge, dt 1501275951 to 1501275951 inclusive
+netdata_system_cpu_percentage_average{chart="system.cpu",family="cpu",dimension="system"} 0.0000000 1501275951000
+```
+
+Here we learn that the metric name we care about is
 ‘netdata_system_cpu_percentage_average’ so throw this into Prometheus and see
 what we get.  We should see something similar to this (I shut off my busy loop)
 
@@ -212,7 +226,7 @@ the configuration file. This allows us to tailor our queries to specific
 instances. Now we need to isolate the dimension we want in our query. To do this
 let us refine the query slightly. Let’s query the dimension also. Place this
 into our query text box.
-netdata_system_cpu_percentage_average{dimension="system"} We now wind up with
+`netdata_system_cpu_percentage_average{dimension="system"}` We now wind up with
 the following graph.
 
 ![](https://github.com/ldelossa/NetdataTutorial/raw/master/Screen%20Shot%202017-07-28%20at%205.54.40%20PM.png)
@@ -221,8 +235,7 @@ Awesome, this is exactly what we wanted. If you haven’t caught on yet we can
 emulate entire charts from NetData by using the `chart` dimension. If you’d like
 you can combine the ‘chart’ and ‘instance’ dimension to create per-instance
 charts. Let’s give this a try:
-netdata_system_cpu_percentage_average{chart="system.cpu",
-instance="netdata:19999"}
+`netdata_system_cpu_percentage_average{chart="system.cpu", instance="netdata:19999"}`
 
 This is the basics of using Prometheus to query NetData. I’d advise everyone at
 this point to read this page

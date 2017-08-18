@@ -14,11 +14,11 @@ We have given special attention to all aspects of netdata, ensuring that everyth
 
 ## your data are safe with netdata
 
-netdata collects raw data from many sources. For each source, netdata offers a plugin that connects to the source (or reads the relative files produced by the source), receives raw source data and processes these raw data to calculate the metrics shown on netdata dashboards.
+netdata collects raw data from many sources. For each source, netdata uses a plugin that connects to the source (or reads the relative files produced by the source), receives raw data and processes them to calculate the metrics shown on netdata dashboards.
 
-Even if (for example) netdata plugins connect to your database servers, or read your application log files to collect raw data, the product of this data collection process is always a number of **chart metadata and metric values** (summarized data). All netdata plugins (internal into the netdata daemon, and external ones written in any computer language), convert raw data collected into metrics, and only these metrics are stored in netdata databases, sent to upstream netdata servers, or archived to backend time-series databases.
+Even if netdata plugins connect to your database server, or read your application log file to collect raw data, the product of this data collection process is always a number of **chart metadata and metric values** (summarized data for dashboard visualization). All netdata plugins (internal to the netdata daemon, and external ones written in any computer language), convert raw data collected into metrics, and only these metrics are stored in netdata databases, sent to upstream netdata servers, or archived to backend time-series databases.
 
-> The **raw collected** data by netdata do not leave the host they are collected. **The only data netdata exposes are chart metadata and metric values.**
+> The **raw data** collected by netdata, do not leave the host they are collected. **The only data netdata exposes are chart metadata and metric values.**
 
 This means that netdata can safely be used in environments that require the highest level of data isolation (like PCI Level 1).
 
@@ -26,9 +26,9 @@ This means that netdata can safely be used in environments that require the high
 
 We are very proud that **the netdata daemon runs as a normal system user, without any special privileges**. This is quite an achievement for a monitoring system that collects all kinds of system and application metrics.
 
-There are a few cases however that raw source data are only exposed to processes with escalated privileges. To support these cases, netdata attempts to minimise and completely isolate the code that runs with escalated privileges.
+There are a few cases however that raw source data are only exposed to processes with escalated privileges. To support these cases, netdata attempts to minimize and completely isolate the code that runs with escalated privileges.
 
-So, netdata **plugins**, even those running with escalated capabilities or privileges, perform a hard coded data collection job. They do not accept commands from netdata. The communication is strictly **unidirectional**: from the plugin towards the netdata daemon. Also, the original application data collected by each plugin do not leave the process they are collected, are not saved and are not transferred to the netdata daemon. The communication from the plugins to the netdata daemon includes only chart metadata and processed metric values.
+So, netdata **plugins**, even those running with escalated capabilities or privileges, perform a **hard coded data collection job**. They do not accept commands from netdata. The communication is strictly **unidirectional**: from the plugin towards the netdata daemon. The original application data collected by each plugin do not leave the process they are collected, are not saved and are not transferred to the netdata daemon. The communication from the plugins to the netdata daemon includes only chart metadata and processed metric values.
 
 netdata slaves streaming metrics to upstream netdata servers, use exactly the same protocol local plugins use. The raw data collected by the plugins of slave netdata servers are **never leaving the host they are collected**. The only data appearing on the wire are chart metadata and metric values. This communication is also **unidirectional**: slave netdata servers never accept commands from master netdata servers.
 

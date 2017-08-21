@@ -26,6 +26,8 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Household appliances](#household-appliances)**, like SMA WebBox (solar power), Fronius Symo solar power, Stiebel Eltron heating
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
+Check also [[Third Party Plugins]] for a list of plugins distributed by third parties.
+
 ## configuring plugins
 
 Most plugins come with **auto-detection**, configured to work out-of-the-box on popular operating systems with the default settings.

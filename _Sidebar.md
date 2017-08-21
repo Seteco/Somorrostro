@@ -89,7 +89,8 @@ Notes on memory management
 * **[Add more charts to netdata](https://github.com/firehol/netdata/wiki/Add-more-charts-to-netdata)**
 * [[Internal Plugins]]
 * [[External Plugins]]
-* [[statsd]]
+* [[statsd]]<br/>netdata is a fully featured statsd server
+* [[Third Party Plugins]]<br/>netdata plugins distributed by third parties
 
 **Binary Modules**
 * [[Apps Plugin]]

@@ -138,13 +138,22 @@ Please see these two links to the official netdata documentation for more inform
 
 **Line definitions**
 
-Each chart can define multiple lines (dimensions). A line definition is a key-value mapping of line options. Please see the following link for more information about the keys and values:
-[External plugins - dimensions](https://github.com/firehol/netdata/wiki/External-Plugins#dimension)
-
-Apart from values described at the article above, each line definition **must** have these two keys:
-
+Each chart can define multiple lines (dimensions). A line definition is a key-value mapping of line options. Each line can have the following options:
+    
+    # mandatory
     expvar_key: the name of the expvar as present in the JSON output of /debug/vars endpoint
     expvar_type: value type; supported are "float" or "int"
+    id: the id of this line/dimension in netdata
+
+    # optional - netdata defaults are used if these options are not defined
+    name: ''
+    algorithm: absolute
+    multiplier: 1
+    divisor: 100 if expvar_type == float, 1 if expvar_type == int
+    hidden: False
+
+Please see the following link for more information about the options and their default values:
+[External plugins - dimensions](https://github.com/firehol/netdata/wiki/External-Plugins#dimension)
 
 Apart from top-level expvars, this plugin can also parse expvars stored in a multi-level map; All dicts in the resulting JSON document are then flattened to one level. Expvar names are joined together with '.' when flattening.
 

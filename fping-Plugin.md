@@ -36,7 +36,7 @@ The latest version of the config: https://github.com/firehol/netdata/blob/master
 netdata will automatically attach a few alarms for each host.
 Check the latest versions of the fping alarms here: https://github.com/firehol/netdata/blob/master/conf.d/health.d/fping.conf
 
-## multiple fping plugins with different settings
+## Multiple fping Plugins With Different Settings
 
 You may need to run multiple fping plugins with different settings for different hosts. For example, you may need to ping a few hosts 10 times per second, and others once per second.
 
@@ -46,13 +46,13 @@ Follow this procedure:
 
 **1. Create New fping Configuration File**
 
-**Step Into Configuration Directory**
+Step Into Configuration Directory
 
 ```sh
 cd /etc/netdata
 ```
 
-**Copy Original fping Configuration File To New Configuration File**
+Copy Original fping Configuration File To New Configuration File
 
 ```sh
 cp fping.conf fping2.conf
@@ -62,19 +62,19 @@ Edit `fping2.conf` and set the settings and the hosts you need
 
 **2. Soft Link Original fping Plugin to New Plugin File**
 
-**Become root (If The Step Step Is Performed As Non-Root User)**
+Become root (If The Step Step Is Performed As Non-Root User)
 
 ```sh
 sudo su
 ```
 
-**Step Into The Plugins Directory**
+Step Into The Plugins Directory
 
 ```sh
 cd /usr/libexec/netdata/plugins.d
 ```
 
-**Link fping.plugin to fping2.plugin**
+Link fping.plugin to fping2.plugin
 
 ```sh
 ln -s fping.plugin fping2.plugin

@@ -48,7 +48,8 @@ update_every=10
 
 # Time in Milliseconds (1 sec = 1000 ms) to Ping the Hosts
 # The Following Example Sends 1 Ping Every 5000 ms
-ping_every= $(( (update_every * 1000 ) / 2 ))
+# Calculation Formula: ping_every = (update_every * 1000 ) / 2
+ping_every=5000
 ```
 
 ### Multiple fping Plugins With Different Settings

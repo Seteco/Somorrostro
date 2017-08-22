@@ -47,23 +47,38 @@ Follow this procedure:
 **1. Create New fping Configuration File**
 
 **Step Into Configuration Directory**
-cd /etc/netdata
 
-**### Copy Original fping Configuration File To New Configuration File**
+```sh
+cd /etc/netdata
+```
+
+**Copy Original fping Configuration File To New Configuration File**
+
+```sh
 cp fping.conf fping2.conf
+```
 
 Edit `fping2.conf` and set the settings and the hosts you need
 
 **2. Soft Link Original fping Plugin to New Plugin File**
 
 **Become root (If The Step Step Is Performed As Non-Root User)**
+
+```sh
 sudo su
+```
 
 **Step Into The Plugins Directory**
+
+```sh
 cd /usr/libexec/netdata/plugins.d
+```
 
 **Link fping.plugin to fping2.plugin**
+
+```sh
 ln -s fping.plugin fping2.plugin
+```
 
 That's it. netdata will detect the new plugin and start it.
 

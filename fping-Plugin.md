@@ -36,7 +36,16 @@ The latest version of the config: https://github.com/firehol/netdata/blob/master
 netdata will automatically attach a few alarms for each host.
 Check the latest versions of the fping alarms here: https://github.com/firehol/netdata/blob/master/conf.d/health.d/fping.conf
 
-## Multiple fping Plugins With Different Settings
+## Additional Tips 
+
+### Customizing Amount of Pings Per Second
+
+For example, to update the chart every 10 seconds and use 2 pings every 10 seconds, use this:
+
+update_every=10   # in seconds, ie 10000 ms
+ping_every=$(( (update_every * 1000 ) / 2 ))   # send one ping every 5000 ms
+
+### Multiple fping Plugins With Different Settings
 
 You may need to run multiple fping plugins with different settings for different hosts. For example, you may need to ping a few hosts 10 times per second, and others once per second.
 

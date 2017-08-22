@@ -42,11 +42,13 @@ Check the latest versions of the fping alarms here: https://github.com/firehol/n
 
 For example, to update the chart every 10 seconds and use 2 pings every 10 seconds, use this:
 
+```sh
 # Time in Milliseconds (1 sec = 1000 ms) to Ping The Hosts
 update_every = 10,0000
 
 # Send 1 Ping Every 5000 ms
 ping_every = $(( (update_every * 1000 ) / 2 ))
+```
 
 ### Multiple fping Plugins With Different Settings
 

@@ -44,9 +44,26 @@ netdata allows you to add as many `fping` plugins as you like.
 
 Follow this procedure:
 
-1. copy `fping.conf` to `fping2.conf`, in `/etc/netdata`
-2. edit `fping2.conf` and set the settings and the hosts you need
-3. soft link `fping.plugin` to `fping2.plugin`, in `/usr/libexec/netdata/plugins.d`.
+**1. Create New fping Configuration File**
+
+### ## Step Into Configuration Directory
+cd /etc/netdata
+
+### Copy Original fping Configuration File To New Configuration File
+cp fping.conf fping2.conf
+
+Edit `fping2.conf` and set the settings and the hosts you need
+
+2. Soft Link Original fping Plugin to New Plugin Filesoft link `fping.plugin` to `fping2.plugin`, in `/usr/libexec/netdata/plugins.d`.
+
+### # Become root (If The Step Step Is Performed As Non-Root User)
+sudo su
+
+### # Step Into The Plugins Directory
+cd /usr/libexec/netdata/plugins.d
+
+### # Link fping.plugin to fping2.plugin
+ln -s fping.plugin fping2.plugin
 
 That's it. netdata will detect the new plugin and start it.
 

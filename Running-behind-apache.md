@@ -48,7 +48,7 @@ a2ensite netdata.conf && service apache2 reload
 
 ### HTTPS VirtualHost
 
-If mod_ssl is enabled and you're hosting at least one domain with an valid TLS certificate, then you can easilly enable SSL.
+If mod_ssl is enabled and you're hosting at least one domain with a valid TLS certificate, then you can easily enable SSL.
 
 Create a VirtualHost:
 
@@ -95,7 +95,7 @@ Note: Changes are applied by reloading or restarting apache.
 
 ## Enable Basic Auth
 
-If you wish to add an authentication (user/password) to access your nedtdata
+If you wish to add an authentication (user/password) to access your netdata
 
 Then with elevated privileges:  
 
@@ -154,7 +154,7 @@ Which leads you to something like:
 </VirtualHost>
 ```
 
-Note: Changes are applied by reloading or restarting apache.
+Note: Changes are applied by reloading or restarting Apache.
 
 # Netdata configuration
 

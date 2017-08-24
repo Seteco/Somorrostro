@@ -157,16 +157,16 @@ Check also [[Memory Requirements]] for directions on calculating the size of the
 Gzip compression of the web responses is using more CPU that the rest of netdata. You can lower the compression level or disable gzip compression completely. You can disable it, like this:
 
 ```
-[global]
-	enable web responses gzip compression = no
+[web]
+	enable gzip compression = no
 ```
 
 To lower the compression level, do this:
 
 ```
-[global]
-	enable web responses gzip compression = yes
-	web compression level = 1
+[web]
+	enable gzip compression = yes
+	gzip compression level = 1
 ```
 
 ---
@@ -178,8 +178,8 @@ Normally, netdata creates a thread for each web client accessing it. This allows
 To use the single threaded web server, do this:
 
 ```
-[global]
-	multi threaded web server = no
+[web]
+	mode = single-threaded
 ```
 
 

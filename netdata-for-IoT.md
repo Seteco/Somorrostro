@@ -191,3 +191,21 @@ Finally, if no web server is installed on your device, you can use port tcp/80 f
 [global]
 	port = 80
 ```
+
+---
+
+## 9. Monitoring RPi temperature
+
+The python version of the sensors plugin uses `lm-sensors`. Unfortunately the temperature reading of RPi are not supported by `lm-sensors`.
+
+netdata also has a bash version of the sensors plugin that can read RPi temperatures. It is disabled by default to avoid the conflicts with the python version.
+
+To enable it, edit `/etc/netdata/charts.d.conf` and uncomment this line:
+
+```sh
+sensors=force
+```
+
+Then restart netdata. You will get this:
+
+![image](https://user-images.githubusercontent.com/2662304/29658868-23aa65ae-88c5-11e7-9dad-c159600db5cc.png)

@@ -2,8 +2,8 @@
 
 Below you can find instructions for configuring an apache server for:
 
-1. proxy a single netdata via a dedicated HTTP and HTTPS virtual host
-2. dynamically proxy any number of netdata via an existing virtual host
+1. proxy a single netdata via an HTTP and HTTPS virtual host
+2. dynamically proxy any number of netdata
 3. add user authentication
 4. adjust netdata settings to get optimal results
 

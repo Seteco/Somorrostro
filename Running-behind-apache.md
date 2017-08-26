@@ -29,9 +29,11 @@ This VirtualHost  will allow you to access netdata with `http://you-public-ip/ne
 	RewriteEngine On
 	ProxyRequests Off
 
-	# Local netdata server accessed with '/netdata', at 127.0.0.1:19999
-	ProxyPass "/netdata" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
-	ProxyPassReverse "/netdata" "http://127.0.0.1:19999/"
+	# Local netdata server accessed with '/netdata/', at 127.0.0.1:19999
+	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
+	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
+
+        # if the user did not give the trailing /, add it
 	RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
 
 	ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
@@ -64,9 +66,11 @@ This VirtualHost will allow you to access netdata `https://your-domain.tld/netda
 	RewriteEngine On
 	ProxyRequests Off
 
-	# Local 127.0.0.1:19999 netdata server accessed with '/netdata'
-	ProxyPass "/netdata" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
-	ProxyPassReverse "/netdata" "http://127.0.0.1:19999/"
+	# Local 127.0.0.1:19999 netdata server accessed with '/netdata/'
+	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
+	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
+
+        # if the user did not give the trailing /, add it
 	RewriteRule ^/netdata$ https://%{HTTP_HOST}/netdata/ [L,R=301]
 
 	ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
@@ -134,9 +138,11 @@ Which leads you to something like:
 		Allow from all
 	</Proxy>
 
-	# Local 127.0.0.1:19999 netdata server accessed with '/netdata'
-	ProxyPass "/netdata" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
-	ProxyPassReverse "/netdata" "http://127.0.0.1:19999/"
+	# Local 127.0.0.1:19999 netdata server accessed with '/netdata/'
+	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
+	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
+
+        # if the user did not give the trailing /, add it
 	RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
 
 	<Location /netdata/>

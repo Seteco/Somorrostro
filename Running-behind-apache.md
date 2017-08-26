@@ -92,7 +92,7 @@ Enable the VirtualHost:
 a2ensite netdata-ssl.conf && service apache2 reload
 ```
 
-## Dynamic proxy any netdata through an apache
+## Dynamically proxy any number of netdata through a single apache
 
 You can proxy multiple netdata via a single apache server, with URLs like `http://your.apache/netdata/NETDATA_SERVER/`, where `NETDATA_SERVER` is any netdata server on your network.
 
@@ -110,7 +110,20 @@ Add the following to an existing virtual host.
 ```
 
 > IMPORTANT<br/>
-> This allows your apache users to connect to port 19999 on any server on your network.
+> The above config allows your apache users to connect to port 19999 on any server on your network.
+
+If you want to control the servers your users can connect to, use some like the following. This allows only `server1`, `server2`, `server3` and `server4`.
+
+```
+    RewriteEngine On
+    ProxyRequests Off
+
+    # proxy any host, on port 19999
+    ProxyPassMatch "^/netdata/(server1|server2|server3|server4)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30
+
+    # make sure the user did not forget to add a trailing /
+    RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" http://%{HTTP_HOST}/netdata/$1/ [L,R=301]
+```
 
 Changes are applied by reloading or restarting apache.
 

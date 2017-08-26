@@ -36,6 +36,7 @@ This VirtualHost  will allow you to access netdata with `http://your-public-ip/n
 <VirtualHost *:80>
 	RewriteEngine On
 	ProxyRequests Off
+	ProxyPreserveHost On
 
 	<Proxy *>
 		Require all granted
@@ -77,6 +78,7 @@ This VirtualHost will allow you to access netdata `https://your-domain.tld/netda
 <VirtualHost *:443>
 	RewriteEngine On
 	ProxyRequests Off
+	ProxyPreserveHost On
 
 	<Proxy *>
 		Require all granted
@@ -109,6 +111,7 @@ Add the following to an existing virtual host.
 ```
     RewriteEngine On
     ProxyRequests Off
+    ProxyPreserveHost On
 
     # proxy any host, on port 19999
     ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30 keepalive=on
@@ -125,6 +128,7 @@ If you want to control the servers your users can connect to, use some like the 
 ```
     RewriteEngine On
     ProxyRequests Off
+    ProxyPreserveHost On
 
     # proxy any host, on port 19999
     ProxyPassMatch "^/netdata/(server1|server2|server3|server4)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30 keepalive=on
@@ -169,6 +173,7 @@ Which leads you to something like:
 <VirtualHost *:80>
 	RewriteEngine On
 	ProxyRequests Off
+	ProxyPreserveHost On
 
 	<Proxy *>
 		Order deny,allow
@@ -243,3 +248,9 @@ apache logs accesses and netdata logs them too. You can prevent netdata from gen
 ```
 
 ## Troubleshooting mod_proxy
+
+Make sure the requests reach netdata, by examinng `/var/log/netdata/access.log`.
+
+1. if the requests do not reach netdata, your apache does not forward them.
+2. if the requests reach netdata by the URLs are wrong, you have not re-written them properly.
+

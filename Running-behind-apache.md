@@ -89,10 +89,15 @@ a2ensite netdata-ssl.conf && service apache2 reload
 You can proxy multiple netdata via a single apache server, with URLs like `http://your.apache/netdata/NETDATA_SERVER/`, where `NETDATA_SERVER` is any netdata server on your network.
 
 ```
-        ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30
+    # proxy any host, on port 19999
+    ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30
+
+    # make sure the user did not forget to add a trailing /
+    RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" http://%{HTTP_HOST}/netdata/$1/ [L,R=301]
 ```
 
-> IMPORTANT: This allows your apache users to connect to port 19999 on any server on your network.
+> IMPORTANT<br/>
+> This allows your apache users to connect to port 19999 on any server on your network.
 
 Changes are applied by reloading or restarting apache.
 
@@ -179,15 +184,20 @@ killall netdata
 If you plan to use netdata exclusively via apache, you can gain some performance by preventing double compression of its output (netdata compresses its response, apache re-compresses it) by editing `/etc/netdata/netdata.conf` and setting:
 
 ```
-enable web responses gzip compression = no
+[web]
+    enable web responses gzip compression = no
 ```
 
 Once you disable compression at netdata (and restart it), please verify you receive compressed responses from apache (it is important to receive compressed responses - the charts will be more snappy).
 
 ## Limit direct access to netdata
 
-You would also need to instruct netdata to listen only from localhost `127.0.0.1` or `::1`.
+You would also need to instruct netdata to listen only on `localhost`, `127.0.0.1` or `::1`.
 
+```
+bind to = localhost
+```
+or  
 ```
 bind to = 127.0.0.1
 ```
@@ -203,4 +213,3 @@ apache logs accesses and netdata logs them too. You can prevent netdata from gen
 ```
       access log = none
 ```
-

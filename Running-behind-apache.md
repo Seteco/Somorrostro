@@ -168,16 +168,7 @@ Note: Changes are applied by reloading or restarting Apache.
 
 # Netdata configuration
 
-You might edit netdata to suit those changes.
-
-`nano /etc/netdata/netdata.conf`
-
-Then restart netdata to apply the new configuration.
-```sh
-killall netdata
-/usr/sbin/netdata
-```
-
+You might edit `/etc/netdata/netdata.conf` to optimize your setup a bit. For applying these changes you need to restart netdata.
 
 ## Response compression
 
@@ -185,7 +176,7 @@ If you plan to use netdata exclusively via apache, you can gain some performance
 
 ```
 [web]
-    enable web responses gzip compression = no
+    enable gzip compression = no
 ```
 
 Once you disable compression at netdata (and restart it), please verify you receive compressed responses from apache (it is important to receive compressed responses - the charts will be more snappy).
@@ -195,15 +186,18 @@ Once you disable compression at netdata (and restart it), please verify you rece
 You would also need to instruct netdata to listen only on `localhost`, `127.0.0.1` or `::1`.
 
 ```
-bind to = localhost
+[web]
+    bind to = localhost
 ```
 or  
 ```
-bind to = 127.0.0.1
+[web]
+    bind to = 127.0.0.1
 ```
 or  
 ```
-bind to = ::1
+[web]
+    bind to = ::1
 ```
 
 ## prevent the double access.log
@@ -211,5 +205,6 @@ bind to = ::1
 apache logs accesses and netdata logs them too. You can prevent netdata from generating its access log, by setting this in `/etc/netdata/netdata.conf`:
 
 ```
-      access log = none
+[global]
+    access log = none
 ```

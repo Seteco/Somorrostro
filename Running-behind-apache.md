@@ -10,30 +10,34 @@ Below you can find instructions for configuring an apache server for:
 
 ## Requirements
 
-With elevated privileges:
+Make sure your apache has installed `mod_proxy` and `mod_proxy_http`.
+
+On debian/ubuntu systems, install them with this: 
 
 ```sh
-apt-get install libapache2-mod-proxy-html
-a2enmod proxy
-a2enmod proxy_http
+sudo apt-get install libapache2-mod-proxy-html
 ```
 
-## Virtual Hosts
+Also make sure they are enabled:
 
-You can proxy netdata through apache, using a dedicated netdata virtual host.
-
-### HTTP VirtualHost
-
-Create a VirtualHost:
-
-```sh
-nano /etc/apache2/sites-available/netdata.conf
+```
+sudo a2enmod proxy
+sudo a2enmod proxy_http
 ```
 
-This VirtualHost  will allow you to access netdata with `http://your-public-ip/netdata/` or `http://your-domain.tld/netdata/`
+---
+
+## netdata on an existing virtual host
+
+On any **existing** and already **working** apache virtual host, you can redirect requests for URL `/netdata/` to one or more netdata servers.
+
+### proxy one netdata, running on the same server apache runs
+
+Add the following on top of any existing virtual host. It will allow you to access netdata as `http://virtual.host/netdata/`.
 
 ```
 <VirtualHost *:80>
+
 	RewriteEngine On
 	ProxyRequests Off
 	ProxyPreserveHost On
@@ -42,40 +46,28 @@ This VirtualHost  will allow you to access netdata with `http://your-public-ip/n
 		Require all granted
 	</Proxy>
 
-	# Local netdata server accessed with '/netdata/', at 127.0.0.1:19999
-	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30 keepalive=on
-	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
+	# Local netdata server accessed with '/netdata/', at localhost:19999
+	ProxyPass "/netdata/" "http://localhost:19999/" connectiontimeout=5 timeout=30 keepalive=on
+	ProxyPassReverse "/netdata/" "http://localhost:19999/"
 
-        # if the user did not give the trailing /, add it
+	# if the user did not give the trailing /, add it
+	# for HTTP (if the virtualhost is HTTP, use this)
 	RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
+	# for HTTPS (if the virtualhost is HTTPS, use this)
+	#RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
 
-	ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
-	CustomLog ${APACHE_LOG_DIR}/netdata-access.log combined
+	# rest of virtual host config here
+	
 </VirtualHost>
 ```
 
-Note: The `RewriteRule` statements makes sure that the request has a trailing `/`. Without a trailing slash, the browser will be requesting wrong URLs.
+### proxy multiple netdata running on multiple servers
 
-Enable the VirtualHost: 
-```
-a2ensite netdata.conf && service apache2 reload
-```
-
-### HTTPS VirtualHost
-
-If mod_ssl is enabled and you're hosting at least one domain with a valid TLS certificate, then you can easily enable SSL.
-
-Create a VirtualHost:
-
-```sh
-nano /etc/apache2/sites-available/netdata-ssl.conf
-```
-
-This VirtualHost will allow you to access netdata `https://your-domain.tld/netdata/`:  
+Add the following on top of any existing virtual host. It will allow you to access multiple netdata as `http://virtual.host/netdata/HOSTNAME/`, where `HOSTNAME` is the hostname of any other netdata server you have (to access the `localhost` netdata, use `http://virtual.host/netdata/localhost/`).
 
 ```
-<IfModule mod_ssl.c>
-<VirtualHost *:443>
+<VirtualHost *:80>
+
 	RewriteEngine On
 	ProxyRequests Off
 	ProxyPreserveHost On
@@ -83,110 +75,86 @@ This VirtualHost will allow you to access netdata `https://your-domain.tld/netda
 	<Proxy *>
 		Require all granted
 	</Proxy>
-
-	# Local 127.0.0.1:19999 netdata server accessed with '/netdata/'
-	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30 keepalive=on
-	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
-
-        # if the user did not give the trailing /, add it
-	RewriteRule ^/netdata$ https://%{HTTP_HOST}/netdata/ [L,R=301]
-
-	ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
-	CustomLog ${APACHE_LOG_DIR}/netdata-access.log combined
-</VirtualHost>
-</IfModule>
-```
-
-Enable the VirtualHost: 
-```
-a2ensite netdata-ssl.conf && service apache2 reload
-```
-
-## Dynamically proxy any number of netdata through a single apache
-
-You can proxy multiple netdata via a single apache server, with URLs like `http://your.apache/netdata/NETDATA_SERVER/`, where `NETDATA_SERVER` is any netdata server on your network.
-
-Add the following to an existing virtual host.
-
-```
-    RewriteEngine On
-    ProxyRequests Off
-    ProxyPreserveHost On
 
     # proxy any host, on port 19999
     ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30 keepalive=on
 
     # make sure the user did not forget to add a trailing /
+    # for HTTP (if the virtualhost is HTTP, use this)
     RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" http://%{HTTP_HOST}/netdata/$1/ [L,R=301]
+    # for HTTPS (if the virtualhost is HTTPS, use this)
+    RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" https://%{HTTP_HOST}/netdata/$1/ [L,R=301]
+
+	# rest of virtual host config here
+	
+</VirtualHost>
 ```
 
 > IMPORTANT<br/>
 > The above config allows your apache users to connect to port 19999 on any server on your network.
 
-If you want to control the servers your users can connect to, use some like the following. This allows only `server1`, `server2`, `server3` and `server4`.
+If you want to control the servers your users can connect to, replace the `ProxyPassMatch` line with the following. This allows only `server1`, `server2`, `server3` and `server4`.
 
 ```
-    RewriteEngine On
-    ProxyRequests Off
-    ProxyPreserveHost On
-
-    # proxy any host, on port 19999
     ProxyPassMatch "^/netdata/(server1|server2|server3|server4)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30 keepalive=on
-
-    # make sure the user did not forget to add a trailing /
-    RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" http://%{HTTP_HOST}/netdata/$1/ [L,R=301]
 ```
 
-Changes are applied by reloading or restarting apache.
+## netdata on a dedicated virtual host
 
-## Enable Basic Auth
+You can proxy netdata through apache, using a dedicated apache virtual host.
 
-If you wish to add an authentication (user/password) to access your netdata
+Create a new apache site:
 
-Then with elevated privileges:  
-
-1) Install required dependencies with `apt-get install apache2-utils`
-
-2) Generate password for user 'netdata' using `htpasswd -c /etc/apache2/.htpasswd netdata`
-
-3) Add to virtualhost:
-
-```
-	<Proxy *>
-		Order deny,allow
-		Allow from all
-	</Proxy>
-
-<Location /netdata>
-	AuthType Basic
-	AuthName "Protected site"
-	AuthUserFile /etc/apache2/.htpasswd
-	Require valid-user
-	Order deny,allow
-	Allow from all
-</Location>
+```sh
+nano /etc/apache2/sites-available/netdata.conf
 ```
 
-Which leads you to something like: 
+with this content:
 
 ```
 <VirtualHost *:80>
 	RewriteEngine On
 	ProxyRequests Off
 	ProxyPreserveHost On
+	
+	ServerName netdata.domain.tld
 
+	<Proxy *>
+		Require all granted
+	</Proxy>
+
+	ProxyPass "/" "http://localhost:19999/" connectiontimeout=5 timeout=30 keepalive=on
+	ProxyPassReverse "/" "http://localhost:19999/"
+
+	ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
+	CustomLog ${APACHE_LOG_DIR}/netdata-access.log combined
+</VirtualHost>
+```
+
+Enable the VirtualHost: 
+
+```sh
+sudo a2ensite netdata.conf && service apache2 reload
+```
+
+## Enable Basic Auth
+
+If you wish to add an authentication (user/password) to access your netdata, do these:
+
+Install the package `apache2-utils`. On debian / ubuntu run `sudo apt-get install apache2-utils`.
+
+Then, generate password for user `netdata`, using `htpasswd -c /etc/apache2/.htpasswd netdata`
+
+Modify the virtual host with these:
+
+```
+	# replace the <Proxy *> section
 	<Proxy *>
 		Order deny,allow
 		Allow from all
 	</Proxy>
 
-	# Local 127.0.0.1:19999 netdata server accessed with '/netdata/'
-	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30 keepalive=on
-	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
-
-        # if the user did not give the trailing /, add it
-	RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
-
+	# add a <Location /netdata/> section
 	<Location /netdata/>
 		AuthType Basic
 		AuthName "Protected site"
@@ -195,11 +163,6 @@ Which leads you to something like:
 		Order deny,allow
 		Allow from all
 	</Location>
-
-	ErrorLog ${APACHE_LOG_DIR}/netdata-error.log
-	CustomLog ${APACHE_LOG_DIR}/netdata-access.log combined
-
-</VirtualHost>
 ```
 
 Note: Changes are applied by reloading or restarting Apache.
@@ -249,8 +212,7 @@ apache logs accesses and netdata logs them too. You can prevent netdata from gen
 
 ## Troubleshooting mod_proxy
 
-Make sure the requests reach netdata, by examinng `/var/log/netdata/access.log`.
+Make sure the requests reach netdata, by examing `/var/log/netdata/access.log`.
 
 1. if the requests do not reach netdata, your apache does not forward them.
 2. if the requests reach netdata by the URLs are wrong, you have not re-written them properly.
-

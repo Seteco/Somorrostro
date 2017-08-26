@@ -37,8 +37,12 @@ This VirtualHost  will allow you to access netdata with `http://you-public-ip/ne
 	RewriteEngine On
 	ProxyRequests Off
 
+	<Proxy *>
+		Require all granted
+	</Proxy>
+
 	# Local netdata server accessed with '/netdata/', at 127.0.0.1:19999
-	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
+	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30 keepalive=on
 	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
 
         # if the user did not give the trailing /, add it
@@ -74,8 +78,12 @@ This VirtualHost will allow you to access netdata `https://your-domain.tld/netda
 	RewriteEngine On
 	ProxyRequests Off
 
+	<Proxy *>
+		Require all granted
+	</Proxy>
+
 	# Local 127.0.0.1:19999 netdata server accessed with '/netdata/'
-	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
+	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30 keepalive=on
 	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
 
         # if the user did not give the trailing /, add it
@@ -103,7 +111,7 @@ Add the following to an existing virtual host.
     ProxyRequests Off
 
     # proxy any host, on port 19999
-    ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30
+    ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30 keepalive=on
 
     # make sure the user did not forget to add a trailing /
     RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" http://%{HTTP_HOST}/netdata/$1/ [L,R=301]
@@ -119,7 +127,7 @@ If you want to control the servers your users can connect to, use some like the 
     ProxyRequests Off
 
     # proxy any host, on port 19999
-    ProxyPassMatch "^/netdata/(server1|server2|server3|server4)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30
+    ProxyPassMatch "^/netdata/(server1|server2|server3|server4)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30 keepalive=on
 
     # make sure the user did not forget to add a trailing /
     RewriteRule "^/netdata/([A-Za-z0-9\._-]+)$" http://%{HTTP_HOST}/netdata/$1/ [L,R=301]
@@ -133,8 +141,7 @@ If you wish to add an authentication (user/password) to access your netdata
 
 Then with elevated privileges:  
 
-1) Install required dependencies  
-`apt-get install apache2-utils`
+1) Install required dependencies with `apt-get install apache2-utils`
 
 2) Generate password for user 'netdata' using `htpasswd -c /etc/apache2/.htpasswd netdata`
 
@@ -162,13 +169,14 @@ Which leads you to something like:
 <VirtualHost *:80>
 	RewriteEngine On
 	ProxyRequests Off
+
 	<Proxy *>
 		Order deny,allow
 		Allow from all
 	</Proxy>
 
 	# Local 127.0.0.1:19999 netdata server accessed with '/netdata/'
-	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30
+	ProxyPass "/netdata/" "http://127.0.0.1:19999/" connectiontimeout=5 timeout=30 keepalive=on
 	ProxyPassReverse "/netdata/" "http://127.0.0.1:19999/"
 
         # if the user did not give the trailing /, add it
@@ -233,3 +241,5 @@ apache logs accesses and netdata logs them too. You can prevent netdata from gen
 [global]
     access log = none
 ```
+
+## Troubleshooting mod_proxy

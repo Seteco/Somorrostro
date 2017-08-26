@@ -30,7 +30,7 @@ Create a VirtualHost:
 nano /etc/apache2/sites-available/netdata.conf
 ```
 
-This VirtualHost  will allow you to access netdata with `http://you-public-ip/netdata/` or `http://your-domain.tld/netdata/`
+This VirtualHost  will allow you to access netdata with `http://your-public-ip/netdata/` or `http://your-domain.tld/netdata/`
 
 ```
 <VirtualHost *:80>

@@ -1,5 +1,13 @@
 # netdata via apache's mod_proxy
 
+Below you can find instructions for configuring an apache server for:
+
+1. proxy a single netdata via a dedicated HTTP and HTTPS virtual host
+2. dynamically proxy any number of netdata via an existing virtual host
+3. add user authentication
+4. adjust netdata settings to get optimal results
+
+
 ## Requirements
 
 With elevated privileges:
@@ -12,7 +20,7 @@ a2enmod proxy_http
 
 ## Virtual Hosts
 
-To pass netdata through mod_proxy, you need to create a VirtualHost.  
+You can proxy netdata through apache, using a dedicated netdata virtual host.
 
 ### HTTP VirtualHost
 
@@ -88,7 +96,12 @@ a2ensite netdata-ssl.conf && service apache2 reload
 
 You can proxy multiple netdata via a single apache server, with URLs like `http://your.apache/netdata/NETDATA_SERVER/`, where `NETDATA_SERVER` is any netdata server on your network.
 
+Add the following to an existing virtual host.
+
 ```
+    RewriteEngine On
+    ProxyRequests Off
+
     # proxy any host, on port 19999
     ProxyPassMatch "^/netdata/([A-Za-z0-9\._-]+)/(.*)" "http://$1:19999/$2" connectiontimeout=5 timeout=30
 
@@ -110,8 +123,7 @@ Then with elevated privileges:
 1) Install required dependencies  
 `apt-get install apache2-utils`
 
-2) Generate password for user 'netdata'  
-`htpasswd -c /etc/apache2/.htpasswd netdata`
+2) Generate password for user 'netdata' using `htpasswd -c /etc/apache2/.htpasswd netdata`
 
 3) Add to virtualhost:
 

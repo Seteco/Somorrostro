@@ -44,6 +44,43 @@ bind to|`*`|The IP address and port to listen to. This is a space separated list
 disconnect idle web clients after seconds|60|The time in seconds to disconnect web clients after being totally idle.
 enable web responses gzip compression|yes|When set to `yes`, netdata web responses will be GZIP compressed, if the web client accepts such responses.
 
+##### netdata process priority
+
+By default, netdata runs with the `idle` process scheduler, which assigns CPU resources to netdata, only when the system has such resources to spare.
+
+The following `netdata.conf` settings control this:
+
+```
+[global]
+    process scheduling policy = idle
+    process scheduling priority = 0
+    process nice level = 19
+```
+
+The policies supported by netdata are `idle` (the netdata default), `other` (also as `nice`), `batch`, `rr`, `fifo`. netdata also recognizes `keep` and `none` to keep the current settings without changing them.
+
+For `other`, `nice` and `batch`, the setting `process nice level = 19` is activated to configure the nice level of netdata. Nice gets values -20 (highest) to 19 (lowest).
+
+For `rr` and `fifo`, the setting `process scheduling priority = 0` is activated to configure the priority of the relative scheduling policy. Priority gets values 1 (lowest) to 99 (highest).
+
+For the details of each scheduler, see `man sched_setscheduler` and `man sched`.
+
+When netdata is running under systemd, it can only lower its priority (the default is `other` with `nice level = 0`). If you want to make netdata to get more CPU than that, you will need to set in `netdata.conf`:
+
+```
+[global]
+    process scheduling policy = keep
+```
+
+and edit `/etc/systemd/system/netdata.service` and add:
+
+```
+CPUSchedulingPolicy=other | batch | idle | fifo | rr
+CPUSchedulingPriority=99
+Nice=-10
+```
+
+
 ### [plugins] section options
 
 In this section there will be a boolean (`yes`/`no`) option for each plugin. Additionally, there will be the following options:

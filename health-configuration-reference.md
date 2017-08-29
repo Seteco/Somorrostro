@@ -83,7 +83,7 @@ The following lines are parsed:
 
   This is used to provide optional hysteresis settings for the notifications, to defend against notification flood. These settings do not affect the actual alarm - only the time the `exec` script is executed.
   
-  `up U` defines the delay to be applied to a notification for an alarm that raised its status (i.e. CLEAR to WARNING, CLEAR to CRITICAL, WARNING to CRITICAL). For example, `up 10s`, the notification for this event will be send 10 seconds after the actual event. This is used in hope the alarm will get back to its previous state within the duration given. The default `U` is zero.
+  `up U` defines the delay to be applied to a notification for an alarm that raised its status (i.e. CLEAR to WARNING, CLEAR to CRITICAL, WARNING to CRITICAL). For example, `up 10s`, the notification for this event will be sent 10 seconds after the actual event. This is used in hope the alarm will get back to its previous state within the duration given. The default `U` is zero.
   
   `down D` defines the delay to be applied to a notification for an alarm that moves to lower state (i.e. CRITICAL to WARNING, CRITICAL to CLEAR, WARNING to CLEAR). For example, `down 1m` will delay the notification by 1 minute. This is used to prevent notifications for flapping alarms. The default `D` is zero.
   

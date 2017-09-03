@@ -40,13 +40,13 @@ QoS is about 2 features:
 
 1. **Traffic Classification**
 
-  Classification is the process of organizing traffic in groups, called **classes**. Classification can evaluate every aspect of network packets, like source and destination ports, source and destination IPs, netfilter marks, etc.
+   Classification is the process of organizing traffic in groups, called **classes**. Classification can evaluate every aspect of network packets, like source and destination ports, source and destination IPs, netfilter marks, etc.
 
-  To simplify things, you can think that when you classify traffic, you just assign a label to it. Of course classes have some properties themselves (like queuing mechanisms), but let's say it is that simple: **a label**.
+   To simplify things, you can think that when you classify traffic, you just assign a label to it. Of course classes have some properties themselves (like queuing mechanisms), but let's say it is that simple: **a label**.
 
 2. **Apply traffic shaping rules to these classes**
 
-  Traffic shaping is used to control how network bandwidth should be shared among the classes. Normally, you need to do this, when there is not enough bandwidth to satisfy all the demand, or when you want to control the supply of bandwidth to certain services.
+   Traffic shaping is used to control how network bandwidth should be shared among the classes. Normally, you need to do this, when there is not enough bandwidth to satisfy all the demand, or when you want to control the supply of bandwidth to certain services.
 
 So, why do we need it?
 
@@ -58,27 +58,27 @@ I install QoS for the following reasons:
 
 1. **Monitoring the bandwidth used by services**
 
-  netdata provides wonderful real-time charts, like this one (wait to see the orange `rsync` part):
+   netdata provides wonderful real-time charts, like this one (wait to see the orange `rsync` part):
 
- ![qos3](https://cloud.githubusercontent.com/assets/2662304/14474189/713ede84-0104-11e6-8c9c-8dca5c2abd63.gif)
+   ![qos3](https://cloud.githubusercontent.com/assets/2662304/14474189/713ede84-0104-11e6-8c9c-8dca5c2abd63.gif)
 
 2. **Ensure sensitive administrative tasks will not starve for bandwidth**
 
-  Have you tried to ssh to a server when the network is congested? If you have, you already know it does not work very well. QoS can guarantee that services like ssh, dns, ntp, etc will always have a small supply of bandwidth. So, no matter what happens, you will be able to ssh to your server and DNS will always work.
+   Have you tried to ssh to a server when the network is congested? If you have, you already know it does not work very well. QoS can guarantee that services like ssh, dns, ntp, etc will always have a small supply of bandwidth. So, no matter what happens, you will be able to ssh to your server and DNS will always work.
 
 3. **Ensure administrative tasks will not monopolize all the bandwidth**
 
-  Services like backups, file copies, database dumps, etc can easily monopolize all the available bandwidth. It is common for example a nightly backup, or a huge file transfer to negatively influence the end-user experience. QoS can fix that.
+   Services like backups, file copies, database dumps, etc can easily monopolize all the available bandwidth. It is common for example a nightly backup, or a huge file transfer to negatively influence the end-user experience. QoS can fix that.
 
 4. **Ensure each end-user connection will get a fair cut of the available bandwidth.**
 
-  Several QoS queuing disciplines in Linux do this automatically, without any configuration from you. The result is that new sockets are favored over older ones, so that users will get a snappier experience, while others are transferring large amounts of traffic.
+   Several QoS queuing disciplines in Linux do this automatically, without any configuration from you. The result is that new sockets are favored over older ones, so that users will get a snappier experience, while others are transferring large amounts of traffic.
 
 5. **Protect the servers from DDoS attacks.**
 
    This is my favorite. When your system is under a DDoS attack, it will get a lot more bandwidth compared to the one it can handle and probably your applications will crash. Setting a limit on the inbound traffic using QoS, will protect your servers (throttle the requests) and depending on the size of the attack may allow your legitimate users to access the server, while the attack is taking place.
 
-  Using QoS together with a [SYNPROXY](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY) will provide a great degree of protection against most DDoS attacks. Actually when I wrote that article, a few folks tried to DDoS the netdata demo site to see in real-time the SYNPROXY operation. They did not do it right, but anyway a great deal of requests reached the netdata server. What saved netdata was QoS. The netdata demo server has QoS installed, so the requests were throttled and the server did not even reach the point of resource starvation. Read about it [here](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY#a-note-for-ddos-testers).
+   Using QoS together with a [SYNPROXY](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY) will provide a great degree of protection against most DDoS attacks. Actually when I wrote that article, a few folks tried to DDoS the netdata demo site to see in real-time the SYNPROXY operation. They did not do it right, but anyway a great deal of requests reached the netdata server. What saved netdata was QoS. The netdata demo server has QoS installed, so the requests were throttled and the server did not even reach the point of resource starvation. Read about it [here](https://github.com/firehol/netdata/wiki/Monitoring-SYNPROXY#a-note-for-ddos-testers).
 
 On top of all these, QoS is extremely light. You will configure it once, and this is it. It will not bother you again and it will not use any noticeable CPU resources, especially on application and database servers.
 

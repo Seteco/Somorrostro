@@ -20,6 +20,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[System](#system)**, for processes and other system metrics
 - **[Sensors](#sensors)**, like temperature, fans speed, voltage, humidity, HDD/SSD S.M.A.R.T attributes
 - **[Network](#network)**, such as SNMP devices, `fping`, access points, dns_query_time
+- **[Time Servers](#time-servers)**, like chrony
 - **[Security](#security)**, like FreeRADIUS, OpenVPN, Fail2ban
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Go applications](#go-applications)**
@@ -245,6 +246,14 @@ ap|BASH<br/>Shell Script|Uses the `iw` command to provide statistics of wireless
 fping|C|Charts network latency statistics for any number of nodes, using the `fping` command. A recent (probably unreleased) version of fping is required. The plugin supplied can install it in `/usr/local`.<br/>&nbsp;<br/>netdata plugin: [fping.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/fping.plugin) (this is a shell wrapper to start fping - once fping is started, netdata and fping communicate directly - it can also install the right version of fping)<br/>configuration file: [fping.conf](https://github.com/firehol/netdata/blob/master/conf.d/fping.conf)|
 snmp|node.js|Connects to multiple snmp servers to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [snmp.node.js](https://github.com/firehol/netdata/blob/master/node.d/snmp.node.js)<br/>configuration file: [node.d/snmp.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf.md)|
 dns_query_time|python<br/>v2 or v3|Module provides dns query time statistics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [dns_query_time.chart.py](https://github.com/firehol/netdata/blob/master/python.d/dns_query_time.chart.py)<br/>configuration file: [python.d/dns_query_time.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/dns_query_time.conf)|
+
+---
+
+## Time Servers
+
+application|language|notes|
+:---------:|:------:|:----|
+chrony|python<br/>v2 or v3|Uses the chronyc command to provide chrony statistics (Frequency, Last offset, RMS offset, Residual freq, Root delay, Root dispersion, Skew, System time).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [chrony.chart.py](https://github.com/firehol/netdata/blob/master/python.d/chrony.chart.py)<br/>configuration file: [python.d/chrony.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/chrony.conf)|
 
 ---
 

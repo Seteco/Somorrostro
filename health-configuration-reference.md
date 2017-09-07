@@ -66,6 +66,28 @@ To find the `CONTEXT` of a chart download the latest `netdata.conf`, find the ch
 
 ---
 
+#### alarm line `os`
+
+This alarm or template will be used only if the O/S of the host loading it, matches this pattern list. The value is a space separated list of simple patterns (use `*` as wildcard, prefix with `!` for a negative match, order is important).
+
+```
+os: linux freebsd macos
+```
+
+---
+
+#### alarm line `hosts`
+
+This alarm or template will be used only if the hostname of the host loading it, matches this pattern list. The value is a space separated list of simple patterns (use `*` as wildcard, prefix with `!` for a negative match, order is important).
+
+```
+hosts: server1 server2 database* !redis3 redis*
+```
+
+The above says: use this alarm on all hosts named `server1`, `server2`, `database*`, and all `redis*` except `redis3`.
+
+---
+
 #### alarm line `families`
 
 This line is only used in alarm templates. It filters the charts. So, if you need to create an alarm template for a few of a kind of chart (a few of your disks, or a few of your network interfaces, or a few your mysql servers, etc), you can create an alarm template that would normally be applied to all of them, and filter them by family.

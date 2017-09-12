@@ -40,7 +40,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
 - **Timers** and **Histograms**
 
-   The application sends `name:value|ms` or `name:value|h`, where ` value` is any **decimal/fractional** number, statsd reports **min**, **max**, **average**, **sum**, **average of 95th percentile**, **median** and **standard deviation** and the total number of times it was updated (events).
+   The application sends `name:value|ms` or `name:value|h`, where ` value` is any **decimal/fractional** number, statsd reports **min**, **max**, **average**, **sum**, **95th percentile**, **median** and **standard deviation** and the total number of times it was updated (events).
 
    For timers use `|ms`, or histograms use `|h`. The only difference between the two, is the `units` of the charts (timers report milliseconds).
 
@@ -289,7 +289,7 @@ Then for histograms and timers the following types are also supported:
 - `max`, show the maximum value
 - `sum`, show the sum of all values
 - `average` (same as `last`)
-- `percentile`, show the 95th percentile average (or any other percentile average, as configured at statsd global config)
+- `percentile`, show the 95th percentile (or any other percentile, as configured at statsd global config)
 - `median`, show the median of all values (i.e. sort all values and get the middle value)
 - `stddev`, show the standard deviation of the values
 

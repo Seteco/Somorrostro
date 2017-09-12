@@ -213,8 +213,6 @@ The same chart with the `sum` unselected:
 
 ### synthetic statsd charts
 
-> this section needs more details - if you can help, please edit the page and provide more detailed information
-
 Using synthetic charts, you can create dedicated sections on the dashboard to render the charts. You can control everything: the main menu, the submenus, the charts, the dimensions on each chart, etc.
 
 Synthetic charts are organized in

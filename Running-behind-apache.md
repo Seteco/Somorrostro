@@ -1,6 +1,6 @@
 # netdata via apache's mod_proxy
 
-Below you can find instructions for configuring an apache server for:
+Below you can find instructions for configuring an apache server to:
 
 1. proxy a single netdata via an HTTP and HTTPS virtual host
 2. dynamically proxy any number of netdata

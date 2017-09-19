@@ -148,6 +148,9 @@ netdata v1.9+ limit by default access to `http://your.netdata.ip:19999/netdata.c
 
 The IPs listed are all the private IPv4 addresses, including link local IPv6 addresses.
 
+> Keep in mind that connections to netdata API ports are filtered by `[web].allow connections from`. So, IPs allowed by `[web].allow netdata.conf from` should also be allowed by `[web].allow connection from`.
+
+
 ## netdata simple patterns
 
 Unix prefers regular expressions. But they are just too hard, too cryptic to use, write and understand.

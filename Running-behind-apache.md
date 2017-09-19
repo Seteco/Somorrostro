@@ -226,7 +226,7 @@ If your apache server is not on localhost, you can set:
     bind to = *
     allow connections from = IP_OF_APACHE_SERVER
 ```
-_note: netdata v1.9+ support allow connections from_
+_note: netdata v1.9+ support `allow connections from`_
 
 
 ## prevent the double access.log

@@ -137,6 +137,42 @@ Next, netdata can generate a valid configuration for the user to edit. No need t
 
 Last, what about options you believe you have set, but you misspelled? When you get the configuration file from the server, there will be a comment above all `name = value` pairs the server does not use. So you know that whatever you wrote there, is not used.
 
+### limiting access to netdata.conf
+
+netdata v1.9+ limit by default access to `http://your.netdata.ip:19999/netdata.conf` to private IP addresses. This is controlled by this settings:
+
+```
+[web]
+	allow netdata.conf from = localhost fd* 10.* 192.168.* 172.16.* 172.17.* 172.18.* 172.19.* 172.20.* 172.21.* 172.22.* 172.23.* 172.24.* 172.25.* 172.26.* 172.27.* 172.28.* 172.29.* 172.30.* 172.31.*
+```
+
+The IPs listed are all the private IPv4 addresses, including link local IPv6 addresses.
+
+## netdata simple patterns
+
+Unix prefers regular expressions. But they are just too hard, too cryptic to use, write and understand.
+
+So, netdata supports **simple patterns**. Simple patterns are a space separated list of words, that can have `*` as a wildcard. Each world may use any number of `*`. Simple patterns allow **negative** matches by prefixing a word with `!`.
+
+So, `pattern = !*bad* *` will match anything, except all those that contain the word `bad`. 
+
+Simple patterns are quite powerful: `pattern = *foobar* !foo* !*bar *` matches everything containing `foobar` and except from strings that start with `foo` or end with `bar`, everything else.
+
+You can use the netdata command line to check simple patterns, like this:
+
+```sh
+# netdata -W simple-pattern '*foobar* !foo* !*bar *' 'hello world'
+RESULT: MATCHED - pattern '*foobar* !foo* !*bar *' matches 'hello world'
+
+# netdata -W simple-pattern '*foobar* !foo* !*bar *' 'hello world bar'
+RESULT: NOT MATCHED - pattern '*foobar* !foo* !*bar *' does not match 'hello world bar'
+
+# netdata -W simple-pattern '*foobar* !foo* !*bar *' 'hello world foobar'
+RESULT: MATCHED - pattern '*foobar* !foo* !*bar *' matches 'hello world foobar'
+```
+
+netdata stops processing to the first positive or negative match (left to right). If it is not matched by either positive or negative patterns, it is denied at the end.
+
 
 ## Applying changes
 

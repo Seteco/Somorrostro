@@ -174,7 +174,7 @@ If your nginx server is not on localhost, you can set:
 ```
 [web]
     bind to = *
-    allow connections from = IP_NGINX_SERVER
+    allow connections from = IP_OF_NGINX_SERVER
 ```
 
 _note: netdata v1.9+ support `allow connections from`_

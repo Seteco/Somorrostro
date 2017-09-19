@@ -179,6 +179,8 @@ If your nginx server is not on localhost, you can set:
 
 _note: netdata v1.9+ support `allow connections from`_
 
+`allow connections from` accepts [netdata simple patterns](../Configuration#netdata-simple-patterns) to match against the connection IP address.
+
 ## prevent the double access.log
 
 nginx logs accesses and netdata logs them too. You can prevent netdata from generating its access log, by setting this in `/etc/netdata/netdata.conf`:

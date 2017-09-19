@@ -141,9 +141,43 @@ server {
 
 ## limit direct access to netdata
 
-You would also need to instruct netdata to listen only to `127.0.0.1` or `::1`.
+If your nginx is on `localhost`, you can use this to protect your netdata:
 
-To limit access to netdata only from localhost, set `bind socket to IP = 127.0.0.1` or `bind socket to IP = ::1` in `/etc/netdata/netdata.conf`.
+```
+[web]
+    bind to = 127.0.0.1 ::1
+```
+
+---
+
+You can also use a unix domain socket. This will also provide a faster route between nginx and netdata:
+
+```
+[web]
+    bind to = unix:/tmp/netdata.sock
+```
+_note: netdata v1.8+ support unix domain sockets_
+
+At the nginx side, use something like this to use the same unix domain socket:
+
+```
+upstream backend {
+    server unix:/tmp/netdata.sock;
+    keepalive 64;
+}
+```
+
+---
+
+If your nginx server is not on localhost, you can set:
+
+```
+[web]
+    bind to = *
+    allow connections from = IP_NGINX_SERVER
+```
+
+_note: netdata v1.9+ support `allow connections from`_
 
 ## prevent the double access.log
 

@@ -107,6 +107,18 @@ You may also want to give your server different names under the **my-netdata** m
 
 So this server will appear in **my-netdata** as `Group1 - Master DB`. The max name length is 50 characters.
 
+#### limiting access to the registry
+
+netdata v1.9+ support limiting access to the registry from given IPs, like this:
+```
+[registry]
+    allow from = *
+```
+
+`allow from` settings are netdata simple patterns: string matches that use `*` as wildcard (any number of times) and a `!` prefix for a negative match. So: `allow from = !10.1.2.3 10.*` will allow all IPs in `10.*` except `10.1.2.3`. The order is important: left to right, the first positive or negative match is used.
+
+Keep in mind that connections to netdata API ports are filtered by `[web].allow connections from`. So, IPs allowed by `[registry].allow from` should also be allowed by `[web].allow connection from`.
+
 #### Where is the registry database stored?
 
 `/var/lib/netdata/registry/*.db`

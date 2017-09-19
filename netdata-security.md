@@ -73,9 +73,20 @@ For cloud based installations, if your cloud provider does not provide such a pr
 
 For `gvpe` we have developed a [simple provisioning tool](https://github.com/firehol/netdata-demo-site/tree/master/gvpe) you may find handy (it includes statically compiled `gvpe` binaries for Linux and FreeBSD, and also a script to compile `gvpe` on your Mac). We use this to create a management and administration LAN for all netdata demo sites (spread all over the internet using multiple hosting providers).
 
+---
+
+In netdata v1.9+ there is also access list support, like this:
+
+```
+[web]
+	bind to = *
+	allow connections from = localhost 10.* 192.168.*
+```
+
+
 #### use an authenticating web server in proxy mode
 
-Use **one nginx** server to provide authentication in front of **all your netdata servers**. So, you will be accessing all your netdata with URLs like `http://nginx.host/netdata/{NETDATA_HOSTNAME}/` and authentication will be shared among all of them (you will sign-in once for all your servers). Check [this wiki page for more information on configuring nginx for such a setup](https://github.com/firehol/netdata/wiki/Running-behind-nginx#as-a-subfolder-for-multiple-netdata-servers-via-one-nginx).
+Use **one nginx** (or one apache) server to provide authentication in front of **all your netdata servers**. So, you will be accessing all your netdata with URLs like `http://nginx.host/netdata/{NETDATA_HOSTNAME}/` and authentication will be shared among all of them (you will sign-in once for all your servers). Check [this wiki page for more information on configuring nginx for such a setup](https://github.com/firehol/netdata/wiki/Running-behind-nginx#as-a-subfolder-for-multiple-netdata-servers-via-one-nginx).
 
 To use this method, you should firewall protect all your netdata servers, so that only the nginx IP will allowed to directly access netdata. To do this, run this on each of your servers (or use your firewall manager):
 
@@ -87,7 +98,16 @@ _commands to allow direct access to netdata from an nginx proxy_
 
 The above will prevent anyone except your nginx server to access a netdata dashboard running on the host.
 
-If you want to allow multiple IPs, use this:
+For netdata v1.9+ you can also use `netdata.conf`:
+
+```
+[web]
+	allow connections from = localhost 1.2.3.4
+```
+
+Of course you can add more IPs.
+
+For netdata prior to v1.9, if you want to allow multiple IPs, use this:
 
 ```sh
 # space separated list of IPs to allow access netdata

@@ -145,7 +145,7 @@ The above is the receiver configuration of a single host, at the receiver end. `
 
 ##### allow from
 
-`allow from` settings are netdata simple patterns: string matches that use `*` as wildcard (any number of times) and a `!` prefix for a negative match. So: `allow from = !10.1.2.3 10.*` will allow all IPs in `10.*` except `10.1.2.3`. The order is important: left to right, the first positive or negative match is used.
+`allow from` settings are [netdata simple patterns](https://github.com/firehol/netdata/wiki/Configuration#netdata-simple-patterns): string matches that use `*` as wildcard (any number of times) and a `!` prefix for a negative match. So: `allow from = !10.1.2.3 10.*` will allow all IPs in `10.*` except `10.1.2.3`. The order is important: left to right, the first positive or negative match is used.
 
 `allow from` is available in netdata v1.9+
 

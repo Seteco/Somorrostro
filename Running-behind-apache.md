@@ -201,6 +201,34 @@ or
     bind to = ::1
 ```
 
+---
+
+You can also use a unix domain socket. This will also provide a faster route between apache and netdata:
+
+```
+[web]
+    bind to = unix:/tmp/netdata.sock
+```
+_note: netdata v1.8+ support unix domain sockets_
+
+At the apache side, prepend the 2nd argument to `ProxyPass` with `unix:/tmp/netdata.sock|`, like this:
+
+```
+ProxyPass "/netdata/" "unix:/tmp/netdata.sock|http://localhost:19999/" connectiontimeout=5 timeout=30 keepalive=on
+```
+
+---
+
+If your apache server is not on localhost, you can set:
+
+```
+[web]
+    bind to = *
+    allow connections from = IP_OF_APACHE_SERVER
+```
+_note: netdata v1.9+ support allow connections from_
+
+
 ## prevent the double access.log
 
 apache logs accesses and netdata logs them too. You can prevent netdata from generating its access log, by setting this in `/etc/netdata/netdata.conf`:

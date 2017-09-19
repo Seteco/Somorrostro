@@ -124,6 +124,7 @@ central netdata|not `none`|not `none`|`no`|possible|possible|yes
     default history = 3600
     default memory mode = save
     health enabled by default = auto
+    allow from = *
 ```
 
 You can add many such sections, one for each API key. The above are used as default values for all hosts pushed with this API key.
@@ -137,9 +138,14 @@ You can also add sections like this:
     history = 3600
     memory mode = save
     health enabled = yes
+    allow from = *
 ```
 
 The above is the receiver configuration of a single host, at the receiver end. `MACHINE_GUID` is the unique id the netdata generating the metrics (i.e. the netdata that originally collects them `/var/lib/netdata/registry/netdata.unique.id`). So, metrics for netdata `A` that pass through any number of other netdata, will have the same `MACHINE_GUID`.
+
+##### allow from
+
+`allow from` settings are netdata simple patterns: string matches that use `*` as wildcard (any number of times) and a `!` prefix for a negative match. So: `allow from = !10.1.2.3 10.*` will allow all IPs in `10.*` except `10.1.2.3`. The order is important: left to right, the first positive or negative match is used.
 
 ## tracing
 
@@ -164,6 +170,9 @@ The receiving end (`proxy` or `master`) logs entries like these:
 2017-02-25 01:58:14: netdata: INFO : STREAM costa-pc [receive from [10.11.12.11]:33554]: initializing communication...
 2017-02-25 01:58:14: netdata: INFO : STREAM costa-pc [receive from [10.11.12.11]:33554]: receiving metrics...
 ```
+
+For netdata v1.9+, streaming can also be monitored via `access.log`.
+
 
 ## Viewing remote host dashboards, using mirrored databases
 

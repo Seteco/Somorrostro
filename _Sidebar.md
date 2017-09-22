@@ -159,7 +159,6 @@ Notes on memory management
 * [[tomcat.chart.sh]]
 
 **JAVA Modules**
-* [[General Info - java.d]]
 * [jmx](https://github.com/firehol/netdata/blob/master/java.d/README.md#Jmx)
 ---
 

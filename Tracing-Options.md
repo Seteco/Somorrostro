@@ -53,7 +53,7 @@ gdb $(which netdata) /path/to/core/dump
 Install the package `valgrind` and run:
 
 ```sh
-valgrid $(which netdata) -D
+valgrind $(which netdata) -D
 ```
 
 netdata will start and it will be a lot slower. Now reproduce the crash and `valgrind` will dump on your console the stack trace. Open a new github issue and post the output.

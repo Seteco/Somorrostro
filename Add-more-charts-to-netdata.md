@@ -25,6 +25,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Go applications](#go-applications)**
 - **[Household appliances](#household-appliances)**, like SMA WebBox (solar power), Fronius Symo solar power, Stiebel Eltron heating
+- **[Java Processes](#java-processes)**, via JMX
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
 Check also [[Third Party Plugins]] for a list of plugins distributed by third parties.
@@ -61,6 +62,7 @@ freeipmi.plugin|`C`|N/A|command line arguments specified at `/etc/netdata/netdat
 charts.d.plugin|`BASH`|`/etc/netdata/`<br/>`charts.d.conf`|a file for each module in `/etc/netdata/charts.d/`
 python.d.plugin|`python`<br/>v2 or v3|`/etc/netdata/`<br/>`python.d.conf`|a file for each module in `/etc/netdata/python.d/`
 node.d.plugin|`node.js`|`/etc/netdata/`<br/>`node.d.conf`|a file for each module in `/etc/netdata/node.d/`
+java.d.plugin|`java 8`|`/etc/netdata/java.d.conf|a file for each module in `/etc/netdata/java.d.conf/`
 
 
 ## writing netdata plugins
@@ -292,10 +294,15 @@ fronius|node.js|Connects to multiple remote Fronius Symo servers to collect real
 stiebeleltron|node.js|Collects the temperatures and other metrics from your Stiebel Eltron heating system using their Internet Service Gateway (ISG web).<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [stiebeleltron.node.js](https://github.com/firehol/netdata/blob/master/node.d/stiebeleltron.node.js)<br/>configuration file: [node.d/stiebeleltron.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/stiebeleltron.conf.md)|
 ---
 
+## Java Processes
+application|language|notes|
+:---------:|:------:|:----|
+java process|java|Connects to multiple java processes (local or remote) and collects metrics of Java Management Extension (JMX) M(X)Beans.<br/>&nbsp;<br/>netdata plugin: [java.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/java.d.plugin)<br/>plugin module: [jmx](https://github.com/firehol/netdata/blob/master/java.d/src/main/java/org/firehol/netdata/module/jmx/JmxPlugin.java)<br/>configuration file: [java.d/jmx.conf](https://github.com/firehol/netdata/blob/master/conf.d/java.d/jmx.conf)
+---
+
 ## Skeleton Plugins
 
 application|language|notes|
 :---------:|:------:|:----|
 example|BASH<br/>Shell Script|Skeleton plugin in BASH.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [example.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/example.chart.sh)<br/>configuration file: [charts.d/example.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/example.conf)|
 example|python<br/>v2 or v3|Skeleton plugin in Python.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [example.chart.py](https://github.com/firehol/netdata/blob/master/python.d/example.chart.py)<br/>configuration file: [python.d/example.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/example.conf)|
-

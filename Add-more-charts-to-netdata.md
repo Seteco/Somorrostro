@@ -12,7 +12,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Proxy Servers](#proxy-servers)**, like squid
 - **[HTTP accelerators](#http-accelerators)**, like varnish cache
 - **[Search engines](#search-engines)**, like elasticsearch
-- **[Name Servers](#name-servers)** (DNS), like bind, nsd
+- **[Name Servers](#name-servers)** (DNS), like bind, nsd, powerdns
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS](#ups)**, such as APC UPS, NUT
 - **[Mail Servers](#mail-servers)**, like postfix, exim, dovecot
@@ -157,9 +157,9 @@ elasticsearch|python<br/>v2 or v3|Monitor elasticsearch performance and health m
 application|language|notes|
 :---------:|:------:|:----|
 named|node.js|Connects to multiple named (ISC-Bind) servers (local or remote) to collect real-time performance metrics. All versions of bind after 9.9.10 are supported.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [named.node.js](https://github.com/firehol/netdata/blob/master/node.d/named.node.js)<br/>configuration file: [node.d/named.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/named.conf.md)|
-bind_rndc|python<br/>v2 or v3|Parse named.stats dump file to collect real-time performance metrics. All versions of bind after 9.6 are supported.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [bind_rndc.chart.py](https://github.com/firehol/netdata/blob/master/python.d/bind_rndc.chart.py)<br/>configuration file: [python.d/bind_rndc.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/bind_rndc.conf)|
+bind_rndc|python<br/>v2 or v3|Parses named.stats dump file to collect real-time performance metrics. All versions of bind after 9.6 are supported.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [bind_rndc.chart.py](https://github.com/firehol/netdata/blob/master/python.d/bind_rndc.chart.py)<br/>configuration file: [python.d/bind_rndc.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/bind_rndc.conf)|
 nsd|python<br/>v2 or v3|Charts the nsd received queries and zones.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [nsd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/nsd.chart.py)<br/>configuration file: [python.d/nsd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/nsd.conf)
-
+powerdns|python<br/>v2 or v3|Monitors powerdns performance and health metrics <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [powerdns.chart.py](https://github.com/firehol/netdata/blob/master/python.d/powerdns.chart.py)<br/>configuration file: [python.d/powerdns.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/powerdns.conf)|
 ---
 
 ## DHCP Servers

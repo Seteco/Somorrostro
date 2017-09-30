@@ -7,7 +7,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Web Logs](#web-log-parsers)**, such as apache, nginx, lighttpd, gunicorn, squid access logs, apache cache.log
 - **[Load Balancers](#load-balancers)**, like haproxy
 - **[Message Brokers](#message-brokers)**, like rabbitmq
-- **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, mongodb
+- **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, couchdb, mongodb
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
 - **[HTTP accelerators](#http-accelerators)**, like varnish cache
@@ -108,6 +108,7 @@ web_log|python<br/>v2 or v3|powerful plugin, capable of incrementally parsing an
 
 application|language|notes|
 :---------:|:------:|:----|
+couchdb|python<br/>v2 or v3|Connects to multiple couchdb servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [couchdb.chart.py](https://github.com/firehol/netdata/blob/master/python.d/couchdb.chart.py)<br/>configuration file: [python.d/couchdb.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/couchdb.conf)|
 memcached|python<br/>v2 or v3|Connects to multiple memcached servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [memcached.chart.py](https://github.com/firehol/netdata/blob/master/python.d/memcached.chart.py)<br/>configuration file: [python.d/memcached.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/memcached.conf)|
 mongodb|python<br/>v2 or v3|Connects to multiple `mongodb` servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mongodb.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mongodb.chart.py)<br/>configuration file: [python.d/mongodb.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mongodb.conf)|
 mysql<br/>mariadb|python<br/>v2 or v3|Connects to multiple mysql or mariadb servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mysql.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mysql.chart.py)<br/>configuration file: [python.d/mysql.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mysql.conf)|

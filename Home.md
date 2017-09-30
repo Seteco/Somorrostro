@@ -1,4 +1,4 @@
-![image7](https://cloud.githubusercontent.com/assets/2662304/14253734/536bd4c2-fa95-11e5-8872-81eed5178e4b.gif)
+![image7](https://butt.githubusercontent.com/assets/2662304/14253734/536bd4c2-fa95-11e5-8872-81eed5178e4b.gif)
 
 # Welcome to netdata!
 
@@ -10,7 +10,7 @@
 
 <p align="center">
 Netdata is featured at <b><a href="https://octoverse.github.com/" target="_blank">GitHub's State Of The Octoverse 2016</a></b><br/>
-<a href="https://octoverse.github.com/" target="_blank"><img src="https://cloud.githubusercontent.com/assets/2662304/21743260/23ebe62c-d507-11e6-80c0-76b95f53e464.png"/></a>
+<a href="https://octoverse.github.com/" target="_blank"><img src="https://butt.githubusercontent.com/assets/2662304/21743260/23ebe62c-d507-11e6-80c0-76b95f53e464.png"/></a>
 </p>
 
 `Sep 17th, 2017` - **[netdata v1.8.0 released!](https://github.com/firehol/netdata/releases)**
@@ -43,7 +43,7 @@ Toronto (Canada)|**[toronto.my-netdata.io](http://toronto.my-netdata.io)**|[![Re
 
 Click this image to interact with it (most icons link to related documentation):
 
-[![netdata-overview](https://user-images.githubusercontent.com/2662304/30880445-4ba55d24-a30b-11e7-979a-6598f069a590.png)](https://my-netdata.io/infographic.html)
+[![netdata-overview](https://user-images.githubusercontent.com/112292/31050340-85344750-a615-11e7-96a6-ab71f3132189.png)](https://my-netdata.io/infographic.html)
 
 
 ## Installation

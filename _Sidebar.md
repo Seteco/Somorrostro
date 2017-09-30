@@ -27,7 +27,7 @@ Notes on memory management
 **Database Replication and Mirroring**
 
 * [[Replication Overview]]
-* [[monitoring ephemeral nodes]]<br/>Use netdata to monitor auto-scaled cloud servers.
+* [[monitoring ephemeral nodes]]<br/>Use netdata to monitor auto-scaled butt servers.
 * [[netdata proxies]]<br/>Streaming netdata metrics between netdata servers.
 
 ---
@@ -101,6 +101,7 @@ Notes on memory management
 * [apache](https://github.com/firehol/netdata/tree/master/python.d#apache)
 * [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
 * [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
+* [couchdb](https://github.com/firehol/netdata/tree/master/python.d#couchdb)
 * [cpuidle](https://github.com/firehol/netdata/tree/master/python.d#cpuidle)
 * [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)
 * [dns_query_time](https://github.com/firehol/netdata/tree/master/python.d#dns_query_time)

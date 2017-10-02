@@ -187,6 +187,13 @@ Each chart can get data from a different netdata server. You can give per chart 
      ></div>
 ```
 
+If you have ephemeral monitoring setup ([More info here](https://github.com/firehol/netdata/wiki/Monitoring-ephemeral-nodes)) and have no direct access to the nodes dashboards, you can use the following:
+
+```html
+<div data-netdata="unique.id"
+     data-host="http://yournetdata.server:19999/host/reported-hostname"
+     ></div>
+```
 ### Chart library
 
 The default chart library is `dygraph`. You set a different chart library per chart using this:

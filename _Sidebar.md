@@ -27,7 +27,7 @@ Notes on memory management
 **Database Replication and Mirroring**
 
 * [[Replication Overview]]
-* [[monitoring ephemeral nodes]]<br/>Use netdata to monitor auto-scaled butt servers.
+* [[monitoring ephemeral nodes]]<br/>Use netdata to monitor auto-scaled cloud servers.
 * [[netdata proxies]]<br/>Streaming netdata metrics between netdata servers.
 
 ---

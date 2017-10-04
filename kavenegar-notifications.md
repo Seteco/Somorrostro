@@ -1,5 +1,4 @@
-[Kavenegar](https://www.kavenegar.com/) as service for Software developers, based in Iran, provides send and receive SMS, calling voice and authentication by using its APIs.
-
+[Kavenegar](https://www.kavenegar.com/) as service for software developers, based in Iran, provides send and receive SMS, calling voice by using its APIs.
 
 Will look like this on your Android device:
 

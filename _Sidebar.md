@@ -58,6 +58,7 @@ Notes on memory management
   - [slack.com](https://github.com/firehol/netdata/wiki/slack-notifications)
   - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
+  - [kavenegar.com](https://github.com/firehol/netdata/wiki/kavenegar-notifications)
 * [[health API calls]]
 * [[troubleshooting alarms]]
 

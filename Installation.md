@@ -376,7 +376,7 @@ This is how to install the latest netdata version from sources on FreeBSD:
 
 ```sh
 # install required packages
-pkg install bash e2fsprogs-libuuid git curl autoconf automake gcc pkgconf pidof
+pkg install bash e2fsprogs-libuuid git curl autoconf automake pkgconf pidof
 
 # download netdata
 git clone https://github.com/firehol/netdata.git --depth=1

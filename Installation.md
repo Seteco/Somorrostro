@@ -29,8 +29,8 @@ Linux:
 
 Non-Linux:
 
-- [Install from source, on FreeBSD](#freebsd)
-- [Install from source, on pfSense](#pfsense)
+- [Install from package or source, on FreeBSD](#freebsd)
+- [Install from package, on pfSense](#pfsense)
 - [Enable netdata on FreeNAS Corral](#freenas)
 - [Install from source, on Mac OS X](#macos)
 
@@ -390,8 +390,8 @@ cd netdata
 To install netdata on pfSense run (change platform and versions according to your environment):
 ```
 pkg install pkgconf
-pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/e2fsprogs-libuuid-1.43.4.txz
-pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.7.0.txz
+pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/e2fsprogs-libuuid-1.43.6.txz
+pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.8.0.txz
 ```
 More information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages. If you experience an issue with `/usr/bin/install` absense, update pfSense or use workaround from https://redmine.pfsense.org/issues/6643
 
@@ -418,7 +418,7 @@ service netdata start
 
 ##### macOS
 
-Initial macOS support was introduced with [PR #1419](https://github.com/firehol/netdata/pull/1419). It still has limited charts, but external plugins do work.
+netdata on macOS still has limited charts, but external plugins do work.
 
 This is how to install netdata on macOS:
 

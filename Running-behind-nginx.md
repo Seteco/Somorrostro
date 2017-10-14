@@ -45,7 +45,7 @@ server {
    # the virtual host name of this subfolder should be exposed
    #server_name netdata.example.com;
 
-   location /netdata {
+   location = /netdata {
         return 301 /netdata/;
    }
 

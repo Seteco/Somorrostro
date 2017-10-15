@@ -18,7 +18,9 @@ netdata logs its OOM score when it starts:
 
 #### OOM score and systemd
 
-netdata will not be able to lower its OOM Score below zero, when it is started as the `netdata` user (systemd case). To allow netdata control its OOM Score, you will need to edit `/etc/systemd/system/netdata.service` and set:
+netdata will not be able to lower its OOM Score below zero, when it is started as the `netdata` user (systemd case).
+
+To allow netdata control its OOM Score in such cases, you will need to edit `/etc/systemd/system/netdata.service` and set:
 
 ```
 [Service]

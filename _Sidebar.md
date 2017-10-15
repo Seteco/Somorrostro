@@ -13,6 +13,8 @@
 * [[Performance]]
 * [[Memory Requirements]]
 * [[netdata Security]]
+* [[netdata OOMScore]]
+* [[netdata process priority]]
 
 Special Uses
 * [[netdata for IoT]]<br/>lower netdata resource utilization

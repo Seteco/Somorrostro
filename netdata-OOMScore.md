@@ -1,6 +1,6 @@
 netdata runs with `OOMScore = 1000`. This means netdata will be the first to be killed when your server runs out of memory.
 
-## settings netdata OOMScore
+## setting netdata OOMScore
 
 You can set netdata OOMScore in `netdata.conf`, like this:
 

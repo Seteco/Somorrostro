@@ -76,7 +76,7 @@ variable|description
 
 # the output of the plugin
 
-The plugin should output instructions for netdata to its output (`stdout`).
+The plugin should output instructions for netdata to its output (`stdout`). Since this uses pipes, please make sure you flush stdout after every iteration.
 
 ## DISABLE
 
@@ -88,7 +88,7 @@ The plugin should output instructions for netdata to its output (`stdout`).
 
 the template is:
 
-> CHART type.id name title units [family [context [charttype [priority [update_every [options]]]]]]
+> CHART type.id name title units [family [context [charttype [priority [update_every [options [plugin [module]]]]]]]]
 
  where:
   - `type.id`
@@ -145,6 +145,11 @@ the template is:
   - `options`
 
     a space separated list of options, enclosed in quotes. 3 options are currently supported: `obsolete` to mark a chart as obsolete (netdata will hide it and delete it after some time), `detail` to mark a chart as insignificant (this may be used by dashboards to make the charts smaller, or somehow visualise properly a less important chart) and `store_first` to make netdata store the first collected value, assuming there was an invisible previous value set to zero (this is used by statsd charts - if the first data collected value of incremental dimensions is not zero based, unrealistic spikes will appear with this option set). `CHART` options have been added in netdata v1.7.
+
+  - `plugin` and `module`
+
+    both are just names that are used to let the user the plugin and its module that generated the chart. If `plugin` is unset or empty, netdata will automatically set the filename of the plugin that generated the chart. `module` has not default.
+
 
 ## DIMENSION
 
@@ -207,6 +212,20 @@ the template is:
     giving the keyword `hidden` will make this dimension hidden,
     it will take part in the calculations but will not be presented in the chart
 
+
+## VARIABLE
+
+> VARIABLE name = value
+
+`VARIABLE` defines a host variable that can be used in alarms. This is to used for setting constants (like the max connections a server may accept).
+
+Since these variables are host-wide, please use names that are unique across all charts / alarms.
+
+These variables can be set and updated at any point (before defining charts, between chart definitions, inside data collection, etc).
+
+Variable names should use alphanumeric characters, the `.` and the `_`.
+
+The value is floating point (netdata used `long double`).
 
 ## data collection
 

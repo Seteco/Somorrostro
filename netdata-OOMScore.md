@@ -26,6 +26,18 @@ netdata will not be able to lower its OOM Score below zero, when it is started a
 # netdata (via [global].OOM score in netdata.conf) can only increase the value set here.
 # To decrease it, set the minimum here and set the same or a higher value in netdata.conf.
 # Valid values: -1000 (never kill netdata) to 1000 (always kill netdata).
-#OOMScoreAdjust=0
+OOMScoreAdjust=-1000
 ```
 
+Run `systemctl daemon-reload` to reload these changes.
+
+The above, sets and OOMScore for netdata to `-1000`, so that netdata can increase it via `netdata.conf`.
+
+If you want to control it entirely via systemd, you can set in `netdata.conf`:
+
+```
+[global]
+    OOM score = keep
+```
+
+Using the above, whatever OOM Score you have set at `netdata.service` will be maintained by netdata.

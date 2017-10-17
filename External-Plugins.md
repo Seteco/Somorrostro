@@ -304,21 +304,23 @@ or do not output the line at all.
 
 1. **python**, use `python.d.plugin`, there are many examples in the [python.d directory](https://github.com/firehol/netdata/tree/master/python.d)
 
-  python is ideal for netdata plugins. It is a simple, yet powerful way to collect data, it has a very small memory footprint, although it is not the fastest way to do it.
+   python is ideal for netdata plugins. It is a simple, yet powerful way to collect data, it has a very small memory footprint, although it is not the most CPU efficient way to do it.
 
 2. **node.js**, use `node.d.plugin`, there are a few examples in the [node.d directory](https://github.com/firehol/netdata/tree/master/node.d)
 
-  node.js is the fastest scripting language for collecting data. If your plugin needs to do a lot of work, compute values, etc, node.js is probably the best choice before moving to compiled code. Keep in mind though that node.js is not memory efficient; it will probably need more RAM compared to python.
+   node.js is the fastest scripting language for collecting data. If your plugin needs to do a lot of work, compute values, etc, node.js is probably the best choice before moving to compiled code. Keep in mind though that node.js is not memory efficient; it will probably need more RAM compared to python.
 
 3. **BASH**, use `charts.d.plugin`, there are many examples in the [charts.d directory](https://github.com/firehol/netdata/tree/master/charts.d)
 
-  BASH is the simplest scripting language for collecting values. It is the less efficient though. You can use it to collect data quickly, but extensive use of it might use a lot of system resources.
+   BASH is the simplest scripting language for collecting values. It is the less efficient though in terms of CPU resources. You can use it to collect data quickly, but extensive use of it might use a lot of system resources.
 
-4. **C**, use [apps.plugin](https://github.com/firehol/netdata/blob/master/src/apps_plugin.c#L2420)
+4. **C**
 
-  Of course, C is the most efficient way of collecting data. This is why netdata itself is written in C too.
+   Of course, C is the most efficient way of collecting data. This is why netdata itself is written in C.
 
 5. **Nim**, there is an unofficial [nim plugin helper](https://github.com/FedericoCeratto/nim-netdata-plugin)
+
+---
 
 # Writing Plugins Properly
 

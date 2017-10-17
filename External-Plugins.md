@@ -215,17 +215,24 @@ the template is:
 
 ## VARIABLE
 
-> VARIABLE name = value
+> VARIABLE [SCOPE] name = value
 
-`VARIABLE` defines a host variable that can be used in alarms. This is to used for setting constants (like the max connections a server may accept).
+`VARIABLE` defines a variable that can be used in alarms. This is to used for setting constants (like the max connections a server may accept).
 
-Since these variables are host-wide, please use names that are unique across all charts / alarms.
+Variables support 2 scopes:
 
-These variables can be set and updated at any point (before defining charts, between chart definitions, inside data collection, etc).
+- `GLOBAL` or `HOST` to define the variable at the host level.
+- `LOCAL` or `CHART` to define the variable at the chart level. Use chart-local variables when the same variable may exist for different charts (i.e. netdata monitors 2 mysql servers, and you need to set the `max_connections` each server accepts). Using chart-local variables is the ideal to build alarm templates.
+
+The position of the `VARIABLE` line, sets its default scope (in case you do not specify a scope). So, defining a `VARIABLE` before any `CHART`, or between `END` and `BEGIN` (outside any chart), sets `GLOBAL` scope, while defining a `VARIABLE` just after a `CHART` or a `DIMENSION`, or within the `BEGIN` - `END` block of a chart, sets `LOCAL` scope.
+
+These variables can be set and updated at any point.
 
 Variable names should use alphanumeric characters, the `.` and the `_`.
 
-The value is floating point (netdata used `long double`).
+The `value` is floating point (netdata used `long double`).
+
+Variables are transferred to upstream netdata servers (streaming and database replication).
 
 ## data collection
 

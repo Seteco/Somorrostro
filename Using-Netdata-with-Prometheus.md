@@ -40,13 +40,13 @@ sudo useradd -r prometheus
 
 ```sh
 sudo mkdir /opt/prometheus
-chown prometheus:prometheus /opt/prometheus
+sudo chown prometheus:prometheus /opt/prometheus
 ```
 
 #### Untar prometheus directory
 
 ```sh
-tar -xvf /tmp/prometheus-1.7.1.linux-amd64.tar.gz -C /opt/prometheus --strip=1
+sudo tar -xvf /tmp/prometheus-1.7.1.linux-amd64.tar.gz -C /opt/prometheus --strip=1
 ```
 
 #### Install prometheus.yml

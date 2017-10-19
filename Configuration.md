@@ -24,7 +24,7 @@ setting | default | info
 hostname|auto-detected|The hostname of the computer running netdata.
 history|3600|The number of entries the netdata daemon will by default keep in memory for each chart dimension. This setting can also be configured per chart. Check **[[Memory Requirements]]** for more information.
 config directory|`/etc/netdata`|The directory configuration files are kept.
-plugins directory|`/usr/libexec/netdata/plugins.d`|The directory plugin programs are kept.
+plugins directory|`/usr/libexec/netdata/plugins.d`|The directory plugin programs are kept. This setting supports multiple directories, space separated. If any directory path contains spaces, enclose it in single or double quotes.
 web files directory|`/usr/share/netdata/web`|The directory the web static files are kept.
 cache directory|`/var/cache/netdata`|The directory the memory database will be stored if and when netdata exits. Netdata will re-read the database when it will start again, to continue from the same point.
 log directory|`/var/log/netdata`|The directory the log files are kept. Check **[[Log Files]]** for more information.

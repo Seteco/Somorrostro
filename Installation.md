@@ -287,13 +287,13 @@ The installer, when run as `root`, will install `/etc/logrotate.d/netdata`.
 `netdata-installer.sh` generates `netdata-updater.sh` upon any successful installation  
 You can use this script to update your netdata installation with the same options you used to install it in the first place.
 
-````sh
+```sh
 # go to the git downloaded directory
 cd /path/to/git/downloaded/netdata
 
 # run the updater
 ./netdata-updater.sh
-````
+```
 
 _Netdata will be restarted with the new version._
 
@@ -320,14 +320,14 @@ _Please, consider the risks of running an auto-update. Something can always go w
 
 You can call `netdata-updater.sh` from a cron-job. A successful update will not trigger an email from cron. 
 
-````sh
+```sh
 # Edit your cron-jobs
 crontab -e
 
 # add a cron-job at the bottom. This one will update netdata every day at 6:00AM:
 # update netdata
 0 6 * * * /path/to/git/downloaded/netdata/netdata-updater.sh
-````
+```
 
 ---
 
@@ -351,6 +351,8 @@ You can get the running config file at any time, by accessing `http://127.0.0.1:
 
 ## Uninstalling netdata
 
+#### netdata was installed from source (or `kickstart.sh`)
+
 The script `netdata-installer.sh` generates another script called `netdata-uninstaller.sh`.
 
 To uninstall netdata, run:
@@ -361,6 +363,28 @@ cd /path/to/netdata.git
 ```
 
 The uninstaller will ask you to confirm all deletions.
+
+#### netdata was installed with `kickstart-static64.sh` package
+
+Stop netdata with one of the following:
+
+- `service netdata stop` (non-systemd systems)
+- `systemctl stop netdata` (systemd systems)
+
+Disable running netdata at startup, with one of the following (based on your distro):
+
+- `rc-update del netdata`
+- `update-rc.d netdata disable`
+- `chkconfig netdata off`
+- `systemctl disable netdata`
+
+Delete the netdata files:
+
+1. `rm -rf /opt/netdata`
+2. `groupdel netdata`
+3. `userdel netdata`
+4. `rm /etc/logrotate.d/netdata`
+5. `rm /etc/systemd/system/netdata.service` or `rm /etc/init.d/netdata`, depending on the distro.
 
 ---
 

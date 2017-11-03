@@ -42,7 +42,7 @@ Ganglia is a scalable distributed monitoring system for high-performance computi
 The leading graph and dashboard builder for visualizing time series metrics.
 Grafana provides a powerful and elegant way to create, explore, and share dashboards and data with your team and the world. Grafana is most commonly used for visualizing time series data for Internet infrastructure and application analytics but many use it in other domains including industrial sensors, home automation, weather, and process control.
 
-## [LinuxDash](http://linuxdash.afaqtariq.com/)
+## [LinuxDash](https://afaqurk.github.io/linux-dash/)
 
 A simple, low-overhead web dashboard for Linux.
 

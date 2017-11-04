@@ -10,7 +10,15 @@ netdata.domain.tld {
 
 Other directives can be added between the curly brackets as needed.
 
-It's easiest to set netdata up as a subdomain rather than as a subdirectory because netdata uses a lot of relative URLs.
+To run netdata in a subfolder:
+
+```
+netdata.domain.tld {
+    proxy /netdata/ localhost:19999 {
+        without /netdata
+    }
+}
+```
 
 ## limit direct access to netdata
 

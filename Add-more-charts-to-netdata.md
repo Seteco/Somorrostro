@@ -44,7 +44,7 @@ sudo su -s /bin/bash netdata
 
 # execute the plugin in debug mode, for a specific module.
 # example for the python plugin, mysql module:
-/usr/libexec/netdata/plugins.d/python.d.plugin 1 debug mysql
+/usr/libexec/netdata/plugins.d/python.d.plugin 1 debug trace mysql
 ```
 
 Similarly, you can use `charts.d.plugin` for BASH plugins and `node.d.plugin` for node.js plugins.

@@ -6,7 +6,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
 - **[Web Logs](#web-log-parsers)**, such as apache, nginx, lighttpd, gunicorn, squid access logs, apache cache.log
 - **[Load Balancers](#load-balancers)**, like haproxy
-- **[Message Brokers](#message-brokers)**, like rabbitmq
+- **[Message Brokers](#message-brokers)**, like rabbitmq, beanstalkd
 - **[Database Servers](#database-servers)**, such as mysql, mariadb, postgres, couchdb, mongodb
 - **[Social Sharing Servers](#social-sharing-servers)**, like retroshare
 - **[Proxy Servers](#proxy-servers)**, like squid
@@ -183,6 +183,8 @@ haproxy|python<br/>v2 or v3|Monitor frontend, backend and health metrics.<br/>&n
 application|language|notes|
 :---------:|:------:|:----|
 rabbitmq|python<br/>v2 or v3|Monitor rabbitmq performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [rabbitmq.chart.py](https://github.com/firehol/netdata/blob/master/python.d/rabbitmq.chart.py)<br/>configuration file: [python.d/rabbitmq.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/rabbitmq.conf)|
+beanstalkd|python<br/>v2 or v3|Provides server and tube level statistics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [beanstalk.chart.py](https://github.com/firehol/netdata/blob/master/python.d/beanstalk.chart.py)<br/>configuration file: [python.d/beanstalk.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/beanstalk.conf)|
+
 
 ---
 ## UPS

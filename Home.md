@@ -8,6 +8,8 @@
 
 ## latest news
 
+> **[check the changelog of the current netdata vs the latest release (v1.8.0)](https://github.com/firehol/netdata/issues/2788)**
+
 `Sep 17th, 2017` - **[netdata v1.8.0 released!](https://github.com/firehol/netdata/releases)**
 
  - mainly a bug fix release - all users are advised to update this release

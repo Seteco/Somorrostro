@@ -104,6 +104,7 @@ Notes on memory management
 * [[How to write new module]]
 * [apache](https://github.com/firehol/netdata/tree/master/python.d#apache)
 * [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
+* [beanstalkd](https://github.com/firehol/netdata/tree/master/python.d#beanstalk)
 * [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
 * [couchdb](https://github.com/firehol/netdata/tree/master/python.d#couchdb)
 * [cpuidle](https://github.com/firehol/netdata/tree/master/python.d#cpuidle)

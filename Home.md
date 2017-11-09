@@ -8,7 +8,7 @@
 
 ## latest news
 
-> 🥇  **[Check here the changelog of the current netdata vs the latest release (v1.8.0)](https://github.com/firehol/netdata/issues/2788)**
+> 🥇 **[Check here the changelog of the current netdata vs the latest release (v1.8.0)](https://github.com/firehol/netdata/issues/2788)**
 
 ---
 

@@ -8,7 +8,9 @@
 
 ## latest news
 
-> **[check the changelog of the current netdata vs the latest release (v1.8.0)](https://github.com/firehol/netdata/issues/2788)**
+> 🥇  **[Check here the changelog of the current netdata vs the latest release (v1.8.0)](https://github.com/firehol/netdata/issues/2788)**
+
+---
 
 `Sep 17th, 2017` - **[netdata v1.8.0 released!](https://github.com/firehol/netdata/releases)**
 
@@ -16,6 +18,8 @@
  - better support for containers (`veth` interfaces are now visualized at their containers section, container sections now provide a summary view for each container)
  - netdata can now listen on UNIX domain sockets
  - dozens of more improvements, compatibility fixes and enhancements
+
+---
 
 ## demo sites
 

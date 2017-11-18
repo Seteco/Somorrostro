@@ -10,6 +10,7 @@ Linux:
    - Arch Linux (`sudo pacman -S netdata`)
    - Gentoo Linux (`sudo emerge --ask netdata`)
    - Solus Linux (`sudo eopkg install netdata`)
+   - Alpine Linux (`sudo apk add netdata`)
 
 - [**One line installation**, on any modern Linux system](#linux-one-liner)
 <br/>(the suggested way of installing the latest netdata and keep it up to date automatically)

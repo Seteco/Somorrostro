@@ -41,19 +41,54 @@ The plugin supports a few options. To see them, run:
 
 ```sh
 # /usr/libexec/netdata/plugins.d/freeipmi.plugin -h
-netdata freeipmi.plugin 1.5.0-539-gf17e83b_rolling
-Usage:
 
-  freeipmi.plugin [OPTIONS]
+ netdata freeipmi.plugin 1.8.0-546-g72ce5d6b_rolling
+ Copyright (C) 2016-2017 Costa Tsaousis <costa@tsaousis.gr>
+ Released under GNU General Public License v3 or later.
+ All rights reserved.
 
-Available options:
-  NUMBER, sets the data collection frequency
-  debug, enables verbose output
-  sel, enable SEL collection (it is on by default)
-  no-sel, disable SEL collection
-  hostname X, sets the remote host to connect to
-  sdr-cache-dir X, sets the directory to save SDR cache files
-  sensor-config-file X, set the filename to read sensor configuration
+ This program is a data collector plugin for netdata.
+
+ Available command line options:
+
+  SECONDS                 data collection frequency
+                          minimum: 5
+
+  debug                   enable verbose output
+                          default: disabled
+
+  sel
+  no-sel                  enable/disable SEL collection
+                          default: enabled
+
+  hostname HOST
+  username USER
+  password PASS           connect to remote IPMI host
+                          default: local IPMI processor
+
+  sdr-cache-dir PATH      directory for SDR cache files
+                          default: /tmp
+
+  sensor-config-file FILE filename to read sensor configuration
+                          default: system default
+
+  ignore N1,N2,N3,...     sensor IDs to ignore
+                          default: none
+
+  -v
+  -V
+  version                 print version and exit
+
+ Linux kernel module for IPMI is CPU hungry.
+ On Linux run this to lower kipmiN CPU utilization:
+ # echo 10 > /sys/module/ipmi_si/parameters/kipmid_max_busy_us
+
+ or create: /etc/modprobe.d/ipmi.conf with these contents:
+ options ipmi_si kipmid_max_busy_us=10
+
+ For more information:
+ https://github.com/firehol/netdata/wiki/monitoring-IPMI
+
 ```
 
 You can set these options in `/etc/netdata/netdata.conf` at this section:
@@ -65,6 +100,40 @@ You can set these options in `/etc/netdata/netdata.conf` at this section:
 ```
 
 Append to `command options = ` the settings you need. The minimum `update every` is 5 (enforced internally by the plugin). IPMI is slow and CPU hungry. So, once every 5 seconds is pretty acceptable.
+
+## ignoring specific sensors
+
+Specific sensor IDs can be excluded from freeipmi tools by editing `/etc/freeipmi/freeipmi.conf` and setting the IDs to be ignored at `ipmi-sensors-exclude-record-ids`. **However this file is not used by `libipmimonitoring`** (the library used by netdata's `freeipmi.plugin`).
+
+So, `freeipmi.plugin` supports the option `ignore` that accepts a comma separated list of sensor IDs to ignore. To configure it, edit `/etc/netdata/netdata.conf` and set:
+
+```
+[plugin:freeipmi]
+	command options = ignore 1,2,3,4,...
+```
+
+To find the IDs to ignore, run the command `ipmimonitoring`. The first column is the wanted ID:
+
+```
+ID  | Name             | Type                     | State    | Reading    | Units | Event
+1   | Ambient Temp     | Temperature              | Nominal  | 26.00      | C     | 'OK'
+2   | Altitude         | Other Units Based Sensor | Nominal  | 480.00     | ft    | 'OK'
+3   | Avg Power        | Current                  | Nominal  | 100.00     | W     | 'OK'
+4   | Planar 3.3V      | Voltage                  | Nominal  | 3.29       | V     | 'OK'
+5   | Planar 5V        | Voltage                  | Nominal  | 4.90       | V     | 'OK'
+6   | Planar 12V       | Voltage                  | Nominal  | 11.99      | V     | 'OK'
+7   | Planar VBAT      | Voltage                  | Nominal  | 2.95       | V     | 'OK'
+8   | Fan 1A Tach      | Fan                      | Nominal  | 3132.00    | RPM   | 'OK'
+9   | Fan 1B Tach      | Fan                      | Nominal  | 2150.00    | RPM   | 'OK'
+10  | Fan 2A Tach      | Fan                      | Nominal  | 2494.00    | RPM   | 'OK'
+11  | Fan 2B Tach      | Fan                      | Nominal  | 1825.00    | RPM   | 'OK'
+12  | Fan 3A Tach      | Fan                      | Nominal  | 3538.00    | RPM   | 'OK'
+13  | Fan 3B Tach      | Fan                      | Nominal  | 2625.00    | RPM   | 'OK'
+14  | Fan 1            | Entity Presence          | Nominal  | N/A        | N/A   | 'Entity Present'
+15  | Fan 2            | Entity Presence          | Nominal  | N/A        | N/A   | 'Entity Present'
+...
+```
+
 
 ## debugging
 

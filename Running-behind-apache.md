@@ -54,7 +54,7 @@ Add the following on top of any existing virtual host. It will allow you to acce
 	# for HTTP (if the virtualhost is HTTP, use this)
 	RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
 	# for HTTPS (if the virtualhost is HTTPS, use this)
-	#RewriteRule ^/netdata$ http://%{HTTP_HOST}/netdata/ [L,R=301]
+	#RewriteRule ^/netdata$ https://%{HTTP_HOST}/netdata/ [L,R=301]
 
 	# rest of virtual host config here
 	

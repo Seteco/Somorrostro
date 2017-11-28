@@ -1,4 +1,4 @@
-By default netdata runs with the `idle` process scheduling policy, so that it uses CPU resources, only when there is idle CPU to spare. On very busy servers, this can lead to gaps on the charts.
+By default netdata runs with the `idle` process scheduling policy, so that it uses CPU resources, only when there is idle CPU to spare. On very busy servers (or weak servers), this can lead to gaps on the charts.
 
 ## setting netdata process scheduling policy
 

@@ -75,3 +75,45 @@ Now, tell netdata to keep these settings, as set by systemd, by editing `netdata
 ```
 
 Using the above, whatever scheduling settings you have set at `netdata.service` will be maintained by netdata.
+
+
+## Example 1: netdata with nice -1 on non-systemd systems
+
+On a system that is not based on systemd, to make netdata run with nice level -1 (a little bit higher to the default for all programs), edit netdata.conf and set:
+
+```
+[global]
+  process scheduling policy = other
+  process nice level = -1
+```
+
+then execute this to restart netdata:
+
+```sh
+sudo service netdata restart
+```
+
+
+## Example 2: netdata with nice -1 on systemd systems
+
+On a system that is based on systemd, to make netdata run with nice level -1 (a little bit higher to the default for all programs), edit netdata.conf and set:
+
+```
+[global]
+  process scheduling policy = keep
+```
+
+edit /etc/systemd/system/netdata.service and set:
+
+```
+[Service]
+CPUSchedulingPolicy=other
+Nice=-1
+```
+
+then execute:
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart netdata
+```

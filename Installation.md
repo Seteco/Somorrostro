@@ -425,6 +425,12 @@ To start netdata manually run:
 rehash
 netdata -P /var/run/netdata.pid
 ```
+To create the netdata service
+1. Edit the netdata service file /usr/local/etc/rc.d/netdata
+1. Find the line **pidfile="/var/db/netdata/${name}.pid"** and change the path to **"/var/run/${name}.pid"**
+1. Exit and Save changes
+1. Edit the file /etc/rc.conf and add **netdata_enable=YES**
+1. Exit and Save changes
 
 ##### FreeNAS
 On FreeNAS-Corral-RELEASE (>=10.0.3), netdata is pre-installed. 

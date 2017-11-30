@@ -10,4 +10,6 @@ The following is a list of netdata plugins distributed by third parties:
 
 [teamspeak 3 plugin](https://github.com/coraxx/netdata_ts3_plugin) polls active users and bandwidth from TeamSpeak 3 servers.
 
+## ntp
 
+[ntp python module](https://github.com/rda0/netdata-ntp) monitors `ntpd` system variables.

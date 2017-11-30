@@ -277,6 +277,29 @@ There are two special values you can use:
 
 ---
 
+### Special use of the conditional operator
+
+A common (but not necessarily obvious) use of the conditional evaluation operator is to provide [hysteresis](https://en.wikipedia.org/wiki/Hysteresis) around the critical or warning thresholds.  This usage helps to avoid bogus messages resulting from small variations in the value when it is varying regularly but staying close to the threshold value, without needing to delay sending messages at all.
+
+An example of such usage from the default CPU usage alarms bundled with netdata is:
+
+```
+warn: $this > (($status >= $WARNING)  ? (75) : (85))
+crit: $this > (($status == $CRITICAL) ? (85) : (95))
+```
+
+Translated to simple English, this becomes:
+* If the alarm is currently a warning, then the threshold for being considered a warning is 75, otherwise it's 85.
+* If the alarm is currently critical, then the threshold for being considered critical is 85, otherwise it's 95.
+
+Which in turn, results in the following behavior:
+* While the value is rising, it will trigger a warning when it exceeds 85, and a critical alert when it exceeds 95.
+* While the value is falling, it will return to a warning state when it goes below 85, and a normal state when it goes below 75.
+* If the value is constantly varying between 80 and 90, then it will trigger a warning the first time it goes above 85, but will remain a warning until it goes below 75 (or goes above 85).
+* If the value is constantly varying between 90 and 100, then it will trigger a critical alert the first time it goes above 95, but will remain a critical alert goes below 85 (at which point it will return to being a warning).
+
+---
+
 ### Variables
 
 netdata supports 3 new internal indexes for variables that will be used in health monitoring:

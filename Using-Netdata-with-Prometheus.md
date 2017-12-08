@@ -118,7 +118,7 @@ Type=simple
 WorkingDirectory=/opt/prometheus
 User=prometheus
 Group=prometheus
-ExecStart=/opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml -log.level=info
+ExecStart=/opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml --log.level=info
 ExecReload=/bin/kill -SIGHUP $MAINPID
 ExecStop=/bin/kill -SIGINT $MAINPID
 

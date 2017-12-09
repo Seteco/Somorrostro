@@ -430,9 +430,9 @@ rehash
 netdata -P /var/run/netdata.pid
 ```
 
-To automatically start netdata on system start, add `netdata_enable="YES"' to the file /etc/rc.conf
+To automatically start netdata on system start, add `netdata_enable="YES"` to the file /etc/rc.conf
 ```
-echo 'mongod_enable="YES"' >> /etc/rc.conf
+echo 'netdata_enable="YES"' >> /etc/rc.conf
 ```
 
 ##### FreeNAS

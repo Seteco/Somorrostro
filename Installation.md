@@ -420,11 +420,7 @@ pkg add http://pkg.freebsd.org/FreeBSD:10:amd64/latest/All/netdata-1.8.0.txz
 ```
 More information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages. If you experience an issue with `/usr/bin/install` absense, update pfSense or use workaround from https://redmine.pfsense.org/issues/6643
 
-To start netdata manually run:
-```
-service netdata start
-```
-or
+To start netdata manually run `service netdata start` or...
 ```
 rehash
 netdata -P /var/run/netdata.pid

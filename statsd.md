@@ -234,6 +234,10 @@ So, to create the statsd application `myapp`, you can create the file `/etc/netd
 	memory mode = ram
 	history = 60
 
+[dictionary]
+    m1 = metric1
+    m2 = metric2
+
 # replace 'mychart' with the chart id
 # the chart will be named: myapp.mychart
 [mychart]
@@ -259,6 +263,8 @@ Using the above configuration `myapp` should get its own section on the dashboar
 - `memory mode` sets the memory mode for all charts of the application. The default is the global default for netdata (not the global default for statsd private charts).
 - `history` sets the size of the round robin database for this application. The default is the global default for netdata (not the global default for statsd private charts).
 
+`[dictionary]` defines name-value associations. These are used to renaming metrics, when added to synthetic charts. Metric names are also defined at each `dimension` line. However, using the dictionary dimension names can be declared globally, for each app and is the only way to rename dimensions when using patterns. Of course the dictionary can be empty or missing.
+
 Then, you can add any number of charts. Each chart should start with `[id]`.  The chart will be called `app_name.id`.  `family` controls the submenu on the dashboard. `context` controls the alarm templates. `priority` controls the ordering of the charts on the dashboard. The rest of the settings are informational.
 
 You can add any number of metrics to a chart, using `dimension` lines. These lines accept 5 space separated parameters:
@@ -271,10 +277,12 @@ You can add any number of metrics to a chart, using `dimension` lines. These lin
 
 So, the format is this:
 ```
-dimension = METRIC NAME TYPE MULTIPLIER DIVIDER
+dimension = [pattern] METRIC NAME TYPE MULTIPLIER DIVIDER
 ```
 
-where `TYPE`, `MUTLIPLIER` and `DIVIDER` are optional.
+`pattern` is a keyword. When set, `METRIC` is expected to be a netdata simple pattern that will be used to match all the statsd metrics to be added to the chart. So, `pattern` automatically matches any number of statsd metrics, all of which will be added as separate chart dimensions.
+
+`TYPE`, `MUTLIPLIER` and `DIVIDER` are optional.
 
 `TYPE` can be:
 
@@ -322,6 +330,106 @@ I got these private charts:
 and this synthetic chart:
 
 ![screenshot from 2017-08-03 23-29-14](https://user-images.githubusercontent.com/2662304/28942317-958a2c68-78a3-11e7-853f-32850141dd36.png)
+
+#### dictionary to name dimensions
+
+The `[dictionary]` section accepts any number of `name = value` pairs.
+
+netdata uses this dictionary as follows:
+
+1. When a `dimension` has a non-empty `NAME`, that name is looked up at the dictionary.
+
+2. If the above lookup gives nothing, or the `dimension` has an empty `NAME`, the original statsd metric name is looked up at the dictionary.
+
+3. If any of the above succeeds, netdata uses the `value` of the dictionary, to set the name of the dimension. The dimensions will have as ID the original statsd metric name, and as name, the dictionary value.
+
+So, you can use the dictionary in 2 ways:
+
+1. set `dimension = myapp.metric1 ''` and have at the dictionary `myapp.metric1 = metric1 name`
+2. set `dimension = myapp.metric1 'm1'` and have at the dictionary `m1 = metric1 name`
+
+In both cases, the dimension will be added with ID `myapp.metric1` and will be named `metric1 name`. So, in alarms you can use either of the 2 as `${myapp.metric1}` or `${metric1 name}`.
+
+> keep in mind that if you add multiple times the same statsd metric to a chart, netdata will append `TYPE` to the dimension ID, so `myapp.metric1` will be added as `myapp.metric1_last` or `myapp.metric1_events`, etc. If you add multiple times the same metric with the same `TYPE` to a chart, netdata will also append an incremental counter to the dimension ID, i.e. `myapp.metric1_last1`, `myapp.metric1_last2`, etc.
+
+#### dimension patterns
+
+netdata allows adding multiple dimensions to chart, by matching the statsd metrics with a netdata simple pattern.
+
+Assume we have an API that provides statsd metrics for each response code per method it supports, like these:
+
+```
+myapp.api.get.200
+myapp.api.get.400
+myapp.api.get.500
+myapp.api.del.200
+myapp.api.del.400
+myapp.api.del.500
+myapp.api.post.200
+myapp.api.post.400
+myapp.api.post.500
+myapp.api.all.200
+myapp.api.all.400
+myapp.api.all.500
+```
+
+To add all response codes of `myapp.api.get` to a chart use this:
+
+```
+[api_get_responses]
+   ...
+   dimension = pattern 'myapp.api.get.* '' last 1 1
+```
+
+The above will add dimension named `200`, `400` and `500` (yes, netdata extracts the wildcarded part of the metric name - so the dimensions will be named with whatever the `*` matched). You can rename the dimensions with this:
+
+```
+[dictionary]
+    get.200 = 200 ok
+    get.400 = 400 bad request
+    get.500 = 500 cannot connect to db
+    
+[api_get_responses]
+   ...
+   dimension = pattern 'myapp.api.get.* 'get.' last 1 1
+```
+
+Note that we added a `NAME` to the dimension line with `get.`. This is prefixed to the wildcarded part of the metric name, to compose the key for looking up the dictionary. So `500` became `get.500` which was looked up to the dictionary to find value `500 cannot connect to db`. This way we can have different dimension names, for each of the API methods (i.e. `get.500 = 500 cannot connect to db` while `post.500 = 500 cannot write to disk`).
+
+To add all API methods to a chart, do this:
+
+```
+[ok_by_method]
+   ...
+   dimension = pattern 'myapp.api.*.200 '' last 1 1
+```
+
+The above will add `get`, `post`, `del` and `all` to the chart.
+
+If `all` is not wanted (a `stacked` chart does not need the `all` dimension, since the sum of the dimensions provides the total), the line should be:
+
+```
+[ok_by_method]
+   ...
+   dimension = pattern '!myapp.api.all.* myapp.api.*.200 '' last 1 1
+```
+
+With the above, all methods except `all` will be added to the chart.
+
+To automatically renamed the methods, use this:
+
+```
+[dictionary]
+    method.get = GET
+    method.post = ADD
+    method.del = DELETE
+    
+[ok_by_method]
+   ...
+   dimension = pattern '!myapp.api.all.* myapp.api.*.200 'method.' last 1 1
+```
+
+Using the above, the dimensions will be added as `GET`, `ADD` and `DELETE`.
 
 
 ## interpolation

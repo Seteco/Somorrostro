@@ -354,7 +354,7 @@ In both cases, the dimension will be added with ID `myapp.metric1` and will be n
 
 #### dimension patterns
 
-netdata allows adding multiple dimensions to chart, by matching the statsd metrics with a netdata simple pattern.
+netdata allows adding multiple dimensions to a chart, by matching the statsd metrics with a netdata simple pattern.
 
 Assume we have an API that provides statsd metrics for each response code per method it supports, like these:
 
@@ -416,7 +416,7 @@ If `all` is not wanted (a `stacked` chart does not need the `all` dimension, sin
 
 With the above, all methods except `all` will be added to the chart.
 
-To automatically renamed the methods, use this:
+To automatically rename the methods, use this:
 
 ```
 [dictionary]

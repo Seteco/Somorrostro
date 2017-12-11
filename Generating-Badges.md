@@ -198,7 +198,7 @@ These are options dedicated to badges:
 
   The above will set `grey` if no value exists (not collected within the `gap when lost iterations above` in netdata.conf for the chart), `green` if the value is less than 10, `yellow` if the value is less than 100, etc up to `red` which will be used if no other conditions match.
 
-  The supported operators are `<`, `>`, `<=`, `>=`, `=`.
+  The supported operators are `<`, `>`, `<=`, `>=`, `=` (or `:`) and `!=` (or `<>`).
 
 - `precision=NUMBER`
 

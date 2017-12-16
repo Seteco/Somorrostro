@@ -8,15 +8,21 @@
 
 ## latest news
 
-> 🥇 **[Check here the changelog of the current netdata vs the latest release (v1.8.0)](https://github.com/firehol/netdata/issues/2788)**
+> 🥇 **[Check here the changelog of the current netdata vs the latest release (v1.9.0)](https://github.com/firehol/netdata/issues/3143)**
 
 ---
 
-`Sep 17th, 2017` - **[netdata v1.8.0 released!](https://github.com/firehol/netdata/releases)**
+`Dec 17th, 2017` - **[netdata v1.9.0 released!](https://github.com/firehol/netdata/releases)**
 
- - mainly a bug fix release - all users are advised to update to this release
- - better support for containers (`veth` interfaces are now visualized at their containers section, container sections now provide a summary view for each container)
- - netdata can now listen on UNIX domain sockets
+A big release:
+
+ - dashboard snapshots, for loading / saving selected time-frames
+ - highlighted time-frames across all charts of the dashboard
+ - IP access lists for filtering access to netdata
+ - better VMs monitoring with libvirt
+ - auto-scaling of chart units
+ - timezone conversion
+ - python.d.plugin rewritten
  - dozens of more improvements, compatibility fixes and enhancements
 
 ---

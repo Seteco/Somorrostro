@@ -19,11 +19,11 @@ A big release:
  - dashboard snapshots, for loading / saving selected time-frames
  - highlighted time-frames across all charts of the dashboard
  - IP access lists for filtering access to netdata
- - better VMs monitoring with libvirt
+ - enhanced VMs and containers monitoring
  - auto-scaling of chart units
- - timezone conversion
+ - timezone conversion at the dashboard to allow comparing charts with server logs
  - python.d.plugin rewritten
- - dozens of more improvements, enhancements, features and fixes
+ - dozens of more improvements, enhancements, features and compatibility fixes
 
 ---
 

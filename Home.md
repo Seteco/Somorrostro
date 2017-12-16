@@ -23,7 +23,7 @@ A big release:
  - auto-scaling of chart units
  - timezone conversion
  - python.d.plugin rewritten
- - dozens of more improvements, compatibility fixes and enhancements
+ - dozens of more improvements, enhancements, features and fixes
 
 ---
 

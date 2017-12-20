@@ -272,7 +272,7 @@ You can add any number of metrics to a chart, using `dimension` lines. These lin
 1. the metric name, as it is collected (it has to be matched by the `metrics = ` pattern of the app)
 2. the dimension name, as it should be shown on the chart
 3. an optional selector (type) of the value to shown (see below)
-4. an optional multipler
+4. an optional multiplier
 5. an optional divider
 6. optional flags, space separated and enclosed in quotes. All the external plugins `DIMENSION` flags can be used. Currently the only usable flag is `hidden`, to add the dimension, but not show it on the dashboard.
 

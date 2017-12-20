@@ -274,15 +274,16 @@ You can add any number of metrics to a chart, using `dimension` lines. These lin
 3. an optional selector (type) of the value to shown (see below)
 4. an optional multipler
 5. an optional divider
+6. optional flags, space separated and enclosed in quotes. All the external plugins `DIMENSION` flags can be used. Currently the only usable flag is `hidden`, to add the dimension, but not show it on the dashboard.
 
 So, the format is this:
 ```
-dimension = [pattern] METRIC NAME TYPE MULTIPLIER DIVIDER
+dimension = [pattern] METRIC NAME TYPE MULTIPLIER DIVIDER OPTIONS
 ```
 
 `pattern` is a keyword. When set, `METRIC` is expected to be a netdata simple pattern that will be used to match all the statsd metrics to be added to the chart. So, `pattern` automatically matches any number of statsd metrics, all of which will be added as separate chart dimensions.
 
-`TYPE`, `MUTLIPLIER` and `DIVIDER` are optional.
+`TYPE`, `MUTLIPLIER`, `DIVIDER` and `OPTIONS` are optional.
 
 `TYPE` can be:
 

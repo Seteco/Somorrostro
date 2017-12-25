@@ -9,7 +9,7 @@ Well... think a bit of it.... confluence is the perfect place for something like
 
 1. All the employees of your company already have access to it.
 
-2. Most probably you have already several spaces on confluence, one for each project or service. Adding live monitoring information there is ideal: everything in one place. Your users will just click on the page and instantly the monitoring page they need is there.
+2. Most probably you have already several spaces on confluence, one for each project or service. Adding live monitoring information there is ideal: everything in one place. Your users will just click on the page and instantly the monitoring page they need will appear with only the information they need to know.
 
 3. You can create monitoring pages for very specific purposes, hiding all the information that is too detailed for most users, or explaining in detail things that are difficult for them to understand.
 

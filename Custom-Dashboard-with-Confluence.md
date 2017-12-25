@@ -15,9 +15,11 @@ Well... think a bit of it.... confluence is the perfect place for something like
 
 So, what can we expect? What can netdata do on confluence?
 
-You will be surprised! **Everything a netdata dashboard does!**.
+You will be surprised! **Everything a netdata dashboard does!**. Example:
 
-Let me show you.
+![final-confluence](https://user-images.githubusercontent.com/2662304/34329813-636bb8de-e917-11e7-8cc7-19e197859008.gif)
+
+Let me show you how.
 
 > Let's assume we have 2 web servers we want to monitor. We will create a simple dashboard with key information about them, directly on confluence.
 

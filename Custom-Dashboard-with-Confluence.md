@@ -139,7 +139,7 @@ Which gives us this:
 
 ![screenshot from 2017-12-25 01-26-04](https://user-images.githubusercontent.com/2662304/34329700-989f0f2e-e912-11e7-8ac9-c78f82cfbdb0.png)
 
-Note the color difference. This is because netdata automatically hides dimensions that are just zero. To instruct netdata to disable this feature, we need to add another html fragment at the bottom of the page (make sure this is added after loading `dashboard.js`). So we edit the first block we added, and append a new `<script>` section to it:
+Note the color difference. This is because netdata automatically hides dimensions that are just zero (the frankfurt server has only successful requests). To instruct netdata to disable this feature, we need to add another html fragment at the bottom of the page (make sure this is added after loading `dashboard.js`). So we edit the first block we added, and append a new `<script>` section to it:
 
 
 ```html
@@ -164,6 +164,8 @@ Now they match:
 
 ![screenshot from 2017-12-25 01-30-14](https://user-images.githubusercontent.com/2662304/34329716-2ea83680-e913-11e7-847e-52b3f402aeb0.png)
 
+#### more options
+
 If you want to change the colors append `data-colors="#001122 #334455 #667788"`. The colors will be used for the dimensions top to bottom, as shown on a netdata dashboard. Keep in mind the default netdata dashboards hide by default all dimensions that are just zero, so enable them at the dashboard settings to see them all.
 
 You can get a percentage chart, by adding these on these charts:
@@ -176,10 +178,11 @@ You can get a percentage chart, by adding these on these charts:
 	data-units="%"
 ```
 
-The first line instructs netdata to calculate the percentage of each dimension, the second strips any fractional digits, the third instructs the charting library to size the chart from 0 to 100 and the next one instructs it to include 0 in the chart and the last changes the units of the chart to `%`. This is how it will look:
+The first line instructs netdata to calculate the percentage of each dimension, the second strips any fractional digits, the third instructs the charting library to size the chart from 0 to 100, the next one instructs it to include 0 in the chart and the last changes the units of the chart to `%`. This is how it will look:
 
 ![screenshot from 2017-12-25 01-45-39](https://user-images.githubusercontent.com/2662304/34329774-570ef990-e915-11e7-899f-eee939564aaf.png)
 
+You can make any number of charts have common min and max on the y-range by adding `common-min="NAME"` and `common-max="NAME"`, where `NAME` is anything you like. Keep in mind for best results all the charts with the same `NAME` should be visible at once, otherwise a not-visible chart will influence the range and until it is updated the range will not adapt.
 
 ### Add gauges
 
@@ -190,7 +193,7 @@ Let's say we want to add 2 gauges:
 1. `success` and `redirect` together, in blue
 2. `error`, `bad` and `other` together, in orange
 
-We will add the following for each server. We have enclosed them in another a `<div>` because Confluence will wrap them if the page width is not enough. With that additional `<div>` they will always be next to each other.
+We will add the following for each server. We have enclosed them in another a `<div>` because Confluence will wrap them if the page width is not enough to fit them. With that additional `<div>` they will always be next to each other.
 
 ```html
 <div style="width: 300px; text-align: center;">
@@ -233,7 +236,7 @@ Adding the above will give you this:
 ![final-confluence](https://user-images.githubusercontent.com/2662304/34329813-636bb8de-e917-11e7-8cc7-19e197859008.gif)
 
 
-### Source editor
+### Final source - for the confluence source editor
 
 If you enable the source editor of Confluence, you can paste the whole example:
 

@@ -179,6 +179,7 @@ Notes on memory management
 **Web Dashboards**
 * [[Overview]]
 * [[Custom Dashboards]]
+* [[Custom Dashboard with Confluence]]
 * [[Chart Libraries]]
     - [[Dygraph]]
     - [[EasyPieChart]]

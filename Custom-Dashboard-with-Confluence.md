@@ -187,8 +187,8 @@ Let's now add a few gauges. The chart we added has several dimensions: `success`
 
 Let's say we want to add 2 gauges:
 
-1. `success` and `redirect` together, in green
-2. `error`, `bad` and `other` together, in red
+1. `success` and `redirect` together, in blue
+2. `error`, `bad` and `other` together, in orange
 
 We will add the following for each server. We have enclosed them in another a `<div>` because Confluence will wrap them if the page width is not enough. With that additional `<div>` they will always be next to each other.
 

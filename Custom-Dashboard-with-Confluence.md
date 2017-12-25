@@ -1,5 +1,5 @@
 
-# netdata on Atlassian's Confluence
+# netdata on Atlassian's Confluence Pages
 
 With netdata you can build **live, interactive, monitoring dashboards** directly on Atlassian's **Confluence** pages.
 

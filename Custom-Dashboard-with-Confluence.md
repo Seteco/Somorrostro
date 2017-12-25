@@ -42,7 +42,7 @@ I will use the first server for the static dashboard javascript files.
 
 Then, you need to enable the `html` plugin of confluence. We will add some plain html content on that page, and this plugin is required.
 
-### Create a new space 
+### Create a new page 
 
 Create a new confluence page and paste this into an `html` box:
 

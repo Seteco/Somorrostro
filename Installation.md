@@ -58,7 +58,11 @@ The above:
 
 The `kickstart.sh` script passes all its parameters to `netdata-installer.sh`, so you can add more parameters to change the installation directory, enable/disable plugins, etc (check below).
 
-For automated installs, append a space + `--dont-wait` to the command line.
+For automated installs, append a space + `--dont-wait` to the command line. You can also append `--dont-start-it` to prevent the installer from starting netdata. Example:
+
+```sh
+bash <(curl -Ss https://my-netdata.io/kickstart.sh) all --dont-wait --dont-start-it
+```
 
 ### x86_64 pre-built binary for any Linux
 
@@ -68,6 +72,12 @@ To install the latest version use this:
 
 ```sh
 bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh)
+```
+
+For automated installs, append a space + `--dont-wait` to the command line. You can also append `--dont-start-it` to prevent the installer from starting netdata. Example:
+
+```sh
+bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh) --dont-wait --dont-start-it
 ```
 
 If your shell fails to handle the above one liner, do this:
@@ -92,8 +102,6 @@ Download any of the `.run` files, and run it. These files are self-extracting sh
 The target system does **not** need to have bash installed.
 
 The same files can be used for updates too.
-
-For automated installs, append a space + `--dont-wait` to the `kickstart-static64.sh` command line.
 
 ### Linux by hand
 

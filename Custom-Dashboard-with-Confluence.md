@@ -17,7 +17,7 @@ So, what can we expect? What can netdata do on confluence?
 
 You will be surprised! **Everything a netdata dashboard does!**. Example:
 
-![final-confluence3](https://user-images.githubusercontent.com/2662304/34365918-2dfdb1ce-ea9e-11e7-8320-3fbb449f6fa4.gif)
+![final-confluence4](https://user-images.githubusercontent.com/2662304/34366214-767fa4b8-eaa1-11e7-83af-0b9b9b72aa73.gif)
 
 Let me show you how.
 

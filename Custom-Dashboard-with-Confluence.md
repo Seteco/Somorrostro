@@ -17,7 +17,7 @@ So, what can we expect? What can netdata do on confluence?
 
 You will be surprised! **Everything a netdata dashboard does!**. Example:
 
-![final-confluence2](https://user-images.githubusercontent.com/2662304/34338462-b04536d0-e971-11e7-8769-7a1a7fa7b44c.gif)
+![final-confluence3](https://user-images.githubusercontent.com/2662304/34365918-2dfdb1ce-ea9e-11e7-8320-3fbb449f6fa4.gif)
 
 Let me show you how.
 
@@ -262,7 +262,122 @@ If you enable the source editor of Confluence, you can paste the whole example (
     </tr>
     <tr>
       <td colspan="1" style="text-align: right;">
-        <strong>last 1 hour</strong>
+        <strong>last hour</strong>
+        <br/>
+        <strong>requests</strong>
+      </td>
+      <td colspan="1" style="text-align: center;">
+        <div class="content-wrapper">
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+          <ac:structured-macro ac:macro-id="5771a1db-b461-478f-a820-edcb67809eb1" ac:name="html" ac:schema-version="1">
+            <ac:plain-text-body><![CDATA[<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://london.my-netdata.io"
+	data-chart-library="easypiechart"
+	data-after="-14400"
+	data-before="0"
+	data-points="4"
+	data-title="london"
+	data-method="sum"
+	data-append-options="unaligned"
+	data-update-every="60"
+	data-width="120px"
+	data-common-max="1h_requests_pie"
+	data-decimal-digits="0"
+></div>]]></ac:plain-text-body>
+          </ac:structured-macro>
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+        </div>
+      </td>
+      <td colspan="1" style="text-align: center;">
+        <div class="content-wrapper">
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+          <ac:structured-macro ac:macro-id="aff4446a-1432-407b-beb0-488c33eced18" ac:name="html" ac:schema-version="1">
+            <ac:plain-text-body><![CDATA[<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://frankfurt.my-netdata.io"
+	data-chart-library="easypiechart"
+	data-after="-14400"
+	data-before="0"
+	data-points="4"
+	data-title="frankfurt"
+	data-method="sum"
+	data-append-options="unaligned"
+	data-update-every="60"
+	data-width="120px"
+	data-common-max="1h_requests_pie"
+	data-decimal-digits="0"
+></div>]]></ac:plain-text-body>
+          </ac:structured-macro>
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+        </div>
+      </td>
+      <td colspan="1" style="text-align: center;">
+        <div class="content-wrapper">
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+          <ac:structured-macro ac:macro-id="fd310534-627c-47bd-a184-361eb3f00489" ac:name="html" ac:schema-version="1">
+            <ac:plain-text-body><![CDATA[<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://sanfrancisco.my-netdata.io"
+	data-chart-library="easypiechart"
+	data-after="-14400"
+	data-before="0"
+	data-points="4"
+	data-title="sanfrancisco"
+	data-method="sum"
+	data-append-options="unaligned"
+	data-update-every="60"
+	data-width="120px"
+	data-common-max="1h_requests_pie"
+	data-decimal-digits="0"
+></div>]]></ac:plain-text-body>
+          </ac:structured-macro>
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+        </div>
+      </td>
+      <td colspan="1" style="text-align: center;">
+        <div class="content-wrapper">
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+          <ac:structured-macro ac:macro-id="eb1261d5-8ff2-4a5c-8945-701bf04fb75b" ac:name="html" ac:schema-version="1">
+            <ac:plain-text-body><![CDATA[<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://toronto.my-netdata.io"
+	data-chart-library="easypiechart"
+	data-after="-14400"
+	data-before="0"
+	data-points="4"
+	data-title="toronto"
+	data-method="sum"
+	data-append-options="unaligned"
+	data-update-every="60"
+	data-width="120px"
+	data-common-max="1h_requests_pie"
+	data-decimal-digits="0"
+></div>]]></ac:plain-text-body>
+          </ac:structured-macro>
+          <p class="auto-cursor-target">
+            <br/>
+          </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" style="text-align: right;">
+        <strong>last<br/>1 hour</strong>
       </td>
       <td colspan="1" style="text-align: center;">
         <div class="content-wrapper">
@@ -276,12 +391,14 @@ data-host="https://london.my-netdata.io"
 	data-legend="false"
 	data-dygraph-yaxislabelwidth="35"
 	data-dygraph-ypixelsperlabel="8"
+data-dygraph-xpixelsperlabel="30"
+data-dygraph-xaxislabelwidth="26"
 	data-after="-3600"
 	data-before="0"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="1h_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -302,12 +419,14 @@ data-host="https://frankfurt.my-netdata.io"
 	data-legend="false"
 	data-dygraph-yaxislabelwidth="35"
 	data-dygraph-ypixelsperlabel="8"
+data-dygraph-xpixelsperlabel="30"
+data-dygraph-xaxislabelwidth="26"
 	data-after="-3600"
 	data-before="0"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="1h_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -328,12 +447,14 @@ data-host="https://sanfrancisco.my-netdata.io"
 	data-legend="false"
 	data-dygraph-yaxislabelwidth="35"
 	data-dygraph-ypixelsperlabel="8"
+data-dygraph-xpixelsperlabel="30"
+data-dygraph-xaxislabelwidth="26"
 	data-after="-3600"
 	data-before="0"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="1h_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -354,12 +475,14 @@ data-host="https://toronto.my-netdata.io"
 	data-legend="false"
 	data-dygraph-yaxislabelwidth="35"
 	data-dygraph-ypixelsperlabel="8"
+data-dygraph-xpixelsperlabel="30"
+data-dygraph-xaxislabelwidth="26"
 	data-after="-3600"
 	data-before="0"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="1h_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -371,7 +494,7 @@ data-decimal-digits="0"
     </tr>
     <tr>
       <td colspan="1" style="text-align: right;">
-        <strong>last 10 minutes</strong>
+        <strong>last 10<br/>minutes</strong>
       </td>
       <td colspan="1" style="text-align: center;">
         <div class="content-wrapper">
@@ -390,7 +513,7 @@ data-host="https://london.my-netdata.io"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="10m_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -416,7 +539,7 @@ data-host="https://frankfurt.my-netdata.io"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="10m_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -442,7 +565,7 @@ data-host="https://sanfrancisco.my-netdata.io"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="10m_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -468,7 +591,7 @@ data-host="https://toronto.my-netdata.io"
 	data-title=""
 	data-height="100px"
 	data-width="300px"
-data-common-max="requests"
+data-common-max="10m_requests"
 data-decimal-digits="0"
 ></div>]]></ac:plain-text-body>
           </ac:structured-macro>
@@ -480,7 +603,7 @@ data-decimal-digits="0"
     </tr>
     <tr>
       <td style="text-align: right;">
-        <strong>last 1 minute</strong>
+        <strong>last 1<br/>minute</strong>
       </td>
       <td style="text-align: center;">
         <div class="content-wrapper">
@@ -488,7 +611,7 @@ data-decimal-digits="0"
             <br/>
           </p>
           <ac:structured-macro ac:macro-id="8c041cfb-a5a0-425c-afe6-207f4986cb26" ac:name="html" ac:schema-version="1">
-            <ac:plain-text-body><![CDATA[<embed src="https://london.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto" type="image/svg+xml" height="20"/>
+            <ac:plain-text-body><![CDATA[<embed src="https://london.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto&label=1m%20london%20successful%20requests" type="image/svg+xml" height="20"/>
 <br/>
 <div
 	data-netdata="web_log_nginx_netdata.response_statuses"
@@ -521,7 +644,7 @@ data-colors="#009900"
             <br/>
           </p>
           <ac:structured-macro ac:macro-id="a3777583-9919-4997-891c-94a8cec60604" ac:name="html" ac:schema-version="1">
-            <ac:plain-text-body><![CDATA[<embed src="https://frankfurt.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto" type="image/svg+xml" height="20"/>
+            <ac:plain-text-body><![CDATA[<embed src="https://frankfurt.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto&label=1m%20frankfurt%20successful%20requests" type="image/svg+xml" height="20"/>
 <br/>
 <div
 	data-netdata="web_log_nginx_netdata.response_statuses"
@@ -554,7 +677,7 @@ data-colors="#009900"
             <br/>
           </p>
           <ac:structured-macro ac:macro-id="e003deba-82fa-4aec-8264-6cb7d814a299" ac:name="html" ac:schema-version="1">
-            <ac:plain-text-body><![CDATA[<embed src="https://sanfrancisco.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto" type="image/svg+xml" height="20"/>
+            <ac:plain-text-body><![CDATA[<embed src="https://sanfrancisco.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto&label=1m%20sanfrancisco%20successful%20requests" type="image/svg+xml" height="20"/>
 <br/>
 <div
 	data-netdata="web_log_nginx_netdata.response_statuses"
@@ -587,7 +710,7 @@ data-colors="#009900"
             <br/>
           </p>
           <ac:structured-macro ac:macro-id="046fcda5-98db-4776-8c51-3981d0e68f38" ac:name="html" ac:schema-version="1">
-            <ac:plain-text-body><![CDATA[<embed src="https://toronto.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto" type="image/svg+xml" height="20"/>
+            <ac:plain-text-body><![CDATA[<embed src="https://toronto.my-netdata.io/api/v1/badge.svg?chart=web_log_nginx_netdata.response_statuses&alarm=1m_successful&refresh=auto&label=1m%20toronto%20successful%20requests" type="image/svg+xml" height="20"/>
 <br/>
 <div
 	data-netdata="web_log_nginx_netdata.response_statuses"
@@ -619,7 +742,7 @@ data-colors="#009900"
       <td colspan="1" style="text-align: right;">
         <strong>now</strong>
       </td>
-      <td colspan="1" style="text-align: center;">
+      <td colspan="1" style="text-align: left;">
         <div class="content-wrapper">
           <p class="auto-cursor-target">
             <br/>
@@ -627,44 +750,56 @@ data-colors="#009900"
           <ac:structured-macro ac:macro-id="4aef31d3-9439-439b-838d-7350a26bde5f" ac:name="html" ac:schema-version="1">
             <ac:plain-text-body><![CDATA[<div style="width: 300px; text-align: center;">
 <div
-		data-netdata="web_log_nginx_netdata.response_statuses"
-		data-host="https://london.my-netdata.io"
-		data-dimensions="success"
-		data-chart-library="gauge"
-		data-title="Success"
-		data-units="requests/s"
-		data-gauge-adjust="width"
-		data-width="120"
-		data-before="0"
-		data-after="-60"
-		data-points="60"
-		data-common-max="response_statuses"
-		data-colors="#009900"
-		data-decimal-digits="0"
-	></div><div
-		data-netdata="web_log_nginx_netdata.response_statuses"
-		data-host="https://london.my-netdata.io"
-		data-dimensions="redirect,error,bad,other"
-		data-chart-library="gauge"
-		data-title="All Others"
-		data-units="requests/s"
-		data-gauge-adjust="width"
-		data-width="120"
-		data-before="0"
-		data-after="-60"
-		data-points="60"
-		data-common-max="response_statuses"
-		data-colors="#fe7d37"
-		data-decimal-digits="0"
-	></div>
-</div>]]></ac:plain-text-body>
+			data-netdata="web_log_nginx_netdata.response_statuses"
+			data-host="https://london.my-netdata.io"
+			data-dimensions="success"
+			data-chart-library="gauge"
+			data-title="Success"
+			data-units="requests/s"
+			data-gauge-adjust="width"
+			data-width="120"
+			data-before="0"
+			data-after="-60"
+			data-points="60"
+			data-common-max="response_statuses"
+			data-colors="#009900"
+			data-decimal-digits="0"
+		></div><div
+			data-netdata="web_log_nginx_netdata.response_statuses"
+			data-host="https://london.my-netdata.io"
+			data-dimensions="redirect,error,bad,other"
+			data-chart-library="gauge"
+			data-title="All Others"
+			data-units="requests/s"
+			data-gauge-adjust="width"
+			data-width="120"
+			data-before="0"
+			data-after="-60"
+			data-points="60"
+			data-common-max="response_statuses"
+			data-colors="#fe7d37"
+			data-decimal-digits="0"
+		></div>
+</div>
+<br/>
+<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://london.my-netdata.io"
+	data-dygraph-theme="sparkline"
+	data-width="300"
+	data-height="20"
+	data-before="0"
+	data-after="-60"
+	data-points="60"
+	data-common-max="1m_requests_sparkline"
+	></div>]]></ac:plain-text-body>
           </ac:structured-macro>
           <p class="auto-cursor-target">
             <br/>
           </p>
         </div>
       </td>
-      <td colspan="1" style="text-align: center;">
+      <td colspan="1" style="text-align: left;">
         <div class="content-wrapper">
           <p class="auto-cursor-target">
             <br/>
@@ -702,14 +837,26 @@ data-colors="#009900"
 		data-colors="#fe7d37"
 		data-decimal-digits="0"
 	></div>
-</div>]]></ac:plain-text-body>
+</div>
+<br/>
+<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://frankfurt.my-netdata.io"
+	data-dygraph-theme="sparkline"
+	data-width="300"
+	data-height="20"
+	data-before="0"
+	data-after="-60"
+	data-points="60"
+	data-common-max="1m_requests_sparkline"
+	></div>]]></ac:plain-text-body>
           </ac:structured-macro>
           <p class="auto-cursor-target">
             <br/>
           </p>
         </div>
       </td>
-      <td colspan="1" style="text-align: center;">
+      <td colspan="1">
         <div class="content-wrapper">
           <p class="auto-cursor-target">
             <br/>
@@ -747,14 +894,26 @@ data-colors="#009900"
 		data-colors="#fe7d37"
 		data-decimal-digits="0"
 	></div>
-</div>]]></ac:plain-text-body>
+</div>
+<br/>
+<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://sanfrancisco.my-netdata.io"
+	data-dygraph-theme="sparkline"
+	data-width="300"
+	data-height="20"
+	data-before="0"
+	data-after="-60"
+	data-points="60"
+	data-common-max="1m_requests_sparkline"
+	></div>]]></ac:plain-text-body>
           </ac:structured-macro>
           <p class="auto-cursor-target">
             <br/>
           </p>
         </div>
       </td>
-      <td colspan="1" style="text-align: center;">
+      <td colspan="1">
         <div class="content-wrapper">
           <p class="auto-cursor-target">
             <br/>
@@ -792,7 +951,19 @@ data-colors="#009900"
 		data-colors="#fe7d37"
 		data-decimal-digits="0"
 	></div>
-</div>]]></ac:plain-text-body>
+</div>
+<br/>
+<div
+	data-netdata="web_log_nginx_netdata.response_statuses"
+	data-host="https://toronto.my-netdata.io"
+	data-dygraph-theme="sparkline"
+	data-width="300"
+	data-height="20"
+	data-before="0"
+	data-after="-60"
+	data-points="60"
+	data-common-max="1m_requests_sparkline"
+	></div>]]></ac:plain-text-body>
           </ac:structured-macro>
           <p class="auto-cursor-target">
             <br/>

@@ -212,8 +212,8 @@ postfix|BASH<br/>Shell Script|Charts the postfix queue size.<br/><br/>DEPRECATED
 
 application|language|notes|
 :---------:|:------:|:----|
-NFS Client|`C`|This is handled entirely by the netdata daemon.<br/>&nbsp;</br/>Configuration: `netdata.conf`, section `[plugin:proc:/proc/net/rpc/nfs]`.
-NFS Server|`C`|This is handled entirely by the netdata daemon.<br/>&nbsp;</br/>Configuration: `netdata.conf`, section `[plugin:proc:/proc/net/rpc/nfsd]`.
+NFS Client|`C`|This is handled entirely by the netdata daemon.<br/>&nbsp;<br/>Configuration: `netdata.conf`, section `[plugin:proc:/proc/net/rpc/nfs]`.
+NFS Server|`C`|This is handled entirely by the netdata daemon.<br/>&nbsp;<br/>Configuration: `netdata.conf`, section `[plugin:proc:/proc/net/rpc/nfsd]`.
 samba|python<br/>v2 or v3|Performance metrics of Samba SMB2 file sharing.<br/>&nbsp;<br/>wiki page: [python.d.plugin module samba](https://github.com/firehol/netdata/tree/master/python.d#samba)<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [samba.chart.py](https://github.com/firehol/netdata/blob/master/python.d/samba.chart.py)<br/>configuration file: [python.d/samba.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/samba.conf)|
 
 ---

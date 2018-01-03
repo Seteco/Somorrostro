@@ -1,4 +1,5 @@
-This plugin is obsolete. Use the python.d one in new installations.
+> IMPORTANT<br/>
+> **This plugin is obsolete.** Use the python.d one in new installations.
 
 ---
 

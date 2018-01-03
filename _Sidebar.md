@@ -161,8 +161,8 @@ Notes on memory management
 * [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)
 * [[opensips.chart.sh]]
 * [[phpfpm.chart.sh]]
-* [[postfix.chart.sh]]
-* [[sensors.chart.sh]]
+* [postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)
+* [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors)
 * [[squid.chart.sh]]
 * [[tomcat.chart.sh]]
 

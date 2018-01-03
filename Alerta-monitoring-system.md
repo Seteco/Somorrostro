@@ -1,11 +1,12 @@
-# Alerta monitoring system
 The alerta monitoring system is a tool used to consolidate and de-duplicate alerts from multiple sources for quick ‘at-a-glance’ visualisation. With just one system you can monitor alerts from many other monitoring tools on a single screen.
 
 ![](http://docs.alerta.io/en/latest/_images/alerta-screen-shot-3.png)
 
 When receiving alerts from multiple sources you can quickly become overwhelmed. With Alerta any alert with the same environment and resource is considered a duplicate if it has the same severity. If it has a different severity it is correlated so that you only see the most recent one. Awesome.
 
-Ww can send Netadata alarms to Alerta so yo can see in one place alerts coming from many Netdata hosts or also from a multihost Netadata configuration.\
+main site http://www.alerta.io
+
+We can send Netadata alarms to Alerta so yo can see in one place alerts coming from many Netdata hosts or also from a multihost Netadata configuration.\
 The big advantage over other notifications method is that you have in a main view all active alarms with only las state, but you can also search history.
 
 ## Setting up an Alerta server with Ubuntu 16.04

@@ -163,7 +163,7 @@ Notes on memory management
 * [[phpfpm.chart.sh]]
 * [postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)
 * [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors)
-* [[squid.chart.sh]]
+* [squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid)
 * [[tomcat.chart.sh]]
 
 **JAVA Modules**

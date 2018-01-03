@@ -58,6 +58,7 @@ Notes on memory management
   - [pushbullet.com](https://github.com/firehol/netdata/wiki/pushbullet-notifications)
   - [pushover.net](https://github.com/firehol/netdata/wiki/pushover-notifications)
   - [slack.com](https://github.com/firehol/netdata/wiki/slack-notifications)
+  - [alerta.io](https://github.com/firehol/netdata/wiki/Alerta-monitoring-system)
   - [flock.com](https://github.com/firehol/netdata/wiki/flock-notifications)
   - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)

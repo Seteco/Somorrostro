@@ -155,6 +155,7 @@ Notes on memory management
 * [[apache.chart.sh]]
 * [[cpufreq.chart.sh]]
 * [[example.chart.sh]]
+* [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)
 * [[mysql.chart.sh]]
 * [[nginx.chart.sh]]
 * [[nut.chart.sh]]

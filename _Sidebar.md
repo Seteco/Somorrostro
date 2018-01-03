@@ -152,19 +152,25 @@ Notes on memory management
 **BASH Modules**
 * [[General Info - charts.d]]
 * [[ap.chart.sh]]
-* [[apache.chart.sh]]
-* [[cpufreq.chart.sh]]
+* [[apache.chart.sh]] **obsolete**
+* [[apcupsd.chart.sh]]
+* [[cpufreq.chart.sh]] **obsolete**
+* [[cpu_apps.chart.sh]] **obsolete**
 * [[example.chart.sh]]
+* [[exim.chart.sh]]
+* [hddtemp](https://github.com/firehol/netdata/tree/master/charts.d#hddtemp)
 * [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)
-* [[mysql.chart.sh]]
-* [[nginx.chart.sh]]
+* [[load_average.chart.sh]]
+* [[mem_apps.chart.sh]] **obsolete**
+* [[mysql.chart.sh]] **obsolete**
+* [[nginx.chart.sh]]  **obsolete**
 * [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)
 * [[opensips.chart.sh]]
-* [[phpfpm.chart.sh]]
+* [[phpfpm.chart.sh]] **obsolete**
 * [postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)
-* [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors)
-* [squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid)
-* [[tomcat.chart.sh]]
+* [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors) **obsolete**
+* [squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid) **obsolete**
+* [[tomcat.chart.sh]]  **obsolete**
 
 **JAVA Modules**
 * [jmx](https://github.com/firehol/netdata/blob/master/java.d/README.md#Jmx)

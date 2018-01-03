@@ -151,26 +151,45 @@ Notes on memory management
 
 **BASH Modules**
 * [[General Info - charts.d]]
-* [[ap.chart.sh]]
-* [[apache.chart.sh]] **obsolete**
+* [[ap.chart.sh]]<br/>
+  (monitor hostapd access points)
+* [[apache.chart.sh]]<br/>
+  (replaced by python.d/apache)
 * [[apcupsd.chart.sh]]
-* [[cpufreq.chart.sh]] **obsolete**
-* [[cpu_apps.chart.sh]] **obsolete**
-* [[example.chart.sh]]
-* [[exim.chart.sh]]
-* [hddtemp](https://github.com/firehol/netdata/tree/master/charts.d#hddtemp)
-* [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)
-* [[load_average.chart.sh]]
-* [[mem_apps.chart.sh]] **obsolete**
-* [[mysql.chart.sh]] **obsolete**
-* [[nginx.chart.sh]]  **obsolete**
+  (monitor APC UPSes)
+* [[cpufreq.chart.sh]]<br/>
+  (replaced by python.d/cpufreq)
+* [[cpu_apps.chart.sh]]<br/>
+  (replaced by apps.plugin)
+* [[example.chart.sh]]<br/>
+  (skeleton to copy)
+* [[exim.chart.sh]]<br/>
+  (replaced by python.d/exim)
+* [hddtemp](https://github.com/firehol/netdata/tree/master/charts.d#hddtemp)<br/>
+  (replaced by python.d/hddtemp)
+* [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)<br/>
+  (monitor LibreSWAN IPSEC tunnels)
+* [[load_average.chart.sh]]<br/>
+  (replaced by netdata internal plugin)
+* [[mem_apps.chart.sh]]<br/>
+  (replaced by apps.plugin)
+* [[mysql.chart.sh]]<br/>
+  (replaced by python.d/mysql)
+* [[nginx.chart.sh]]<br/>
+  (replaced by python.d/nginx)
 * [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)
 * [[opensips.chart.sh]]
-* [[phpfpm.chart.sh]] **obsolete**
-* [postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)
-* [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors) **obsolete**
-* [squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid) **obsolete**
-* [[tomcat.chart.sh]]  **obsolete**
+* [[phpfpm.chart.sh]]<br/>
+  (replaced by python.d/phpfpm)
+* [postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)<br/>
+  (replaced by python.d/postfix)
+* [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors)<br/>
+  (replaced by python.d/sensors - but can be useful for reading RPi temperatures)
+* [squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid)<br/>
+  (replaced by python.d/squid)
+* [[tomcat.chart.sh]]<br/>
+  (replaced by python.d/tomcat)
+
 
 **JAVA Modules**
 * [jmx](https://github.com/firehol/netdata/blob/master/java.d/README.md#Jmx)

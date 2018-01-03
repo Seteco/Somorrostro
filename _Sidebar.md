@@ -151,24 +151,32 @@ Notes on memory management
 
 **BASH Modules**
 * [[General Info - charts.d]]
+
+**Active BASH Modules**
 * [[ap.chart.sh]]<br/>
   **hostapd access points**
-* ~[[apache.chart.sh]]~<br/>
-  (see python.d/apache)
 * [[apcupsd.chart.sh]]<br/>
   **APC UPSes**
+* [[example.chart.sh]]<br/>
+  **Skeleton to copy and adapt**
+* [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)<br/>
+  **LibreSWAN IPSEC tunnels**
+* [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)<br/>
+  **NUT UPSes**
+* [[opensips.chart.sh]]<br/>
+  **SIP Server**
+
+**Obsolete BASH Modules**
+* ~[[apache.chart.sh]]~<br/>
+  (see python.d/apache)
 * ~[[cpufreq.chart.sh]]~<br/>
   (see python.d/cpufreq)
 * ~[[cpu_apps.chart.sh]]~<br/>
   (see by apps.plugin)
-* [[example.chart.sh]]<br/>
-  **Skeleton to copy and adapt**
 * ~[[exim.chart.sh]]~<br/>
   (see python.d/exim)
 * ~[hddtemp](https://github.com/firehol/netdata/tree/master/charts.d#hddtemp)~<br/>
   (see python.d/hddtemp)
-* [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)<br/>
-  **LibreSWAN IPSEC tunnels**
 * ~[[load_average.chart.sh]]~<br/>
   (now an netdata internal plugin)
 * ~[[mem_apps.chart.sh]]~<br/>
@@ -177,10 +185,6 @@ Notes on memory management
   (see python.d/mysql)
 * ~[[nginx.chart.sh]]~<br/>
   (see python.d/nginx)
-* [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)<br/>
-  **NUT UPSes**
-* [[opensips.chart.sh]]<br/>
-  **SIP Server**
 * ~[[phpfpm.chart.sh]]~<br/>
   (see python.d/phpfpm)
 * ~[postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)~<br/>

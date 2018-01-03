@@ -158,7 +158,7 @@ Notes on memory management
 * [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)
 * [[mysql.chart.sh]]
 * [[nginx.chart.sh]]
-* [[nut.chart.sh]]
+* [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)
 * [[opensips.chart.sh]]
 * [[phpfpm.chart.sh]]
 * [[postfix.chart.sh]]

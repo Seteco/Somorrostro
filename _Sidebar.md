@@ -152,43 +152,45 @@ Notes on memory management
 **BASH Modules**
 * [[General Info - charts.d]]
 * [[ap.chart.sh]]<br/>
-  (monitor hostapd access points)
-* [[apache.chart.sh]]<br/>
-  (replaced by python.d/apache)
-* [[apcupsd.chart.sh]]
-  (monitor APC UPSes)
-* [[cpufreq.chart.sh]]<br/>
-  (replaced by python.d/cpufreq)
-* [[cpu_apps.chart.sh]]<br/>
-  (replaced by apps.plugin)
+  **hostapd access points**
+* ~[[apache.chart.sh]]~<br/>
+  (see python.d/apache)
+* [[apcupsd.chart.sh]]<br/>
+  **APC UPSes**
+* ~[[cpufreq.chart.sh]]~<br/>
+  (see python.d/cpufreq)
+* ~[[cpu_apps.chart.sh]]~<br/>
+  (see by apps.plugin)
 * [[example.chart.sh]]<br/>
-  (skeleton to copy)
-* [[exim.chart.sh]]<br/>
-  (replaced by python.d/exim)
-* [hddtemp](https://github.com/firehol/netdata/tree/master/charts.d#hddtemp)<br/>
-  (replaced by python.d/hddtemp)
+  **Skeleton to copy and adapt**
+* ~[[exim.chart.sh]]~<br/>
+  (see python.d/exim)
+* ~[hddtemp](https://github.com/firehol/netdata/tree/master/charts.d#hddtemp)~<br/>
+  (see python.d/hddtemp)
 * [libreswan.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#libreswan)<br/>
-  (monitor LibreSWAN IPSEC tunnels)
-* [[load_average.chart.sh]]<br/>
-  (replaced by netdata internal plugin)
-* [[mem_apps.chart.sh]]<br/>
-  (replaced by apps.plugin)
-* [[mysql.chart.sh]]<br/>
-  (replaced by python.d/mysql)
-* [[nginx.chart.sh]]<br/>
-  (replaced by python.d/nginx)
-* [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)
-* [[opensips.chart.sh]]
-* [[phpfpm.chart.sh]]<br/>
-  (replaced by python.d/phpfpm)
-* [postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)<br/>
-  (replaced by python.d/postfix)
-* [sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors)<br/>
-  (replaced by python.d/sensors - but can be useful for reading RPi temperatures)
-* [squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid)<br/>
-  (replaced by python.d/squid)
-* [[tomcat.chart.sh]]<br/>
-  (replaced by python.d/tomcat)
+  **LibreSWAN IPSEC tunnels**
+* ~[[load_average.chart.sh]]~<br/>
+  (now an netdata internal plugin)
+* ~[[mem_apps.chart.sh]]~<br/>
+  (see apps.plugin)
+* ~[[mysql.chart.sh]]~<br/>
+  (see python.d/mysql)
+* ~[[nginx.chart.sh]]~<br/>
+  (see python.d/nginx)
+* [nut.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#nut)<br/>
+  **NUT UPSes**
+* [[opensips.chart.sh]]<br/>
+  **SIP Server**
+* ~[[phpfpm.chart.sh]]~<br/>
+  (see python.d/phpfpm)
+* ~[postfix.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#postfix)~<br/>
+  (see python.d/postfix)
+* ~[sensors.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#sensors)~<br/>
+  (see python.d/sensors - but can be useful for reading RPi temperatures)
+* ~[squid.chart.sh](https://github.com/firehol/netdata/tree/master/charts.d#squid)~<br/>
+  (see python.d/squid)
+* ~[[tomcat.chart.sh]]~<br/>
+  (see python.d/tomcat)
 
 
 **JAVA Modules**

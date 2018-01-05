@@ -110,10 +110,10 @@ application|language|notes|
 :---------:|:------:|:----|
 couchdb|python<br/>v2 or v3|Connects to multiple couchdb servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [couchdb.chart.py](https://github.com/firehol/netdata/blob/master/python.d/couchdb.chart.py)<br/>configuration file: [python.d/couchdb.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/couchdb.conf)|
 memcached|python<br/>v2 or v3|Connects to multiple memcached servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [memcached.chart.py](https://github.com/firehol/netdata/blob/master/python.d/memcached.chart.py)<br/>configuration file: [python.d/memcached.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/memcached.conf)|
-mongodb|python<br/>v2 or v3|Connects to multiple `mongodb` servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mongodb.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mongodb.chart.py)<br/>configuration file: [python.d/mongodb.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mongodb.conf)|
-mysql<br/>mariadb|python<br/>v2 or v3|Connects to multiple mysql or mariadb servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mysql.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mysql.chart.py)<br/>configuration file: [python.d/mysql.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mysql.conf)|
+mongodb|python<br/>v2 or v3|Connects to multiple `mongodb` servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>Requires package `python-pymongo`.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mongodb.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mongodb.chart.py)<br/>configuration file: [python.d/mongodb.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mongodb.conf)|
+mysql<br/>mariadb|python<br/>v2 or v3|Connects to multiple mysql or mariadb servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>Requires package `python-mysqldb` (faster and preferred), or `python-pymysql`. <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mysql.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mysql.chart.py)<br/>configuration file: [python.d/mysql.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mysql.conf)|
 mysql<br/>mariadb|BASH<br/>Shell Script|Connects to multiple mysql or mariadb servers (local or remote) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [mysql.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/mysql.chart.sh)<br/>configuration file: [charts.d/mysql.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/mysql.conf)|
-postgres|python<br/>v2 or v3|Connects to multiple postgres servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [postgres.chart.py](https://github.com/firehol/netdata/blob/master/python.d/postgres.chart.py)<br/>configuration file: [python.d/postgres.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/postgres.conf)|
+postgres|python<br/>v2 or v3|Connects to multiple postgres servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>Requires package `python-psycopg2`.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [postgres.chart.py](https://github.com/firehol/netdata/blob/master/python.d/postgres.chart.py)<br/>configuration file: [python.d/postgres.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/postgres.conf)|
 redis|python<br/>v2 or v3|Connects to multiple redis servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [redis.chart.py](https://github.com/firehol/netdata/blob/master/python.d/redis.chart.py)<br/>configuration file: [python.d/redis.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/redis.conf)|
 
 
@@ -135,6 +135,7 @@ application|language|notes|
 squid|python<br/>v2 or v3|Connects to multiple squid servers (local or remote) to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [squid.chart.py](https://github.com/firehol/netdata/blob/master/python.d/squid.chart.py)<br/>configuration file: [python.d/squid.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/squid.conf)|
 squid|BASH<br/>Shell Script|Connects to a squid server (local or remote) to collect real-time performance metrics.<br/><br/>DEPRECATED IN FAVOR OF THE PYTHON ONE. It is still supplied only as an example module to shell scripting plugins.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [squid.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/squid.chart.sh)<br/>configuration file: [charts.d/squid.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/squid.conf)|
 
+
 ---
 
 ## HTTP Accelerators
@@ -143,6 +144,7 @@ application|language|notes|
 :---------:|:------:|:----|
 varnish|python<br/>v2 or v3|Uses the varnishstat command to provide varnish cache statistics (client metrics, cache perfomance, thread-related metrics, backend health, memory usage etc.).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [varnish.chart.py](https://github.com/firehol/netdata/blob/master/python.d/varnish.chart.py)<br/>configuration file: [python.d/varnish.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/varnish.conf)|
 
+
 ---
 
 ## Search Engines
@@ -150,6 +152,7 @@ varnish|python<br/>v2 or v3|Uses the varnishstat command to provide varnish cach
 application|language|notes|
 :---------:|:------:|:----|
 elasticsearch|python<br/>v2 or v3|Monitor elasticsearch performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [elasticsearch.chart.py](https://github.com/firehol/netdata/blob/master/python.d/elasticsearch.chart.py)<br/>configuration file: [python.d/elasticsearch.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/elasticsearch.conf)|
+
 
 ---
 
@@ -163,13 +166,15 @@ nsd|python<br/>v2 or v3|Charts the nsd received queries and zones.<br/>&nbsp;<br
 powerdns|python<br/>v2 or v3|Monitors powerdns performance and health metrics <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [powerdns.chart.py](https://github.com/firehol/netdata/blob/master/python.d/powerdns.chart.py)<br/>configuration file: [python.d/powerdns.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/powerdns.conf)|
 dnsdist|python<br/>v2 or v3|Monitors dnsdist performance and health metrics <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [dnsdist.chart.py](https://github.com/firehol/netdata/blob/master/python.d/dnsdist.chart.py)<br/>configuration file: [python.d/dnsdist.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/dnsdist.conf)|
 
+
 ---
 
 ## DHCP Servers
 
 application|language|notes|
 :---------:|:------:|:----|
-isc dhcp|python<br/>v2 or v3|Monitor lease database to show all active leases.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [isc-dhcpd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/isc_dhcpd.chart.py)<br/>configuration file: [python.d/isc-dhcpd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/isc_dhcpd.conf)|
+isc dhcp|python<br/>v2 or v3|Monitor lease database to show all active leases.<br/>&nbsp;<br/>Python v2 requires package `python-ipaddress`.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [isc-dhcpd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/isc_dhcpd.chart.py)<br/>configuration file: [python.d/isc-dhcpd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/isc_dhcpd.conf)|
+
 
 ---
 
@@ -179,16 +184,19 @@ application|language|notes|
 :---------:|:------:|:----|
 haproxy|python<br/>v2 or v3|Monitor frontend, backend and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [haproxy.chart.py](https://github.com/firehol/netdata/blob/master/python.d/haproxy.chart.py)<br/>configuration file: [python.d/haproxy.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/haproxy.conf)|
 
+
 ---
+
 ## Message Brokers
 
 application|language|notes|
 :---------:|:------:|:----|
 rabbitmq|python<br/>v2 or v3|Monitor rabbitmq performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [rabbitmq.chart.py](https://github.com/firehol/netdata/blob/master/python.d/rabbitmq.chart.py)<br/>configuration file: [python.d/rabbitmq.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/rabbitmq.conf)|
-beanstalkd|python<br/>v2 or v3|Provides server and tube level statistics. Requires beanstalkc python package (pip install beanstalkc)<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [beanstalk.chart.py](https://github.com/firehol/netdata/blob/master/python.d/beanstalk.chart.py)<br/>configuration file: [python.d/beanstalk.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/beanstalk.conf)|
+beanstalkd|python<br/>v2 or v3|Provides server and tube level statistics.<br/>&nbsp;<br/>Requires beanstalkc python package (`pip install beanstalkc` or install package `python-beanstalkc`).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [beanstalk.chart.py](https://github.com/firehol/netdata/blob/master/python.d/beanstalk.chart.py)<br/>configuration file: [python.d/beanstalk.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/beanstalk.conf)|
 
 
 ---
+
 ## UPS
 
 application|language|notes|
@@ -196,7 +204,9 @@ application|language|notes|
 apcupsd|BASH<br/>Shell Script|Connects to an apcupsd server to collect real-time statistics of an APC UPS.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [apcupsd.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/apcupsd.chart.sh)<br/>configuration file: [charts.d/apcupsd.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/apcupsd.conf)|
 nut|BASH<br/>Shell Script|Connects to a nut server (upsd) to collect real-time UPS statistics.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [nut.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/nut.chart.sh)<br/>configuration file: [charts.d/nut.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/nut.conf)|
 
+
 ---
+
 ## Mail Servers
 
 application|language|notes|
@@ -217,6 +227,7 @@ application|language|notes|
 NFS Client|`C`|This is handled entirely by the netdata daemon.<br/>&nbsp;<br/>Configuration: `netdata.conf`, section `[plugin:proc:/proc/net/rpc/nfs]`.
 NFS Server|`C`|This is handled entirely by the netdata daemon.<br/>&nbsp;<br/>Configuration: `netdata.conf`, section `[plugin:proc:/proc/net/rpc/nfsd]`.
 samba|python<br/>v2 or v3|Performance metrics of Samba SMB2 file sharing.<br/>&nbsp;<br/>wiki page: [python.d.plugin module samba](https://github.com/firehol/netdata/tree/master/python.d#samba)<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [samba.chart.py](https://github.com/firehol/netdata/blob/master/python.d/samba.chart.py)<br/>configuration file: [python.d/samba.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/samba.conf)|
+
 
 ---
 
@@ -245,6 +256,7 @@ sensors|BASH<br/>Shell Script|Collects sensors values from files in `/sys`.<br/>
 sensors|python<br/>v2 or v3|Uses `lm-sensors` to collect sensor data.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [sensors.chart.py](https://github.com/firehol/netdata/blob/master/python.d/sensors.chart.py)<br/>configuration file: [python.d/sensors.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/sensors.conf)|
 smartd_log|python<br/>v2 or v3|Collects the S.M.A.R.T attributes from `smartd` log files.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [smartd_log.chart.py](https://github.com/firehol/netdata/blob/master/python.d/smartd_log.chart.py)<br/>configuration file: [python.d/smartd_log.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/smartd_log.conf)|
 
+
 ---
 
 ## Network
@@ -254,7 +266,8 @@ application|language|notes|
 ap|BASH<br/>Shell Script|Uses the `iw` command to provide statistics of wireless clients connected to a wireless access point running on this host (works well with `hostapd`).<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [ap.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/ap.chart.sh)<br/>configuration file: [charts.d/ap.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/ap.conf)|
 fping|C|Charts network latency statistics for any number of nodes, using the `fping` command. A recent (probably unreleased) version of fping is required. The plugin supplied can install it in `/usr/local`.<br/>&nbsp;<br/>netdata plugin: [fping.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/fping.plugin) (this is a shell wrapper to start fping - once fping is started, netdata and fping communicate directly - it can also install the right version of fping)<br/>configuration file: [fping.conf](https://github.com/firehol/netdata/blob/master/conf.d/fping.conf)|
 snmp|node.js|Connects to multiple snmp servers to collect real-time performance metrics.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [snmp.node.js](https://github.com/firehol/netdata/blob/master/node.d/snmp.node.js)<br/>configuration file: [node.d/snmp.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/snmp.conf.md)|
-dns_query_time|python<br/>v2 or v3|Module provides dns query time statistics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [dns_query_time.chart.py](https://github.com/firehol/netdata/blob/master/python.d/dns_query_time.chart.py)<br/>configuration file: [python.d/dns_query_time.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/dns_query_time.conf)|
+dns_query_time|python<br/>v2 or v3|Provides DNS query time statistics.<br/>&nbsp;<br/>Requires package `dnspython` (`pip install dnspython` or install package `python-dnspython`).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [dns_query_time.chart.py](https://github.com/firehol/netdata/blob/master/python.d/dns_query_time.chart.py)<br/>configuration file: [python.d/dns_query_time.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/dns_query_time.conf)|
+
 
 ---
 
@@ -263,6 +276,7 @@ dns_query_time|python<br/>v2 or v3|Module provides dns query time statistics.<br
 application|language|notes|
 :---------:|:------:|:----|
 chrony|python<br/>v2 or v3|Uses the chronyc command to provide chrony statistics (Frequency, Last offset, RMS offset, Residual freq, Root delay, Root dispersion, Skew, System time).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [chrony.chart.py](https://github.com/firehol/netdata/blob/master/python.d/chrony.chart.py)<br/>configuration file: [python.d/chrony.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/chrony.conf)|
+
 
 ---
 
@@ -273,6 +287,7 @@ application|language|notes|
 freeradius|python<br/>v2 or v3|Uses the radclient command to provide freeradius statistics (authentication, accounting, proxy-authentication, proxy-accounting).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [freeradius.chart.py](https://github.com/firehol/netdata/blob/master/python.d/freeradius.chart.py)<br/>configuration file: [python.d/freeradius.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/freeradius.conf)|
 openvpn|python<br/>v2 or v3|All data from openvpn-status.log in your dashboard! <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [ovpn_status_log.chart.py](https://github.com/firehol/netdata/blob/master/python.d/ovpn_status_log.chart.py)<br/>configuration file: [python.d/ovpn_status_log.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/ovpn_status_log.conf)|
 fail2ban|python<br/>v2 or v3|Monitor fail2ban log file to show all bans for all active jails <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [fail2ban.chart.py](https://github.com/firehol/netdata/blob/master/python.d/fail2ban.chart.py)<br/>configuration file: [python.d/fail2ban.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/fail2ban.conf)|
+
 
 ---
 
@@ -291,7 +306,9 @@ application|language|notes|
 :---------:|:------:|:----|
 go_expvar|python<br/>v2 or v3|Parses metrics exposed by applications written in the Go programming language using the [expvar package](https://golang.org/pkg/expvar/).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [go_expvar.chart.py](https://github.com/firehol/netdata/blob/master/python.d/go_expvar.chart.py)<br/>configuration file: [python.d/go_expvar.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/go_expvar.conf)<br/>wiki page / documentation: [Monitoring Go Applications](https://github.com/firehol/netdata/wiki/Monitoring-Go-Applications)|
 
+
 ---
+
 ## Household Appliances
 
 application|language|notes|
@@ -299,12 +316,17 @@ application|language|notes|
 sma_webbox|node.js|Connects to multiple remote SMA webboxes to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [sma_webbox.node.js](https://github.com/firehol/netdata/blob/master/node.d/sma_webbox.node.js)<br/>configuration file: [node.d/sma_webbox.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/sma_webbox.conf.md)|
 fronius|node.js|Connects to multiple remote Fronius Symo servers to collect real-time performance metrics of the photovoltaic (solar) power generation.<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [fronius.node.js](https://github.com/firehol/netdata/blob/master/node.d/fronius.node.js)<br/>configuration file: [node.d/fronius.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/fronius.conf.md)|
 stiebeleltron|node.js|Collects the temperatures and other metrics from your Stiebel Eltron heating system using their Internet Service Gateway (ISG web).<br/>&nbsp;<br/>netdata plugin: [node.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---node.d)<br/>plugin module: [stiebeleltron.node.js](https://github.com/firehol/netdata/blob/master/node.d/stiebeleltron.node.js)<br/>configuration file: [node.d/stiebeleltron.conf](https://github.com/firehol/netdata/blob/master/conf.d/node.d/stiebeleltron.conf.md)|
+
+
 ---
 
 ## Java Processes
+
 application|language|notes|
 :---------:|:------:|:----|
 java process|java|Connects to multiple java processes (local or remote) and collects metrics of Java Management Extension (JMX) M(X)Beans.<br/>&nbsp;<br/>netdata plugin: [java.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/java.d.plugin)<br/>plugin module: [jmx](https://github.com/firehol/netdata/blob/master/java.d/src/main/java/org/firehol/netdata/module/jmx/JmxPlugin.java)<br/>configuration file: [java.d/jmx.conf](https://github.com/firehol/netdata/blob/master/conf.d/java.d/jmx.conf)
+
+
 ---
 
 ## Skeleton Plugins

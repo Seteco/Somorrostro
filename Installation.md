@@ -174,20 +174,23 @@ netdata plugins and various aspects of netdata can be enabled or benefit when th
 
 package|description
 :-----:|-----------
-`bash`|for shell plugins and alarm notifications
-`curl`|for shell plugins and alarm notifications
-`iproute`|for monitoring Linux QoS
+`bash`|for shell plugins and **alarm notifications**
+`curl`|for shell plugins and **alarm notifications**
+`iproute`|for monitoring **Linux traffic QoS**
 `python`|for most of the external plugins
 `python-yaml`|for parsing `python.d.plugin` configuration<br/>(netdata ships one version for python2 and python3)
-`python-mysqldb`|used for monitoring mysql databases
-`python-psycopg2`|used for monitoring postgres databases
-`python-pymongo`|used for monitoring mongodb databases
-`nodejs`|used for `node.js` plugins for monitoring `named` and SNMP devices
-`lm-sensors`|for monitoring hardware sensors
+`python-beanstalkc`|used for monitoring **beanstalkd**
+`python-dnspython`|used for monitoring DNS query time
+`python-ipaddress`|used for monitoring **DHCPd**<br/>this package is required only if the system has python v2. python v3 has this functionality embedded
+`python-mysqldb`<br/>or<br/>`python-pymysql`|used for monitoring **mysql** or **mariadb** databases<br/>`python-mysqldb` is a lot faster and thus preferred
+`python-psycopg2`|used for monitoring **postgresql** databases
+`python-pymongo`|used for monitoring **mongodb** databases
+`nodejs`|used for `node.js` plugins for monitoring **named** and **SNMP** devices
+`lm-sensors`|for monitoring **hardware sensors**
 `libmnl`|for collecting netfilter metrics
 `netcat`|for shell plugins to collect metrics from remote systems
 
-*netdata will greatly benefit if you have the above packages installed.*
+*netdata will greatly benefit if you have the above packages installed, but it will still work without them.*
 
 ---
 

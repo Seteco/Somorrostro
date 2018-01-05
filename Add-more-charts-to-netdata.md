@@ -192,7 +192,7 @@ haproxy|python<br/>v2 or v3|Monitor frontend, backend and health metrics.<br/>&n
 application|language|notes|
 :---------:|:------:|:----|
 rabbitmq|python<br/>v2 or v3|Monitor rabbitmq performance and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [rabbitmq.chart.py](https://github.com/firehol/netdata/blob/master/python.d/rabbitmq.chart.py)<br/>configuration file: [python.d/rabbitmq.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/rabbitmq.conf)|
-beanstalkd|python<br/>v2 or v3|Provides server and tube level statistics.<br/>&nbsp;<br/>Requires beanstalkc python package (`pip install beanstalkc` or install package `python-beanstalkc`).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [beanstalk.chart.py](https://github.com/firehol/netdata/blob/master/python.d/beanstalk.chart.py)<br/>configuration file: [python.d/beanstalk.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/beanstalk.conf)|
+beanstalkd|python<br/>v2 or v3|Provides server and tube level statistics.<br/>&nbsp;<br/>Requires beanstalkc python package (`pip install beanstalkc` or install package `python-beanstalkc`, which also installs `python-yaml`).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [beanstalk.chart.py](https://github.com/firehol/netdata/blob/master/python.d/beanstalk.chart.py)<br/>configuration file: [python.d/beanstalk.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/beanstalk.conf)|
 
 
 ---

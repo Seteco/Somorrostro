@@ -178,7 +178,7 @@ package|description
 `curl`|for shell plugins and **alarm notifications**
 `iproute`|for monitoring **Linux traffic QoS**
 `python`|for most of the external plugins
-`python-yaml`|for parsing `python.d.plugin` configuration<br/>(netdata ships one version for python2 and python3)
+`python-yaml`|used for monitoring **beanstalkd**
 `python-beanstalkc`|used for monitoring **beanstalkd**
 `python-dnspython`|used for monitoring DNS query time
 `python-ipaddress`|used for monitoring **DHCPd**<br/>this package is required only if the system has python v2. python v3 has this functionality embedded

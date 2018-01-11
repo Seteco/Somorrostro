@@ -202,12 +202,17 @@ set
 # enable/disable sending alerta notifications
 SEND_ALERTA="YES"
 
-# set your alerta server API url
+# here set your alerta server API url
+# this is the API url you defined when installed Alerta server, 
+# it is the same for all users. Do not include last slash.
 ALERTA_WEBHOOK_URL="http://yourserver/alerta/api"
 
-# Login to you arerta server and create an API KEY with write permisions
+# Login with an administrative user to you Alerta server and create an API KEY
+# with write permissions.
 ALERTA_API_KEY="you last created API KEY"
 
+# you can define environments in /etc/alertad.conf option ALLOWED_ENVIRONMENTS
+# standard environments are Production and Development
 # if a role's recipients are not configured, a notification will be send to
 # this Environment (empty = do not send a notification for unconfigured roles):
 DEFAULT_RECIPIENT_ALERTA="Production"

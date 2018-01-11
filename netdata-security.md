@@ -146,3 +146,15 @@ Of course, there are many more methods you could use to protect netdata:
 
 - install all your netdata in **headless data collector** mode, forwarding all metrics in real-time to a master netdata server, which will be protected with authentication using an nginx server running locally at the master netdata server. This requires more resources (you will need a bigger master netdata server), but does not require any firewall changes, since all the slave netdata servers will not be listening for incoming connections.
 
+
+## netdata directories
+
+path|owner|permissions| netdata |comments|
+:---|:----|:----------|:--------|:-------|
+`/etc/netdata`|user&nbsp;`root`<br/>group&nbsp;`netdata`|dirs `0755`<br/>files `0640`|reads|**netdata config files**<br/>may contain sensitive information, so group `netdata` is allowed to read them.
+`/usr/libexec/netdata`|user&nbsp;`root`<br/>group&nbsp;`root`|executable by anyone<br/>dirs `0755`<br/>files `0644` or `0755`|executes|**netdata plugins**<br/>permissions depend on the file - not all of them should have the executable flag.<br/>there are a few plugins that run with escalated privileges (Linux capabilities or `setuid`) - these plugins should be executable only by group `netdata`.
+`/usr/share/netdata/web`|user&nbsp;`root`<br/>group&nbsp;`netdata`|readable by anyone<br/>dirs `0755`<br/>files `0644`|reads and sends over the network|**netdata web static files**<br/>these files are sent over the network to anyone that has access to the netdata web server. netdata checks the ownership of these files (using settings at the `[web]` section of `netdata.conf`) and refuses to serve them if they are not properly owned. Symbolic links are not supported. netdata also refuses to serve URLs with `..` in their name.
+`/var/cache/netdata`|user&nbsp;`netdata`<br/>group&nbsp;`netdata`|dirs `0750`<br/>files `0660`|reads, writes, creates, deletes|**netdata ephemeral database files**<br/>netdata stores its ephemeral real-time database here.
+`/var/lib/netdata`|user&nbsp;`netdata`<br/>group&nbsp;`netdata`|dirs `0750`<br/>files `0660`|reads, writes, creates, deletes|**netdata permanent database files**<br/>netdata stores here the registry data, health alarm log db, etc.
+
+

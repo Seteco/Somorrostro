@@ -156,5 +156,4 @@ path|owner|permissions| netdata |comments|
 `/usr/share/netdata`|user&nbsp;`root`<br/>group&nbsp;`netdata`|readable by anyone<br/>dirs `0755`<br/>files `0644`|reads and sends over the network|**netdata web static files**<br/>these files are sent over the network to anyone that has access to the netdata web server. netdata checks the ownership of these files (using settings at the `[web]` section of `netdata.conf`) and refuses to serve them if they are not properly owned. Symbolic links are not supported. netdata also refuses to serve URLs with `..` in their name.
 `/var/cache/netdata`|user&nbsp;`netdata`<br/>group&nbsp;`netdata`|dirs `0750`<br/>files `0660`|reads, writes, creates, deletes|**netdata ephemeral database files**<br/>netdata stores its ephemeral real-time database here.
 `/var/lib/netdata`|user&nbsp;`netdata`<br/>group&nbsp;`netdata`|dirs `0750`<br/>files `0660`|reads, writes, creates, deletes|**netdata permanent database files**<br/>netdata stores here the registry data, health alarm log db, etc.
-
-
+`/var/log/netdata`|user&nbsp;`netdata`<br/>group&nbsp;`root`|dirs `0755`<br/>files `0644`|writes, creates|**netdata log files**<br/>all the netdata applications, logs their errors or other informational messages to files in this directory. These files should be log rotated.

@@ -93,7 +93,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
    When multiple servers are defined, netdata will try the next one when the first one fails. This allows you to load-balance different servers: give your backend servers in different order on each netdata.
 
-   netdata also ships [`nc-backend.sh`](https://github.com/firehol/netdata/blob/master/contrib/nc-backend.sh), a script that can be used as a fallback backend to save the metrics to disk and push them to the time-series database when it becomes available again. If can also be used to monitor / trace / debug the metrics netdata generates.
+   netdata also ships [`nc-backend.sh`](https://github.com/firehol/netdata/blob/master/contrib/nc-backend.sh), a script that can be used as a fallback backend to save the metrics to disk and push them to the time-series database when it becomes available again. It can also be used to monitor / trace / debug the metrics netdata generates.
 
 - `data source = as collected`, or `data source = average`, or `data source = sum`, selects the kind of data that will be sent to the backend.
 

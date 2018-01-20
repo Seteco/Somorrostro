@@ -62,6 +62,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 	buffer on failures = 10
 	timeout ms = 20000
         send charts matching = *
+        send hosts matching = localhost *
         send names instead of ids = yes
 ```
 
@@ -106,6 +107,8 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 - `buffer on failures = 10`, is the number of iterations (each iteration is `[backend].update every` seconds) to buffer data, when the backend is not available. If the backend fails to receive the data after that many failures, data loss on the backend is expected (netdata will also log it).
 
 - `timeout ms = 20000`, is the timeout in milliseconds to wait for the backend server to process the data. By default this is `2 * update_every * 1000`.
+
+- `send hosts matching = localhost *` includes one or more space separated patterns, using ` * ` as wildcard (any number of times within each pattern). The patterns are checked against the hostname (the localhost is always checked as `localhost`), allowing us to filter which hosts will be sent to the backend when this netdata is a central netdata aggregating multiple hosts. A pattern starting with ` ! ` gives a negative match. So to match all hosts named `*db*` except hosts containing `*slave*`, use `!*slave* *db*` (so, the order is important: the first pattern matching the hostname will be used - positive or negative).
 
 - `send charts matching = *` includes one or more space separated patterns, using ` * ` as wildcard (any number of times within each pattern). The patterns are checked against both chart id and chart name. A pattern starting with ` ! ` gives a negative match. So to match all charts named `apps.*` except charts ending in `*reads`, use `!*reads apps.*` (so, the order is important: the first pattern matching the chart id or the chart name will be used - positive or negative).
 

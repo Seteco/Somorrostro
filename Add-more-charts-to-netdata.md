@@ -3,7 +3,7 @@ netdata collects system metrics by itself. It has many [internal plugins](https:
 
 To collect non-system metrics, netdata supports a plugin architecture. The following are the currently available external plugins:
 
-- **[Web Servers](#web-servers)**, such as apache, nginx, tomcat
+- **[Web Servers](#web-servers)**, such as apache, nginx, nginx_plus, tomcat
 - **[Web Logs](#web-log-parsers)**, such as apache, nginx, lighttpd, gunicorn, squid access logs, apache cache.log
 - **[Load Balancers](#load-balancers)**, like haproxy
 - **[Message Brokers](#message-brokers)**, like rabbitmq, beanstalkd

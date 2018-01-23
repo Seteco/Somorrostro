@@ -126,6 +126,7 @@ Notes on memory management
 * [mongodb](https://github.com/firehol/netdata/tree/master/python.d#mongodb)
 * [mysql](https://github.com/firehol/netdata/tree/master/python.d#mysql)
 * [nginx](https://github.com/firehol/netdata/tree/master/python.d#nginx)
+* [nginx_plus](https://github.com/firehol/netdata/tree/master/python.d#nginx_plus)
 * [nsd](https://github.com/firehol/netdata/tree/master/python.d#nsd)
 * [ovpn_status_log](https://github.com/firehol/netdata/tree/master/python.d#ovpn_status_log)
 * [phpfpm](https://github.com/firehol/netdata/tree/master/python.d#phpfpm)

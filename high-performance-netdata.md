@@ -36,6 +36,11 @@ server {
         gzip on;
         gzip_proxied any;
         gzip_types *;
+        
+        # Block any HTTP requests other than GET, HEAD, and OPTIONS
+        limit_except GET HEAD OPTIONS {
+            deny all;
+        }
     }
 
     # WordPress Pingback Request Denial
@@ -43,9 +48,6 @@ server {
         return 403;
     }
 
-    if ($request_method !~ ^(GET|HEAD|OPTIONS)$ ) {
-        return 403;
-    }
 }
 ```
 

@@ -28,7 +28,7 @@ and use Prometheus as a data source. This allows a pretty simple overall
 monitoring architecture: Install Netdata on your application servers, point
 Prometheus at Netdata, and then point Grafana at Prometheus.
 
-I’m omitting an import ingredient in this stack in order to keep this tutorial
+I’m omitting an important ingredient in this stack in order to keep this tutorial
 simple and that is service discovery. My personal preference is to use Consul.
 Prometheus can plug into consul and automatically begin to scrape new hosts that
 register a Netdata client with Consul.

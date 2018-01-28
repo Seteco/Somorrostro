@@ -165,6 +165,8 @@ Modify the virtual host with these:
 	</Location>
 ```
 
+Specify `Location /` if netdata is running on dedicated virtual host.
+
 Note: Changes are applied by reloading or restarting Apache.
 
 # Netdata configuration

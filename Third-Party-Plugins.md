@@ -1,6 +1,6 @@
-The following is a list of netdata plugins distributed by third parties:
+The following is a list of Netdata plugins distributed by third parties:
 
-## nvidia GPUs
+## Nvidia GPUs
 
 [netdata nv plugin](https://github.com/coraxx/netdata_nv_plugin) monitors nvidia GPUs.
 
@@ -13,3 +13,7 @@ The following is a list of netdata plugins distributed by third parties:
 ## ntp
 
 [ntp python module](https://github.com/rda0/netdata-ntp) monitors `ntpd` system variables.
+
+## SSH
+
+[SSH module](https://github.com/Yaser-Amiri/netdata-ssh-module) monitors failed authentication requests of SSH server.

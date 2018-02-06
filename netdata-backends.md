@@ -53,7 +53,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 [backend]
 	enabled = yes | no
 	type = graphite | opentsdb | json
-        host tags = space separated list of TAG=VALUE
+        host tags = list of TAG=VALUE
 	destination = space separated list of [PROTOCOL:]HOST[:PORT] - the first working will be used
 	data source = average | sum | as collected
 	prefix = netdata
@@ -114,7 +114,7 @@ In `/etc/netdata/netdata.conf` you should have something like this (if not downl
 
 - `send names instead of ids = yes | no` controls the metric names netdata should send to backend. netdata supports names and IDs for charts and dimensions. Usually IDs are unique identifiers as read by the system and names are human friendly labels (also unique). Most charts and metrics have the same ID and name, but in several cases they are different: disks with device-mapper, interrupts, QoS classes, statsd synthetic charts, etc.
 
-- `host tags = TAG1=VALUE1 TAG2=VALUE2 ...` defines tags that should be appended on all metrics for the given host. These are currently only sent to opentsdb. Host tags are mirrored with database replication (streaming of metrics between netdata servers).
+- `host tags = list of TAG=VALUE` defines tags that should be appended on all metrics for the given host. These are currently only sent to opentsdb and prometheus. Please use the appropriate format for each time-series db. For example opentsdb likes them like `TAG1=VALUE1 TAG2=VALUE2`, but prometheus like `tag1="value1",tag2="value2"`. Host tags are mirrored with database replication (streaming of metrics between netdata servers).
 
 ## monitoring operation
 

@@ -277,6 +277,7 @@ dns_query_time|python<br/>v2 or v3|Provides DNS query time statistics.<br/>&nbsp
 application|language|notes|
 :---------:|:------:|:----|
 chrony|python<br/>v2 or v3|Uses the chronyc command to provide chrony statistics (Frequency, Last offset, RMS offset, Residual freq, Root delay, Root dispersion, Skew, System time).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [chrony.chart.py](https://github.com/firehol/netdata/blob/master/python.d/chrony.chart.py)<br/>configuration file: [python.d/chrony.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/chrony.conf)|
+ntpd|python<br/>v2 or v3|Connects to multiple ntpd servers (local or remote) to provide statistics of system variables and optional also peer variables (if enabled in the configuration).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [ntpd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/ntpd.chart.py)<br/>configuration file: [python.d/ntpd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/ntpd.conf)|
 
 
 ---

@@ -33,8 +33,8 @@ a netdata plugin.
 
 There are 7 lines netdata parses. lines starting with:
 
-- `CHART` - create a chart
-- `DIMENSION` - add a dimension to the chart just created
+- `CHART` - create or update a chart
+- `DIMENSION` - add or update a dimension to the chart just created
 - `BEGIN` - initialize data collection for a chart
 - `SET` - set the value of a dimension for the initialized chart
 - `END` - complete data collection for the initialized chart
@@ -144,7 +144,7 @@ the template is:
 
   - `options`
 
-    a space separated list of options, enclosed in quotes. 3 options are currently supported: `obsolete` to mark a chart as obsolete (netdata will hide it and delete it after some time), `detail` to mark a chart as insignificant (this may be used by dashboards to make the charts smaller, or somehow visualise properly a less important chart) and `store_first` to make netdata store the first collected value, assuming there was an invisible previous value set to zero (this is used by statsd charts - if the first data collected value of incremental dimensions is not zero based, unrealistic spikes will appear with this option set). `CHART` options have been added in netdata v1.7.
+    a space separated list of options, enclosed in quotes. 4 options are currently supported: `obsolete` to mark a chart as obsolete (netdata will hide it and delete it after some time), `detail` to mark a chart as insignificant (this may be used by dashboards to make the charts smaller, or somehow visualize properly a less important chart), `store_first` to make netdata store the first collected value, assuming there was an invisible previous value set to zero (this is used by statsd charts - if the first data collected value of incremental dimensions is not zero based, unrealistic spikes will appear with this option set) and `hidden` to perform all operations on a chart, but do not offer it on dashboards (the chart will be send to backends). `CHART` options have been added in netdata v1.7 and the `hidden` option was added in 1.10.
 
   - `plugin` and `module`
 

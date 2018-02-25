@@ -214,6 +214,10 @@ These are options dedicated to badges:
 
   Using the `precision=NUMBER` you can set your preference per badge.
 
+- `scale=XXX`
+
+  This option scales the svg image. It accepts values above or equal to 100 (100% is the default scale).
+
 - `refresh=auto` or `refresh=SECONDS`
 
   This option enables auto-refreshing of images. netdata will send the HTTP header `Refresh: SECONDS` to the web browser, thus requesting automatic refresh of the images at regular intervals.

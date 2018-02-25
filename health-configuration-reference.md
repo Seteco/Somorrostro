@@ -124,9 +124,9 @@ Everything is the same with [badges](https://github.com/firehol/netdata/wiki/Gen
 
 - `every DURATION` sets the updated frequency of the lookup (supports single letter units as above too).
 
-- `OPTIONS` can be `percentage`, `absolute`, `min2max`, `unaligned`. Check also the the badges documentation for more info.
+- `OPTIONS` is a space separated list of `percentage`, `absolute`, `min2max`, `unaligned`, `match-ids`, `match-names`. Check the badges documentation for more info.
 
-- `of DIMENSIONS` is optional and has to be the last parameter. Dimensions have to be separated by `,` or `|`. The space characters found in dimensions will be kept as-is (a few dimensions have spaces in their names).
+- `of DIMENSIONS` is optional and has to be the last parameter. Dimensions have to be separated by `,` or `|`. The space characters found in dimensions will be kept as-is (a few dimensions have spaces in their names). This accepts netdata simple patterns and the `match-ids` and `match-names` options affect the searches for dimensions.
 
   The result of the lookup will be available as `$this` and `$NAME` in expressions. The timestamps of the timeframe evaluated by the database lookup is available as variables `$after` and `$before` (both are unix timestamps).
 

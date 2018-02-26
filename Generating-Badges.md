@@ -216,14 +216,13 @@ These are options dedicated to badges:
 
 - `scale=XXX`
 
-  This option scales the svg image. It accepts values above or equal to 100 (100% is the default scale). For example, lets get 25% bigger (`scale=125`), 50% bigger (`scale=150`), 75% bigger (`scale=175`) and twice as big (`scale=200`) badges:
+  This option scales the svg image. It accepts values above or equal to 100 (100% is the default scale). For example, lets get a few different sizes:
 
-  <a href="#">
-     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=125"></img><br/>
-     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=150"></img><br/>
-     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=175"></img><br/>
-     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=200"></img>
-  </a>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=100"></img> original<br/>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=125"></img> `scale=125`<br/>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=150"></img> `scale=150`<br/>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=175"></img> `scale=175`<br/>
+     <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=200"></img> `scale=200`
 
 
 - `refresh=auto` or `refresh=SECONDS`

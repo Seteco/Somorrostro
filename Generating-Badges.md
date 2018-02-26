@@ -216,7 +216,7 @@ These are options dedicated to badges:
 
 - `scale=XXX`
 
-  This option scales the svg image. It accepts values above or equal to 100 (100% is the default scale). For example, lets get 25% (`scale=125`), 50% (`scale=150`), 75% (`scale=175`) and twice (`scale=200`) bigger badges:
+  This option scales the svg image. It accepts values above or equal to 100 (100% is the default scale). For example, lets get 25% bigger (`scale=125`), 50% bigger (`scale=150`), 75% bigger (`scale=175`) and twice as big (`scale=200`) badges:
 
   <a href="#">
      <img src="http://registry.my-netdata.io/api/v1/badge.svg?chart=system.cpu&after=-60&scale=125"></img><br/>

@@ -171,20 +171,6 @@ To lower the compression level, do this:
 
 ---
 
-## 8. Single threaded web server
-
-Normally, netdata creates a thread for each web client accessing it. This allows netdata to utilize all the available cores. You can however lower the CPU pressure of an embedded device by using the internal single threaded web server. This web server serves all requests sequentially, one after another without any CPU context switches.
-
-To use the single threaded web server, do this:
-
-```
-[web]
-	mode = single-threaded
-```
-
-
----
-
 Finally, if no web server is installed on your device, you can use port tcp/80 for netdata:
 
 ```

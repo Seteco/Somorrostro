@@ -180,7 +180,7 @@ Finally, if no web server is installed on your device, you can use port tcp/80 f
 
 ---
 
-## 9. Monitoring RPi temperature
+## 8. Monitoring RPi temperature
 
 The python version of the sensors plugin uses `lm-sensors`. Unfortunately the temperature reading of RPi are not supported by `lm-sensors`.
 

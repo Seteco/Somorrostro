@@ -25,7 +25,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Telephony Servers](#telephony-servers)**, like openSIPS
 - **[Go applications](#go-applications)**
 - **[Household appliances](#household-appliances)**, like SMA WebBox (solar power), Fronius Symo solar power, Stiebel Eltron heating
-- **[Java Processes](#java-processes)**, via JMX
+- **[Java Processes](#java-processes)**, via JMX or Spring Boot Actuator
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
 Check also [[Third Party Plugins]] for a list of plugins distributed by third parties.
@@ -327,7 +327,7 @@ stiebeleltron|node.js|Collects the temperatures and other metrics from your Stie
 application|language|notes|
 :---------:|:------:|:----|
 java process|java|Connects to multiple java processes (local or remote) and collects metrics of Java Management Extension (JMX) M(X)Beans.<br/>&nbsp;<br/>netdata plugin: [java.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/java.d.plugin)<br/>plugin module: [jmx](https://github.com/firehol/netdata/blob/master/java.d/src/main/java/org/firehol/netdata/module/jmx/JmxPlugin.java)<br/>configuration file: [java.d/jmx.conf](https://github.com/firehol/netdata/blob/master/conf.d/java.d/jmx.conf)
-
+Spring Boot Application|java|Monitors running Java [Spring Boot](https://spring.io/) applications that expose their metrics with the use of the **Spring Boot Actuator** included in Spring Boot library.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [springboot](https://github.com/firehol/netdata/blob/master/python.d/springboot.chart.py)<br/>configuration file: [python.d/springboot.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/stringboot.conf)
 
 ---
 

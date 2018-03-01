@@ -139,6 +139,7 @@ Notes on memory management
 * [redis](https://github.com/firehol/netdata/tree/master/python.d#redis)
 * [retroshare](https://github.com/firehol/netdata/tree/master/python.d#retroshare)
 * [sensors](https://github.com/firehol/netdata/tree/master/python.d#sensors)
+* [springboot](https://github.com/firehol/netdata/tree/master/python.d#springboot)
 * [squid](https://github.com/firehol/netdata/tree/master/python.d#squid)
 * [smartd_log](https://github.com/firehol/netdata/tree/master/python.d#smartd_log)
 * [tomcat](https://github.com/firehol/netdata/tree/master/python.d#tomcat)

@@ -2,7 +2,7 @@ This is a list of the donations we have received for netdata (sorted alphabetica
 
 what donated|related links|who donated|description of the donation
 ----:|:-----:|:---:|:-----------
-Packages Distribution|-|**[PageCloud.io](https://packagecloud.io/)**|**PageCloud.io** donated to a free open-source subscription to their awesome Package Distribution services.
+Packages Distribution|-|**[PackageCloud.io](https://packagecloud.io/)**|**PackageCloud.io** donated to a free open-source subscription to their awesome Package Distribution services.
 Cross Browser Testing|-|**[BrowserStack.com](https://www.browserstack.com/)**|**BrowserStack.com** donated a free subscription to their awesome Browser Testing services (all three of them: Live, Screenshots, Responsive).
 Cloud VM|[cdn77.my-netdata.io](http://cdn77.my-netdata.io)|**[CDN77.com](https://www.cdn77.com/)**|**CDN77.com** donated a VM with 2 CPU cores, 4GB RAM and 20GB HD, on their excellent CDN network.
 Localization Management|[netdata localization project](https://crowdin.com/project/netdata) (check issue [#279](https://github.com/firehol/netdata/issues/279))|**[Crowdin.com](https://crowdin.com/)**|**Crowdin.com** donated an open source license to their Localization Management Platform.

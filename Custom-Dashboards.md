@@ -1,3 +1,4 @@
+
 # Custom Dashboards
 
 You can:
@@ -161,9 +162,9 @@ The can be either:
 
 - **relative** number of seconds to now. To show the last 10 minutes of data, `AFTER_SECONDS` must be `-600` (relative to now) and `BEFORE_SECONDS` must be `0` (meaning: now). If you want the chart to auto-refresh the current values, you need to specify **relative** values.
 
-### Chart dimensions
+### Chart sizes
 
-You can set the dimensions of the chart using this:
+You can set the size of the chart using this:
 
 ```html
 <div data-netdata="unique.id"
@@ -204,7 +205,14 @@ The default chart library is `dygraph`. You set a different chart library per ch
      ></div>
 ```
 
-Each chart library may support more chart-library specific settings. Please refer to the documentation of the chart library you are interested, in this wiki.
+Each chart library may support more chart-library specific settings. Please refer to the documentation of the chart library you are interested, in this wiki or the source code:
+
+- options `data-dygraph-XXX` [here](https://github.com/firehol/netdata/blob/643cfe20a8d8beba0ed31ec6afaade80853fd310/web/dashboard.js#L6251-L6361)
+- options `data-easypiechart-XXX` [here](https://github.com/firehol/netdata/blob/643cfe20a8d8beba0ed31ec6afaade80853fd310/web/dashboard.js#L7954-L7966)
+- options `data-gauge-XXX` [here](https://github.com/firehol/netdata/blob/643cfe20a8d8beba0ed31ec6afaade80853fd310/web/dashboard.js#L8182-L8189)
+- options `data-d3pie-XXX` [here](https://github.com/firehol/netdata/blob/643cfe20a8d8beba0ed31ec6afaade80853fd310/web/dashboard.js#L7394-L7561)
+- options `data-sparkline-XXX` [here](https://github.com/firehol/netdata/blob/643cfe20a8d8beba0ed31ec6afaade80853fd310/web/dashboard.js#L5940-L5985)
+- options `data-peity-XXX` [here](https://github.com/firehol/netdata/blob/643cfe20a8d8beba0ed31ec6afaade80853fd310/web/dashboard.js#L5892)
 
 
 ### Data points
@@ -235,7 +243,7 @@ Where `PIXELS_PER_POINT` is the number of pixels each data point should occupy.
 
 ### Data grouping method
 
-Netdata supports **average** (the default) or **max** grouping methods. The grouping method is used when the netdata server is requested to return fewer points for a time-frame, compared to the number of points available.
+Netdata supports **average** (the default), **sum** and **max** grouping methods. The grouping method is used when the netdata server is requested to return fewer points for a time-frame, compared to the number of points available.
 
 You can give it per chart, using:
 
@@ -244,6 +252,25 @@ You can give it per chart, using:
      data-method="max"
      ></div>
 ```
+
+### Changing rates
+
+Netdata can change the rate of charts on the fly. So a charts that shows values **per second** can be turned to **per minute** (or any other, e.g. **per 10 seconds**), with this:
+
+```html
+<div data-netdata="unique.id"
+     data-method="average"
+     data-gtime="60"
+     data-units="per minute"
+     ></div>
+```
+
+The above will provide the average rate per minute (60 seconds).
+Use 60 for `/minute`, 3600 for `/hour`, 86400 for `/day` (provided you have that many data).
+
+- The `data-gtime` setting does not change the units of the chart. You have to change them yourself with `data-units`.
+- This works only for `data-method="average"`.
+- netdata may aggregate multiple points to satisfy the `data-points` setting. For example, you request `per minute` but the requested number of points to be returned are not enough to report every single minute. In this case netdata will sum the `per second` raw data of the database to find the `per minute` for every single minute and then **average** them to find the **average per minute rate of every X minutes**. So, it works as if the data collection frequency was per minute.
 
 ### Selecting dimensions
 
@@ -255,6 +282,8 @@ You can select specific dimensions using this:
      data-dimensions="dimension1,dimension2,dimension3,..."
      ></div>
 ```
+
+netdata supports coma (` , `) or pipe (` | `) separated [simple patterns](https://github.com/firehol/netdata/wiki/Configuration#netdata-simple-patterns) for dimensions. By default it searches for both dimension IDs and dimension NAMEs. You can control the target of the match with: `data-append-options="match-ids"` or `data-append-options="match-names"`. Spaces in this setting are matched in the dimension names and IDs.
 
 ### Chart title
 
@@ -333,7 +362,45 @@ You can append netdata **[[REST API v1]]** data options, using this:
 refreshed in <span id="measurement1"></span> milliseconds!
 ```
 
-### Syncing chart scale
-If you give the same `data-common-max` to 2+ charts, then all of them will share the same max value of their y-range. If one spikes, all of them will be aligned to have the same scale. This is done for the cpu interrupts and and cpu softnet charts at the dashboard and also for the `gauge` and `easypiecharts` of the netdata home page. This is why all these charts have the same scale.
+### Syncing charts y-range
+
+If you give the same `data-common-max="NAME"` to 2+ charts, then all of them will share the same max value of their y-range. If one spikes, all of them will be aligned to have the same scale. This is done for the cpu interrupts and and cpu softnet charts at the dashboard and also for the `gauge` and `easypiecharts` of the netdata home page.
+
+```html
+<div data-netdata="chart1"
+     data-common-max="chart-group-1"
+     ></div>
+
+<div data-netdata="chart2"
+     data-common-max="chart-group-1"
+     ></div>
+```
 
 The same functionality exists for `data-common-min`.
+
+### Syncing chart units
+
+netdata dashboards support auto-scaling of units. So, `MB` can become `KB`, `GB`, etc dynamically, based on the value to be shown.
+
+Giving the same `NAME` with `data-common-units="NAME"`, 2+ charts can be forced to always have the same units.
+
+```html
+<div data-netdata="chart1"
+     data-common-units="chart-group-1"
+     ></div>
+
+<div data-netdata="chart2"
+     data-common-units="chart-group-1"
+     ></div>
+```
+
+### Setting desired units
+
+Charts can be scaled to specific units with `data-desired-units="UNITS"`. If the dashboard can convert the units to the desired one, it will do.
+
+```html
+<div data-netdata="chart1"
+     data-desired-units="GB"
+     ></div>
+```
+

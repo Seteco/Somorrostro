@@ -274,6 +274,11 @@ The `format=prometheus` parameter only exports the host's netdata metrics.  If y
 
 This will report all upstream host data, and `honor_labels` will make Prometheus take note of the instance names provided.
 
+### timestamps
+
+To pass the metrics through prometheus pushgateway, netdata supports the option `&timestamps=no` to send the metrics without timestamps.
+
+
 ### TYPE and HELP
 
 To save bandwidth, and because prometheus does not use them anyway, `# TYPE` and `# HELP` lines are suppressed. If wanted they can be re-enabled via `types=yes` and `help=yes`, e.g. `/api/v1/allmetrics?format=prometheus&types=yes&help=yes`

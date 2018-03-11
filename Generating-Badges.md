@@ -249,6 +249,8 @@ These are options dedicated to badges:
 </script>
 ```
 
+A more advanced badges refresh method is to include `http://your.netdata.ip:19999/refresh-badges.js` in your page. For more information and use example, check this: https://github.com/firehol/netdata/blob/master/web/refresh-badges.js
+
 ---
 
 ## Escaping URLs

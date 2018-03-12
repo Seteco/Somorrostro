@@ -350,6 +350,13 @@ You can append netdata **[[REST API v1]]** data options, using this:
      ></div>
 ```
 
+A few useful options are:
+
+- `absolute` to show all values are absolute (i.e. turn negative dimensions to positive)
+- `percentage` to express the values as a percentage of the chart total (so, the values of the dimensions are added, and the sum of them if expressed as a percentage of the sum of all dimensions)
+- `unaligned` to prevent netdata from aligning the charts (e.g. when requesting 60 seconds aggregation per point, netdata returns chart data aligned to XX:XX:00 to XX:XX:59 - similarly for hours, days, etc - the `unaligned` option disables this feature)
+- `match-ids` or `match-names` is used to control what `data-dimensions=` will match.
+
 ### Chart library performance
 
 `dashboard.js` measures the performance of the chart library when it renders the charts. You can specify an element ID you want this information to be visualized, using this:

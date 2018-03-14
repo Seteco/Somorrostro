@@ -22,7 +22,7 @@ You can verify there is no accounting enabled, by running `systemd-cgtop`. The p
 To enable cgroup accounting, execute this:
 
 ```sh
-cat /etc/systemd/system.conf | sed -e 's|^#Default\(.*\)Accounting=.*$|Default\1Accounting=yes|g' >/tmp/system.conf
+sed -e 's|^#Default\(.*\)Accounting=.*$|Default\1Accounting=yes|g' /etc/systemd/system.conf >/tmp/system.conf
 ```
 
 To see the changes it made, run this:

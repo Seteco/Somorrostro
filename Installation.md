@@ -436,7 +436,8 @@ pkg add http://pkg.freebsd.org/FreeBSD:11:amd64/latest/All/netdata-1.9.0_1.txz
 ```
 To start netdata manually run `service netdata onestart`
 
-To start netdata automatically at each boot add `service netdata start` as a Shellcmd within the pfSense web interface (under Services/Shellcmd). Shellcmd Type should be set to `Shellcmd`. 
+To start netdata automatically at each boot add `service netdata start` as a Shellcmd within the pfSense web interface (under **Services/Shellcmd**, which you need to install beforehand under **System/Package Manager/Available Packages**).
+Shellcmd Type should be set to `Shellcmd`. 
 ![](https://user-images.githubusercontent.com/36808164/36930790-4db3aa84-1f0d-11e8-8752-cdc08bb7207c.png)
 Alternatively more information can be found in https://doc.pfsense.org/index.php/Installing_FreeBSD_Packages, for achieving the same via the command line and scripts.  
 

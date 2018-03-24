@@ -43,16 +43,19 @@ to run a container, forward the necessary port that netdata listens on, and
 attach a tty so we can interact with the bash shell on the container. But
 before we do this we want name resolution between the two containers to work.
 In order to accomplish this we will create a user-defined network and attach
-both containers to this network. The first command we should run is: docker
-network create --driver bridge netdata-tutorial
+both containers to this network. The first command we should run is: 
+
+```
+docker network create --driver bridge netdata-tutorial
+```
 
 With this user-defined network created we can now launch our container we will
 install Netdata on and point it to this network.
 
 ```
-docker run -it --name netdata --hostname netdata --network=netdata-tutorial -p
-19999:19999  centos:latest '/bin/bash'
+docker run -it --name netdata --hostname netdata --network=netdata-tutorial -p 19999:19999  centos:latest '/bin/bash'
 ```
+
 This command creates an interactive tty session (-it), gives the container both
 a name in relation to the docker daemon and a hostname (this is so you know what
 container is which when working in the shells and docker maps hostname
@@ -113,9 +116,7 @@ https://prometheus.io/download/. Let’s download the latest version and install
 into your container.
 
 ```
-curl -L
-'https://github.com/prometheus/prometheus/releases/download/v1.7.1/prometheus-1.7.1.linux-amd64.tar.gz'
--o /tmp/prometheus.tar.gz
+curl -L 'https://github.com/prometheus/prometheus/releases/download/v1.7.1/prometheus-1.7.1.linux-amd64.tar.gz' -o /tmp/prometheus.tar.gz
 
 mkdir /opt/prometheus
 
@@ -165,7 +166,7 @@ https://prometheus.io/docs/operating/configuration/. We will be adding a new
 like this (we can use the dns name Netdata due to the custom user-defined
 network we created in docker beforehand).
 
-```
+```yml
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
@@ -197,7 +198,10 @@ it is now scraping.
 Let’s now start exploring how we can graph some metrics. Back in our NetData
 container lets get the CPU spinning with a pointless busy loop. On the shell do
 the following:
-`[root@netdata /]# while true; do echo "HOT HOT HOT CPU"; done`
+
+```
+[root@netdata /]# while true; do echo "HOT HOT HOT CPU"; done
+```
 
 Our NetData cpu graph should be showing some activity. Let’s represent this in
 Prometheus. In order to do this let’s keep our metrics page open for reference:

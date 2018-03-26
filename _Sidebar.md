@@ -121,6 +121,7 @@ Notes on memory management
 * [go_expvar](https://github.com/firehol/netdata/tree/master/python.d#go_expvar)
 * [haproxy](https://github.com/firehol/netdata/tree/master/python.d#haproxy)
 * [hddtemp](https://github.com/firehol/netdata/tree/master/python.d#hddtemp)
+* [icecast](https://github.com/firehol/netdata/tree/master/python.d#icecast)
 * [ipfs](https://github.com/firehol/netdata/tree/master/python.d#IPFS)
 * [isc_dhcpd](https://github.com/firehol/netdata/tree/master/python.d#isc_dhcpd)
 * [mdstat](https://github.com/firehol/netdata/tree/master/python.d#mdstat)

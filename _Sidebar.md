@@ -108,6 +108,7 @@ Notes on memory management
 * [apache_cache](https://github.com/firehol/netdata/tree/master/python.d#apache_cache)
 * [beanstalkd](https://github.com/firehol/netdata/tree/master/python.d#beanstalk)
 * [bind_rndc](https://github.com/firehol/netdata/tree/master/python.d#bind_rndc)
+* [ceph](https://github.com/firehol/netdata/tree/master/python.d#ceph)
 * [couchdb](https://github.com/firehol/netdata/tree/master/python.d#couchdb)
 * [cpuidle](https://github.com/firehol/netdata/tree/master/python.d#cpuidle)
 * [cpufreq](https://github.com/firehol/netdata/tree/master/python.d#cpufreq)

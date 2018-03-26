@@ -51,7 +51,7 @@ Toronto (Canada)|**[toronto.my-netdata.io](https://toronto.my-netdata.io)**|[![R
 
 Click this image to interact with it (most icons link to related documentation):
 
-[![netdata-overview](https://user-images.githubusercontent.com/2662304/34575763-90cb1dd6-f184-11e7-83c4-c6d0ce0e7e72.png)](https://my-netdata.io/infographic.html)
+[![netdata-overview](https://user-images.githubusercontent.com/2662304/37909754-6c812a7c-3114-11e8-8673-0d1926a9793a.png)](https://my-netdata.io/infographic.html)
 
 
 ## Installation

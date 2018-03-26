@@ -144,6 +144,7 @@ Notes on memory management
 * [squid](https://github.com/firehol/netdata/tree/master/python.d#squid)
 * [smartd_log](https://github.com/firehol/netdata/tree/master/python.d#smartd_log)
 * [tomcat](https://github.com/firehol/netdata/tree/master/python.d#tomcat)
+* [traefik](https://github.com/firehol/netdata/tree/master/python.d#traefik)
 * [varnish](https://github.com/firehol/netdata/tree/master/python.d#varnish-cache)
 * [web_log](https://github.com/firehol/netdata/tree/master/python.d#web_log)
 

@@ -184,7 +184,7 @@ isc dhcp|python<br/>v2 or v3|Monitor lease database to show all active leases.<b
 application|language|notes|
 :---------:|:------:|:----|
 haproxy|python<br/>v2 or v3|Monitor frontend, backend and health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [haproxy.chart.py](https://github.com/firehol/netdata/blob/master/python.d/haproxy.chart.py)<br/>configuration file: [python.d/haproxy.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/haproxy.conf)|
-
+traefik|python<br/>v2 or v3|Connects to multiple traefik instances (local or remote) to collect API metrics (response status code, response time, average response time and server uptime).<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [traefik.chart.py](https://github.com/firehol/netdata/blob/master/python.d/traefik.chart.py)<br/>configuration file: [python.d/traefik.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/traefik.conf)|
 
 ---
 

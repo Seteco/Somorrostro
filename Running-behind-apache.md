@@ -25,6 +25,12 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 ```
 
+Ensure your rewrite module is enabled:
+
+```
+sudo a2enmod rewrite
+```
+
 ---
 
 ## netdata on an existing virtual host

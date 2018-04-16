@@ -46,7 +46,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
    Sampling rate is supported (check below).
 
-   When a timer or histogram is not collected and the setting is not to show gaps on the charts (the default), the last value will be shown, until a data collection event changes it.
+   When a timer or histogram is not collected and the setting is not to show gaps on the charts (the default), zero will be shown, until a data collection event changes it.
 
 - **Sets**
 
@@ -54,7 +54,7 @@ netdata fully supports the statsd protocol. All statsd client libraries can be u
 
    Sampling rate is **not** supported for Sets. `value` is always considered text.
 
-   When a set is not collected and the setting is not to show gaps on the charts (the default), the last value will be shown, until a data collection event changes it.
+   When a set is not collected and the setting is not to show gaps on the charts (the default), zero will be shown, until a data collection event changes it.
 
 #### Sampling Rates
 

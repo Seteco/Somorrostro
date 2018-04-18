@@ -85,7 +85,7 @@ In these cases that `setcap` succeeds by capabilities do not work, you will have
 
 ```sh
 chown root:netdata /usr/libexec/netdata/plugins.d/apps.plugin
-chmod 4755 /usr/libexec/netdata/plugins.d/apps.plugin
+chmod 4750 /usr/libexec/netdata/plugins.d/apps.plugin
 ```
 
 You will have to run these, every time you update netdata.

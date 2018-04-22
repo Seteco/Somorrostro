@@ -33,7 +33,7 @@ Non-Linux:
 - [Install from package or source, on FreeBSD](#freebsd)
 - [Install from package, on pfSense](#pfsense)
 - [Enable netdata on FreeNAS Corral](#freenas)
-- [Install from package or source, on macOS (OS X)](#macos)
+- [Install from source, on Mac OS X](#macos)
 
 ### Linux one liner
 
@@ -462,13 +462,7 @@ service netdata start
 
 netdata on macOS still has limited charts, but external plugins do work.
 
-You can either install netdata with [Homebrew](https://brew.sh/)
-
-```sh
-brew install netdata
-```
-
-or from source:
+This is how to install netdata on macOS:
 
 ```sh
 # install Xcode Command Line Tools

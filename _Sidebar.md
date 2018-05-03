@@ -137,6 +137,7 @@ Notes on memory management
 * [postfix](https://github.com/firehol/netdata/tree/master/python.d#postfix)
 * [postgres](https://github.com/firehol/netdata/tree/master/python.d#postgres)
 * [powerdns](https://github.com/firehol/netdata/tree/master/python.d#powerdns)
+* [puppet](https://github.com/firehol/netdata/tree/master/python.d#puppet)
 * [rabbitmq](https://github.com/firehol/netdata/tree/master/python.d#rabbitmq)
 * [redis](https://github.com/firehol/netdata/tree/master/python.d#redis)
 * [retroshare](https://github.com/firehol/netdata/tree/master/python.d#retroshare)

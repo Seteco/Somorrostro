@@ -479,10 +479,12 @@ brew install ossp-uuid autoconf automake pkg-config
 # download netdata
 git clone https://github.com/firehol/netdata.git --depth=1
 
-# install netdata in ~/opt/netdata
+# install netdata in /usr/local/netdata
 cd netdata
-./netdata-installer.sh --install ~/opt
+sudo ./netdata-installer.sh --install /usr/local
 ```
+
+The installer will also install a startup plist to start netdata when your Mac boots.
 
 ##### Alpine 3.x
 

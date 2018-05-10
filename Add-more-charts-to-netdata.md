@@ -27,6 +27,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Household appliances](#household-appliances)**, like SMA WebBox (solar power), Fronius Symo solar power, Stiebel Eltron heating
 - **[Java Processes](#java-processes)**, via JMX or Spring Boot Actuator
 - **[Provisioning Systems](#provisioning-systems)**, like Puppet
+- **[Game Servers](#game-servers)**, like SpigotMC
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
 Check also [[Third Party Plugins]] for a list of plugins distributed by third parties.
@@ -167,6 +168,7 @@ bind_rndc|python<br/>v2 or v3|Parses named.stats dump file to collect real-time 
 nsd|python<br/>v2 or v3|Charts the nsd received queries and zones.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [nsd.chart.py](https://github.com/firehol/netdata/blob/master/python.d/nsd.chart.py)<br/>configuration file: [python.d/nsd.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/nsd.conf)
 powerdns|python<br/>v2 or v3|Monitors powerdns performance and health metrics <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [powerdns.chart.py](https://github.com/firehol/netdata/blob/master/python.d/powerdns.chart.py)<br/>configuration file: [python.d/powerdns.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/powerdns.conf)|
 dnsdist|python<br/>v2 or v3|Monitors dnsdist performance and health metrics <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [dnsdist.chart.py](https://github.com/firehol/netdata/blob/master/python.d/dnsdist.chart.py)<br/>configuration file: [python.d/dnsdist.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/dnsdist.conf)|
+unbound|python<br/>v2 or v3|Monitors Unbound performance and resource usage metrics <br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [unbound.chart.py](https://github.com/firehol/netdata/blob/master/python.d/unbound.chart.py)<br/>configuration file: [python.d/unbound.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/unbound.conf)|
 
 
 ---
@@ -338,6 +340,14 @@ Spring Boot Application|java|Monitors running Java [Spring Boot](https://spring.
 application|language|notes|
 :---------:|:------:|:----|
 puppet|python<br/>v2 or v3|Connects to multiple Puppet Server and Puppet DB instances (local or remote) to collect real-time status metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [puppet.chart.py](https://github.com/firehol/netdata/blob/master/python.d/puppet.chart.py)<br/>configuration file: [python.d/puppet.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/puppet.conf)|
+
+---
+
+## Game Servers
+
+application|language|notes|
+:---------:|:------:|:----|
+SpigotMC|Python<br/>v2 or v3|Monitors Spigot Minecraft server ticks per second and number of online players using the Minecraft remote console.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d/plugin)<br/>plugin module: [spigotmc.chart.py](https://github.com/firehol/netdata/blob/master/python.d/spigotmc.chart.py)<br/>configuration file: [python.d/spigotmc.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/spigotmc.conf)|
 
 ---
 

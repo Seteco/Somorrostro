@@ -13,3 +13,6 @@ The following is a list of Netdata plugins distributed by third parties:
 ## SSH
 
 [SSH module](https://github.com/Yaser-Amiri/netdata-ssh-module) monitors failed authentication requests of SSH server.
+
+## interactive users count
+Collect [number of currently logged-on users](https://github.com/veksh/netdata-numsessions)

@@ -120,12 +120,18 @@ Netdata also supports real-time alarms. Netdata alarms can be setup on any metri
 - email addresses
 - slack channels
 - discord channels
+- IRC channels
 - pushover
 - pushbullet
 - telegram.org
 - pagerduty
 - twilio
 - messagebird
+- alerta
+- flock
+- twillo
+- kavenegar
+- syslog
 
 Alarms are role based (each alarm can go to one or more roles), roles are multi-recipient and multi-channel (i.e. `sysadmin` = several email recipients + pushover) and each recipient may filter severity. You can also add more notification methods quite easily ([it is a shell script](https://github.com/firehol/netdata/blob/master/plugins.d/alarm-notify.sh)).
 

@@ -143,6 +143,19 @@ Enable the VirtualHost:
 sudo a2ensite netdata.conf && service apache2 reload
 ```
 
+## Netdata proxy in Plesk
+_Assuming the main goal is to make Netdata running in HTTPS._
+1. Make a subdomain for Netdata on which you enable and force HTTPS - You can use a free Let's Encrypt certificate
+2. Go to "Apache & nginx Settings", and in the following section, add:
+```
+RewriteEngine on
+RewriteRule (.*) http://localhost:19999/$1 [P,L]
+```
+3. Optional: If your server is remote, then just replace "localhost" with your actual hostname or IP, it just works.
+
+Repeat the operation for as many servers as you need.
+
+
 ## Enable Basic Auth
 
 If you wish to add an authentication (user/password) to access your netdata, do these:

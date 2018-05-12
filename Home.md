@@ -42,7 +42,7 @@
    - **apps.plugin** (now it also tracks swap usage per process)
    - **haproxy**
    - **uptime**
-   - **ksm** (kernel memory debupper)
+   - **ksm** (kernel memory deduper)
    - **mdstat** (software raid)
    - **elasticsearch**
    - **apcupsd**
@@ -227,7 +227,7 @@ Of course, we could use them just to get data at a slower rate, and this can be 
 
 For a few purposes yes, for others no.
 
-Our focus is **real-time data collection and visualization**. Our (let's say) "competitors" are the console tools. If you are looking for a tools to get "statistics about past performance", netdata is the wrong tool.
+Our focus is **real-time data collection and visualization**. Our (let's say) "competitors" are the console tools. If you are looking for a tool to get "statistics about past performance", netdata is the wrong tool.
 
 Of course, historical data is our next priority.
 
@@ -237,7 +237,7 @@ There is. You can configure a netdata to act as a central netdata for your netwo
 
 However, we strongly believe monitoring should be scaled out, not up. A "central" monitoring server is just another problem and should be avoided.
 
-We all have a wonderful tool on our desktops, that connects us to the entire world: the **web browser**! This is the "central" netdata that connects all the netdata installations. We have done a lot of work towards this and we believe we are very close to show you what we mean.
+We all have a wonderful tool on our desktops, which connects us to the entire world: the **web browser**! This is the "central" netdata that connects all the netdata installations. We have done a lot of work towards this and we believe we are very close to show you what we mean.
 
 Keep in mind netdata versions 1.6+ support data replication and mirroring by streaming collected metrics in real-time to other netdata and versions 1.5+ support data archiving the time-series databases.
 
@@ -258,7 +258,7 @@ These are others areas we need help:
 
 - _Can you write documentation?_
 
-  - We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (of course we monitor all edits - so please try to contribute and not destroy things).
+  - We have left the wiki open for anyone to edit. If any area needs further details, you can edit that page. (Of course we monitor all edits - so please try to contribute and not destroy things.)
 
 - _Do you have special skills?_
 

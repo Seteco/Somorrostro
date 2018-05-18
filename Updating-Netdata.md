@@ -10,7 +10,7 @@ The update procedure depends on how you installed it:
 
 The installer should have created a `netdata-updater.sh` script in the directory you downloaded netdata. Just run it and it will download and install the latest version of netdata. The same script can be put in a cronjob to update your netdata at regular intervals.
 
-If you don't have this script (e.g. you deleted the directory where you downloaded netdata), just follow the **[[Installation]]** instructions again. The installers preserves your configuration.
+If you don't have this script (e.g. you deleted the directory where you downloaded netdata), just follow the **[[Installation]]** instructions again. The installer preserves your configuration.
 
 Keep in mind, netdata may now have new features, or certain old features may now behave differently. So pay some attention to it after updating.
 

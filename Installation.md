@@ -425,14 +425,14 @@ cd netdata
 ##### pfSense
 To install netdata on pfSense run the following commands (within a shell or under Diagnostics/Command Prompt within the pfSense web interface).
 
-Change platform (i386/amd64, etc) and FreeBSD versions (10/11, etc) according to your environment and change netdata version (1.9.0_1 in example) according to latest version present within the FreeSBD repository:-
+Change platform (i386/amd64, etc) and FreeBSD versions (10/11, etc) according to your environment and change netdata version (1.10.0 in example) according to latest version present within the FreeSBD repository:-
 
 Note first three packages are downloaded from the pfSense repository for maintaining compatibility with pfSense, netdata is downloaded from the FreeBSD repository.
 ```
 pkg install pkgconf
 pkg install bash
 pkg install e2fsprogs-libuuid
-pkg add http://pkg.freebsd.org/FreeBSD:11:amd64/latest/All/netdata-1.9.0_1.txz
+pkg add http://pkg.freebsd.org/FreeBSD:11:amd64/latest/All/netdata-1.10.0.txz
 ```
 To start netdata manually run `service netdata onestart`
 

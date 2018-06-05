@@ -536,6 +536,7 @@ ssh to diskstation as root
 
 ```sh
 /var/packages/debian-chroot/scripts/start-stop-status chroot
+apt-get update
 apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
 ```
 

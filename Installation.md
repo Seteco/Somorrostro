@@ -538,6 +538,9 @@ ssh to diskstation as root
 /var/packages/debian-chroot/scripts/start-stop-status chroot
 apt-get update
 apt-get install zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autogen automake pkg-config
+cd /tmp
+git clone  https://github.com/firehol/netdata.git
+cd netdata
+./netdata-installer.sh
 ```
 
-continue install from this (chroot) prompt

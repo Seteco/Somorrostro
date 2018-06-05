@@ -25,4 +25,4 @@ At minimum, to be buildable and testable, the PR needs to include:
 Once the PR has been accepted and merged, there are two more things you should ideally take care of:
 
 * Add a link to the wiki [sidebar](https://github.com/firehol/netdata/wiki/_Sidebar/_edit) in the appropriate section pointing at the section for the module in the plugin's README file.
-* Add an entry for the [here](https://github.com/firehol/netdata/wiki/Add-more-charts-to-netdata).
+* Add an entry for the module [here](https://github.com/firehol/netdata/wiki/Add-more-charts-to-netdata).

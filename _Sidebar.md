@@ -125,6 +125,7 @@ Notes on memory management
 * [icecast](https://github.com/firehol/netdata/tree/master/python.d#icecast)
 * [ipfs](https://github.com/firehol/netdata/tree/master/python.d#IPFS)
 * [isc_dhcpd](https://github.com/firehol/netdata/tree/master/python.d#isc_dhcpd)
+* [litespeed](https://github.com/firehol/netdata/tree/master/python.d#litespeed)
 * [mdstat](https://github.com/firehol/netdata/tree/master/python.d#mdstat)
 * [memcached](https://github.com/firehol/netdata/tree/master/python.d#memcached)
 * [mongodb](https://github.com/firehol/netdata/tree/master/python.d#mongodb)

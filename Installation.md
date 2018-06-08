@@ -8,9 +8,14 @@ Linux:
 - You can install the latest release of netdata, using your package manager in
 
    - Arch Linux (`sudo pacman -S netdata`)
-   - Gentoo Linux (`sudo emerge --ask netdata`)
-   - Solus Linux (`sudo eopkg install netdata`)
    - Alpine Linux (`sudo apk add netdata`)
+   - Debian Linux (`sudo apt-get install netdata`)
+   - Gentoo Linux (`sudo emerge --ask netdata`)
+   - OpenSUSE (`sudo zypper install netdata`)
+   - Solus Linux (`sudo eopkg install netdata`)
+   - Ubuntu Linux (`sudo apt-get install netdata`)
+
+  For security and portability reasons, this is the preferred installation method.
 
 - [**One line installation**, on any modern Linux system](#linux-one-liner)
 <br/>(the suggested way of installing the latest netdata and keep it up to date automatically)

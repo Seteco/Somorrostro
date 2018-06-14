@@ -13,7 +13,7 @@ Linux:
    - Gentoo Linux (`sudo emerge --ask netdata`)
    - OpenSUSE (`sudo zypper install netdata`)
    - Solus Linux (`sudo eopkg install netdata`)
-   - Ubuntu Linux (`sudo apt-get install netdata`)
+   - Ubuntu Linux (`sudo apt install netdata`)
 
   For security and portability reasons, this is the preferred installation method.
 

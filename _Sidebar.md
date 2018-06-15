@@ -152,6 +152,7 @@ Notes on memory management
 * [traefik](https://github.com/firehol/netdata/tree/master/python.d#traefik)
 * [unbound](https://github.com/firehol/netdata/tree/master/python.d#unbound)
 * [varnish](https://github.com/firehol/netdata/tree/master/python.d#varnish-cache)
+* [w1sensor](https://github.com/firehol/netdata/tree/master/python.d#w1sensor)
 * [web_log](https://github.com/firehol/netdata/tree/master/python.d#web_log)
 
 **Node.js Modules**

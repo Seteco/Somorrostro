@@ -28,6 +28,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Java Processes](#java-processes)**, via JMX or Spring Boot Actuator
 - **[Provisioning Systems](#provisioning-systems)**, like Puppet
 - **[Game Servers](#game-servers)**, like SpigotMC
+- **[Distributed Computing Clients](#distributed-computing-clients)**, like BOINC
 - **[Skeleton Plugins](#skeleton-plugins)**, for writing your own data collectors
 
 Check also [[Third Party Plugins]] for a list of plugins distributed by third parties.
@@ -349,6 +350,14 @@ puppet|python<br/>v2 or v3|Connects to multiple Puppet Server and Puppet DB inst
 application|language|notes|
 :---------:|:------:|:----|
 SpigotMC|Python<br/>v2 or v3|Monitors Spigot Minecraft server ticks per second and number of online players using the Minecraft remote console.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d/plugin)<br/>plugin module: [spigotmc.chart.py](https://github.com/firehol/netdata/blob/master/python.d/spigotmc.chart.py)<br/>configuration file: [python.d/spigotmc.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/spigotmc.conf)|
+
+---
+
+## Distributed Computing Clients
+
+application|language|notes|
+:---------:|:------:|:----|
+BOINC|Python<br/>v2 or v3|Monitors task states for local and remote BOINC client software using the remote GUI RPC interface.  Also provides alarms for a handful of error conditions.  Requires manual configuration<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d/plugin)<br/>plugin module: [boinc.chart.py](https://github.com/firehol/netdata/blob/master/python.d/boinc.chart.py)<br/>configuration file: [python.d/boinc.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/boinc.conf)|
 
 ---
 

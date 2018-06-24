@@ -1,0 +1,1 @@
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Loans</p>&mdash; VeeJay Foster (@VeeJayF) <a href="https://twitter.com/VeeJayF/status/1010641382338203648?ref_src=twsrc%5Etfw">June 23, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

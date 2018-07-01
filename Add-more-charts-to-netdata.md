@@ -65,7 +65,7 @@ freeipmi.plugin|`C`|N/A|command line arguments specified at `/etc/netdata/netdat
 charts.d.plugin|`BASH`|`/etc/netdata/`<br/>`charts.d.conf`|a file for each module in `/etc/netdata/charts.d/`
 python.d.plugin|`python`<br/>v2 or v3|`/etc/netdata/`<br/>`python.d.conf`|a file for each module in `/etc/netdata/python.d/`
 node.d.plugin|`node.js`|`/etc/netdata/`<br/>`node.d.conf`|a file for each module in `/etc/netdata/node.d/`
-java.d.plugin|`java 8`|`/etc/netdata/java.d.conf|a file for each module in `/etc/netdata/java.d.conf/`
+java.d.plugin|`java 8`|`/etc/netdata/`<br/>`java.d.conf`|a file for each module in `/etc/netdata/java.d.conf/`
 
 
 ## writing netdata plugins

@@ -12,7 +12,7 @@ This page tracks the package maintainers for netdata, for various operating syst
 | Arch Linux | Release | @svenstaro | [netdata @ Arch Linux](https://www.archlinux.org/packages/community/x86_64/netdata/) |
 | Arch Linux AUR | Git | @sanskritfritz | [netdata @ AUR](https://aur.archlinux.org/packages/netdata-git/) |
 | Gentoo Linux | Release + Git | @candrews | [netdata @ gentoo](https://github.com/gentoo/gentoo/tree/master/net-analyzer/netdata) |
-| Debian | Release | @lhw @FedericoCeratto | [netdata @ debian](https://anonscm.debian.org/git/collab-maint/netdata.git) |
+| Debian | Release | @lhw @FedericoCeratto | [netdata @ debian](http://salsa.debian.org/debian/netdata) |
 | Slackware | Release | @willysr | [netdata @ slackbuilds](https://slackbuilds.org/repository/14.2/system/netdata/)
 | Ubuntu |  |  |  |
 | Red Hat / Fedora / Centos |  |  |  |

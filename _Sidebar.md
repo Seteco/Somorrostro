@@ -247,6 +247,11 @@ Notes on memory management
 
 ---
 
+**Package Maintainers**
+ * [[Netdata Package Maintainers]]
+
+---
+
 **Donations**
  * [[Donations netdata has received]]
 

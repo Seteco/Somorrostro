@@ -51,20 +51,21 @@ Notes on memory management
 * [Examples](https://github.com/firehol/netdata/wiki/health-configuration-examples)<br/>simple how-to for writing alarms
 * [Notifications Configuration](https://github.com/firehol/netdata/wiki/alarm-notifications)<br/>
   - [web notifications](https://github.com/firehol/netdata/wiki/web-browser-notifications)
-  - [emails](https://github.com/firehol/netdata/wiki/email-notifications)
+  - [alerta.io](https://github.com/firehol/netdata/wiki/Alerta-monitoring-system)
   - [discordapp.com](https://github.com/firehol/netdata/wiki/discord-notifications)
+  - [emails](https://github.com/firehol/netdata/wiki/email-notifications)
+  - [flock.com](https://github.com/firehol/netdata/wiki/flock-notifications)
   - [irc](https://github.com/firehol/netdata/wiki/IRC-notifications)
+  - [kavenegar.com](https://github.com/firehol/netdata/wiki/kavenegar-notifications)
   - [messagebird.com](https://github.com/firehol/netdata/wiki/messagebird-notifications)
   - [pagerduty.com](https://github.com/firehol/netdata/wiki/pagerduty-notifications)
   - [pushbullet.com](https://github.com/firehol/netdata/wiki/pushbullet-notifications)
   - [pushover.net](https://github.com/firehol/netdata/wiki/pushover-notifications)
+  - [rocketchat](https://github.com/firehol/netdata/wiki/RocketChat-notifications)
   - [slack.com](https://github.com/firehol/netdata/wiki/slack-notifications)
-  - [alerta.io](https://github.com/firehol/netdata/wiki/Alerta-monitoring-system)
-  - [flock.com](https://github.com/firehol/netdata/wiki/flock-notifications)
+  - [system log](https://github.com/firehol/netdata/wiki/Syslog-Notifications)
   - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
-  - [kavenegar.com](https://github.com/firehol/netdata/wiki/kavenegar-notifications)
-  - [system log](https://github.com/firehol/netdata/wiki/Syslog-Notifications)
 * [[health API calls]]
 * [[troubleshooting alarms]]
 

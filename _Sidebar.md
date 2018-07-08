@@ -129,6 +129,7 @@ Notes on memory management
 * [isc_dhcpd](https://github.com/firehol/netdata/tree/master/python.d#isc_dhcpd)
 * [litespeed](https://github.com/firehol/netdata/tree/master/python.d#litespeed)
 * [mdstat](https://github.com/firehol/netdata/tree/master/python.d#mdstat)
+* [megacli](https://github.com/firehol/netdata/tree/master/python.d#megacli)
 * [memcached](https://github.com/firehol/netdata/tree/master/python.d#memcached)
 * [mongodb](https://github.com/firehol/netdata/tree/master/python.d#mongodb)
 * [mysql](https://github.com/firehol/netdata/tree/master/python.d#mysql)

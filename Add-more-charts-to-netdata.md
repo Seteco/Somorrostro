@@ -15,6 +15,7 @@ To collect non-system metrics, netdata supports a plugin architecture. The follo
 - **[Name Servers](#name-servers)** (DNS), like bind, nsd, powerdns, dnsdist
 - **[DHCP Servers](#dhcp-servers)**, like ISC DHCP
 - **[UPS](#ups)**, such as APC UPS, NUT
+- **[RAID](#raid)**, such as linux software raid (mdadm), MegaRAID
 - **[Mail Servers](#mail-servers)**, like postfix, exim, dovecot
 - **[File Servers](#file-servers)**, like samba, NFS, ftp, sftp, WebDAV
 - **[System](#system)**, for processes and other system metrics
@@ -210,6 +211,15 @@ application|language|notes|
 apcupsd|BASH<br/>Shell Script|Connects to an apcupsd server to collect real-time statistics of an APC UPS.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [apcupsd.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/apcupsd.chart.sh)<br/>configuration file: [charts.d/apcupsd.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/apcupsd.conf)|
 nut|BASH<br/>Shell Script|Connects to a nut server (upsd) to collect real-time UPS statistics.<br/>&nbsp;<br/>netdata plugin: [charts.d.plugin](https://github.com/firehol/netdata/wiki/General-Info---charts.d)<br/>plugin module: [nut.chart.sh](https://github.com/firehol/netdata/blob/master/charts.d/nut.chart.sh)<br/>configuration file: [charts.d/nut.conf](https://github.com/firehol/netdata/blob/master/conf.d/charts.d/nut.conf)|
 
+
+---
+
+## RAID
+
+application|language|notes|
+:---------:|:------:|:----|
+mdstat|python<br/>v2 or v3|Parses `/proc/mdstat` to get mds health metrics.<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [mdstat.chart.py](https://github.com/firehol/netdata/blob/master/python.d/mdstat.chart.py)<br/>configuration file: [python.d/mdstat.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/mdstat.conf)|
+megacli|python<br/>v2 or v3|Collects adapter, physical drives and battery stats..<br/>&nbsp;<br/>netdata plugin: [python.d.plugin](https://github.com/firehol/netdata/blob/master/plugins.d/python.d.plugin)<br/>plugin module: [megacli.chart.py](https://github.com/firehol/netdata/blob/master/python.d/megacli.chart.py)<br/>configuration file: [python.d/megacli.conf](https://github.com/firehol/netdata/blob/master/conf.d/python.d/megacli.conf)|
 
 ---
 

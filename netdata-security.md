@@ -11,6 +11,7 @@ We have given special attention to all aspects of netdata, ensuring that everyth
 		- [expose netdata only in a private LAN](#expose-netdata-only-in-a-private-lan)
 		- [use an authenticating web server in proxy mode](#use-an-authenticating-web-server-in-proxy-mode)
 		- [other methods](#other-methods)
+5. [registry or how to not send any information to a thirdparty server](#registry-or-how-to-not-send-any-information-to-a-thirdparty-server)
 
 ## your data are safe with netdata
 
@@ -146,6 +147,23 @@ Of course, there are many more methods you could use to protect netdata:
 
 - install all your netdata in **headless data collector** mode, forwarding all metrics in real-time to a master netdata server, which will be protected with authentication using an nginx server running locally at the master netdata server. This requires more resources (you will need a bigger master netdata server), but does not require any firewall changes, since all the slave netdata servers will not be listening for incoming connections.
 
+## registry or how to not send any information to a thirdparty server
+
+the default configuration uses a public registry under registry.my-netdata.io (more information about the registry here: [mynetdata-menu-item](https://github.com/firehol/netdata/wiki/mynetdata-menu-item) ). please be aware if you use that public registry you submit at least following informations to a thirdparty server which might violates your policies: 
+- your public ip where the browser runs
+- the url where you open the web-ui in the browser (via http request referer)
+- the hostnames of the netdata servers
+
+you're highly advised to run your own registry which is pretty simple to do:
+- if you have just one netdata web-ui turn on registry and set the url of that web-ui as "registry to announce"
+```
+[registry]
+enabled = yes
+registry to announce = URL_OF_THE_NETDATA_WEB-UI
+```
+- if you run multiple netdata servers with web-ui you need to define one as registry. on that node activate the registry and setting its url as "registry to announce". on all other nodes do not enable the registry but define the same url.
+
+restart netdata and check with developer tools of your browser which registry is called.
 
 ## netdata directories
 

@@ -104,7 +104,7 @@ My primary goal when I was designing netdata was to help us find why our systems
 To do this, I decided that:
 
 - **high resolution metrics** is more important than long history
-- **the more metrics collected, the better** - we should not fear to add 1k metrics more
+- **the more metrics collected, the better** - we should not fear to add 1k metrics more per server
 - effective monitoring starts with **monitoring everything about each node**
 
 Enterprises usually have dedicated resources and departments for collecting and analyzing system and application metrics at similar resolution and scale. netdata attempts to offer this functionality to everyone, without the dedicated resources - of course within limits.

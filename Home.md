@@ -95,7 +95,7 @@ Welcome. I am [@ktsaou](https://github.com/ktsaou), the founder of [firehol.org]
 
 netdata is **a scalable, distributed, real-time, performance and health monitoring solution** for Linux, FreeBSD and MacOS. It is **open-source** too.
 
-Out of the box, it collects 1k to 5k metrics **per server per second** per server. It is the corresponding of running `top`, `vmstat`, `iostat`, `iotop`, `sar`, `systemd-cgtop` and a dozen more console tools in parallel. netdata is very efficient in this: the daemon needs just 1% to 3% cpu of a single core, even when it runs on IoT.
+Out of the box, it collects 1k to 5k metrics **per server per second**. It is the corresponding of running `top`, `vmstat`, `iostat`, `iotop`, `sar`, `systemd-cgtop` and a dozen more console tools in parallel. netdata is very efficient in this: the daemon needs just 1% to 3% cpu of a single core, even when it runs on IoT.
 
 Many people view netdata as a  `collectd` + `graphite` + `grafana` alternative, or compare it with `cacti` or `munin`. All these are really great tools, but they are not netdata. Let's see why.
 

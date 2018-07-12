@@ -95,7 +95,7 @@ Welcome. I am [@ktsaou](https://github.com/ktsaou), the founder of [firehol.org]
 
 netdata is **a scalable, distributed, real-time, performance and health monitoring solution** for Linux, FreeBSD and MacOS. It is **open-source** too.
 
-Out of the box, it collects 1k to 5k metrics **per server per second**. It is the corresponding of: `top`, `vmstat`, `iostat`, `iotop`, `sar`, `systemd-cgtop` and a dozen more console tools running in parallel. netdata is very efficient in this: the daemon needs just 1% to 3% cpu of a single core, even when it runs on IoT.
+Out of the box, it collects 1k to 5k metrics **per server per second** per server. It is the corresponding of running `top`, `vmstat`, `iostat`, `iotop`, `sar`, `systemd-cgtop` and a dozen more console tools in parallel. netdata is very efficient in this: the daemon needs just 1% to 3% cpu of a single core, even when it runs on IoT.
 
 Many people view netdata as a  `collectd` + `graphite` + `grafana` alternative, or compare it with `cacti` or `munin`. All these are really great tools, but they are not netdata. Let's see why.
 
@@ -113,7 +113,7 @@ For big setups, netdata can [archive its metrics](https://github.com/firehol/net
 
 Metrics in netdata are organized in collections called **charts**. Charts are meaningful entities, they have a purpose, a scope. This makes netdata extremely useful for learning the underlying technologies, for understanding how things work and what is available.
 
-The organization of the dashboard is such to allow us quickly and easily search metrics affecting or affected by an event. Just center and zoom the event timeframe on a chart and scroll the dashboard top to bottom. You will be able to spot all the charts that have been influenced or have influence the event!
+The organization of the dashboard is such to allow us quickly and easily search metrics affecting or affected by an event. Just center and zoom the event time frame on a chart, mark it (with ALT or CONTROL + area select), and scroll the dashboard top to bottom. You will be able to spot all the charts that have been influenced or have influence the event. Using the `my-netdata` menu to navigate between netdata servers maintains all these dashboard states, so you quickly analyze even multi-server performance issues.
 
 Netdata also supports real-time alarms. Netdata alarms can be setup on any metric or combination of metrics and can send notifications to:
 
@@ -141,7 +141,7 @@ The number of metrics collected by netdata provides very interesting alarms. Ins
 while [ 1 ]; do telnet HOST 12345; done
 ```
 
-where `HOST` is your default gateway (`12345` is a random non existing port). It will not work of course. But leave it running for a few seconds. You will get an alert that your system is receiving an abnormally high number of TCP resets. If `HOST` is also running netdata, you will receive another alert there, that the system is sending an abnormally high number of TCP resets. This means that if you run a busy daemon and it crashes, you will get notified, although netdata knows nothing specific about it.
+where `HOST` is your default gateway (`12345` is a random not-used port). It will not work of course. But leave it running for a few seconds. You will get an alert that your system is receiving an abnormally high number of TCP resets. If `HOST` is also running netdata, you will receive another alert there, that the system is sending an abnormally high number of TCP resets. This means that if you run a busy daemon and it crashes, you will get notified, although netdata knows nothing specific about it.
 
 Of course netdata is young and still far from a complete monitoring solution that could replace everything.
 We work on it... patience...

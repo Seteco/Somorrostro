@@ -27,7 +27,7 @@ In order to install prometheus we are going to introduce our own systemd startup
 ##### Download Prometheus
 
 ```sh
-wget -O /tmp/prometheus-1.7.1.linux-amd64.tar.gz https://github.com/prometheus/prometheus/releases/download/v1.7.1/prometheus-1.7.1.linux-amd64.tar.gz 
+wget -O /tmp/prometheus-2.3.2.linux-amd64.tar.gz https://github.com/prometheus/prometheus/releases/download/v2.3.2/prometheus-2.3.2.linux-amd64.tar.gz
 ```
 
 ##### Create prometheus system user
@@ -46,7 +46,7 @@ sudo chown prometheus:prometheus /opt/prometheus
 #### Untar prometheus directory
 
 ```sh
-sudo tar -xvf /tmp/prometheus-1.7.1.linux-amd64.tar.gz -C /opt/prometheus --strip=1
+sudo tar -xvf /tmp/prometheus-2.3.2.linux-amd64.tar.gz -C /opt/prometheus --strip=1
 ```
 
 #### Install prometheus.yml

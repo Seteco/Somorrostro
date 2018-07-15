@@ -58,8 +58,8 @@ Make sure to replace `your.netdata.ip` with the IP or hostname of the host runni
 ```yaml
 # my global config
 global:
-  scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
-  evaluation_interval: 5s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  scrape_interval:     5s # Set the scrape interval to every 5 seconds. Default is every 1 minute.
+  evaluation_interval: 5s # Evaluate rules every 5 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
 
   # Attach these labels to any time series or alerts when communicating with
@@ -89,6 +89,7 @@ scrape_configs:
     metrics_path: '/api/v1/allmetrics'
     params:
       # format: prometheus | prometheus_all_hosts
+      # You can use `prometheus_all_hosts` if you want Prometheus to set the `instance` to your hostname instead of IP 
       format: [prometheus]
       #
       # sources: as-collected | raw | average | sum | volume

@@ -1,6 +1,6 @@
 ## Limitations
 
-Running netdata in a container limits its capabilities. Some data is not accessible or not as accurate or as detailed as running netdata on the host.
+Running netdata in a container can limits its capabilities. Some data is not accessible or not as detailed as when running netdata on the host.
 
 ## Run netdata with docker command
 
@@ -19,6 +19,8 @@ docker run -d --name=netdata \
   -v /sys:/host/sys:ro \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   --cap-add SYS_PTRACE \
+  --security_opt apparmor=unconfined \
+  --security_opt seccomp=unconfined \
   --log-opt max-size=50m \
   --log-opt max-file=1 \
   firehol/netdata \
@@ -63,6 +65,9 @@ services:
       - /sys:/host/sys:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       #- ./netdata.conf:/etc/netdata.conf:ro
+    security_opt:
+      - apparmor=unconfined
+      - seccomp=unconfined
     logging:
       driver: "json-file"
       options:

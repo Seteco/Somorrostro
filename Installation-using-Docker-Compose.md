@@ -66,3 +66,21 @@ The [letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-com
 just add a htpasswd file at `./data/htpasswd/netdata.example.com` in the _webproxy_ project!
 https://github.com/jwilder/nginx-proxy#basic-authentication-support
 
+## Quickstart netdata with docker command
+
+Start netdata with `--net=host`
+Netdata is then available at http://host:19999
+
+```bash
+docker run -d --name=netdata \
+  --net=host \
+  -e TZ="Europe/London" \
+  -v /proc:/host/proc:ro \
+  -v /sys:/host/sys:ro \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  --cap-add SYS_PTRACE \
+  --log-opt max-size=50m \
+  --log-opt max-file=1 \
+  firehol/netdata \
+  /usr/sbin/netdata -D -s /host -p 19999
+```

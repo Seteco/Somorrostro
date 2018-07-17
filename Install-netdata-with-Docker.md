@@ -1,6 +1,6 @@
 ## Limitations
 
-Running netdata in a container can limits its capabilities. Some data is not accessible or not as detailed as when running netdata on the host.
+Running netdata in a container can limit its capabilities. Some data is not accessible or not as detailed as when running netdata on the host.
 
 ## Run netdata with docker command
 

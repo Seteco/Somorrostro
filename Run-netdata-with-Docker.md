@@ -1,16 +1,43 @@
+## Run netdata with docker command
+
+Quickly start netdata with the docker command line.
+Netdata is then available at http://host:19999
+
+This is good for an internal network or to quickly analyse a host.
+
+For a permanent installation on a public server, you should [[secure the netdata instance|netdata-security]]. See below for an example of how to install netdata with an SSL reverse proxy and basic authentication.
+
+```bash
+docker run -d --name=netdata \
+  --net=host \
+  -e TZ="Europe/London" \
+  -v /proc:/host/proc:ro \
+  -v /sys:/host/sys:ro \
+  -v /var/run/docker.sock:/var/run/docker.sock:ro \
+  --cap-add SYS_PTRACE \
+  --log-opt max-size=50m \
+  --log-opt max-file=1 \
+  firehol/netdata \
+  /usr/sbin/netdata -D -s /host -p 19999
+```
+
+## Install Netdata using Docker Compose
+
 You can use use the following docker-compose.yml file to run netdata with docker.
 
 Designed to be used together with [letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) by Evert Ramos
 
 Replace the Domains and Email-Adress for Letsencrypt before starting.
 
-## Prerequisites
+### Prerequisites
 * [Docker](https://docs.docker.com/install/#server)
 * [Docker Compose](https://docs.docker.com/compose/install/)
 * [letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion)
 * Domain configured in DNS pointing to host.
 
-## docker-compose.yml
+start with `docker-compose up -d` (after starting proxy!)
+
+### docker-compose.yml
 ```yaml
 # docker-compose.yml
 # netdata in docker container with access to host network (for network metrics).
@@ -32,6 +59,11 @@ services:
       - /sys:/host/sys:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       #- ./netdata.conf:/etc/netdata.conf:ro
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "1"
     network_mode: host
     command:  /usr/sbin/netdata -D -s /host -p 19999 -i 192.168.88.1
 
@@ -61,26 +93,10 @@ networks:
         - subnet: 192.168.88.0/24
 ```
 
-## Restrict access with basic auth
-The [letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) comes with **automatic basic auth support.**
-just add a htpasswd file at `./data/htpasswd/netdata.example.com` in the _webproxy_ project!
+### Restrict access with basic auth
+
+[letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) comes with **automatic basic auth support.**
+
+Just add a htpasswd file at `./data/htpasswd/netdata.example.com` in the _webproxy_ project!
 https://github.com/jwilder/nginx-proxy#basic-authentication-support
 
-## Quickstart netdata with docker command
-
-Start netdata with `--net=host`
-Netdata is then available at http://host:19999
-
-```bash
-docker run -d --name=netdata \
-  --net=host \
-  -e TZ="Europe/London" \
-  -v /proc:/host/proc:ro \
-  -v /sys:/host/sys:ro \
-  -v /var/run/docker.sock:/var/run/docker.sock:ro \
-  --cap-add SYS_PTRACE \
-  --log-opt max-size=50m \
-  --log-opt max-file=1 \
-  firehol/netdata \
-  /usr/sbin/netdata -D -s /host -p 19999
-```

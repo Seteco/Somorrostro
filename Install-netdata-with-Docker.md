@@ -13,21 +13,33 @@ For a permanent installation on a public server, you should [[secure the netdata
 
 ```bash
 docker run -d --name=netdata \
-  --net=host \
-  -e TZ="Europe/London" \
+  -p 19999:19999
   -v /proc:/host/proc:ro \
   -v /sys:/host/sys:ro \
   -v /var/run/docker.sock:/var/run/docker.sock:ro \
   --cap-add SYS_PTRACE \
-  --security_opt apparmor=unconfined \
-  --security_opt seccomp=unconfined \
-  --log-opt max-size=50m \
-  --log-opt max-file=1 \
-  firehol/netdata \
-  /usr/sbin/netdata -D -s /host -p 19999
+  firehol/netdata
 ```
 
-## Install Netdata using Docker Compose
+above can be converted to docker-compose file for ease of management:
+
+```yaml
+version: '3'
+services:
+  netdata:
+    image: firehol/netdata
+    hostname: example.com # set to fqdn of host
+    ports:
+      - 19999:19999
+    cap_add:
+      - SYS_PTRACE
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+```
+
+## Install Netdata using Docker Compose with SSL/TLS enabled http proxy
 
 You can use use the following docker-compose.yml file to run netdata with docker.
 

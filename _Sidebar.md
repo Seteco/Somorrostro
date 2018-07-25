@@ -66,6 +66,7 @@ Notes on memory management
   - [system log](https://github.com/firehol/netdata/wiki/Syslog-Notifications)
   - [telegram.org](https://github.com/firehol/netdata/wiki/telegram-notifications)
   - [twilio.com](https://github.com/firehol/netdata/wiki/twilio-notifications)
+  - [Amazon SNS](https://github.com/firehol/netdata/wiki/Amazon-SNS-Notifications)
 * [[health API calls]]
 * [[troubleshooting alarms]]
 

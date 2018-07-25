@@ -16,3 +16,6 @@ The following is a list of Netdata plugins distributed by third parties:
 
 ## interactive users count
 Collect [number of currently logged-on users](https://github.com/veksh/netdata-numsessions)
+
+## CyberPower UPS
+[cyberups plugin](https://github.com/HawtDogFlvrWtr/netdata_cyberpwrups_plugin) polls the USB connected CyberPower UPS for stats.

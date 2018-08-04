@@ -47,7 +47,7 @@ Even netdata plugins are designed to support configuration-less operation. So, y
 
 Netdata visualizes `tc` QoS classes automatically. If you also use FireQOS, it will also collect interface and class names.
 
-Check this animated GIF (generated with [ScreenToGif](https://screentogif.codeplex.com/)):
+Check this animated GIF (generated with [ScreenToGif](https://screentogif.com/)):
 
 ![animation5](https://cloud.githubusercontent.com/assets/2662304/12373715/0da509d8-bc8b-11e5-85cf-39d5234bf976.gif)
 

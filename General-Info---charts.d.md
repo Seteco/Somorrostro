@@ -4,7 +4,7 @@ Charts.d is BASH script that allows you to write simple scripts for collecting d
 
 It has been designed so that the actual script that will do data collection will be permanently in memory, collecting data with as little overheads as possible (i.e. initialize once, repeatedly collect values with minimal overhead).
 
-Charts.d looks for scripts in `/usr/libexec/netdata/charts.d`. The scripts should have the filename suffix: `.chart.sh`.
+Charts.d looks for scripts in `/usr/lib/netdata/charts.d`. The scripts should have the filename suffix: `.chart.sh`.
 
 ## Charts.d configuration
 

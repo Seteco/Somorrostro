@@ -159,7 +159,3 @@ Keep in mind that the existing code is uni-directional. netdata only checks that
 
 ## InfluxDB setup as netdata backend (example)
 You can find blog post with example: how to use InfluxDB with netdata [here](https://blog.hda.me/2017/01/09/using-netdata-with-influxdb-backend.html)  
-Also you can reuse grafana dashboard setups for netdata and for lxd containers on netdata host:  
-[Netdata](https://grafana.net/dashboards/1295)  
-[lxd container](https://grafana.net/dashboards/1291)  
-InfluxDB backend used in dashboards above, but you can easily edit json files for another backend, and also you can reuse lxd container dashboard for lxc containers.

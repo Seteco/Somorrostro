@@ -1,6 +1,15 @@
 # lighttpd v1.4.x
 
-Here is a config for accessing netdata in a suburl via lighttpd 1.4.x:
+Here is a config for accessing netdata in a suburl via lighttpd 1.4.46 and newer:
+
+```txt
+$HTTP["url"] =~ "^/netdata/" {
+    proxy.server  = ( "" => ("netdata" => ( "host" => "127.0.0.1", "port" => 19999 )))
+    proxy.header = ( "map-urlpath" => ( "/netdata/" => "/") )
+}
+```
+
+If you have older lighttpd you have to use a chain (such as bellow), as explained [at this stackoverflow answer](http://stackoverflow.com/questions/14536554/lighttpd-configuration-to-proxy-rewrite-from-one-domain-to-another).
 
 ```txt
 $HTTP["url"] =~ "^/netdata/" {
@@ -12,8 +21,6 @@ $SERVER["socket"] == ":19998" {
     proxy.server = ( "" => ( "" => ( "host" => "127.0.0.1", "port" => 19999 )))
 }
 ```
-
-As you see you have to use a chain, as explained [at this stackoverflow answer](http://stackoverflow.com/questions/14536554/lighttpd-configuration-to-proxy-rewrite-from-one-domain-to-another).
 
 ---
 
